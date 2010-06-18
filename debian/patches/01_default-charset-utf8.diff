@@ -1,0 +1,156 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## charset.dpatch by Carl Fürstenberg <carl@excito.com>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Force usage of UTF-8
+
+@DPATCH@
+Index: horde3/config/nls.php.dist
+===================================================================
+--- horde3.orig/config/nls.php.dist	2010-02-11 20:04:12.000000000 +0100
++++ horde3/config/nls.php.dist	2010-02-11 20:04:37.000000000 +0100
+@@ -118,74 +118,33 @@
+ 
+ 
+ /**
+- ** Charsets. These differ somewhat on different systems; see below
+- ** for a set of BSD charset names.
++ ** Charsets. Force UTF-8 onto people
+  **/
+ 
+-$nls['charsets']['ar_OM'] = 'windows-1256';
+-$nls['charsets']['ar_SY'] = 'windows-1256';
+-$nls['charsets']['bg_BG'] = 'windows-1251';
+-$nls['charsets']['bs_BA'] = 'ISO-8859-2';
+-$nls['charsets']['cs_CZ'] = 'ISO-8859-2';
+-$nls['charsets']['el_GR'] = 'ISO-8859-7';
++$nls['charsets']['ar_OM'] = 'UTF-8';
++$nls['charsets']['ar_SY'] = 'UTF-8';
++$nls['charsets']['bg_BG'] = 'UTF-8';
++$nls['charsets']['bs_BA'] = 'UTF-8';
++$nls['charsets']['cs_CZ'] = 'UTF-8';
++$nls['charsets']['el_GR'] = 'UTF-8';
+ $nls['charsets']['eu_ES'] = 'UTF-8';
+ $nls['charsets']['fa_IR'] = 'UTF-8';
+ $nls['charsets']['he_IL'] = 'UTF-8';
+-$nls['charsets']['hu_HU'] = 'ISO-8859-2';
+-$nls['charsets']['ja_JP'] = 'SHIFT_JIS';
++$nls['charsets']['hu_HU'] = 'UTF-8';
++$nls['charsets']['ja_JP'] = 'UTF-8';
+ $nls['charsets']['km_KH'] = 'UTF-8';
+-$nls['charsets']['ko_KR'] = 'EUC-KR';
+-$nls['charsets']['lt_LT'] = 'ISO-8859-13';
+-$nls['charsets']['lv_LV'] = 'windows-1257';
+-$nls['charsets']['mk_MK'] = 'ISO-8859-5';
+-$nls['charsets']['pl_PL'] = 'ISO-8859-2';
+-$nls['charsets']['ru_RU'] = 'windows-1251';
+-$nls['charsets']['ru_RU.KOI8-R'] = 'KOI8-R';
+-$nls['charsets']['sk_SK'] = 'ISO-8859-2';
+-$nls['charsets']['sl_SI'] = 'ISO-8859-2';
+-$nls['charsets']['th_TH'] = 'TIS-620';
+-if (version_compare(PHP_VERSION, '5', 'lt') || version_compare(PHP_VERSION, '6', 'ge')) {
+-    $nls['charsets']['tr_TR'] = 'ISO-8859-9';
+-}
+-$nls['charsets']['uk_UA'] = 'windows-1251';
+-$nls['charsets']['zh_CN'] = 'GB2312';
+-$nls['charsets']['zh_TW'] = 'BIG5';
+-
+-/**
+- * BSD charsets.
+- */
+-if (strpos(PHP_OS, 'BSD') !== false) {
+-    $nls['charsets']['ar_OM'] = 'windows-1256';
+-    $nls['charsets']['ar_SY'] = 'windows-1256';
+-    $nls['charsets']['bg_BG'] = 'windows-1251';
+-    $nls['charsets']['bs_BA'] = 'ISO8859-2';
+-    $nls['charsets']['cs_CZ'] = 'ISO8859-2';
+-    $nls['charsets']['el_GR'] = 'ISO8859-7';
+-    $nls['charsets']['eu_ES'] = 'UTF-8';
+-    $nls['charsets']['fa_IR'] = 'UTF-8';
+-    $nls['charsets']['he_IL'] = 'UTF-8';
+-    $nls['charsets']['hu_HU'] = 'ISO8859-2';
+-    $nls['charsets']['ja_JP'] = 'SHIFT_JIS';
+-    $nls['charsets']['km_KH'] = 'UTF-8';
+-    $nls['charsets']['ko_KR'] = 'EUC-KR';
+-    $nls['charsets']['lt_LT'] = 'ISO8859-13';
+-    $nls['charsets']['lv_LV'] = 'windows-1257';
+-    $nls['charsets']['mk_MK'] = 'ISO8859-5';
+-    $nls['charsets']['pl_PL'] = 'ISO8859-2';
+-    $nls['charsets']['ru_RU'] = 'windows-1251';
+-    $nls['charsets']['ru_RU.KOI8-R'] = 'KOI8-R';
+-    $nls['charsets']['sk_SK'] = 'ISO8859-2';
+-    $nls['charsets']['sl_SI'] = 'ISO8859-2';
+-    $nls['charsets']['th_TH'] = 'TIS-620';
+-    if (version_compare(PHP_VERSION, '5', 'lt') ||
+-        version_compare(PHP_VERSION, '6', 'ge')) {
+-        $nls['charsets']['tr_TR'] = 'ISO-8859-9';
+-    }
+-    $nls['charsets']['uk_UA'] = 'windows-1251';
+-    $nls['charsets']['zh_CN'] = 'GB2312';
+-    $nls['charsets']['zh_TW'] = 'BIG5';
+-}
+-
++$nls['charsets']['ko_KR'] = 'UTF-8';
++$nls['charsets']['lt_LT'] = 'UTF-8';
++$nls['charsets']['lv_LV'] = 'UTF-8';
++$nls['charsets']['mk_MK'] = 'UTF-8';
++$nls['charsets']['pl_PL'] = 'UTF-8';
++$nls['charsets']['ru_RU'] = 'UTF-8';
++$nls['charsets']['sk_SK'] = 'UTF-8';
++$nls['charsets']['sl_SI'] = 'UTF-8';
++$nls['charsets']['th_TH'] = 'UTF-8';
++$nls['charsets']['uk_UA'] = 'UTF-8';
++$nls['charsets']['zh_CN'] = 'UTF-8';
++$nls['charsets']['zh_TW'] = 'UTF-8';
+ 
+ /**
+  ** Multibyte charsets
+@@ -213,7 +172,7 @@
+  ** charsets.
+  **/
+ 
+-$nls['emails']['ja_JP'] = 'ISO-2022-JP';
++$nls['emails']['ja_JP'] = 'UTF-8';
+ 
+ 
+ /**
+Index: horde3/lib/Horde/NLS.php
+===================================================================
+--- horde3.orig/lib/Horde/NLS.php	2010-02-11 20:04:12.000000000 +0100
++++ horde3/lib/Horde/NLS.php	2010-02-11 20:04:37.000000000 +0100
+@@ -123,7 +123,7 @@
+         if ($lang_charset != setlocale(LC_ALL, $lang_charset)) {
+             /* Next try language with its default charset. */
+             global $nls;
+-            $charset = !empty($nls['charsets'][$lang]) ? $nls['charsets'][$lang] : 'ISO-8859-1';
++            $charset = !empty($nls['charsets'][$lang]) ? $nls['charsets'][$lang] : 'UTF-8';
+             $lang_charset = $lang . '.' . $charset;
+             NLS::_cachedCharset(0, $charset);
+             if ($lang_charset != setlocale(LC_ALL, $lang_charset)) {
+@@ -255,7 +255,7 @@
+         }
+ 
+         if ($original) {
+-            $charset = empty($nls['charsets'][$language]) ? 'ISO-8859-1' : $nls['charsets'][$language];
++            $charset = empty($nls['charsets'][$language]) ? 'UTF-8' : $nls['charsets'][$language];
+         } else {
+             require_once 'Horde/Browser.php';
+             $browser = &Browser::singleton();
+@@ -301,7 +301,7 @@
+             }
+         }
+ 
+-        return (!empty($nls['charsets'][$language])) ? $nls['charsets'][$language] : 'ISO-8859-1';
++        return (!empty($nls['charsets'][$language])) ? $nls['charsets'][$language] : 'UTF-8';
+     }
+ 
+     /**
+@@ -342,7 +342,7 @@
+             return $charset;
+         }
+         return isset($nls['emails'][$language]) ? $nls['emails'][$language] :
+-               (isset($nls['charsets'][$language]) ? $nls['charsets'][$language] : 'ISO-8859-1');
++               (isset($nls['charsets'][$language]) ? $nls['charsets'][$language] : 'UTF-8');
+     }
+ 
+     /**

@@ -1,0 +1,10 @@
+/var/log/horde/*.log {
+        weekly
+        missingok
+		copytruncate
+        rotate 12
+        compress
+        notifempty
+        sharedscripts
+		create 0660 root www-data
+}

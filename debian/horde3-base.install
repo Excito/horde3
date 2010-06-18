@@ -1,0 +1,14 @@
+*.php /usr/share/horde3
+
+admin /usr/share/horde3
+js /usr/share/horde3
+lib /usr/share/horde3
+locale /usr/share/horde3
+rpc /usr/share/horde3
+services /usr/share/horde3
+templates /usr/share/horde3
+themes /usr/share/horde3
+util /usr/share/horde3
+
+scripts/temp-cleanup.cron /usr/share/horde3/scripts
+scripts/alarms.php /usr/share/horde3/scripts

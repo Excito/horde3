@@ -1,0 +1,3 @@
+version=2
+http://ftp.horde.org/pub/horde/horde-([\d\.]*)\.tar\.gz
+

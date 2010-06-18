@@ -1,0 +1,49 @@
+Source: horde3
+Section: web
+Priority: optional
+Maintainer: Horde Maintainers <pkg-horde-hackers@lists.alioth.debian.org>
+Uploaders: Carl Fürstenberg <carl@excito.com>, Ola Lundqvist <opal@debian.org>, Lionel Elie Mamane <lmamane@debian.org>, Gregory Colpart (evolix) <reg@evolix.fr>
+Build-Depends: debhelper (>= 7.2.6)
+Vcs-Arch: http://arch.debian.org/arch/pkg-horde/2006/horde--sid--3
+Vcs-Browser: http://arch.debian.org/cgi-bin/archzoom.cgi/pkg-horde-hackers%40lists.alioth.debian.org--2006/horde?expand
+Standards-Version: 3.8.4
+Homepage: http://www.horde.org/
+
+Package: horde3
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, horde3-base
+Recommends: php5-mysql | php5-pgsql | php5-ldap, logrotate, php-file, php-date, php-mail-mime, php-mail, php-services-weather, php5-gd, php5-mcrypt, php-db, locales, fckeditor, tinymce2 | tinymce (<< 3)
+Suggests: imp4, dimp, turba2, php5-cli, gollem, webcpp, chora2, xlhtml, ppthtml, wv, source-highlight, enscript, rpm, php5-mhash, gettext, php-net-imap, libgeoip1, unrtf, libwpd-tools, php5-auth-pam
+Conflicts: horde, turba2 (<< 2.1)
+Description: horde web application framework
+ The Horde Framework is written in PHP, and provides the common
+ tools a Web application requires: classes for dealing with preferences,
+ compression, browser detection, connection tracking, MIME, and more.
+ .
+ The Horde Framework, by itself, does not provide any significant end user
+ functionality; it provides a base for other applications and tools for
+ developers. You will probably want to install some of the available Horde
+ applications, such as IMP (a webmail client), or Kronolith (a calendar).
+ .
+ There is a list of Horde applications and projects at
+ http://www.horde.org/projects.php.
+
+Package: horde3-base
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, php-log, php-pear, libjs-scriptaculous, php5-cli
+Suggests: imp4-base, dimp1-base, turba2-base, gollem-base, chora2-base
+Conflicts: horde3 (<< 3.3)
+Description: horde web application framework
+ The Horde Framework is written in PHP, and provides the common
+ tools a Web application requires: classes for dealing with preferences,
+ compression, browser detection, connection tracking, MIME, and more.
+ .
+ The Horde Framework, by itself, does not provide any significant end user
+ functionality; it provides a base for other applications and tools for
+ developers. You will probably want to install some of the available Horde
+ applications, such as IMP (a webmail client), or Kronolith (a calendar).
+ .
+ There is a list of Horde applications and projects at
+ http://www.horde.org/projects.php.
+ .
+ This package contains the base files.

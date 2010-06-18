@@ -1,0 +1,212 @@
+horde3 for Debian
+-----------------
+
+Configuring Horde
+=================
+
+1. Configuring the web server
+
+   The webserver is normally configured by default in a Debian system but you
+   need to check if you have configured it in some other way; in
+   particular, you need the following to apply to the
+   /usr/share/horde3/ hierarchy:
+
+    Options FollowSymLinks
+    AllowOverride Limit
+
+   For the webserver you also need to tell where your horde3 installation
+   is. This done by adding an alias to the apache configuration like this:
+
+      Alias /horde3 /usr/share/horde3
+
+   Note that the /horde3 prefix is only the default; it is configured in
+   /etc/horde/horde3/registry.php, in:
+
+    $this->applications['horde'] = array(
+      ...
+      'webroot' => $webroot,
+      ...
+    )
+
+   You can change this setting if you wish.
+
+   Horde requires the following webserver settings. Examples shown are for
+   Apache; other webservers' configurations will differ.
+
+   a. PHP interpretation for files matching ``*.php``::
+
+         AddType application/x-httpd-php .php
+
+      .. Note:: The above instructions may not work if you have specified PHP
+                as an output filter with ``SetOutputFilter`` directive in
+                Apache 2.x versions.  In particular, Red Hat 8.0 and above
+                Apache 2.x RPMS have the output filter set, and **MUST NOT**
+                have the above ``AddType`` directive added.
+
+   b. ``index.php`` as an index file (brought up when a user requests a URL for
+      a directory)::
+
+         DirectoryIndex index.php
+
+   c. Horde also require that the php is set to session.auto_start = Off.
+      So if you have changed that you need to add this to your apache
+      configuration (at least for horde).
+
+	php_flag session.auto_start Off
+
+2. Creating databases
+
+   The specific steps to create a preferences storage container depend on
+   which database you've chosen to use.
+
+   First, look in ``usr/share/doc/horde3/examples/scripts/sql``/ to see 
+   if a ``create.`` script already exists for your database.
+   If so, you should be able to simply execute that
+   script as superuser in your database.  Consult the ``scripts/sql/README``
+   file for more information.
+
+   Be sure to change the default password, ``horde``, to something else before
+   creating the tables! (Remember to use this password when you configure
+   Horde in the next step.)
+
+   If such a script does not exist, you'll need to build your own, using the
+   files ``horde_users.sql``, ``horde_prefs.sql``, and ``horde_datatree.sql``
+   as a starting point.  If you need assistance in creating databases for a
+   database for which no ``create.`` script exists, you may wish to let us
+   know on the `Horde mailing list`_.
+
+   If you are going to use database based sessions, create a table using the
+   files ``scripts/sql/horde_sessionhandler*.sql`` as a starting point.
+
+   .. _`Horde mailing list`: horde@lists.horde.org
+
+3. Configuring Horde
+
+   To configure horde3 use the web configuration wizard. It is disabled
+   by default for security reasons. To enable it remove the exit (0) directive
+   and the echo line above it in /etc/horde/horde3/conf.php file. To let the
+   configuration wizard write to the configuration files you have to change
+   the owner of the /etc/horde/horde3 dir and config files to be owned by
+   www-data.
+
+   If you do not do that you have to cut from the web configuration
+   program and paste into the config file yourself.
+
+   The reason why this is not the default option is, that allow writing
+   to configuration files without any authentication is a big
+   security hole, so you should reset the owner to root when you are done
+   with the configuration.
+
+   The wizard appears at the webroot of Horde if the latter is not
+   configured yet; later, login as an admin user to get it in the
+   menu. The webroot of Horde is http://HOSTNAME/horde3/ by default.
+
+   You can now access Horde without a password, and you will be logged in as
+   an administrator. You should first configure a real authentication backend.
+   Click on ``Configuration`` in the ``Administration`` menu and configure
+   Horde.  Start in the ``Authentication`` tab.
+
+   Here is an example for configuring authentication against a remote IMAP
+   server.  Similar steps apply for authenticating against a database, an LDAP
+   server, etc.
+
+   If you want the Administrator of the web account able to write to the
+   configuration files without the need of cut and paste you need to make
+   /etc/horde/horde3/config (with corresponding files) owned and writeable
+   by the webserver user (normally www-data). In order to configure other
+   applications like imp such files also need to be writeable by the webserver
+   user.
+
+   Note! Giving the web user access to write to the configuration may be
+   a security issue, so this is not recommended to keep for a long time (if
+   at all).
+
+   a. In the ``Which users should be treated as administrators`` field enter a
+      comma separated list of user names of your choosing.  This will control
+      who is allowed to make configuration changes, see passwords, potentially
+      add users, etc.
+
+   b. In the ``What backend should we use for authenticating users to Horde``
+      pulldown menu select ``IMAP authentication``.  The page will reload and
+      you will have specific options for IMAP authentication.
+
+   c. In the ``Configuration type`` pulldown menu select ``Separate values``.
+      The page will reload with additional options.  Fill in the remaining
+      three fields appropriately:
+
+      - IP name/number of the IMAP server
+      - For a secure connection, select port 993.
+      - Select the protocol; for a secure connection either ``imap/ssl`` or
+        ``imap/ssl/novalidate-cert`` (for self-signed certificates).
+
+   Continue to configure Horde through all the tabs of the configuration
+   interface and click on ``Generate Horde Configuration``.
+
+   Configuration of applications in ``registry.php`` is documented in the
+   ``INSTALL`` file of each application.  Most applications require you to
+   configure them with a "Horde administrator" account.  A Horde administrator
+   account is any normal Horde account that has been added to the
+   administrator list in the ``Authentication`` tab of the Horde
+   configuration.
+
+   The other files in that directory need only be modified if you wish to
+   customize Horde's appearance or behaviour -- the defaults will work at most
+   sites.
+
+   .. _translations:
+
+   Note for international users: Horde uses GNU gettext to provide local
+   translations of text displayed by applications; the translations are found
+   in the po/ directory.  If a translation is not yet available for your
+   locale (and you wish to create one), see the ``horde/po/README`` file, or
+   if you're having trouble using a provided translation, please see the
+   `horde/docs/TRANSLATIONS`_ file for instructions.
+
+4. Miscellaneous
+
+   If the temporary directory of the PHP serving Horde is not /tmp/,
+   you need to set it in /etc/default/horde3 for the weekly clean-up
+   to work correctly.
+
+6. Securing Horde
+
+   a. Passwords
+
+      Some of Horde's configuration files contain passwords which local users
+      could use to access your database.  It is recommended to ensure that at
+      least the Horde configuration files (in ``/etc/horde/horde3/``) are not
+      readable to system users.  There are ``.htaccess`` files restricting
+      access to directories that do not need to be accessed directly; before
+      relying on those, ensure that your webserver supports ``.htaccess`` and
+      is configured to use them, and that the files in those directories are in
+      fact inaccessible via the browser.
+
+      An additional approach is to make Horde's configuration files owned by
+      the user ``root`` and by a group which only the webserver user belongs
+      to, and then making them readable only to owner and group.  For example,
+      if your webserver runs as ``www-data.www-data``, do as follows::
+
+         chown root.www-data config/*
+         chmod 0440 config/*
+
+   b. Sessions
+
+      Session data -- including hashed versions of your users' passwords, in
+      some applications -- may not be stored as securely as necessary.
+
+      If you are using file-based PHP sessions (which are the default), be
+      sure that session files are not being written into ``/tmp`` with
+      permissions that allow other users to read them. Ideally, change the
+      ``session.save_path`` setting in ``php.ini`` to a directory only
+      readable and writeable by your webserver.
+
+      Additionally, you can change the session handler of PHP to use any
+      storage backend requested (e.g. SQL database) via the ``Custom Session
+      Handler`` tab in the Horde configuration.
+
+7. Entering the survey
+
+   If you like, go to http://www.horde.org/survey/ and enter the details of
+   your system.
+
+ -- Lionel Elie Mamane <lmamane@debian.org>, Sun, 16 Jul 2006 12:54:19 +0200

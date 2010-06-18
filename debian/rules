@@ -1,0 +1,74 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_install:
+	#### copy configuration files ####
+	for i in config/*.dist; do \
+		NAME=etc/horde/horde3/$$(basename $$i ".dist");	\
+		cp -a $$i debian/horde3/$$NAME; \
+	done
+	
+	dh_install;
+
+	rm -rf debian/horde3-base/usr/share/horde3/services/editor/fckeditor;
+	rm -rf debian/horde3-base/usr/share/horde3/services/editor/tinymce;
+	for i in controls.js dragdrop.js effects.js prototype.js scriptaculous.js slider.js; do \
+		rm -f debian/horde3-base/usr/share/horde3/js/$$i debian/horde3-base/usr/share/horde3/js/src/$$i; \
+	done
+	
+	rm -f debian/horde3-base/usr/share/horde3/services/editor/xinha/license.txt
+	chmod +x debian/horde3-base/usr/share/horde3/scripts/temp-cleanup.cron
+
+	#### create htaccess  to restrict acess by web ####
+	echo "Deny from all" > debian/horde3-base/usr/share/horde3/scripts/.htaccess
+	echo "Deny from all" > debian/horde3/etc/horde/horde3/.htaccess
+
+	# change HORDE_BASE  in php files
+	# change /usr/local/bin/php to /usr/bin/php
+	for i in $$(find debian/horde3-base -name "*.php"); do \
+		cat $$i | \
+		sed -e "s/define('HORDE_BASE'.*;/define\('HORDE_BASE', '\/usr\/share\/horde3\'\);/" |\
+		sed -e "s/\/usr\/local\/bin/\/usr\/bin/" > $$i.rew; \
+		mv $$i.rew $$i; \
+	done
+
+	#### change permissions of scripts  ####
+	for i in $$(find debian/horde3-base/usr/share/horde3 -type f | \
+		xargs grep '^#!\/' |cut -d: -f1); do \
+		chmod u+x $$i; \
+	done
+
+	#### no exec right for .xml/png/gif/css/js/jpg/html/htm files (lintian warnings) ####
+	find debian/horde3-base/usr/share/horde3 \( \
+		    -name "*.xml" \
+		 -o -name "*.png" \
+		 -o -name "*.gif" \
+		 -o -name "*.css" \
+		 -o -name "*.js" \
+		 -o -name "*.jpg" \
+		 -o -name "*.html" \
+		 -o -name "*.htm" \) \
+		 -type f -exec chmod -x '{}' \;
+
+	# Use '/horde3' for default cookie path (See #391493)
+	cat config/conf.xml | \
+		sed -e "70,81s@/horde@/horde3@" > debian/horde3/etc/horde/horde3/conf.xml
+
+	#### log file ####
+	printf "\n\$$conf['log']['name'] = '/var/log/horde/horde3.log';" >> \
+		debian/horde3/etc/horde/horde3/conf.php
+
+	#### change made for program run with no problems ###
+	cat config/registry.php.dist | \
+		sed -e "s/'fileroot' *=> *dirname(__FILE__)/'fileroot' => '\/usr\/share\/horde3\/lib'/"| \
+		sed -e "s/'templates' *=> *dirname(__FILE__)/'templates' => '\/usr\/share\/horde3\/lib'/"| \
+		sed -e "s/webroot *= * '\/horde';/webroot = '\/horde3';/" > \
+		debian/horde3/etc/horde/horde3/registry.php
+
+override_dh_installchangelogs:
+	dh_installchangelogs docs/CHANGES
+
+override_dh_installdocs:
+	dh_installdocs -X docs/CHANGES -X docs/INSTALL

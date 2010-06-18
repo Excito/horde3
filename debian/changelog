@@ -1,0 +1,450 @@
+horde3 (3.3.8-1) vincent; urgency=low
+
+  * Imported Upstream version 3.3.8
+  * remove old arch file
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 18 Jun 2010 16:46:59 +0200
+
+horde3 (3.3.6-2) vincent; urgency=low
+
+  * B3 
+  * Switch to dpkg-source 3.0 (native) format
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 09 Jun 2010 16:20:38 +0200
+
+horde3 (3.3.6-1) claire; urgency=low
+
+  * New upstream release
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 09 Jun 2010 16:19:59 +0200
+
+horde3 (3.3.5-1) claire; urgency=low
+
+  * New upstream release
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 16 Sep 2009 09:52:57 +0200
+
+horde3 (3.3.3-1) claire; urgency=low
+
+  * New upstream release
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 30 Jan 2009 21:56:26 +0100
+
+horde3 (3.3-6) intrepid; urgency=low
+
+  * conflict on old horde package 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 01 Dec 2008 12:44:06 +0100
+
+horde3 (3.3-5) intrepid; urgency=low
+
+  * update patch 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 01 Dec 2008 11:12:46 +0100
+
+horde3 (3.3-4) hardy; urgency=low
+
+  *  force usage of UTF-8
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 15 Oct 2008 17:45:41 +0200
+
+horde3 (3.3-3) hardy; urgency=low
+
+  * add forgotten login.php
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 15 Oct 2008 13:58:01 +0200
+
+horde3 (3.3-2) unstable; urgency=low
+
+  * readd logrotate to horde3 package
+
+ -- Carl Fürstenberg <carl@excito.com>  Fri, 10 Oct 2008 17:31:04 +0200
+
+horde3 (3.3-1) unstable; urgency=low
+
+  * New upstream release
+  * Split package into two, a base package and a config package
+
+ -- Carl Fürstenberg <carl@excito.com>  Wed, 08 Oct 2008 15:43:33 +0200
+
+horde3 (3.2.1+debian0-1ex6) unstable; urgency=low
+
+  * really remove the cron file 
+
+ -- Carl Fürstenberg <carl@excito.com>  Sun, 31 Aug 2008 01:48:57 +0200
+
+horde3 (3.2.1+debian0-1ex5) unstable; urgency=low
+
+  * dump cron from here 
+
+ -- Carl Fürstenberg <carl@excito.com>  Sun, 31 Aug 2008 00:52:09 +0200
+
+horde3 (3.2.1+debian0-1ex4) unstable; urgency=low
+
+  * one too much depoendice 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 21 Jul 2008 08:53:35 +0000
+
+horde3 (3.2.1+debian0-1ex3) unstable; urgency=low
+
+  * no depencies here to webservers and engines 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 21 Jul 2008 08:35:34 +0000
+
+horde3 (3.2.1+debian0-1ex2) unstable; urgency=low
+
+  * move logging to bubba-horde package 
+
+ -- Carl Fürstenberg <carl@excito.com>  Mon, 07 Jul 2008 08:59:03 +0000
+
+horde3 (3.2.1+debian0-1ex1) unstable; urgency=low
+
+  * Moving the configuration out of the wat to allow sub-packages to handle
+    the conf.
+
+ -- Carl Fürstenberg <carl@excito.com>  Tue, 24 Jun 2008 13:32:19 +0200
+
+horde3 (3.2.1+debian0-1) unstable; urgency=low
+
+  * New upstream release.
+  * This new version has major changes compared to the previous version: an
+    alarm system that can send email, generate inline notifications, and play
+    sounds for events in any Horde application; support for read and write
+    databases; operation when the database is down; many performance
+    improvements, several slick new themes; WCAG 1.0 Priority 2/Section 508
+    accessibility guidelines compliance; full Kolab webclient support; many
+    improvements in the JavaScript and user interface; a new tree view for
+    Help along with keyword search; support for memcache clustering; and many,
+    many bug fixes and small enhancements.
+  * With this new version: remove of backported patch for correcting invalid
+    entities in es_ES (#461400) and manual merge for
+    config/mime_drivers.php.dist and config.conf.xml for keeping Debian
+    specific patches.
+  * Thanks to Mathieu Parent <math.parent@gmail.com> for his help/patches for
+    this package.
+  * Repack upstream source to remove fckeditor, tinymce and scriptaculous
+    (size of upstream source is now instead 7 Mo instead of 8 Mo).
+  * Added a check in debian/rules to make sure that those external libs are not
+    in the orig.tar.gz
+  * A lot of improvements in debian/copyright file.
+  * Some adjustements in debian/rules: remove exec rights for xml/png/gif/css/
+    js/jpg/html/htm files, no more need to remove empty directories and copy
+    CREDITS file.
+  * Link some *.js files with libjs-scriptaculous package.
+  * Link editors (tinymce and fckeditor) with tinymce2 and fckeditor packages.
+  * Add unrtf and libwpd-tools in "Suggests" field. 
+  * Add patch to keep PAM authentication stays compatible with precedent
+    version (and with php5-auth-pam package). Add php5-auth-pam to Suggests:
+    field.
+  * Update to standards version 3.8.0, no further required changes.
+
+ -- Gregory Colpart (evolix) <reg@evolix.fr>  Sat, 14 Jun 2008 17:14:51 +0200
+
+horde3 (3.1.7-1) unstable; urgency=high
+
+  * New upstream release.
+  * This new version has security fix: fix arbitrary file inclusion through
+    abuse of the theme preference (see CVE-2008-1284 for more informations).
+    (Closes: #470640)
+  * Fix typo in debian/rules comments.
+  * Add php-net-imap package in "Suggests" field. (Closes: #470283)
+  * Add libgeoip1 package in "Suggests" field. (Closes: #376935)
+
+ -- Gregory Colpart (evolix) <reg@evolix.fr>  Sat, 15 Mar 2008 14:00:34 +0100
+
+horde3 (3.1.6-1) unstable; urgency=high
+
+  * New upstream release.
+  * This new version has security fixes : privilege escalation in the Horde
+    API and XSS vulnerabilities (see CVE-2007-6018 for more informations).
+    (Closes: #461131)
+  * This new version fixes also translation error in it_IT locale
+    (Closes: #459555)
+  * Import fix from Horde CVS to correct invalid entities in es_ES
+    translantion (thanks to Adrian Santos Marrero <adsaman@gmail.com>)
+    (Closes: #461400)
+  * Update to standards version 3.7.3, no further required changes.
+  * Use now Vcs-* fields in debian/control.
+  * Remove empty directories which causes lintian warnings.
+  * Bump debhelper compat level to 5.
+  * Add Homepage field. 
+
+ -- Gregory Colpart (evolix) <reg@evolix.fr>  Sun, 20 Jan 2008 20:52:59 +0100
+
+horde3 (3.1.4-2) unstable; urgency=low
+
+  [ Gregory Colpart (evolix) ]
+  * Added XS-VCS-* fields in debian/control.
+  * Typo in previous changelog.
+
+  [ Ola Lundqvist ]
+  * Correction of log file problem in configuration file, closes: #452351.
+  * Document that the echo line need to be removed as well, closes: #456908.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat, 22 Dec 2007 11:21:40 +0100
+
+horde3 (3.1.4-1) unstable; urgency=high
+
+  * New upstream release.
+  * Transition to PHP5 for Recommends and Suggests fields. (Closes: #432237)
+  * Remove old phpapi-* from Depends: (Closes: #420644)
+  * Clean Depends, Recommends and Suggests fields.
+  * Remove exec right for XML files in debian/rules.
+  * Add locales in Recommends.
+  * Disable upstream _detect_webroot() function (unusable in Debian).
+  * Fix XSS vulnerability. See CVE-2007-1473 for more information.
+    (Closes: #434045)
+
+ -- Gregory Colpart (evolix) <reg@evolix.fr>  Tue, 24 Jul 2007 18:48:35 -0400
+
+horde3 (3.1.3-5) unstable; urgency=low
+
+  * Changed webroot from /horde to /horde3, especially regarding cookie
+    handling, closes: #391493.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon, 21 May 2007 07:03:41 +0200
+
+horde3 (3.1.3-4) unstable; urgency=high
+
+  * Correction for arbitrary file deletion vulnerability,
+    closes: #415116. Thanks to Paul TBBle Hampson <Paul.Hampson@Pobox.com>
+    for providing the patch.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat, 24 Mar 2007 21:19:05 +0100
+
+horde3 (3.1.3-3) unstable; urgency=low
+
+  * Recommend php-db (closes: #400277)
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Sat, 27 Jan 2007 19:38:21 +0100
+
+horde3 (3.1.3-2) unstable; urgency=low
+
+  * Changed the default cookie path from /horde to horde3, closes:
+    #391493. Thanks for Gregory Colpart <reg@evolix.fr> for committing
+    this change and to Lorenzo Bettini <bettini@dsi.unifi.it> for
+    suggesting it.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon,  9 Oct 2006 14:00:35 +0200
+
+horde3 (3.1.3-1) unstable; urgency=low
+
+  * New upstream version, closes: #383416. This is a bugfix release to
+    correct CVE-2006-4256.
+  * Now suggests gettext, closes: #385457.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun,  3 Sep 2006 12:34:06 +0200
+
+horde3 (3.1.2-1) unstable; urgency=medium
+
+  * New upstream release.
+    One of the following is true:
+    - This release fixes security problems CVE-2006-3549 and CVE-2006-3548
+    - These security problems were already fixed in the past in the Debian
+      branch.
+    - These security problems were already partially fixed in the past in
+      the Debian version and this release mops up the rest.
+    In all cases, closes: #378281
+  * Tweak README.Debian and example config a bit (closes: #373235)
+  * Make the PHP tempdir configurable instead of hardcoded in the weekly
+    cleanup script (closes: #376526)
+  * Put the CREDITS file where the online help viewer expects it
+    (closes: #357377)
+  * Bump up Standards-Version
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Sun, 16 Jul 2006 13:12:10 +0200
+
+horde3 (3.1.1-4) UNRELEASED; urgency=low
+
+  * Put debhelper in Build-Depends, not B-D-Indep.
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Fri, 16 Jun 2006 11:49:45 +0200
+
+horde3 (3.1.1-3) unstable; urgency=high
+
+  * The SuSE maintainer found several XSS isses in Horde. See
+    CVE-2006-2195 for more information. Thanks to Moritz Muehlenhoff
+    <jmm@inutil.org> for providing the patch.
+
+ -- Ola Lundqvist <opal@debian.org>  Wed, 14 Jun 2006 09:36:43 +0200
+
+horde3 (3.1.1-2) unstable; urgency=low
+
+  * Correcting the dependencies for php5.
+  * Jose Carlos Medeiros no longer maintainer of this package.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat,  6 May 2006 21:01:48 +0200
+
+horde3 (3.1.1-1) unstable; urgency=high
+
+  [ Lionel Elie Mamane <lmamane@debian.org> ]
+  * New upstream version
+    - Close remote arbitrary command execution hole (closes: #360023)
+      CVE-2006-1491
+  * Really exclude {arch} directory from being installed in binary
+    package.
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Thu,  6 Apr 2006 19:14:56 +0200
+
+horde3 (3.1-2) UNRELEASED; urgency=low
+
+  [ Lionel Elie Mamane <lmamane@debian.org> ]
+  * Conflict with versions of turba2 we break compatibility with.
+    (closes: #360231)
+
+ -- Lionel Elie Mamane <lmamane@debian.org>  Fri, 31 Mar 2006 23:08:02 +0200
+
+horde3 (3.1-1) unstable; urgency=low
+
+  [ Lionel Elie Mamane <lmamane@debian.org> ]
+  * Tweak the "Admin interface disabled because insecure" message.
+
+  [ Ola Lundqvist <opal@debian.org> ]
+  * Updated to upstream version 3.1, closes: #356186, #356526.
+    With correction for CVE-2006-1260 file disclosure vulnerability.
+    Closes: #358812.
+    This version correct CVE-2005-4190 as well, closes: #354512.
+  * Modified dependencies in order to support php5 and to support
+    recent installations of php4, closes: #353612, #359700, #359208.
+
+ -- Ola Lundqvist <opal@debian.org>  Tue, 28 Mar 2006 20:58:38 +0200
+
+horde3 (3.0.9-3) unstable; urgency=low
+
+  * Move to team maintainership.
+  * Make sure that {arch} is not a part of installed dir.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun, 12 Mar 2006 21:40:35 +0100
+
+horde3 (3.0.9-2) unstable; urgency=high
+
+  * Correct fix for weatherdotcom.
+
+ -- Ola Lundqvist <opal@debian.org>  Fri, 16 Dec 2005 20:50:01 +0100
+
+horde3 (3.0.9-1) unstable; urgency=high
+
+  * New upstream release that correct a cross site scripting vulnerability
+    as described in CVE-2005-4190, closes: #342942.
+  * Documented that horde is incompatible with php4 session.auto_start option
+    in the README.Debian file, closes: #341695.
+  * Added php-mail to recommends list, closes: #339135.
+  * Applied a patch to make weatherdotcom work, closes: #342161.
+    Thanks to Giuseppe Iuculano <giuseppe@iuculano.it>.
+  * Documented how to add alias to apache config, closes: #306605.
+  * Changed the initial config message slightly, closes: #341358.
+
+ -- Ola Lundqvist <opal@debian.org>  Fri, 16 Dec 2005 17:51:15 +0100
+
+horde3 (3.0.7-1) unstable; urgency=high
+
+  * New upstream release.
+    This version fix cross site scripting vulnerabilities (CVE-2005-3759),
+    closes: #340323.
+
+ -- Ola Lundqvist <opal@debian.org>  Tue, 22 Nov 2005 22:45:59 +0100
+
+horde3 (3.0.6-1) unstable; urgency=low
+
+  * New upstream release.
+  * Added phpapi-20041030 to the supported api versions (to support php5),
+    closes: #333155.
+  * Fixed so files in etc are rewritten the same was as files in usr/share,
+    closes: #319780.
+  * Updated to standards version 3.6.2.
+  * Corrected to new FSF address.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat,  5 Nov 2005 16:11:03 +0100
+
+horde3 (3.0.5-4) unstable; urgency=low
+
+  * Minor fix for README.Debian file.
+  * Added suggests of php4-mhash, closes: #335913.
+  * Corrected dependency on php4, closes: #329940.
+  * Corrected problem with ispell and Brazilian Language, closes: #328155.
+    Thanks to Jose Carlos Medeiros <jcnascimento@gmail.com> for the fix.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat,  5 Nov 2005 12:40:43 +0100
+
+horde3 (3.0.5-3) unstable; urgency=high
+
+  * Improved description on why horde3 is disabled by default.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun,  9 Oct 2005 12:54:43 +0200
+
+horde3 (3.0.5-2) unstable; urgency=high
+
+  * Configuration disabled by default, closes: #332290, #332289.
+  * Removed some crap from the README.Debian file, closes: #332276.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat,  8 Oct 2005 21:10:48 +0200
+
+horde3 (3.0.5-1) unstable; urgency=low
+
+  * New upstream release,
+    closes: #325146, #315571, #325727, #321490, #309729, #304186.
+  * Added gollem to suggest list, closes: #325492.
+  * Added webcpp, chora2, xlhtml, ppthtml, wv, source-highlight, enscript
+    and rpm to suggest list, closes: #309657, #326066.
+  * Patched config/mime_drivers.php.dist so that no /usr/local is used
+    for programs that exist in Debian archive, closes: #309661.
+
+ -- Ola Lundqvist <opal@debian.org>  Fri,  9 Sep 2005 22:53:15 +0200
+
+horde3 (3.0.4-4) unstable; urgency=low
+
+  * Added conflict on horde so removing horde do not cause configuration
+    removal in horde3, closes: #307623.
+
+ -- Ola Lundqvist <opal@debian.org>  Wed,  4 May 2005 23:08:08 +0200
+
+horde3 (3.0.4-3) unstable; urgency=medium
+
+  * Removed post* and pre* files becuase they contain nothing that
+    should remain.
+  * Fixed dependency problem, closes: #294026.
+  * Added a note about configuration to README.Debian, closes: #304086.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun, 17 Apr 2005 14:27:31 +0200
+
+horde3 (3.0.4-2) unstable; urgency=low
+
+  * Fixed permission problem on log file.
+  * Updated copyright file. It actually use LGPL and not GPL.
+  * Removed unnecessary config dir in /etc/horde/horde3.
+
+ -- Ola Lundqvist <opal@debian.org>  Sun, 10 Apr 2005 19:51:55 +0200
+
+horde3 (3.0.4-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Ola Lundqvist <opal@debian.org>  Mon,  4 Apr 2005 08:11:18 +0200
+
+horde3 (3.0.3-1) unstable; urgency=low
+
+  * New upstream release.
+    Jose Carlos Medeiros <jose@psabs.com.br> have helped a lot with
+    this version.
+
+ -- Ola Lundqvist <opal@debian.org>  Thu, 17 Feb 2005 15:41:33 -0200
+
+horde3 (3.0.2-1) unstable; urgency=low
+
+  * New upstream release.
+  * Cooperated with Roberto Sanchez <roberto@familiasanchez.net> in
+    order to complete this version.
+
+ -- Ola Lundqvist <opal@debian.org>  Fri,  7 Jan 2005 13:41:54 +0100
+
+horde3 (3.0.1-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Ola Lundqvist <opal@debian.org>  Thu,  6 Jan 2005 16:35:23 +0100
+
+horde3 (3.0-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Ola Lundqvist <opal@debian.org>  Sat,  1 Jan 2005 14:51:04 +0100

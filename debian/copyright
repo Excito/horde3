@@ -1,0 +1,647 @@
+This package was debianized by Ola Lundqvist <opal@debian.org> on
+Sat,  1 Jan 2005 14:51:04 +0100.
+
+It was downloaded from:
+	http://ftp.horde.org/pub/horde/
+
+Upstream Authors: Chuck Hagenbuch <chuck@horde.org>, Jan Schneider <jan@horde.org>, Michael Slusarz <slusarz@horde.org>. See all authors in /usr/share/doc/horde3/CREDITS.
+
+Copyright 1999-2008 The Horde Project (http://www.horde.org/)
+
+
+
+js/addEvent.php:
+Copyright 2005-2007 Chuck Hagenbuch <chuck@horde.org>
+
+
+js/src/dhtmlHistory.js:
+Original code (c) 2005, Brad Neuberg, bkn3@columbia.edu
+  (http://codinginparadise.org)
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the "Software"),
+to deal in the Software without restriction, including without limitation
+the rights to use, copy, modify, merge, publish, distribute, sublicense,
+and/or sell copies of the Software, and to permit persons to whom the
+Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT
+OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+This file has been altered from the original dhtmlHistory (v0.05) to
+remove functionality not needed for DIMP and to provide bug fixes and
+enhancements.
+
+Support from Safari adapted from code (c) 2007, Brian Dillard,
+  bdillard@pathf.com (http://blogs.pathf.com/agileajax/)
+
+This file requires the Prototype Javscript Library v1.6.0+
+
+Additions Copyright 2005-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/SyncML.php:
+Copyright 2003-2007 Karsten Fourmont <karsten@horde.org>
+
+
+lib/File/CSV.php:
+Copyright 2002-2003 Tomas Von Veschler Cox <cox@idecnet.com>
+Copyright 2005-2008 The Horde Project (http://www.horde.org/)
+
+This source file is subject to version 2.0 of the PHP license, that is
+bundled with this package in the file LICENSE, and is available at through
+the world-wide-web at http://www.php.net/license/2_02.txt.  If you did not
+receive a copy of the PHP license and are unable to obtain it through the
+world-wide-web, please send a note to license@php.net so we can mail you a
+copy immediately.
+
+
+lib/File/PDF.php:
+Copyright 2001-2003 Olivier Plathey <olivier@fpdf.org>
+Copyright 2003-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/Feed.php:
+Portions Copyright 2005-2007 Zend Technologies USA Inc. (http://www.zend.com)
+Copyright 2007-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/Form.php:
+Copyright 2001-2007 Robert E. Coyle <robertecoyle@hotmail.com>
+Copyright 2001-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/Release.php:
+Copyright 1999 Mike Hardy
+Copyright 2004-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/Share.php:
+Copyright 2002-2008 The Horde Project (http://www.horde.org/)
+Copyright 2002-2007 Infoteck Internet <webmaster@infoteck.qc.ca>
+
+
+lib/Horde/Util.php:
+Copyright 1999-2008 The Horde Project (http://www.horde.org/)
+_deleteAtShutdown() function contains code from gpg_functions.php (Copyright (c) 2002-2003 Braverock Ventures)
+
+
+lib/Horde/VC.php:
+Copyright Anil Madhavapeddy, <anil@recoil.org>
+
+
+lib/Horde/Yaml.php:
+This package is heavily inspired by the Spyc PHP YAML
+implementation (http://spyc.sourceforge.net/), and portions are
+copyright 2005-2006 Chris Wanstrath.
+
+
+lib/Horde/Argv/*.php:
+Authors: Chuck Hagenbuch (chuck@horde.org), Mike Naberezny (mike@maintainable.com)
+License: http://opensource.org/licenses/bsd-license.php BSD
+
+
+lib/Horde/Auth/customsql.php:
+Copyright 2002 Ronnie Garcia <ronnie@mk2.net>
+
+
+lib/Horde/Auth/kolab.php:
+Copyright 2004-2007 Stuart Binge <s.binge@codefusion.co.za>
+
+
+lib/Horde/Auth/passwd.php:
+Copyright 1997-2007 Rasmus Lerdorf <rasmus@php.net>
+Copyright 2002-2008 Chuck Hagenbuch <chuck@horde.org>
+
+
+lib/Horde/Auth/shibboleth.php:
+Copyright 9Star Research, Inc. 2006 http://www.protectnetwork.org
+
+
+lib/Horde/Browser/imode.php:
+Copyright 2000-2007 Mika Tuupola
+Copyright 2002-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/Cache/memcache.php:
+Copyright 2006-2007 Duck <duck@obala.net>
+Copyright 2007-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/Cache/xcache.php:
+Copyright 2006-2007 Duck <duck@obala.net>
+
+
+lib/Horde/Cache/apc.php:
+Copyright 2006-2007 Duck <duck@obala.net>
+
+
+lib/Horde/Cache/eaccelerator.php:
+Copyright 2006-2007 Duck <duck@obala.net>
+
+
+lib/Horde/Compress/dbx.php:
+This class is based on code by:
+Antony Raijekov <dev@strategma.bg>
+http://uruds.gateway.bg/zeos/
+
+Copyright 2003-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/Compress/tnef.php:
+The TNEF rendering is based on code by:
+  Graham Norbury <gnorbury@bondcar.com>
+Original design by:
+  Thomas Boll <tb@boll.ch>, Mark Simpson <damned@world.std.com>
+
+Copyright 2002-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/Compress/zip.php:
+The ZIP compression code is partially based on code from:
+  Eric Mueller <eric@themepark.com>
+  http://www.zend.com/codex.php?id=535&single=1
+
+  Deins125 <webmaster@atlant.ru>
+  http://www.zend.com/codex.php?id=470&single=1
+
+The ZIP compression date code is partially based on code from
+  Peter Listiak <mlady@users.sourceforge.net>
+
+Copyright 2000-2008 The Horde Project (http://www.horde.org/)
+Copyright 2003-2007 Michael Slusarz <slusarz@bigworm.colorado.edu>
+
+
+lib/Horde/Feed/*.php:
+Portions Copyright 2005-2007 Zend Technologies USA Inc. (http://www.zend.com)
+Copyright 2007-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/Image/Effect/gd/{drop_shadow,round_corners}.php:
+This algorithm is from the phpThumb project available at
+http://phpthumb.sourceforge.net and all credit for this script should go to
+James Heinrich <info@silisoftware.com>.  Modifications made to the code
+to fit it within the Horde framework and to adjust for our coding standards.
+
+
+lib/Horde/Image/Effect/gd/unsharp_mask.php:
+Unsharp mask algorithm by Torstein Hønsi 2003 <thoensi_at_netcom_dot_no>
+From: http://www.vikjavev.com/hovudsida/umtestside.php
+
+
+lib/Horde/iCalendar/vcard.php:
+Copyright 2003-2007 Karsten Fourmont (karsten@horde.org)
+
+
+lib/Horde/Log/*:
+Authors: Mike Naberezny (mike@maintainable.com), Chuck Hagenbuch (chuck@horde.org)
+License: http://opensource.org/licenses/bsd-license.php BSD
+
+
+lib/Horde/MIME/Viewer/rtf.php:
+Copyright 2007 Duck <duck@obala.net>
+
+
+lib/Horde/MIME/Viewer/ooo/*.xsl:
+The Contents of this file are made available subject to the terms of
+either of the following licenses
+
+       - GNU Lesser General Public License Version 2.1
+       - Sun Industry Standards Source License Version 1.1
+
+Sun Microsystems Inc., October, 2000
+
+GNU Lesser General Public License Version 2.1
+=============================================
+Copyright 2000 by Sun Microsystems, Inc.
+901 San Antonio Road, Palo Alto, CA 94303, USA
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Lesser General Public
+License version 2.1, as published by the Free Software Foundation.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public
+License along with this library; if not, write to the Free Software
+Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
+Sun Industry Standards Source License Version 1.1
+=================================================
+The contents of this file are subject to the Sun Industry Standards
+Source License Version 1.1 (the "License"); You may not use this file
+except in compliance with the License. You may obtain a copy of the
+License at http://www.openoffice.org/license.html.
+
+Software provided under this License is provided on an "AS IS" basis,
+WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING,
+WITHOUT LIMITATION, WARRANTIES THAT THE SOFTWARE IS FREE OF DEFECTS,
+MERCHANTABLE, FIT FOR A PARTICULAR PURPOSE, OR NON-INFRINGING.
+See the License for the specific provisions governing your rights and
+obligations concerning the Software.
+
+The Initial Developer of the Original Code is: Sun Microsystems, Inc.
+
+Copyright © 2002 by Sun Microsystems, Inc.
+
+All Rights Reserved.
+
+
+lib/Horde/NLS/GeoIP.php:
+Based on PHP geoip.inc library by MaxMind LLC:
+  http://www.maxmind.com/download/geoip/api/php/
+
+Originally based on php version of the geoip library written in May
+2002 by jim winstead <jimw@apache.org>
+
+Copyright (C) 2003 MaxMind LLC
+Copyright 2003-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/NLS/tld.php:
+Generated from IANA (Internet Assigned Numbers Authority) data located
+at http://www.iana.org/cctld/cctld-whois.htm
+
+
+lib/Horde/Prefs/kolab.php:
+Copyright 2004-2007 Stuart Binge <s.binge@codefusion.co.za>
+
+
+lib/Horde/Routes/*.php:
+Authors: Maintainable Software, LLC. (http://www.maintainable.com), Mike Naberezny (mike@maintainable.com)
+License: http://opensource.org/licenses/bsd-license.php BSD
+
+
+lib/Horde/Serialize/JSON.php:
+Copyright: 2005 Michal Migurski
+Authors: Michal Migurski <mike-json@teczno.com>, Matt Knapp <mdknapp[at]gmail[dot]com>, Brett Stimmerman <brettstimmerman[at]gmail[dot]com>
+License: http://www.opensource.org/licenses/bsd-license.php
+
+LICENSE: Redistribution and use in source and binary forms, with or
+without modification, are permitted provided that the following
+conditions are met: Redistributions of source code must retain the
+above copyright notice, this list of conditions and the following
+disclaimer. Redistributions in binary form must reproduce the above
+copyright notice, this list of conditions and the following disclaimer
+in the documentation and/or other materials provided with the
+distribution.
+
+THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN
+NO EVENT SHALL CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS
+OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR
+TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
+USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH
+DAMAGE.
+
+
+lib/Horde/SessionHandler/ldap.php:
+This code is adapted from the comments at
+http://www.php.net/session-set-save-handler.
+
+
+lib/Horde/SessionHandler/oci8.php:
+Copyright 2003-2007 Liam Hoekenga <liamr@umich.edu>
+
+
+lib/Horde/Share/datatree.php:
+Copyright 2002-2008 The Horde Project (http://www.horde.org/)
+Copyright 2002-2007 Infoteck Internet <webmaster@infoteck.qc.ca>
+
+
+lib/Horde/UI/Tabs.php:
+Copyright 2001-2003 Robert E. Coyle <robertecoyle@hotmail.com>
+Copyright 2003-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/VC/rcs.php:
+Copyright 2004-2007 Jeff Schwentner <jeffrey.schwentner@lmco.com>
+
+
+lib/Horde/VC/cvs.php:
+Copyright 2000-2008 The Horde Project (http://www.horde.org/)
+Copyright Anil Madhavapeddy, <anil@recoil.org>
+
+
+lib/Horde/VC/svn.php:
+Copyright 2000-2008 The Horde Project (http://www.horde.org/)
+Copyright Anil Madhavapeddy, <anil@recoil.org>
+
+
+lib/Net/SMS/vodafoneitaly_smtp.php:
+Copyright 2003-2008 The Horde Project (http://www.horde.org/)
+Copyright 2003-2007 Matteo Zambelli <mmzambe@hotmail.com>
+
+
+lib/Net/SMS/generic_*.php:
+Copyright 2005-2007 WebSprockets, LLC
+
+
+lib/Net/IMSP/Auth/imtest.php:
+Copyright 2005-2007      Liam Hoekenga <liamr@umich.edu>
+Copyright 2003-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/SyncML/*:
+Copyright 2003-2007 Karsten Fourmont <karsten@horde.org>
+Copyright 2003-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Text/Diff.php:
+Copyright 2004 Geoffrey T. Dairiki <dairiki@dairiki.org>
+Copyright 2004-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Text/Flowed.php:
+Copyright 2002-2003 Philip Mak
+Copyright 2004-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Text/Diff/Engine/string.php:
+Copyright 2005 Örjan Persson <o@42mm.org>
+Copyright 2005-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/Horde/Text/Filter/html2text.php:
+Copyright 2003-2004 Jon Abernathy <jon@chuggnutt.com>
+Original source: http://www.chuggnutt.com/html2text.php
+Copyright 2004-2008 The Horde Project (http://www.horde.org/)
+
+
+lib/VFS/ftp.php:
+Copyright 2002-2008 The Horde Project (http://www.horde.org/)
+Copyright 2002-2007 Michael Varghese <mike.varghese@ascellatech.com>
+
+
+lib/VFS/smb.php:
+Codebase copyright 2002 Paul Gareau <paul@xhawk.net>.  Adapted with
+permission by Patrice Levesque <wayne@ptaff.ca> from phpsmb-0.8 code, and
+converted to the LGPL.  Please do not taunt original author, contact
+Patrice Levesque or dev@lists.horde.org.
+
+
+lib/VFS/Object.php:
+Copyright 2002-2007 Jon Wood <jon@jellybob.co.uk>
+
+
+lib/VFS/ListItem.php:
+Copyright 2002-2007 Jon Wood <jon@jellybob.co.uk>
+
+
+po/README:
+Copyright 2004 The Horde Project (http://www.horde.org/)
+Joris Braakman <jbraakman@yahoo.com>, 2004.
+
+
+po/zh_CN.po:
+Copyright (C) 2001 WangHengWen.
+WangHengWen <whw@my169.com>, 2001.
+David Chang <david@tmv.gov.tw>, 2001.
+liaobin <liaobin@jite.net>,2004.
+
+
+po/zh_TW.po:
+Copyright (C) 2001 David Chang,TAIWAN.
+David Chang <david@tmv.gov.tw>, 2001.
+
+
+po/hu_HU.po:
+Copyright (C) 2002-2008 Laszlo L. Tornoci
+Laszlo L. Tornoci <torlasz@xenia.sote.hu>, 2008.
+
+
+po/fi_FI.po:
+Copyright (C) Leena Heino <liinu@uta.fi>, 2001-2008.
+
+
+po/ru_RU.po:
+Copyright (C) Ignat Ikryanov <iignat@newmail.ru>, 2001
+Fedor A. Fetisov <faf@ssc.ru>, 2002
+Alexey Zakharov <baber@mosga.net>, 2008
+
+
+po/ca_ES.po:
+Copyright 2004 The Horde Project (http://www.horde.org/)
+Jordi Giralt <projecte.k2@upcnet.es>, 2006.
+
+
+po/bs_BA.po:
+Copyright 2003 The Horde Project (http://www.horde.org/)
+Alen Sarkinovic <alen@linux.org.ba>, 2004.
+Vedran Ljubovic <vljubovic@smartnet.ba>, 2005.
+
+
+po/id_ID.po:
+Copyright 2005 The Horde Project (http://www.horde.org/)
+James <james@actionmessage.com>, 2005.
+
+
+po/ro_RO.po:
+Copyright 2002 The Horde Project (http://www.horde.org/)
+Corneliu MUSAT <cmusat@keysys.ro>, 2002.
+
+
+po/sk_SK.po:
+Copyright (C) 2002 Leo Mrafko <leo@oel.sk> (original translator)
+(C) 2002, 2003 Ivan Noris <vix@vazka.sk>
+Martin Matu¹ka <martin@matuska.org>, 2008
+
+
+po/lt_LT.po:
+Copyright 2007 The Horde Project (http://www.horde.org/)
+Darius Matuliauskas <darius@lnk.lt>, 2002.
+Vilius Sumskas <vilius@lnk.lt>, 2003, 2004, 2007.
+
+
+po/de_DE.po:
+Copyright 2001-2008 The Horde Project (http://www.horde.org/)
+Jan Schneider <jan@horde.org>, 2001-2008.
+
+
+po/nl_NL.po:
+Copyright (C) 2001 Jan Kuipers.
+Jan Kuipers <jrkuipers@lauwerscollege.nl>, 2001-2007.
+Updated Han Spruyt 2005
+
+
+po/ja_JP.po:
+Copyright 2004 The Horde Project (http://www.horde.org/)
+Hiromi Kimura <hiromi@tac.tsukuba.ac.jp>
+
+
+po/bg_BG.po:
+Copyright 2002 The Horde Project (http://www.horde.org/)
+Miroslav Pendev <miro@cybershade.us>, 2002.
+
+
+po/fr_FR.po:
+Copyright 2001-2002 The Horde Project (http://www.horde.org/)
+Pierre Lachance <pl@pierrelachance.net> et Benoit St-André (ben@benoitst-andre.net), 2003, 2004.
+Frederic Trudeau <ftrudeau@cam.org>, 2001.
+Thierry Thomas <thierry@pompo.net>, 2002, 2005, 2006, 2007.
+Country tranlations from Miguel Tremblay <kbabel.miguel@ptaff.ca>, 2004.
+Benoit St-André <ben@benoitst-andre.net>, 2004.
+Yannick Sebastia <yannick.sebastia@ecole-navale.fr>, 2008.
+
+
+po/ar_SY.po:
+Copyright (C) 2003 Platinum Inc. <pl@tinum.info>
+Custom Web Applications <http://platinum-sy.com>
+Platinum Development Team <devteam@platinum-sy.net>
+
+
+po/uk_UA.po:
+Copyright (C) Andriy Kopystyansky <anri@polynet.lviv.ua>, 2007
+
+
+po/it_IT.po:
+Copyright (C) 2001 Paola Carpenter.
+Paola Carpenter <pcarpenter@infvic.it>, 2001.
+Giovanni Meneghetti <gmeneghetti@infvic.it>, 2001.
+Copyright (c) 2003 Sergio G. Caredda.
+Sergio G. Caredda <scaredda@tiscali.it>, 2003.
+Copyright (c) 2007 nethesis srl.
+Cristian Manoni, Alessio Fattorini, Davide marini 2007
+
+
+po/mk_MK.po:
+Copyright (C) 2003 Eureka Informatika
+Stojan Pesov <ssp@eureka.com.mk>, 2003
+
+
+po/nn_NO.po:
+Copyright (C) 2002 Per-Stian Vatne
+Per-Stian Vatne <psv@orsta.org>, 2002.
+
+
+po/pl_PL.po:
+Copyright (C) 2001 Mariusz Zynel <mariusz@mizar.org>
+Mariusz Zynel <mariusz@math.uwb.edu.pl>, 2001.
+Piotr Roszatycki <dexter@debian.org>, 2001.
+Krzysztof Kozlowski <kozik1@o2.pl>, 2005.
+Daniel Horecki <shinden@linux.pl>, 2007.
+
+
+po/km_KH.po:
+Leang Chumsoben <soben@khmeros.info>, 2006.
+
+
+po/da_DK.po:
+Copyright 2001-2006 The Horde Project (http://www.horde.org/)
+Martin List-Petersen <martin@list-petersen.dk>, 2001
+Brian Truelsen <horde+i18n@briantruelsen.dk>, 2005-2006.
+
+
+po/cs_CZ.po:
+Copyright 2004 The Horde Project (http://www.horde.org/)
+Pavel Chytil <pavel@chytil.tk>, 2001-2004.
+
+
+po/pt_BR.po:
+Fabio Gomes <flgoms@uol.com.br>, 2005.
+
+
+po/nb_NO.po:
+Copyright 2001-2007 The Horde Project (http://www.horde.org/)
+Oystein Steimler <oystein@rexta.net>, 2001.
+Torstein S. Hansen <huleboer@techbee.no>, 2002.
+Andreas Gunleikskaas <andreas@gunleikskaas.no>, 2003.
+Geir O. Hogberg <horde@skydiver.no>, 2005.
+Lars Tobias Børsting <lars.tobias.borsting@ntnu.no>, 2007.
+
+
+po/sv_SE.po:
+Copyright (C) 2002-2005 Andreas Dahlén.
+Andreas Dahlén <andreas@dahlen.ws>, 2005.
+
+
+po/tr_TR.po:
+Copyright 2008 The Horde Project (http://www.horde.org/)
+horde-tr at metu.edu.tr, 2005-2008.
+
+
+po/el_GR.po:
+Copyright (C) 2002 Stefanos I. Dimitriou.
+Stefanos I. Dimitriou <support_webmail@teiath.gr>, 2002.
+Silligardos Xristoforos, 2002.
+Anagnostopoulos Apostolis, 2002.
+Milosis C. Konstantinos, 2005.
+
+
+po/fa_IR.po:
+Copyright (C) 2004 High Concil of Informatics (www.shci.ir)
+Provided by  Amirkabir Metanetworking Ltd, 2004 <persian-horde@metanetworking.com>
+Mohsen Nader-Badr       <naderi@metanetworking.com>
+Chackameh Mortezania    <mortezania@metanetworking.com>
+Salman Niksefat         <niksefat@metanetworking.com>
+Hamed Gheybi            <gheybi@metanetworking.com>
+Vahid Ghafarpour        <ghafarpour@metanetworking.com>
+Zahra Ahmadi            <ahmadi@metanetworking.com>
+
+
+services/editors/xinha/*:
+htmlArea License (based on BSD license)
+Copyright (c) 2002-2004, interactivetools.com, inc.
+Copyright (c) 2003-2004 dynarch.com
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1) Redistributions of source code must retain the above copyright notice,
+   this list of conditions and the following disclaimer.
+
+2) Redistributions in binary form must reproduce the above copyright notice,
+   this list of conditions and the following disclaimer in the documentation
+   and/or other materials provided with the distribution.
+
+3) Neither the name of interactivetools.com, inc. nor the names of its
+   contributors may be used to endorse or promote products derived from this
+   software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+
+
+License: Horde is licenced under LGPL license.
+
+This library is free software; you can redistribute it and/or
+modify it under the terms of the GNU Library General Public
+License as published by the Free Software Foundation; either
+version 2 of the License, or (at your option) any later version.
+
+This library is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Library General Public License for more details.
+
+A copy of the GNU Library General Public License is available as
+/usr/share/common-licenses/LGPL in the Debian GNU/Linux distribution
+or on the World Wide Web at http://www.gnu.org/copyleft/lgpl.html.
+You can also obtain it by writing to the Free Software Foundation,
+Inc., 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.

@@ -1,0 +1,9 @@
+/usr/share/javascript/scriptaculous/dragdrop.js /usr/share/horde3/js/dragdrop.js
+/usr/share/javascript/scriptaculous/slider.js   /usr/share/horde3/js/slider.js
+/usr/share/javascript/scriptaculous/controls.js /usr/share/horde3/js/controls.js
+/usr/share/javascript/scriptaculous/scriptaculous.js    /usr/share/horde3/js/scriptaculous.js
+/usr/share/javascript/scriptaculous/effects.js  /usr/share/horde3/js/effects.js
+/usr/share/javascript/scriptaculous/prototype.js    /usr/share/horde3/js/prototype.js
+/usr/share/tinymce2/www /usr/share/horde3/services/editor/tinymce
+/usr/share/fckeditor    /usr/share/horde3/services/editor/fckeditor
+/etc/horde/horde3 /usr/share/horde3/config
