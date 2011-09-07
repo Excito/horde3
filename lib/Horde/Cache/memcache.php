@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: framework/Cache/Cache/memcache.php,v 1.24.2.3 2009/01/06 15:22:56 jan Exp $
+ * $Horde: framework/Cache/Cache/memcache.php,v 1.24.2.5 2010/10/07 07:24:53 slusarz Exp $
  *
  * Copyright 2006-2007 Duck <duck@obala.net>
  * Copyright 2007-2009 The Horde Project (http://www.horde.org/)
@@ -78,6 +78,7 @@ class Horde_Cache_memcache extends Horde_Cache {
      */
     function _get($key, $lifetime)
     {
+        $key = $this->_params['prefix'] . $key;
         if (isset($this->_expirecache[$key])) {
             return $this->_expirecache[$key];
         }
@@ -115,6 +116,7 @@ class Horde_Cache_memcache extends Horde_Cache {
      */
     function set($key, $data, $lifetime = null)
     {
+        $key = $this->_params['prefix'] . $key;
         $lifetime = $this->_getLifetime($lifetime);
         if ($this->_memcache->set($key . '_e', time(), $lifetime) === false) {
             return false;
@@ -132,6 +134,7 @@ class Horde_Cache_memcache extends Horde_Cache {
      */
     function exists($key, $lifetime = 1)
     {
+        $key = $this->_params['prefix'] . $key;
         $data = $this->_get($key, $lifetime);
         return ($data !== false);
     }
@@ -145,6 +148,7 @@ class Horde_Cache_memcache extends Horde_Cache {
      */
     function expire($key)
     {
+        $key = $this->_params['prefix'] . $key;
         unset($this->_expirecache[$key]);
         $this->_memcache->delete($key . '_e');
         return $this->_memcache->delete($key);

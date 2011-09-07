@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Response.php,v 1.3.2.2 2009/02/24 11:17:39 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Response.php,v 1.3.2.3 2010/07/15 21:35:39 wrobel Exp $
  *
  * @package Kolab_Filter
  */
@@ -32,7 +32,7 @@ define('EX_CONFIG', 78);      /* local configuration error */
 /**
  * Provides error handling for the Kolab server filter scripts.
  *
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Response.php,v 1.3.2.2 2009/02/24 11:17:39 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Response.php,v 1.3.2.3 2010/07/15 21:35:39 wrobel Exp $
  *
  * Copyright 2004-2008 Klarälvdalens Datakonsult AB
  *
@@ -106,7 +106,7 @@ class Horde_Kolab_Filter_Response
         /* Ignore strict errors for now since even PEAR will raise
          * strict notices 
          */
-        if ($errno == E_STRICT) {
+        if ($errno == E_STRICT || $errno == E_DEPRECATED) {
             return false;
         }
 
@@ -124,7 +124,7 @@ class Horde_Kolab_Filter_Response
             $msg = 'PHP Error: ' . $errmsg;
         }
 
-        $error = &new PEAR_Error($msg, $code);
+        $error = new PEAR_Error($msg, $code, null, null, 'FILE: ' . $filename . ', LINE: ' . $linenum);
         $this->handle($error);
 
         return false;
@@ -141,21 +141,36 @@ class Horde_Kolab_Filter_Response
 
         $msg = $result->getMessage() . '; Code: ' . $result->getCode();
 
-        /* Log all errors */
-        $file = __FILE__;
-        $line = __LINE__;
+        $file = false;
+        $line = false;
 
-        $frames = $result->getBacktrace();
-        if (count($frames) > 1) {
-            $frame = $frames[1];
-        } else if (count($frames) == 1) {
-            $frame = $frames[0];
+        $user_info = $result->getUserInfo();
+        if (!empty($user_info)) {
+            if (preg_match('/FILE: (.*), LINE: (.*)/', $user_info, $matches)) {
+                $file = $matches[1];
+                $line = $matches[2];
+            }
         }
-        if (isset($frame['file'])) {
-            $file = $frame['file'];
+
+        if (!$file) {
+            $frames = $result->getBacktrace();
+            if (count($frames) > 1) {
+                $frame = $frames[1];
+            } else if (count($frames) == 1) {
+                $frame = $frames[0];
+            }
+            if (isset($frame['file'])) {
+                $file = $frame['file'];
+            }
+            if (isset($frame['line'])) {
+                $line = $frame['line'];
+            }
         }
-        if (isset($frame['line'])) {
-            $line = $frame['line'];
+
+        if (!$file) {
+            /* Log all errors */
+            $file = __FILE__;
+            $line = __LINE__;
         }
 
         /* In debugging mode the errors get delivered to the screen

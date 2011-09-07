@@ -29,7 +29,7 @@ define('MIME_CONTENTS_DISPLAY_TYPE_BOTH', 2);
  * The MIME_Contents:: class contains functions related to handling the output
  * of MIME content.
  *
- * $Horde: framework/MIME/MIME/Contents.php,v 1.129.4.46 2009/12/16 21:56:14 jan Exp $
+ * $Horde: framework/MIME/MIME/Contents.php,v 1.129.4.48 2010/10/26 23:21:49 slusarz Exp $
  *
  * Copyright 2002-2009 The Horde Project (http://www.horde.org/)
  *
@@ -338,7 +338,7 @@ class MIME_Contents {
             $msgCount = 1;
         }
 
-        ksort($this->_parts);
+        uksort($this->_parts, 'strnatcmp');
 
         reset($this->_parts);
         while (list($key, $value) = each($this->_parts)) {
@@ -1085,7 +1085,7 @@ class MIME_Contents {
         if ($dload) {
             $window = null;
         } else {
-            $window = 'view_' . abs(crc32(microtime()));
+            $window = 'view_' . abs(crc32(mt_rand()));
         }
 
         return Horde::link($this->urlView($mime_part, $actionID, $params['viewparams'], $dload), $params['jstext'], $params['class'], $window) . $text . '</a>';
@@ -1231,15 +1231,11 @@ class MIME_Contents {
      */
     function _createCacheID()
     {
-        // Use Auth class, if available, to add uniqueness as it prevents us
-        // from having to call mt_rand(), a relatively expensive call.
-        if (class_exists('Auth')) {
-            $entropy = Auth::getAuth();
-        }
-        if (empty($entropy)) {
-            $entropy = mt_rand();
-        }
-        return md5(microtime() . $entropy . getmypid());
+        // Use Auth class, if available, to add uniqueness.
+        $entropy = class_exists('Auth')
+            ? Auth::getAuth()
+            : '';
+        return md5(mt_rand() . $entropy . getmypid());
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Base.php,v 1.6.2.5 2009/11/07 20:55:59 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Base.php,v 1.6.2.6 2010/07/15 21:35:39 wrobel Exp $
  *
  * @package Kolab_Filter
  */
@@ -28,7 +28,7 @@ require_once 'Horde/Argv/Parser.php';
 /**
  * A basic definition for a PHP based postfix filter.
  *
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Base.php,v 1.6.2.5 2009/11/07 20:55:59 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Base.php,v 1.6.2.6 2010/07/15 21:35:39 wrobel Exp $
  *
  * Copyright 2004-2008 Klarälvdalens Datakonsult AB
  *
@@ -267,7 +267,7 @@ class Horde_Kolab_Filter_Base
         }
 
         /* Always display all possible problems */
-        ini_set('error_reporting', E_ALL);
+        ini_set('error_reporting', E_ERROR);
         ini_set('track_errors', '1');
 
         /* Setup error logging */

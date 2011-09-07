@@ -6,7 +6,7 @@ require_once 'Horde/Block.php';
  * The Horde_Block_Collection:: class provides an API to the blocks
  * (applets) framework.
  *
- * $Horde: framework/Block/Block/Collection.php,v 1.36.4.22 2009/01/06 15:22:53 jan Exp $
+ * $Horde: framework/Block/Block/Collection.php,v 1.36.4.23 2010/07/15 16:53:50 mrubinsk Exp $
  *
  * Copyright 2003-2009 The Horde Project (http://www.horde.org/)
  *
@@ -203,16 +203,21 @@ class Horde_Block_Collection {
      *
      * @param string $cur_app    The block from this application gets selected.
      * @param string $cur_block  The block with this name gets selected.
+     * @param boolean $onchange  Indicates if the onchnage handler is included.
+     * @param boolean $readonly  Indicates if this block's type is changeable.
      *
      * @return string  The select tag with all available blocks.
      */
-    function getBlocksWidget($cur_app = null, $cur_block = null, $onchange = false)
+    function getBlocksWidget($cur_app = null, $cur_block = null, $onchange = false, $readonly = false)
     {
         global $registry;
 
         $widget = '<select name="app"';
         if ($onchange) {
             $widget .= ' onchange="document.blockform.action.value=\'save-resume\';document.blockform.submit()"';
+        }
+        if ($readonly) {
+            $widget .= ' disabled="disabled"';
         }
         $widget .= ">\n";
         $blocks_list = $this->getBlocksList();

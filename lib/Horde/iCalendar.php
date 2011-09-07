@@ -12,7 +12,7 @@ include_once 'Horde/NLS.php';
 /**
  * Class representing iCalendar files.
  *
- * $Horde: framework/iCalendar/iCalendar.php,v 1.57.4.78 2009/10/01 10:34:06 jan Exp $
+ * $Horde: framework/iCalendar/iCalendar.php,v 1.57.4.81 2010/11/10 14:34:25 jan Exp $
  *
  * Copyright 2003-2009 The Horde Project (http://www.horde.org/)
  *
@@ -537,42 +537,10 @@ class Horde_iCalendar {
         }
         $vCal = trim($vCal);
 
-        // All subcomponents.
-        $matches = null;
-        if (preg_match_all('/^BEGIN:(.*)(\r\n|\r|\n)(.*)^END:\1/Uims', $vCal, $matches)) {
-            // vTimezone components are processed first. They are
-            // needed to process vEvents that may use a TZID.
-            foreach ($matches[0] as $key => $data) {
-                $type = trim($matches[1][$key]);
-                if ($type != 'VTIMEZONE') {
-                    continue;
-                }
-                $component = &Horde_iCalendar::newComponent($type, $this);
-                if ($component === false) {
-                    return PEAR::raiseError("Unable to create object for type $type");
-                }
-                $component->parsevCalendar($data, $type, $charset);
-
-                $this->addComponent($component);
-
-                // Remove from the vCalendar data.
-                $vCal = str_replace($data, '', $vCal);
-            }
-
-            // Now process the non-vTimezone components.
-            foreach ($matches[0] as $key => $data) {
-                $type = trim($matches[1][$key]);
-                if ($type == 'VTIMEZONE') {
-                    continue;
-                }
-                $component = &Horde_iCalendar::newComponent($type, $this);
-                if ($component === false) {
-                    return PEAR::raiseError("Unable to create object for type $type");
-                }
-                $component->parsevCalendar($data, $type, $charset);
-
-                $this->addComponent($component);
-
+        // Extract all subcomponents.
+        $matches = $components = null;
+        if (preg_match_all('/^BEGIN:(.*)(\r\n|\r|\n)(.*)^END:\1/Uims', $vCal, $components)) {
+            foreach ($components[0] as $key => $data) {
                 // Remove from the vCalendar data.
                 $vCal = str_replace($data, '', $vCal);
             }
@@ -618,8 +586,16 @@ class Horde_iCalendar {
                                 $paramValue = $paramValue[0];
                             }
                         }
-                        if (preg_match('/"([^"]*)"/', $paramValue, $parts)) {
-                            $paramValue = $parts[1];
+                        if (is_string($paramValue)) {
+                            if (preg_match('/"([^"]*)"/', $paramValue, $parts)) {
+                                $paramValue = $parts[1];
+                            }
+                        } else {
+                            foreach ($paramValue as $k => $tmp) {
+                                if (preg_match('/"([^"]*)"/', $tmp, $parts)) {
+                                    $paramValue[$k] = $parts[1];
+                                }
+                            }
                         }
                         $params[$paramName] = $paramValue;
                     }
@@ -691,8 +667,12 @@ class Horde_iCalendar {
                 // Comma seperated dates.
                 case 'EXDATE':
                 case 'RDATE':
+                    if (!strlen($value)) {
+                        break;
+                    }
                     $dates = array();
-                    preg_match_all('/,([^,]*)/', ',' . $value, $values);
+                    $separator = $this->isOldFormat() ? ';' : ',';
+                    preg_match_all('/' . $separator . '([^' . $separator . ']*)/', $separator . $value, $values);
 
                     foreach ($values[1] as $value) {
                         $dates[] = $this->_parseDate($value);
@@ -798,6 +778,40 @@ class Horde_iCalendar {
                     }
                     break;
                 }
+            }
+        }
+
+        // Process all components.
+        if ($components) {
+            // vTimezone components are processed first. They are
+            // needed to process vEvents that may use a TZID.
+            foreach ($components[0] as $key => $data) {
+                $type = trim($components[1][$key]);
+                if ($type != 'VTIMEZONE') {
+                    continue;
+                }
+                $component = &Horde_iCalendar::newComponent($type, $this);
+                if ($component === false) {
+                    return PEAR::raiseError("Unable to create object for type $type");
+                }
+                $component->parsevCalendar($data, $type, $charset);
+
+                $this->addComponent($component);
+            }
+
+            // Now process the non-vTimezone components.
+            foreach ($components[0] as $key => $data) {
+                $type = trim($components[1][$key]);
+                if ($type == 'VTIMEZONE') {
+                    continue;
+                }
+                $component = &Horde_iCalendar::newComponent($type, $this);
+                if ($component === false) {
+                    return PEAR::raiseError("Unable to create object for type $type");
+                }
+                $component->parsevCalendar($data, $type, $charset);
+
+                $this->addComponent($component);
             }
         }
 
@@ -930,7 +944,7 @@ class Horde_iCalendar {
                         $dates[] = $this->_exportDateTime($date);
                     }
                 }
-                $value = implode(',', $dates);
+                $value = implode($this->isOldFormat() ? ';' : ',', $dates);
                 break;
 
             case 'TRIGGER':

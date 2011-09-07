@@ -2,7 +2,7 @@
 /**
  * Class to make an "official" Horde or application release.
  *
- * $Horde: framework/Horde/Horde/Release.php,v 1.27.2.12 2009/07/06 18:56:57 chuck Exp $
+ * $Horde: framework/Horde/Horde/Release.php,v 1.27.2.13 2010/04/28 21:10:16 jan Exp $
  *
  * Copyright 1999 Mike Hardy
  * Copyright 2004-2009 The Horde Project (http://www.horde.org/)
@@ -541,7 +541,7 @@ class Horde_Release {
         }
 
         $url_changelog = $this->oldVersion
-            ? "http://cvs.horde.org/diff.php/$doc_dir/CHANGES?r1={$this->oldChangelogVersion}&r2={$this->changelogVersion}&ty=h"
+            ? "http://cvs.horde.org/diff.php/$doc_dir/CHANGES?rt=horde&r1={$this->oldChangelogVersion}&r2={$this->changelogVersion}&ty=h"
             : '';
 
         if (is_a($fm, 'PEAR_Error')) {

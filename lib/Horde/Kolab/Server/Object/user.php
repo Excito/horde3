@@ -2,7 +2,7 @@
 /**
  * A standard Kolab user.
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object/user.php,v 1.2.2.12 2009/04/25 12:34:52 wrobel Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object/user.php,v 1.2.2.13 2011/05/30 09:22:40 wrobel Exp $
  *
  * PHP version 4
  *
@@ -17,7 +17,7 @@
  * This class provides methods to deal with Kolab users stored in
  * the Kolab db.
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object/user.php,v 1.2.2.12 2009/04/25 12:34:52 wrobel Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object/user.php,v 1.2.2.13 2011/05/30 09:22:40 wrobel Exp $
  *
  * Copyright 2008-2009 The Horde Project (http://www.horde.org/)
  *
@@ -255,11 +255,7 @@ class Horde_Kolab_Server_Object_user extends Horde_Kolab_Server_Object {
             }
         case 'homeserver':
         default:
-            $server = $this->get(KOLAB_ATTR_HOMESERVER);
-            if (empty($server)) {
-                $server = $_SERVER['SERVER_NAME'];
-            }
-            return $server;
+            return $this->get(KOLAB_ATTR_HOMESERVER);
         }
     }
 

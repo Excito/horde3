@@ -2,7 +2,7 @@
 /**
  * NLS (National Language Support) configuration file.
  *
- * $Horde: horde/config/nls.php.dist,v 1.59.10.17 2009/10/14 16:54:16 jan Exp $
+ * $Horde: horde/config/nls.php.dist,v 1.59.10.18 2010/05/04 17:29:11 jan Exp $
  */
 
 /**
@@ -128,6 +128,7 @@ $nls['charsets']['bg_BG'] = 'windows-1251';
 $nls['charsets']['bs_BA'] = 'ISO-8859-2';
 $nls['charsets']['cs_CZ'] = 'ISO-8859-2';
 $nls['charsets']['el_GR'] = 'ISO-8859-7';
+$nls['charsets']['et_EE'] = 'ISO-8859-13';
 $nls['charsets']['eu_ES'] = 'UTF-8';
 $nls['charsets']['fa_IR'] = 'UTF-8';
 $nls['charsets']['he_IL'] = 'UTF-8';
@@ -161,6 +162,7 @@ if (strpos(PHP_OS, 'BSD') !== false) {
     $nls['charsets']['bs_BA'] = 'ISO8859-2';
     $nls['charsets']['cs_CZ'] = 'ISO8859-2';
     $nls['charsets']['el_GR'] = 'ISO8859-7';
+    $nls['charsets']['et_EE'] = 'ISO8859-13';
     $nls['charsets']['eu_ES'] = 'UTF-8';
     $nls['charsets']['fa_IR'] = 'UTF-8';
     $nls['charsets']['he_IL'] = 'UTF-8';

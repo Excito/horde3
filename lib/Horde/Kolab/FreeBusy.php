@@ -2,7 +2,7 @@
 /**
  * The Kolab implementation of free/busy.
  *
- * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy.php,v 1.10.2.2 2009/04/02 18:37:57 wrobel Exp $
+ * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy.php,v 1.10.2.10 2011/07/25 03:55:18 wrobel Exp $
  *
  * @package Kolab_FreeBusy
  */
@@ -15,6 +15,11 @@ require_once 'Horde/Kolab/FreeBusy/View.php';
 
 /** A class that handles access restrictions */
 require_once 'Horde/Kolab/FreeBusy/Access.php';
+
+require_once 'Horde/Kolab/FreeBusy/Exception.php';
+
+require_once 'Horde/iCalendar.php';
+require_once 'Horde/iCalendar/vfreebusy.php';
 
 /**
  * How to use this class
@@ -29,7 +34,7 @@ require_once 'Horde/Kolab/FreeBusy/Access.php';
  *
  * $fb->fetch();
  *
- * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy.php,v 1.10.2.2 2009/04/02 18:37:57 wrobel Exp $
+ * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy.php,v 1.10.2.10 2011/07/25 03:55:18 wrobel Exp $
  *
  * Copyright 2004-2008 Klarälvdalens Datakonsult AB
  *
@@ -56,65 +61,47 @@ class Horde_Kolab_FreeBusy {
      *
      * @var Horde_Kolab_FreeBusy_Cache
      */
-    var $_cache;
+    private $_cache;
 
-    /**
-     * Setup the cache.
-     */
-    function _initCache() 
-    {
-        global $conf;
-
-        /* Load the cache class now */
-        require_once 'Horde/Kolab/FreeBusy/Cache.php';
-
-        /* Where is the cache data stored? */
-        if (!empty($conf['fb']['cache_dir'])) {
-            $cache_dir = $conf['fb']['cache_dir'];
-        } else {
-            if (class_exists('Horde')) {
-                $cache_dir = Horde::getTempDir();
-            } else {
-                $cache_dir = '/tmp';
-            }
-        }
-
-        $this->_cache = &new Horde_Kolab_FreeBusy_Cache($cache_dir);
-    }
+    private $_access;
+    private $_request;
+    private $_db_owner;
+    private $_db_user;
 
     /**
      * Trigger regeneration of free/busy data in a calender.
      */
-    function &trigger()
+    function trigger()
     {
         global $conf;
 
-        /* Get the folder name */
-        $req_folder = Util::getFormData('folder', '');
+        try {
+            /* Get the folder name */
+            list($user, $owner, $folder) = $this->_getAccess();
+            $db_owner = $this->_getDbOwner();
 
-        Horde::logMessage(sprintf("Starting generation of partial free/busy data for folder %s", 
-                                  $req_folder), __FILE__, __LINE__, PEAR_LOG_DEBUG);
-
-        /* Validate folder access */
-        $access = &new Horde_Kolab_FreeBusy_Access();
-        $result = $access->parseFolder($req_folder);
-        if (is_a($result, 'PEAR_Error')) {
-            $error = array('type' => FREEBUSY_ERROR_NOTFOUND,
-                           'error' => $result);
-            $view = new Horde_Kolab_FreeBusy_View_error($error);
-            return $view;
+            Horde::logMessage(
+                sprintf(
+                    "Partial free/busy data for folder \"%s\" of owner \"%s\" requested by user \"%s\".",
+                    $folder->getFolder(),
+                    $db_owner->getPrimaryId(),
+                    $user->getId()
+                ), 
+                __FILE__,
+                __LINE__,
+                PEAR_LOG_DEBUG
+            );
+        } catch (Horde_Kolab_FreeBusy_Exception $e) {
+            $error = array('type' => FREEBUSY_ERROR_NOTFOUND, 'error' => $e);
+            return new Horde_Kolab_FreeBusy_View_error($error);
         }
-
-        Horde::logMessage(sprintf("Partial free/busy data of owner %s on server %s requested by user %s.",
-                                  $access->owner, $access->freebusyserver, $access->user), 
-                          __FILE__, __LINE__, PEAR_LOG_DEBUG);
 
         /* Get the cache request variables */
         $req_cache    = Util::getFormData('cache', false);
         $req_extended = Util::getFormData('extended', false);
 
         /* Try to fetch the data if it is stored on a remote server */
-        $result = $access->fetchRemote(true, $req_extended);
+        $result = $this->fetchRemote($user, $owner, $folder, true, $req_extended);
         if (is_a($result, 'PEAR_Error')) {
             $error = array('type' => FREEBUSY_ERROR_UNAUTHORIZED,
                            'error' => $result);
@@ -122,23 +109,25 @@ class Horde_Kolab_FreeBusy {
             return $view;
         }
 
-        $this->_initCache();
-
         if (!$req_cache) {
             /* User wants to regenerate the cache */
+            $db_user  = $this->_getDbUser();
+            $db_owner = $this->_getDbOwner();
 
             /* Here we really need an authenticated IMAP user */
-            $result = $access->authenticated();
-            if (is_a($result, 'PEAR_Error')) {
-                $error = array('type' => FREEBUSY_ERROR_UNAUTHORIZED,
-                               'error' => $result);
+            if (!$db_user->isAuthenticated()) {
+                $error = array(
+                    'type' => FREEBUSY_ERROR_UNAUTHORIZED,
+                    'error' => $result
+                );
                 $view = new Horde_Kolab_FreeBusy_View_error($error);
                 return $view;
             }
 
-            if (empty($access->owner)) {
+            $id = $db_owner->getPrimaryId();
+            if (empty($id)) {
                 $message = sprintf(_("No such account %s!"), 
-                                   htmlentities($access->req_owner));
+                                   htmlentities($owner->getOwner()));
                 $error = array('type' => FREEBUSY_ERROR_NOTFOUND,
                                'error' => PEAR::raiseError($message));
                 $view = new Horde_Kolab_FreeBusy_View_error($error);
@@ -146,7 +135,19 @@ class Horde_Kolab_FreeBusy {
             }
 
             /* Update the cache */
-            $result = $this->_cache->store($access);
+            $vCal = $this->_generate($this->_getResource());
+            if (is_a($vCal, 'PEAR_Error')) {
+                $error = array('type' => FREEBUSY_ERROR_NOTFOUND,
+                               'error' => $vCal);
+                $view = new Horde_Kolab_FreeBusy_View_error($error);
+                return $view;
+            }
+
+            if (empty($vCal)) {
+                $result = $this->_getCache()->deletePartial($this->_getDbUser(), $folder);
+            } else {
+                $result = $this->_getCache()->storePartial($this->_getDbUser(), $folder, $this->_getResource(), $vCal);
+            }
             if (is_a($result, 'PEAR_Error')) {
                 $error = array('type' => FREEBUSY_ERROR_NOTFOUND,
                                'error' => $result);
@@ -156,7 +157,7 @@ class Horde_Kolab_FreeBusy {
         }
 
         /* Load the cache data */
-        $vfb = $this->_cache->loadPartial($access, $req_extended);
+        $vfb = $this->_getCache()->loadPartial($this->_getDbUser(), $folder, $req_extended);
         if (is_a($vfb, 'PEAR_Error')) {
             $error = array('type' => FREEBUSY_ERROR_NOTFOUND,
                            'error' => $vfb);
@@ -167,7 +168,10 @@ class Horde_Kolab_FreeBusy {
         Horde::logMessage("Delivering partial free/busy data.", __FILE__, __LINE__, PEAR_LOG_DEBUG);
 
         /* Generate the renderer */
-        $data = array('fb' => $vfb, 'name' => $access->owner . '.ifb');
+        $data = array(
+            'fb' => $vfb,
+            'name' => $this->_getDbOwner()->getPrimaryId() . '.ifb'
+        );
         $view = &new Horde_Kolab_FreeBusy_View_vfb($data);
 
         /* Finish up */
@@ -189,36 +193,48 @@ class Horde_Kolab_FreeBusy {
         Horde::logMessage(sprintf("Starting generation of free/busy data for user %s", 
                                   $req_owner), __FILE__, __LINE__, PEAR_LOG_DEBUG);
 
-        /* Validate folder access */
-        $access = &new Horde_Kolab_FreeBusy_Access();
-        $result = $access->parseOwner($req_owner);
-        if (is_a($result, 'PEAR_Error')) {
-            $error = array('type' => FREEBUSY_ERROR_NOTFOUND, 'error' => $result);
-            $view = new Horde_Kolab_FreeBusy_View_error($error);
-            return $view;
+        try {
+            /* Get the folder name */
+            list($user, $owner, $folder) = $this->_getAccess();
+
+            Horde::logMessage(
+                sprintf(
+                    "Free/busy data of owner \"%s\" requested by user \"%s\".",
+                    $owner->getOwner(),
+                    $user->getId()
+                ), 
+                __FILE__,
+                __LINE__,
+                PEAR_LOG_DEBUG
+            );
+        } catch (Horde_Kolab_FreeBusy_Exception $e) {
+            $error = array('type' => FREEBUSY_ERROR_NOTFOUND, 'error' => $e);
+            return new Horde_Kolab_FreeBusy_View_error($error);
         }
 
-        Horde::logMessage(sprintf("Free/busy data of owner %s on server %s requested by user %s.",
-                                  $access->owner, $access->freebusyserver, $access->user), 
-                          __FILE__, __LINE__, PEAR_LOG_DEBUG);
 
         $req_extended = Util::getFormData('extended', false);
 
         /* Try to fetch the data if it is stored on a remote server */
-        $result = $access->fetchRemote(false, $req_extended);
+        $result = $this->fetchRemote(
+            $owner, $user, null, false, $req_extended
+        );
         if (is_a($result, 'PEAR_Error')) {
             $error = array('type' => FREEBUSY_ERROR_UNAUTHORIZED, 'error' => $result);
-            $view = new Horde_Kolab_FreeBusy_View_error($error);
-            return $view;
+            return new Horde_Kolab_FreeBusy_View_error($error);
         }
 
-        $this->_initCache();
-
-        $result = $this->_cache->load($access, $req_extended);
+        try {
+            $result = $this->_getCache()->loadCombined(
+                $this->_getDbUser(), $req_extended
+            );
+        } catch (Horde_Kolab_FreeBusy_Exception $e) {
+            $error = array('type' => FREEBUSY_ERROR_NOTFOUND, 'error' => $e);
+            return new Horde_Kolab_FreeBusy_View_error($error);
+        }
         if (is_a($result, 'PEAR_Error')) {
             $error = array('type' => FREEBUSY_ERROR_NOTFOUND, 'error' => $result);
-            $view = new Horde_Kolab_FreeBusy_View_error($error);
-            return $view;
+            return new Horde_Kolab_FreeBusy_View_error($error);
         }
 
         Horde::logMessage("Delivering complete free/busy data.", __FILE__, __LINE__, PEAR_LOG_DEBUG);
@@ -241,7 +257,7 @@ class Horde_Kolab_FreeBusy {
         $access = &new Horde_Kolab_FreeBusy_Access();
         $result = $access->authenticated();
         if (is_a($result, 'PEAR_Error')) {
-            return $result->getMessage();
+            return $result;
         }
 
         /* Load the required Kolab libraries */ 
@@ -250,10 +266,8 @@ class Horde_Kolab_FreeBusy {
         $list = &Kolab_List::singleton();
         $calendars = $list->getByType('event');
         if (is_a($calendars, 'PEAR_Error')) {
-            return $calendars->getMessage();
+            return $calendars;
         }
-
-        $this->_initCache();
 
         $lines = array();
 
@@ -278,8 +292,8 @@ class Horde_Kolab_FreeBusy {
                 $owner = $access->user;
                 unset($req_folder[0]);
             }
-
-            $trigger = $owner . ($domain ? '@' . $domain : '') . '/' . join('/', $req_folder);
+            $owner = $owner . ($domain ? '@' . $domain : '');
+            $trigger = $owner . '/' . join('/', $req_folder);
             $trigger = String::convertCharset($trigger, 'UTF7-IMAP', 'UTF-8');
 
             /* Validate folder access */
@@ -315,7 +329,21 @@ class Horde_Kolab_FreeBusy {
             }
 
             /* Update the cache */
-            $result = $this->_cache->store($access);
+            try {
+                $vCal = $this->_generate($this->_getResource($trigger, $owner));
+            } catch (Horde_Kolab_FreeBusy_Exception $e) {
+                $reporter->failure($calendar->name, $e->getMessage());
+                continue;
+            }
+
+            $folder = new Horde_Kolab_FreeBusy_Params_Freebusy_Folder_Named(
+                $trigger
+            );
+            if (empty($vCal)) {
+                $result = $this->_getCache($owner)->deletePartial($this->_getDbUser(), $folder);
+            } else {
+                $result = $this->_getCache($owner)->storePartial($this->_getDbUser(), $folder, $this->_getResource($trigger, $owner), $vCal);
+            }
             if (is_a($result, 'PEAR_Error')) {
                 $reporter->failure($calendar->name, $result->getMessage());
                 continue;
@@ -335,6 +363,327 @@ class Horde_Kolab_FreeBusy {
         }
         return $lines;
     }
-}
 
+    /**
+     * Fetch remote free/busy user if the current user is not local or
+     * redirect to the other server if configured this way.
+     *
+     * @param boolean $trigger Have we been called for triggering?
+     * @param boolean $extended Should the extended information been delivered?
+     */
+    function fetchRemote($owner, $user, $folder, $trigger = false, $extended = false)
+    {
+        global $conf;
+
+        if (!empty($conf['kolab']['freebusy']['server'])) {
+            $server = $conf['kolab']['freebusy']['server'];
+        } else {
+            $server = 'https://localhost/freebusy';
+        }
+        if (!empty($conf['fb']['redirect'])) {
+            $do_redirect = $conf['fb']['redirect'];
+        } else {
+            $do_redirect = false;
+        }
+
+        $db_owner = $this->_getDbOwner();
+
+        try {
+            $owner_server = $db_owner->getFreebusyServer();
+        } catch (Horde_Kolab_FreeBusy_Exception $e) {
+            // May be unknown and present on another remote server.
+            return;
+        }
+
+        /* Check if we are on the right server and redirect if appropriate */
+        if ($owner_server && $owner_server != $server) {
+
+            if ($trigger) {
+                $path = sprintf('/trigger/%s/%s.' . ($extended)?'pxfb':'pfb',
+                                urlencode($db_owner->getPrimaryId()), urlencode($folder->getFolder()));
+            } else {
+                $path = sprintf('/%s.' . ($extended)?'xfb':'ifb', urlencode($db_owner->getPrimaryId()));
+            }
+
+            $redirect = $owner_server . $path;
+            Horde::logMessage(sprintf("URL %s indicates remote free/busy server since we only offer %s. Redirecting.", 
+                                      $owner_server, $server), __FILE__,
+                              __LINE__, PEAR_LOG_ERR);
+            if ($do_redirect) {
+                header("Location: $redirect");
+            } else {
+                header("X-Redirect-To: $redirect");
+                $redirect = 'https://' . urlencode($user->getId()) . ':' . urlencode(Auth::getCredential('password'))
+                    . '@' . $owner_server . $path;
+                if (!@readfile($redirect)) {
+                    $message = sprintf(_("Unable to read free/busy information from %s"), 
+                                       'https://' . urlencode($user->getPrimaryId()) . ':XXX'
+                                       . '@' . $owner_server . $_SERVER['REQUEST_URI']);
+                    return PEAR::raiseError($message);
+                }
+            }
+            exit;
+        }
+    }
+
+    /**
+     * Generate partial free/busy data for a calendar.
+     *
+     * @param Horde_Kolab_FreeBusy_Resource $resource The calendar resource.
+     *
+     * @return Horde_iCalendar|PEAR_Error The partial free/busy data if successful.
+     */
+    private function _generate($resource)
+    {
+        global $conf;
+
+        require_once 'Horde/Kolab/FreeBusy/Export/Freebusy.php';
+        require_once 'Horde/Kolab/FreeBusy/Export/Freebusy/Backend.php';
+        require_once 'Horde/Kolab/FreeBusy/Export/Freebusy/Backend/Kolab.php';
+        require_once 'Horde/Kolab/FreeBusy/Export/Freebusy/Base.php';
+        require_once 'Horde/Kolab/FreeBusy/Export/Freebusy/Decorator/Log.php';
+        require_once 'Horde/Kolab/FreeBusy/Helper/Freebusy/StatusMap.php';
+        require_once 'Horde/Kolab/FreeBusy/Helper/Freebusy/StatusMap/Default.php';
+        require_once 'Horde/Kolab/FreeBusy/Helper/Freebusy/StatusMap/Config.php';
+        require_once 'Horde/Kolab/FreeBusy/Logger.php';
+
+        $params = array(
+            'request_time' => $this->_getRequest()->getServer('REQUEST_TIME')
+        );
+        if (isset($conf['fb']['future_days'])) {
+            $params['future_days'] = $conf['fb']['future_days'];
+        }
+        if (!empty($conf['fb']['status_map'])) {
+            $params['status_map'] = new Horde_Kolab_FreeBusy_Helper_FreeBusy_StatusMap_Config(
+                $conf['fb']['status_map']
+            );
+        }
+
+        $export = new Horde_Kolab_FreeBusy_Export_Freebusy_Decorator_Log(
+            new Horde_Kolab_FreeBusy_Export_Freebusy_Base(
+                new Horde_Kolab_FreeBusy_Export_Freebusy_Backend_Kolab(),
+                $resource,
+                $params
+            ),
+            new Horde_Kolab_FreeBusy_Logger()
+        );
+        return $export->export();
+
+        /* global $conf; */
+
+        /* /\* Now we really need the free/busy library *\/ */
+        /* require_once 'Horde/Kolab/FreeBusy/Imap.php'; */
+
+        /* $fb = new Horde_Kolab_FreeBusy_Imap(); */
+
+        /* $result = $fb->connect($access->imap_folder); */
+        /* if (is_a($result, 'PEAR_Error')) { */
+        /*     return $result; */
+        /* } */
+
+        /* $fbpast = $fbfuture = null; */
+        /* if (!empty($access->server_object)) { */
+        /*     $result = $access->server_object->get(KOLAB_ATTR_FBPAST); */
+        /*     if (!is_a($result, 'PEAR_Error')) { */
+        /*         $fbpast = $result; */
+        /*     } */
+        /* } */
+        /* if (!empty($access->owner_object)) { */
+        /*     $result = $access->owner_object->get(KOLAB_ATTR_FBFUTURE); */
+        /*     if (!is_a($result, 'PEAR_Error')) { */
+        /*         $fbfuture = $result; */
+        /*     } */
+        /* } */
+
+        /* return $fb->generate(null, null, */
+	/* 		     !empty($fbpast) ? $fbpast : 0, */
+	/* 		     !empty($fbfuture)? $fbfuture : isset($conf['fb']['future_days']) ? $conf['fb']['future_days'] : 60, */
+	/* 		     $access->owner, */
+	/* 		     $access->owner_object->get(KOLAB_ATTR_CN)); */
+    }
+
+    /**
+     * Generate partial free/busy data for a calendar.
+     *
+     * @return Horde_Kolab_FreeBusy_Resource The calendar resource.
+     */
+    private function _getResource($name = null, $owner = null)
+    {
+        /* Now we really need the free/busy library */
+        require_once 'Horde/Kolab/FreeBusy/Imap.php';
+
+        require_once 'Horde/Kolab/FreeBusy/Resource.php';
+        require_once 'Horde/Kolab/FreeBusy/Resource/Event.php';
+        require_once 'Horde/Kolab/FreeBusy/Resource/Kolab.php';
+        require_once 'Horde/Kolab/FreeBusy/Resource/Decorator/Log.php';
+        require_once 'Horde/Kolab/FreeBusy/Resource/Decorator/Mcache.php';
+        require_once 'Horde/Kolab/FreeBusy/Resource/Event/Kolab.php';
+        require_once 'Horde/Kolab/FreeBusy/Resource/Event/Fwthree.php';
+        require_once 'Horde/Kolab/FreeBusy/Resource/Event/Decorator/Log.php';
+        require_once 'Horde/Kolab/FreeBusy/Resource/Event/Decorator/Mcache.php';
+        require_once 'Horde/Kolab/FreeBusy/Logger.php';
+
+        $imap = new Horde_Kolab_FreeBusy_Imap();
+        if (empty($name)) {
+            $imap->connect($this->_getImapFolder()->getResourceId());
+        } else {
+            $imap->connect($this->_getNamedImapFolder($name)->getResourceId());
+        }
+
+        return new Horde_Kolab_FreeBusy_Resource_Event_Decorator_Log(
+            new Horde_Kolab_FreeBusy_Resource_Event_Decorator_Mcache(
+                new Horde_Kolab_FreeBusy_Resource_Event_Fwthree(
+                    $imap, $this->_getDbOwner($owner)
+                )
+            ),
+            new Horde_Kolab_FreeBusy_Logger()
+        );
+    }
+
+    private function _getImapFolder()
+    {
+        list($user, $owner, $folder) = $this->_getAccess();
+        require_once 'Horde/Kolab/FreeBusy/Params/Freebusy/Resource/Kolab.php';
+        return new Horde_Kolab_FreeBusy_Params_Freebusy_Resource_Kolab(
+            $this->_getDbUser(), $folder
+        );
+    }
+
+    private function _getNamedImapFolder($name)
+    {
+        require_once 'Horde/Kolab/FreeBusy/Params/Freebusy/Resource/Kolab.php';
+        require_once 'Horde/Kolab/FreeBusy/Params/Owner.php';
+        require_once 'Horde/Kolab/FreeBusy/Params/Freebusy/Folder.php';
+        require_once 'Horde/Kolab/FreeBusy/Params/Freebusy/Folder/Named.php';
+        return new Horde_Kolab_FreeBusy_Params_Freebusy_Resource_Kolab(
+            $this->_getDbUser(),
+            new Horde_Kolab_FreeBusy_Params_Freebusy_Folder_Named(
+                $name
+            )
+        );
+    }
+
+    private function _getAccess()
+    {
+        if ($this->_access === null) {
+            require_once 'Horde/Kolab/FreeBusy/Params/User.php';
+            require_once 'Horde/Kolab/FreeBusy/Params/Owner.php';
+            require_once 'Horde/Kolab/FreeBusy/Params/Owner/Request.php';
+            require_once 'Horde/Kolab/FreeBusy/Params/Freebusy/Folder.php';
+            require_once 'Horde/Kolab/FreeBusy/Params/Freebusy/Folder/Request.php';
+
+            $this->_access = array(
+                new Horde_Kolab_FreeBusy_Params_User(
+                    $this->_getRequest()
+                ),
+                new Horde_Kolab_FreeBusy_Params_Owner_Request(
+                    $this->_getRequest()
+                ),
+                new Horde_Kolab_FreeBusy_Params_Freebusy_Folder_Request(
+                    $this->_getRequest()
+                )
+            );
+        }
+        return $this->_access;
+    }
+
+    private function _getRequest()
+    {
+        if ($this->_request === null) {
+            require_once 'Horde/Kolab/FreeBusy/Request.php';
+            $this->_request = new Horde_Kolab_FreeBusy_Request();
+        }
+        return $this->_request;
+    }
+
+    private function _getDbOwner($owner_name = null)
+    {
+        list($user, $owner, $folder) = $this->_getAccess();
+        if (!empty($owner_name)) {
+            require_once 'Horde/Kolab/FreeBusy/Params/Owner.php';
+            require_once 'Horde/Kolab/FreeBusy/Params/Owner/Named.php';
+            $owner = new Horde_Kolab_FreeBusy_Params_Owner_Named(
+                $owner_name
+            );
+        }
+        if ($this->_db_owner === null || !empty($owner_name)) {
+            require_once 'Horde/Kolab/FreeBusy/UserDb.php';
+            require_once 'Horde/Kolab/FreeBusy/UserDb/Kolab.php';
+            require_once 'Horde/Kolab/FreeBusy/UserDb/User.php';
+            require_once 'Horde/Kolab/FreeBusy/UserDb/User/Kolab.php';
+            require_once 'Horde/Kolab/FreeBusy/Owner.php';
+            require_once 'Horde/Kolab/FreeBusy/Owner/Kolab.php';
+            require_once 'Horde/Kolab/FreeBusy/Owner/Event.php';
+            require_once 'Horde/Kolab/FreeBusy/Owner/Event/Kolab.php';
+            $id = $owner->getOwner();
+            if (empty($id)) {
+                $owner = $folder;
+            }
+            $id = $owner->getOwner();
+            if (empty($id)) {
+                //@todo: Hm.
+                throw new Horde_Kolab_FreeBusy_Exception();
+            }
+            $this->_db_owner = new Horde_Kolab_FreeBusy_Owner_Event_Kolab(
+                $owner,
+                new Horde_Kolab_FreeBusy_UserDb_Kolab(),
+                $this->_getDbUser()
+            );
+        }
+        return $this->_db_owner;
+    }
+
+    private function _getDbUser()
+    {
+        list($user, $owner, $folder) = $this->_getAccess();
+        if ($this->_db_user === null) {
+            require_once 'Horde/Kolab/FreeBusy/UserDb.php';
+            require_once 'Horde/Kolab/FreeBusy/UserDb/Kolab.php';
+            require_once 'Horde/Kolab/FreeBusy/UserDb/User/Kolab.php';
+            require_once 'Horde/Kolab/FreeBusy/User.php';
+            require_once 'Horde/Kolab/FreeBusy/User/Kolab.php';
+            $this->_db_user = new Horde_Kolab_FreeBusy_User_Kolab(
+                $user,
+                new Horde_Kolab_FreeBusy_UserDb_Kolab()
+            );
+        }
+        return $this->_db_user;
+    }
+
+    public function _getCache($owner_name = null)
+    {
+        global $conf;
+
+        /* Where is the cache data stored? */
+        if (!empty($conf['fb']['cache_dir'])) {
+            $cache_dir = $conf['fb']['cache_dir'];
+        } else {
+            if (class_exists('Horde')) {
+                $cache_dir = Horde::getTempDir();
+            } else {
+                $cache_dir = '/tmp';
+            }
+        }
+
+        /* Load the cache class now */
+        require_once 'Horde/Kolab/FreeBusy/Logger.php';
+        require_once 'Horde/Kolab/FreeBusy/Cache.php';
+        require_once 'Horde/Kolab/FreeBusy/Cache/Acl.php';
+        require_once 'Horde/Kolab/FreeBusy/Cache/Acl/Base.php';
+        require_once 'Horde/Kolab/FreeBusy/Cache/Partial.php';
+        require_once 'Horde/Kolab/FreeBusy/Cache/Structure.php';
+        require_once 'Horde/Kolab/FreeBusy/Cache/Structure/Base.php';
+        require_once 'Horde/Kolab/FreeBusy/Cache/Structure/Decorator/Log.php';
+
+        return new Horde_Kolab_FreeBusy_Cache(
+            new Horde_Kolab_FreeBusy_Cache_Structure_Decorator_Log(
+                new Horde_Kolab_FreeBusy_Cache_Structure_Base(
+                    $cache_dir
+                ),
+                new Horde_Kolab_FreeBusy_Logger()
+            ),
+            $this->_getDbOwner($owner_name)
+        );
+    }
+}
 

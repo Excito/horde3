@@ -2,7 +2,7 @@
 /**
  * A view for regenerating the Kolab Free/Busy cache.
  *
- * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Report.php,v 1.1.2.1 2009/04/02 18:37:57 wrobel Exp $
+ * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Report.php,v 1.1.2.2 2011/07/25 03:45:30 wrobel Exp $
  *
  * Copyright 2009 Klarälvdalens Datakonsult AB
  *
@@ -44,8 +44,8 @@ class Horde_Kolab_FreeBusy_Report {
 
     function failure($calendar, $error)
     {
-        $this->_errors[] = sprintf(_("Failed regenerating calendar %s: %s"),
-                                   $calendar, $error->getMessage());
+        $this->_errors[] = sprintf(_("Failed regenerating calendar %s: %s\n"),
+                                   $calendar, $error);
     }
 
     function stop()

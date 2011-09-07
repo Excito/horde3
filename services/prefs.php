@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: horde/services/prefs.php,v 1.19.2.17 2009/01/06 15:26:20 jan Exp $
+ * $Horde: horde/services/prefs.php,v 1.19.2.20 2010/10/19 17:54:34 jan Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -83,63 +83,72 @@ if ($group == 'identities') {
         }
     }
 
-    switch (Util::getFormData('actionID')) {
-    case 'update_prefs':
-        $from_addresses = $identity->getAll('from_addr');
-        $current_from = $identity->getValue('from_addr');
-        if ($prefs->isLocked('default_identity')) {
-            $default = $identity->getDefault();
-        } else {
-            $default = Util::getPost('default_identity');
-            $id = Util::getPost('identity');
-            if ($id == -1) {
-                $id = $identity->add();
-            } elseif ($id == -2) {
-                $prefGroups['identities']['members'] = array('default_identity');
-            }
-            $identity->setDefault($id);
-        }
+    $actionID = Util::getFormData('actionID');
+    $result = $actionID
+        ? Horde::checkRequestToken('horde.prefs', Util::getFormData('horde_prefs_token'))
+        : true;
 
-        if (!Prefs_UI::handleForm($group, $identity)) {
+    if (is_a($result, 'PEAR_Error')) {
+        $notification->push($result, 'horde.error');
+    } else {
+        switch ($actionID) {
+        case 'update_prefs':
+            $from_addresses = $identity->getAll('from_addr');
+            $current_from = $identity->getValue('from_addr');
+            if ($prefs->isLocked('default_identity')) {
+                $default = $identity->getDefault();
+            } else {
+                $default = Util::getPost('default_identity');
+                $id = Util::getPost('identity');
+                if ($id == -1) {
+                    $id = $identity->add();
+                } elseif ($id == -2) {
+                    $prefGroups['identities']['members'] = array('default_identity');
+                }
+                $identity->setDefault($id);
+            }
+
+            if (!Prefs_UI::handleForm($group, $identity)) {
+                break;
+            }
+
+            $new_from = $identity->getValue('from_addr');
+            if (!empty($conf['user']['verify_from_addr']) &&
+                $current_from != $new_from &&
+                !in_array($new_from, $from_addresses)) {
+                $result = $identity->verifyIdentity($id, empty($current_from) ? $new_from : $current_from);
+                if (is_a($result, 'PEAR_Error')) {
+                    $notification->push(_("The new from address can't be verified, try again later: ") . $result->getMessage(), 'horde.error');
+                    Horde::logMessage($result, __FILE__, __LINE__, PEAR_LOG_ERR);
+                } elseif (is_a($result, 'Notification_Event')) {
+                    $notification->push($result, 'horde.message');
+                }
+                break;
+            }
+
+            $identity->setDefault($default);
+            $identity->save();
+            unset($prefGroups);
+            $result = Horde::loadConfiguration('prefs.php', array('prefGroups', '_prefs'), $app);
+            if (!is_a($result, 'PEAR_Error')) {
+                extract($result);
+            }
+            break;
+
+        case 'delete_identity':
+            $id = (int)Util::getFormData('id');
+            $deleted_identity = $identity->delete($id);
+            unset($_prefs['default_identity']['enum'][$id]);
+            $notification->push(sprintf(_("The identity \"%s\" has been deleted."), $deleted_identity[0]['id']), 'horde.success');
+            break;
+
+        case 'change_default_identity':
+            $default_identity = $identity->setDefault(Util::getFormData('id'));
+            $identity->save();
+            $notification->push(_("Your default identity has been changed."),
+                                'horde.success');
             break;
         }
-
-        $new_from = $identity->getValue('from_addr');
-        if (!empty($conf['user']['verify_from_addr']) &&
-            $current_from != $new_from &&
-            !in_array($new_from, $from_addresses)) {
-            $result = $identity->verifyIdentity($id, empty($current_from) ? $new_from : $current_from);
-            if (is_a($result, 'PEAR_Error')) {
-                $notification->push(_("The new from address can't be verified, try again later: ") . $result->getMessage(), 'horde.error');
-                Horde::logMessage($result, __FILE__, __LINE__, PEAR_LOG_ERR);
-            } elseif (is_a($result, 'Notification_Event')) {
-                $notification->push($result, 'horde.message');
-            }
-            break;
-        }
-
-        $identity->setDefault($default);
-        $identity->save();
-        unset($prefGroups);
-        $result = Horde::loadConfiguration('prefs.php', array('prefGroups', '_prefs'), $app);
-        if (!is_a($result, 'PEAR_Error')) {
-            extract($result);
-        }
-        break;
-
-    case 'delete_identity':
-        $id = (int)Util::getFormData('id');
-        $deleted_identity = $identity->delete($id);
-        unset($_prefs['default_identity']['enum'][$id]);
-        $notification->push(sprintf(_("The identity \"%s\" has been deleted."), $deleted_identity[0]['id']), 'horde.success');
-        break;
-
-    case 'change_default_identity':
-        $default_identity = $identity->setDefault(Util::getFormData('id'));
-        $identity->save();
-        $notification->push(_("Your default identity has been changed."),
-                            'horde.success');
-        break;
     }
 } elseif (Prefs_UI::handleForm($group, $prefs)) {
     $result = Horde::loadConfiguration('prefs.php', array('prefGroups', '_prefs'), $app);

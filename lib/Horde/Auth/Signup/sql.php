@@ -7,7 +7,7 @@ require_once 'MDB2.php';
  * new users sign themselves up into the horde installation, depending
  * on how the admin has configured Horde.
  *
- * $Horde: framework/Auth/Auth/Signup/sql.php,v 1.3.2.5 2009/06/15 15:23:29 jan Exp $
+ * $Horde: framework/Auth/Auth/Signup/sql.php,v 1.3.2.6 2010/07/28 08:55:33 jan Exp $
  *
  * Copyright 2008-2009 The Horde Project (http://www.horde.org/)
  *
@@ -243,7 +243,13 @@ class Auth_Signup_sql extends Auth_Signup {
             $this->_write_db->setOption('field_case', CASE_LOWER);
             $this->_write_db->setOption('portability', MDB2_PORTABILITY_FIX_CASE | MDB2_PORTABILITY_ERRORS | MDB2_PORTABILITY_RTRIM | MDB2_PORTABILITY_FIX_ASSOC_FIELD_NAMES);
             break;
+
         default:
+            switch ($this->_write_db->phptype) {
+            case 'oci8':
+                $this->_write_db->setOption('emulate_database', false);
+                break;
+            }
             $this->_write_db->setOption('field_case', CASE_LOWER);
             $this->_write_db->setOption('portability', MDB2_PORTABILITY_FIX_CASE | MDB2_PORTABILITY_ERRORS | MDB2_PORTABILITY_FIX_ASSOC_FIELD_NAMES);
         }
@@ -262,12 +268,19 @@ class Auth_Signup_sql extends Auth_Signup {
                 $this->_db->setOption('field_case', CASE_LOWER);
                 $this->_db->setOption('portability', MDB2_PORTABILITY_FIX_CASE | MDB2_PORTABILITY_ERRORS | MDB2_PORTABILITY_RTRIM | MDB2_PORTABILITY_FIX_ASSOC_FIELD_NAMES);
                 break;
+
             default:
+                switch ($this->_db->phptype) {
+                case 'oci8':
+                    $this->_db->setOption('emulate_database', false);
+                    break;
+                }
+                $this->_db->setOption('field_case', CASE_LOWER);
                 $this->_db->setOption('portability', MDB2_PORTABILITY_FIX_CASE | MDB2_PORTABILITY_ERRORS | MDB2_PORTABILITY_FIX_ASSOC_FIELD_NAMES);
             }
         } else {
             /* Default to the same DB handle as the writer for reading too */
-            $this->_db = $this->_write_db;
+            $this->_db = &$this->_write_db;
         }
 
         return true;

@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport/lmtp.php,v 1.3.2.1 2009/02/20 22:37:15 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport/lmtp.php,v 1.3.2.2 2010/07/15 21:35:39 wrobel Exp $
  *
  * @package Kolab_Filter
  */
@@ -8,7 +8,7 @@
 /**
  * Provides LMTP for delivering a mail.
  *
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport/lmtp.php,v 1.3.2.1 2009/02/20 22:37:15 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport/lmtp.php,v 1.3.2.2 2010/07/15 21:35:39 wrobel Exp $
  *
  * Copyright 2004-2008 Klarälvdalens Datakonsult AB
  *
@@ -26,7 +26,7 @@ class Horde_Kolab_Filter_Transport_lmtp extends Horde_Kolab_Filter_Transport
      *
      * @return Net_LMTP The LMTP handler.
      */
-    function &_createTransport() 
+    function _createTransport()
     {
         require_once dirname(__FILE__) . '/LMTPTLS.php';
 
@@ -38,8 +38,8 @@ class Horde_Kolab_Filter_Transport_lmtp extends Horde_Kolab_Filter_Transport
             $this->_params['port'] = 2003;
         }
 
-        $transport = &new Net_LMTP_TLS($this->_params['host'],
-                                       $this->_params['port']);
+        $transport = new Net_LMTP_TLS($this->_params['host'],
+                                      $this->_params['port']);
 
         return $transport;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport/lda.php,v 1.4.2.1 2009/02/20 22:37:15 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport/lda.php,v 1.4.2.2 2010/07/15 21:35:39 wrobel Exp $
  *
  * @package Kolab_Filter
  */
@@ -8,7 +8,7 @@
 /**
  * Provides DovecotLDA delivery.
  *
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport/lda.php,v 1.4.2.1 2009/02/20 22:37:15 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport/lda.php,v 1.4.2.2 2010/07/15 21:35:39 wrobel Exp $
  *
  * Copyright 2008 Intevation GmbH
  *
@@ -29,7 +29,7 @@ class Horde_Kolab_Filter_Transport_lda extends Horde_Kolab_Filter_Transport
     {
         require_once dirname(__FILE__) . '/DovecotLDA.php';
 
-        $transport = &new Dovecot_LDA();
+        $transport = new Dovecot_LDA();
 
         return $transport;
     }

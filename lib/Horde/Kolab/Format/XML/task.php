@@ -2,7 +2,7 @@
 /**
  * Implementation for tasks in the Kolab XML format.
  *
- * $Horde: framework/Kolab_Format/lib/Horde/Kolab/Format/XML/task.php,v 1.2.2.6 2008/12/12 11:39:04 wrobel Exp $
+ * $Horde: framework/Kolab_Format/lib/Horde/Kolab/Format/XML/task.php,v 1.2.2.7 2010/06/23 08:02:56 wrobel Exp $
  *
  * @package Kolab_Format
  */
@@ -10,7 +10,7 @@
 /**
  * Kolab XML handler for task groupware objects.
  *
- * $Horde: framework/Kolab_Format/lib/Horde/Kolab/Format/XML/task.php,v 1.2.2.6 2008/12/12 11:39:04 wrobel Exp $
+ * $Horde: framework/Kolab_Format/lib/Horde/Kolab/Format/XML/task.php,v 1.2.2.7 2010/06/23 08:02:56 wrobel Exp $
  *
  * Copyright 2007-2008 Klarälvdalens Datakonsult AB
  *
@@ -154,7 +154,7 @@ class Horde_Kolab_Format_XML_task extends Horde_Kolab_Format_XML {
             $object['parent'] = null;
         }
 
-        $object['completed'] = (bool) Kolab::percentageToBoolean($object['completed']);
+        $object['completed'] = (bool) $this->percentageToBoolean($object['completed']);
 
         if (isset($object['organizer']) && isset($object['organizer']['smtp-address'])) {
             $object['assignee'] = $object['organizer']['smtp-address'];
@@ -184,8 +184,18 @@ class Horde_Kolab_Format_XML_task extends Horde_Kolab_Format_XML {
 
         $object['estimate'] = number_format($object['estimate'], 2);
 
-        $object['completed'] = Kolab::BooleanToPercentage($object['completed']);
+        $object['completed'] = $this->booleanToPercentage($object['completed']);
 
         return $this->_saveArray($root, $object, $this->_fields_specific);
+    }
+
+    function percentageToBoolean($percentage)
+    {
+        return $percentage == 100 ? '1' : '0';
+    }
+
+    function booleanToPercentage($boolean)
+    {
+        return $boolean ? '100' : '0';
     }
 }

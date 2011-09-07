@@ -7,7 +7,7 @@
  * See the enclosed file COPYING for license information (LGPL). If you
  * did not receive this file, see http://www.fsf.org/copyleft/lgpl.html.
  *
- * $Horde: framework/Alarm/Alarm/sql.php,v 1.11.2.12 2010/02/04 18:03:26 jan Exp $
+ * $Horde: framework/Alarm/Alarm/sql.php,v 1.11.2.13 2010/07/06 13:49:12 jan Exp $
  */
 
 /**
@@ -150,12 +150,45 @@ class Horde_Alarm_sql extends Horde_Alarm {
         Horde::logMessage('SQL query by Horde_Alarm_sql::_list(): ' . $query,
                           __FILE__, __LINE__, PEAR_LOG_DEBUG);
 
-        $alarms = array();
         $result = $this->_db->query($query, $values);
         if (is_a($result, 'PEAR_Error')) {
             Horde::logMessage($result, __FILE__, __LINE__);
             return $result;
         }
+
+        return $this->_fetchAlarms($result);
+    }
+
+    /**
+     * Returns a list of all global alarms from the backend.
+     *
+     * @return array  A list of alarm hashes.
+     */
+    function _global()
+    {
+        $query = sprintf('SELECT alarm_id, alarm_uid, alarm_start, alarm_end, alarm_methods, alarm_params, alarm_title, alarm_text, alarm_snooze, alarm_internal FROM %s WHERE alarm_uid IS NULL OR alarm_uid = \'\' ORDER BY alarm_start, alarm_end',
+                         $this->_params['table']);
+        Horde::logMessage('SQL query by Horde_Alarm_sql::_global(): ' . $query,
+                          __FILE__, __LINE__, PEAR_LOG_DEBUG);
+
+        $result = $this->_db->query($query);
+        if (is_a($result, 'PEAR_Error')) {
+            Horde::logMessage($result, __FILE__, __LINE__);
+            return $result;
+        }
+        return $this->_fetchAlarms($result);
+    }
+
+    /**
+     * Fetches all alarms from a DB result set.
+     *
+     * @param DB_result $result  A DB result set.
+     *
+     * @return array  A list of alarm hashes.
+     */
+    function _fetchAlarms($result)
+    {
+        $alarms = array();
         while ($alarm = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
             if (is_a($alarm, 'PEAR_Error')) {
                 Horde::logMessage($alarm, __FILE__, __LINE__);

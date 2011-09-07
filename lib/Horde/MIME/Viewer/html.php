@@ -3,7 +3,7 @@
  * The MIME_Viewer_html class renders out HTML text with an effort to
  * remove potentially malicious code.
  *
- * $Horde: framework/MIME/MIME/Viewer/html.php,v 1.14.4.33 2009/03/18 22:40:24 jan Exp $
+ * $Horde: framework/MIME/MIME/Viewer/html.php,v 1.14.4.34 2010/06/07 09:00:33 jan Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -87,14 +87,15 @@ class MIME_Viewer_html extends MIME_Viewer {
                                           'strip_style_attributes' => $strip_style_attributes));
 
         /* Check for phishing exploits. */
+        $highlight = $attachment
+            ? 'style="background-color:#ffd0af;color:black"'
+            : 'class="mimeStatusWarning"';
         if ($this->getConfigParam('phishing_check')) {
-            if (preg_match('/href\s*=\s*["\']?\s*(http|https|ftp):\/\/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?:[^>]*>\s*(?:\\1:\/\/)?(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})[^<]*<\/a)?/i', $data, $m)) {
+            if (preg_match('/href\s*=\s*["\']?\s*(http|https|ftp):\/\/(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})(?:[^>]*>\s*(?:$1:\/\/)?((\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})?[^<]*)<\/a)?/i', $data, $m)) {
                 /* Check 1: Check for IP address links, but ignore if the link
                  * text has the same IP address. */
-                if (!isset($m[3]) || $m[2] != $m[3]) {
-                    if (isset($m[3])) {
-                        $data = preg_replace('/href\s*=\s*["\']?\s*(http|https|ftp):\/\/' . preg_quote($m[2], '/') . '(?:[^>]*>\s*(?:$1:\/\/)?' . preg_quote($m[3], '/') . '[^<]*<\/a)?/i', 'class="mimeStatusWarning" $0', $data);
-                    }
+                if (!isset($m[4]) || $m[2] != $m[4]) {
+                    $data = preg_replace('/href\s*=\s*["\']?\s*(http|https|ftp):\/\/' . preg_quote($m[2], '/') . '(?:[^>]*>\s*(?:$1:\/\/)?' . preg_quote($m[3], '/') . '[^<]*<\/a)?/i', $highlight . ' $0', $data);
                     $phish_warn = true;
                 }
             } elseif (preg_match_all('/href\s*=\s*["\']?\s*(?:http|https|ftp):\/\/([^\s"\'>]+)["\']?[^>]*>\s*(?:(?:http|https|ftp):\/\/)?(.*?)<\/a/is', $data, $m)) {
@@ -116,7 +117,7 @@ class MIME_Viewer_html extends MIME_Viewer {
                         preg_match('/\.?([^\.\/]+\.[^\.\/ ]+)([\/ ].*)?$/s', $target, $host2);
                         if (!(count($host1) && count($host2)) ||
                             strcasecmp($host1[1], $host2[1]) !== 0) {
-                            $data = preg_replace('/href\s*=\s*["\']?\s*(?:http|https|ftp):\/\/' . preg_quote($m[1][$i], '/') . '["\']?[^>]*>\s*(?:(?:http|https|ftp):\/\/)?' . preg_quote($m[2][$i], '/') . '<\/a/is', 'class="mimeStatusWarning" $0', $data);
+                            $data = preg_replace('/href\s*=\s*["\']?\s*(?:http|https|ftp):\/\/' . preg_quote($m[1][$i], '/') . '["\']?[^>]*>\s*(?:(?:http|https|ftp):\/\/)?' . preg_quote($m[2][$i], '/') . '<\/a/is', $highlight . ' $0', $data);
                             $phish_warn = true;
                         }
                     }
@@ -131,10 +132,9 @@ class MIME_Viewer_html extends MIME_Viewer {
 
         /* Prepend phishing warning. */
         if ($phish_warn) {
-            require_once 'Horde/MIME/Contents.php';
             $contents = new MIME_Contents(new MIME_Part());
             $phish_warning = sprintf(_("%s: This message may not be from whom it claims to be. Beware of following any links in it or of providing the sender with any personal information.") . ' ' . _("The links that caused this warning have the same background color as this message."), _("Warning"));
-            if ($contents->viewAsAttachment()) {
+            if ($attachment) {
                 $phish_warning = '<span style="background-color:#ffd0af;color:black">' . String::convertCharset($phish_warning, NLS::getCharset(), $this->mime_part->getCharset()) . '</span><br />';
             }
             $phish_warning = $contents->formatStatusMsg($phish_warning, null, true, 'mimeStatusWarning');

@@ -3,7 +3,7 @@
  * The Horde_Kolab_Session class holds additional user details for the current
  * session.
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Session.php,v 1.1.2.11 2009/02/07 14:09:56 wrobel Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Session.php,v 1.1.2.12 2011/05/30 09:21:21 wrobel Exp $
  *
  * PHP version 4
  *
@@ -27,7 +27,7 @@ require_once 'Horde/Auth.php';
  * relevant for the user session should be accessed via the Horde_Kolab_Session
  * class.
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Session.php,v 1.1.2.11 2009/02/07 14:09:56 wrobel Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Session.php,v 1.1.2.12 2011/05/30 09:21:21 wrobel Exp $
  *
  * Copyright 2008-2009 The Horde Project (http://www.horde.org/)
  *
@@ -231,6 +231,12 @@ class Horde_Kolab_Session {
             }
         }
 
+        if (isset($conf['kolab']['imap']['secure'])) {
+            $this->_imap_params['secure'] = $conf['kolab']['imap']['secure'];
+        } else {
+            $this->_imap_params['secure'] = false;
+        }
+
         $this->_imap_params['protocol'] = 'imap/notls/novalidate-cert';
     }
 
@@ -311,7 +317,8 @@ class Horde_Kolab_Session {
             }
 
             $result = $imap->connect(Auth::getAuth(),
-                                     Auth::getCredential('password'));
+                                     Auth::getCredential('password'),
+                                     !empty($params['secure']));
             if (is_a($result, 'PEAR_Error')) {
                 return $result;
             }

@@ -1,3 +1,11 @@
+<div class="header">
+ <?php Prefs_UI::generateNavigationCell('syncml') ?>
+ <?php echo htmlspecialchars($prefGroups['syncml']['label']) ?>
+ <br class="clear" />
+</div>
+
+<div class="prefsContainer item">
+
 <div class="smallheader">
  <?php echo _("Timestamps of successful synchronization sessions") ?>
 </div>
@@ -22,7 +30,11 @@ foreach ($devices as $device => $anchors) {
  <td><?php echo strftime($prefs->getValue('date_format') . ' %H:%M', $anchor['syncml_serveranchor']) ?></td>
  <td><?php echo htmlspecialchars($anchor['syncml_clientanchor']) ?></td>
  <td>
-  <form method="post">
+  <form method="post" action="<?php echo Horde::selfUrl() ?>">
+   <?php Util::pformInput() ?>
+   <input type="hidden" name="horde_prefs_token" value="<?php echo Horde::getRequestToken('horde_prefs') ?>" />
+   <input type="hidden" name="group" value="syncml" />
+   <input type="hidden" name="app" value="horde" />
    <input type="hidden" name="deviceid" value="<?php echo htmlspecialchars($device) ?>"/>
    <input type="hidden" name="actionID" value="deleteanchor" />
    <input type="hidden" name="db" value="<?php echo htmlspecialchars($anchor['syncml_db']) ?>" />
@@ -33,11 +45,16 @@ foreach ($devices as $device => $anchors) {
 <?php } } ?>
 </table>
 <?php endif; ?>
+<form method="post" action="<?php echo Horde::selfUrl() ?>">
 <p>
+ <?php Util::pformInput() ?>
+ <input type="hidden" name="horde_prefs_token" value="<?php echo Horde::getRequestToken('horde_prefs') ?>" />
+ <input type="hidden" name="group" value="syncml" />
+ <input type="hidden" name="app" value="horde" />
  <input type="hidden" name="actionID" value="deleteall" />
  <input type="submit" class="button" value="<?php echo _("Delete All SyncML Data") ?>" />
  <input id="prefs_return" type="button" class="button" onclick="cancelSubmit=true;document.location.href='<?php echo Horde::applicationUrl(Util::addParameter('services/prefs.php', 'app', 'horde'), true) ?>'" value="<?php echo _("Return to Options") ?>" />
 </p>
+</form>
 
 </div>
-</form>

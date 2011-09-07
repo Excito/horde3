@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Incoming.php,v 1.6.2.5 2010/04/15 13:23:20 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Incoming.php,v 1.6.2.7 2010/07/15 21:35:39 wrobel Exp $
  *
  * @package Kolab_Filter
  */
@@ -15,7 +15,7 @@ require_once dirname(__FILE__) . '/Transport.php';
  * A Kolab Server filter for incoming mails that are parsed for iCal
  * contents.
  *
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Incoming.php,v 1.6.2.5 2010/04/15 13:23:20 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Incoming.php,v 1.6.2.7 2010/07/15 21:35:39 wrobel Exp $
  *
  * Copyright 2004-2008 Klarälvdalens Datakonsult AB
  *
@@ -143,12 +143,19 @@ class Horde_Kolab_Filter_Incoming extends Horde_Kolab_Filter_Base
                                           $this->_fqhostname, $this->_sender,
                                           $resource, $this->_tmpfile), __FILE__, __LINE__,
                                   PEAR_LOG_DEBUG);
-                $r = &new Kolab_Resource();
+                $r = new Kolab_Resource();
                 $rc = $r->handleMessage($this->_fqhostname, $this->_sender,
                                         $resource, $this->_tmpfile);
                 $r->cleanup();
                 if (is_a($rc, 'PEAR_Error')) {
                     return $rc;
+                } else if (is_a($rc, 'Horde_Kolab_Resource_Reply')) {
+                    $result = $this->_transportItipReply($rc);
+                    if (is_a($result, 'PEAR_Error')) {
+                        return $result;
+                    }
+                    Horde::logMessage('Successfully sent iTip reply',
+                                      __FILE__, __LINE__, PEAR_LOG_DEBUG);
                 } else if ($rc === true) {
                     $newrecips[] = $resource;
                 }
@@ -173,6 +180,44 @@ class Horde_Kolab_Filter_Incoming extends Horde_Kolab_Filter_Base
 
         Horde::logMessage("Filter_Incoming successfully completed.", 
                           __FILE__, __LINE__, PEAR_LOG_DEBUG);
+    }
+
+    private function _transportItipReply(Horde_Kolab_Resource_Reply $reply)
+    {
+        global $conf;
+
+        if (isset($conf['kolab']['filter']['itipreply'])) {
+            $driver = $conf['kolab']['filter']['itipreply']['driver'];
+            $host   = $conf['kolab']['filter']['itipreply']['params']['host'];
+            $port   = $conf['kolab']['filter']['itipreply']['params']['port'];
+        } else {
+            $driver = 'smtp';
+            $host   = 'localhost';
+            $port   = 25;
+        }
+
+        $transport = Horde_Kolab_Filter_Transport::factory(
+            $driver,
+            array('host' => $host, 'port' => $port)
+        );
+
+        $result = $transport->start($reply->getSender(), $reply->getRecipient());
+        if (is_a($result, 'PEAR_Error')) {
+            return PEAR::raiseError('Unable to send iTip reply: ' . $result->getMessage(),
+                                    OUT_LOG | EX_TEMPFAIL);
+        }
+
+        $result = $transport->data($reply->getData());
+        if (is_a($result, 'PEAR_Error')) {
+            return PEAR::raiseError('Unable to send iTip reply: ' . $result->getMessage(),
+                                    OUT_LOG | EX_TEMPFAIL);
+        }
+
+        $result = $transport->end();
+        if (is_a($result, 'PEAR_Error')) {
+            return PEAR::raiseError('Unable to send iTip reply: ' . $result->getMessage(),
+                                    OUT_LOG | EX_TEMPFAIL);
+        }
     }
 
     /**

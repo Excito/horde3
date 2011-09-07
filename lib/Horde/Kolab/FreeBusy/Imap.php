@@ -2,7 +2,7 @@
 /**
  * IMAP access for Kolab free/busy.
  *
- * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Imap.php,v 1.9.2.2 2009/05/09 20:30:56 mrubinsk Exp $
+ * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Imap.php,v 1.9.2.5 2010/10/10 16:26:40 wrobel Exp $
  *
  * @package Kolab_FreeBusy
  */
@@ -30,7 +30,7 @@ define('KRONOLITH_STATUS_FREE', 4);
  * This class is a merged result from the Kolab free/busy package and
  * the Horde::Kronolith free/busy driver.
  *
- * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Imap.php,v 1.9.2.2 2009/05/09 20:30:56 mrubinsk Exp $
+ * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Imap.php,v 1.9.2.5 2010/10/10 16:26:40 wrobel Exp $
  *
  * Copyright 2004-2008 Klarälvdalens Datakonsult AB
  * Copyright 2008-2009 The Horde Project (http://www.horde.org/)
@@ -128,6 +128,11 @@ class Horde_Kolab_FreeBusy_Imap {
         }
     }
 
+    function getFolder()
+    {
+        return $this->_folder;
+    }
+
     /**
      * Lists all events in the time range, optionally restricting
      * results to only events with alarms.
@@ -147,10 +152,10 @@ class Horde_Kolab_FreeBusy_Imap {
         }
 
         if (is_null($startDate)) {
-            $startDate = &new Horde_Date(array('mday' => 1, 'month' => 1, 'year' => 0000));
+            $startDate = new Horde_Date(array('mday' => 1, 'month' => 1, 'year' => 0000));
         }
         if (is_null($endDate)) {
-            $endDate = &new Horde_Date(array('mday' => 31, 'month' => 12, 'year' => 9999));
+            $endDate = new Horde_Date(array('mday' => 31, 'month' => 12, 'year' => 9999));
         }
         $startts = $startDate->timestamp();
         $endts = $endDate->timestamp();
@@ -161,14 +166,14 @@ class Horde_Kolab_FreeBusy_Imap {
             /* check if event period intersects with given period */
             if (!(($object['start-date'] > $endts) || 
                   ($object['end-date'] < $startts))) {
-                $event = &new Kolab_Event($object);
+                $event = new Kolab_Event($object);
                 $result[] = $event;
                 continue;
             }
 
             /* do recurrence expansion if not keeping anyway */
             if (isset($object['recurrence'])) {
-                $event = &new Kolab_Event($object);
+                $event = new Kolab_Event($object);
                 $next = $event->recurrence->nextRecurrence($startDate);
                 while ($next !== false && 
                        $event->recurrence->hasException($next->year, $next->month, $next->mday)) {
@@ -178,7 +183,7 @@ class Horde_Kolab_FreeBusy_Imap {
 
                 if ($next !== false) {
                     $duration = $next->timestamp() - $event->start->timestamp();
-                    $next_end = &new Horde_Date($event->end->timestamp() + $duration);
+                    $next_end = new Horde_Date($event->end->timestamp() + $duration);
 
                     if ((!(($endDate->compareDateTime($next) < 0) || 
                            ($startDate->compareDateTime($next_end) > 0)))) {
@@ -238,6 +243,7 @@ class Horde_Kolab_FreeBusy_Imap {
             return $perm;
         }
 
+        $perm->getPerm();
         $acl = &$perm->acl;
         if (empty($acl)) {
             Horde::logMessage(sprintf('No ACL found for %s', $this->_folder->name),
@@ -408,7 +414,7 @@ class Horde_Kolab_FreeBusy_Imap {
  * A reduced event representation derived from the Kronolith event
  * representation.
  *
- * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Imap.php,v 1.9.2.2 2009/05/09 20:30:56 mrubinsk Exp $
+ * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Imap.php,v 1.9.2.5 2010/10/10 16:26:40 wrobel Exp $
  *
  * Copyright 2004-2008 Klarälvdalens Datakonsult AB
  *

@@ -2,7 +2,7 @@
 /**
  * The Group:: class provides the Horde groups system.
  *
- * $Horde: framework/Group/Group/sql.php,v 1.1.2.12 2009/02/25 05:35:42 chuck Exp $
+ * $Horde: framework/Group/Group/sql.php,v 1.1.2.13 2011/07/01 17:09:42 jan Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -114,7 +114,7 @@ class Group_sql extends Group {
         if (!isset($this->_groupCache[$name])) {
             $this->_connect();
             $sql = 'SELECT group_uid, group_email FROM horde_groups WHERE group_name = ?';
-            $group = $this->_db->getRow($sql, array($name), DB_FETCHMODE_ASSOC);
+            $group = $this->_db->getRow($sql, array($this->convertToDriver($name)), DB_FETCHMODE_ASSOC);
 
             if (is_a($group, 'PEAR_Error')) {
                 return $group;
@@ -174,7 +174,7 @@ class Group_sql extends Group {
             return $users;
         }
 
-        $group = &new SQLObject_Group($row['group_name']);
+        $group = &new SQLObject_Group($this->convertFromDriver($row['group_name']));
         $group->id = $cid;
         $group->data['email'] = $row['group_email'];
 
@@ -215,7 +215,7 @@ class Group_sql extends Group {
 
         $group->id = $group_id;
         $query = 'INSERT INTO horde_groups (group_uid, group_name, group_parents, group_email) VALUES (?, ?, ?, ?)';
-        $result = $this->_write_db->query($query, array($group->id, $name, '', $email));
+        $result = $this->_write_db->query($query, array($group->id, $this->convertToDriver($name), '', $email));
         if (is_a($result, 'PEAR_Error')) {
             return $result;
         }
@@ -332,7 +332,7 @@ class Group_sql extends Group {
         }
 
         $query = 'DELETE FROM horde_groups WHERE group_name LIKE ?';
-        return $this->_write_db->query($query, array($name . ':%'));
+        return $this->_write_db->query($query, array($this->convertToDriver($name) . ':%'));
     }
 
     /**
@@ -359,7 +359,7 @@ class Group_sql extends Group {
 
         $this->_connect();
         $query = 'SELECT group_name FROM horde_groups WHERE group_uid = ?';
-        return $this->_db->getOne($query, $gid);
+        return $this->convertFromDriver($this->_db->getOne($query, $gid));
     }
 
     /**
@@ -408,7 +408,7 @@ class Group_sql extends Group {
 
         $this->_connect();
         $query = 'SELECT group_uid FROM horde_groups WHERE group_name = ?';
-        return $this->_db->getOne($query, $group);
+        return $this->_db->getOne($query, $this->convertToDriver($group));
     }
 
     /**
@@ -428,7 +428,7 @@ class Group_sql extends Group {
 
         $this->_connect();
         $query = 'SELECT COUNT(*) FROM horde_groups WHERE group_name = ?';
-        return (bool)$this->_db->getOne($query, $group);
+        return (bool)$this->_db->getOne($query, $this->convertToDriver($group));
     }
 
     /**
@@ -540,12 +540,12 @@ class Group_sql extends Group {
 
             $query = 'SELECT group_uid, group_name FROM horde_groups '
                 . ' WHERE group_name IN (' . str_repeat('?, ', count($parents) - 1) . '?) ';
-            $parents = $this->_db->getAssoc($query, false, $parents);
+            $parents = $this->_db->getAssoc($query, false, $this->convertToDriver($parents));
             if (is_a($parents, 'PEAR_Error')) {
                 return $parents;
             }
 
-            $this->_groupParentList[$gid] = $parents;
+            $this->_groupParentList[$gid] = $this->convertFromDriver($parents);
         }
 
         return $this->_groupParentList[$gid];
@@ -585,7 +585,7 @@ class Group_sql extends Group {
         if ($refresh || !isset($this->_groupList)) {
             $this->_connect();
             $sql = 'SELECT group_uid, group_name FROM horde_groups ORDER BY group_uid';
-            $this->_groupList = $this->_db->getAssoc($sql);
+            $this->_groupList = $this->convertFromDriver($this->_db->getAssoc($sql));
         }
 
         return $this->_groupList;
@@ -605,7 +605,7 @@ class Group_sql extends Group {
             // Get a list of every group that is a sub-group of $group.
             $name = $this->getGroupName($gid);
             $query = 'SELECT group_uid FROM horde_groups WHERE group_name LIKE ?';
-            $parents = $this->_db->getCol($query, 0, array($name .  ':%'));
+            $parents = $this->_db->getCol($query, 0, array($this->convertToDriver($name) .  ':%'));
             $this->_subGroups[$gid] = $parents;
             $this->_subGroups[$gid][] = $gid;
         }
@@ -643,7 +643,7 @@ class Group_sql extends Group {
 
         $groups = array();
         while ($row = $result->fetchRow(DB_FETCHMODE_ASSOC)) {
-            $groups[(int)$row['group_uid']] = $this->getGroupShortName($row['group_name']);
+            $groups[(int)$row['group_uid']] = $this->getGroupShortName($this->convertFromDriver($row['group_name']));
         }
 
         if ($parentGroups) {
@@ -693,6 +693,32 @@ class Group_sql extends Group {
 
         $_SESSION['horde']['groups']['i'][$user][$subgroups][$gid] = (bool)$result;
         return (bool)$result;
+    }
+
+    /**
+     * Converts a value from the driver's charset to the default
+     * charset.
+     *
+     * @param mixed $value  A value to convert.
+     *
+     * @return mixed  The converted value.
+     */
+    function convertFromDriver($value)
+    {
+        return String::convertCharset($value, $this->_params['charset']);
+    }
+
+    /**
+     * Converts a value from the default charset to the driver's
+     * charset.
+     *
+     * @param mixed $value  A value to convert.
+     *
+     * @return mixed  The converted value.
+     */
+    function convertToDriver($value)
+    {
+        return String::convertCharset($value, NLS::getCharset(), $this->_params['charset']);
     }
 
     /**

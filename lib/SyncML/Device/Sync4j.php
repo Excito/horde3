@@ -2,7 +2,7 @@
 /**
  * @package SyncML
  *
- * $Horde: framework/SyncML/SyncML/Device/Sync4j.php,v 1.8.2.34 2009/10/26 18:06:48 jan Exp $
+ * $Horde: framework/SyncML/SyncML/Device/Sync4j.php,v 1.8.2.39 2010/11/04 15:29:40 jan Exp $
  */
 
 /** Horde_Date */
@@ -29,30 +29,6 @@ require_once 'Horde/iCalendar.php';
  * @package SyncML
  */
 class SyncML_Device_sync4j extends SyncML_Device {
-
-    function getPreferredContentTypeClient($serverSyncURI, $sourceSyncURI)
-    {
-        $database = strtolower($serverSyncURI); // no string api needed here
-
-        // Code copied from parent function. But we must not use device
-        // mimetype from device information here as this would result in
-        // us asking the horde backend to provide crazy text/x-s4j-sifn
-        // stuff. Instead we ask backend for default type and convert it
-        // internally in this class (in convertServer2Client).
-        if (strpos($database, 'contact') !== false ||
-            strpos($database, 'card') !== false) {
-            return 'text/x-vcard';
-        } elseif (strpos($database, 'note') !== false ||
-                  strpos($database, 'memo') !== false) {
-            return 'text/x-vnote';
-        } elseif (strpos($database, 'task') !== false ||
-                  strpos($database, 'cal') !== false ||
-                  strpos($database, 'event') !== false) {
-            return 'text/calendar';
-        }
-
-        return parent::getPreferredContentTypeClient($serverSyncURI, $sourceSyncURI);
-    }
 
     /**
      * Convert the content.
@@ -86,6 +62,18 @@ class SyncML_Device_sync4j extends SyncML_Device {
             $content = SyncML_Device_sync4j::sif2vtodo($content);
             $contentType = 'text/calendar';
             break;
+
+        case 'text/calendar':
+        case 'text/x-vcalendar':
+            $si = $_SESSION['SyncML.state']->sourceURI;
+            if (stristr($si, 'fol-') !== false) {
+                // The Funambol Outlook connector uses invalid STATUS
+                // values. Actually it maps MeetingStatus values of the
+                // Outlook event to the STATUS property, which is
+                // completely useless. So drop the STATUS altogether.
+                $content = preg_replace('/^STATUS:.*\r?\n/im', '', $content);
+            }
+            break;
         }
 
         $GLOBALS['backend']->logFile(
@@ -117,6 +105,21 @@ class SyncML_Device_sync4j extends SyncML_Device {
 
         list($content, $contentType, $encodingType) =
             parent::convertServer2Client($content, $contentType, $database);
+
+        if ($this->requestedContentType == $contentType) {
+            if ($contentType == 'text/calendar' ||
+                $contentType == 'text/x-vcalendar') {
+                $si = $_SESSION['SyncML.state']->sourceURI;
+                if (stristr($si, 'fol-') !== false) {
+                    // The Funambol Outlook connector uses invalid STATUS
+                    // values. Actually it maps MeetingStatus values of the
+                    // Outlook event to the STATUS property, which is
+                    // completely useless. So drop the STATUS altogether.
+                    $content = preg_replace('/^STATUS:.*\r?\n/im', '', $content);
+                }
+            }
+            return array($content, $contentType, $encodingType);
+        }
 
         switch ($contentType) {
         case 'text/calendar' :
@@ -861,22 +864,21 @@ class SyncML_Device_sync4j extends SyncML_Device {
                       'BusyStatus' => 2);
         $alarm = $end = null;
         $start = $content->getAttribute('DTSTART');
-        if ($start) {
-            if (!empty($start['params']['VALUE']) &&
-                $start['params']['VALUE'] == 'DATE') {
-                $hash['AllDayEvent'] = 1;
-                $hash['Start'] = sprintf('%04d-%02d-%02d',
-                                         $start['value']['year'],
-                                         $start['value']['month'],
-                                         $start['value']['mday']);
-                $start = mktime(0, 0, 0,
-                                $start['value']['month'],
-                                $start['value']['mday'],
-                                $start['value']['year']);
-            } else {
-                $hash['AllDayEvent'] = 0;
-                $hash['Start'] = Horde_iCalendar::_exportDateTime($start);
-            }
+        $start_params = $content->getAttribute('DTSTART', true);
+        if (!empty($start_params[0]['VALUE']) &&
+            $start_params[0]['VALUE'] == 'DATE') {
+            $hash['AllDayEvent'] = 1;
+            $hash['Start'] = sprintf('%04d-%02d-%02d',
+                                     $start['year'],
+                                     $start['month'],
+                                     $start['mday']);
+            $start = mktime(0, 0, 0,
+                            $start['month'],
+                            $start['mday'],
+                            $start['year']);
+        } else {
+            $hash['AllDayEvent'] = 0;
+            $hash['Start'] = Horde_iCalendar::_exportDateTime($start);
         }
 
         foreach ($content->getAllAttributes() as $item) {
@@ -995,6 +997,10 @@ class SyncML_Device_sync4j extends SyncML_Device {
                     }
                 }
 
+                $hash['Interval'] = isset($rdata['INTERVAL'])
+                    ? $rdata['INTERVAL']
+                    : 1;
+
                 switch (String::upper($rdata['FREQ'])) {
                 case 'DAILY':
                     $hash['RecurrenceType'] = 0;
@@ -1028,12 +1034,9 @@ class SyncML_Device_sync4j extends SyncML_Device {
                         $hash['DayOfMonth'] = date('j', $start);
                     }
                     $hash['MonthOfYear'] = date('n', $start);
+                    unset($hash['Interval']);
                     break;
                 }
-
-                $hash['Interval'] = isset($rdata['INTERVAL'])
-                    ? $rdata['INTERVAL']
-                    : 1;
 
                 if (isset($rdata['UNTIL'])) {
                     $hash['NoEndDate'] = 0;

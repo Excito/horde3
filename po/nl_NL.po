@@ -1,14 +1,14 @@
 # Horde Dutch translation.
 # Copyright 2001 Jan Kuipers.
-# Jan Kuipers <jrkuipers@lauwerscollege.nl>, 2001-2009.
+# Jan Kuipers <jrkuipers@lauwerscollege.nl>, 2001-2010.
 # Updated Han Spruyt 2005
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Horde 3.3.6-cvs\n"
+"Project-Id-Version: Horde 3.3.9-cvs\n"
 "Report-Msgid-Bugs-To: dev@lists.horde.org\n"
-"POT-Creation-Date: 2009-12-14 08:18+0100\n"
-"PO-Revision-Date: 2009-12-14 13:52+0100\n"
+"POT-Creation-Date: 2010-06-11 23:08+0200\n"
+"PO-Revision-Date: 2010-06-15 11:01+0200\n"
 "Last-Translator: Jan Kuipers <jrkuipers@lauwerscollege.nl>\n"
 "Language-Team: Dutch <i18n@lists.horde.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid " (%s days ago)"
 msgstr " (%s dagen geleden)"
 
-#: framework/Horde/Horde.php:1622
+#: framework/Horde/Horde.php:1645
 #, php-format
 msgid " (Accesskey %s)"
 msgstr " (Sneltoets %s)"
@@ -201,38 +201,38 @@ msgstr "%s op %s %s"
 msgid "%s authentication credentials"
 msgstr "%s authenticatiegegevens"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:989
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:866
 #, php-format
 msgid "%s has accepted the invitation to the following event:"
 msgstr "%s heeft de uitnodiging voor de volgende gebeurtenis geaccepteerd:"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:988
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:865
 #, php-format
 msgid "%s has accepted the update to the following event:"
 msgstr "%s heeft de update van de volgende gebeurtenis geaccepteerd:"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:718
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:595
 #, php-format
 msgid "%s has been cancelled"
 msgstr "%s is afgezegd"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:979
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:856
 #, php-format
 msgid "%s has declined the invitation to the following event:"
 msgstr "%s heeft de uitnodiging voor de volgende gebeurtenis afgewezen:"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:978
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:855
 #, php-format
 msgid "%s has declined the update to the following event:"
 msgstr "%s heeft de update van de volgende gebeurtenis afgewezen:"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:999
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:876
 #, php-format
 msgid "%s has tentatively accepted the invitation to the following event:"
 msgstr ""
 "%s heeft de uitnodiging voor de volgende gebeurtenis voorlopig geaccepteerd:"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:998
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:875
 #, php-format
 msgid "%s has tentatively accepted the update to the following event:"
 msgstr "%s heeft de update van de volgende gebeurtenis voorlopig geaccepteerd:"
@@ -292,15 +292,10 @@ msgstr ""
 "%s: De afzender van dit bericht is wellicht niet juist. Pas op met hetvolgen "
 "van links en het versturen van persoonlijke informatie"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Content.php:404
+#: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Content.php:397
 #, php-format
 msgid "(UNTRUSTED, sender <%s> is not authenticated)"
 msgstr "(UNTRUSTED, afzender <%s> is niet geauthenticeerd)"
-
-#: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Content.php:398
-#, php-format
-msgid "(UNTRUSTED, sender is <%s>)"
-msgstr "(UNTRUSTED, afzender is <%s>"
 
 #: lib/Block/weatherdotcom.php:370 lib/Block/weatherdotcom.php:415
 msgid ", gusting "
@@ -507,7 +502,7 @@ msgstr "AM/PM"
 msgid "API ID"
 msgstr "API ID"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:990
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:867
 msgid "Accepted: "
 msgstr "Geaccepteerd: "
 
@@ -648,12 +643,12 @@ msgstr "Adresboek"
 msgid "Address Link"
 msgstr "Adreslink"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:106
+#: framework/IMAP/IMAP/ACL/rfc2086.php:111
 #: framework/IMAP/IMAP/ACL/rfc4314.php:70
 msgid "Administer"
 msgstr "Beheren"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:94
+#: framework/IMAP/IMAP/ACL/rfc2086.php:99
 #: framework/IMAP/IMAP/ACL/rfc4314.php:56
 msgid "Administer - set permissions for other users"
 msgstr "Beheer - rechten voor andere gebruikers instellen"
@@ -850,7 +845,7 @@ msgstr "Het account goedkeuren:"
 msgid "April"
 msgstr "April"
 
-#: config/nls.php.dist:223
+#: config/nls.php.dist:225
 msgid "Arabic (Windows-1256)"
 msgstr "Arabisch (Windows-1256)"
 
@@ -889,7 +884,7 @@ msgstr "Argentinië"
 msgid "Armenia"
 msgstr "Armenië"
 
-#: config/nls.php.dist:224
+#: config/nls.php.dist:226
 msgid "Armenian (ARMSCII-8)"
 msgstr "Armeens (ARMSCII-8)"
 
@@ -1117,7 +1112,7 @@ msgstr "Bahamas"
 msgid "Bahrain"
 msgstr "Bahrein"
 
-#: config/nls.php.dist:225
+#: config/nls.php.dist:227
 msgid "Baltic (ISO-8859-13)"
 msgstr "Baltisch (ISO-8859-13)"
 
@@ -1447,7 +1442,7 @@ msgstr "Cc"
 msgid "Cell Phone"
 msgstr "Tel.nr.mobiel"
 
-#: config/nls.php.dist:226
+#: config/nls.php.dist:228
 msgid "Celtic (ISO-8859-14)"
 msgstr "Keltisch (ISO-8859-14)"
 
@@ -1456,7 +1451,7 @@ msgstr "Keltisch (ISO-8859-14)"
 msgid "Central African Republic"
 msgstr "Centraal Afrikaanse Republiek"
 
-#: config/nls.php.dist:227
+#: config/nls.php.dist:229
 msgid "Central European (ISO-8859-2)"
 msgstr "Centraal Europees (ISO-8859-2)"
 
@@ -1531,11 +1526,11 @@ msgstr "Chili"
 msgid "China"
 msgstr "China"
 
-#: config/nls.php.dist:228
+#: config/nls.php.dist:230
 msgid "Chinese Simplified (GB2312)"
 msgstr "Chinees vereenvoudigd (GB2312)"
 
-#: config/nls.php.dist:229
+#: config/nls.php.dist:231
 msgid "Chinese Traditional (Big5)"
 msgstr "Chinees traditioneel (Big5)"
 
@@ -1744,15 +1739,11 @@ msgstr "Kongo, Republiek van"
 msgid "Congo, The Democratic Republic of the"
 msgstr "Kongo, De Democratische Republiek van de"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:217
-#: framework/IMAP/IMAP/ACL/rfc2086.php:371
-#: framework/IMAP/IMAP/ACL/rfc2086.php:521
+#: framework/IMAP/IMAP/ACL/rfc2086.php:471
 msgid "Connection failed."
 msgstr "Verbinding mislukt."
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:217
-#: framework/IMAP/IMAP/ACL/rfc2086.php:371
-#: framework/IMAP/IMAP/ACL/rfc2086.php:521
+#: framework/IMAP/IMAP/ACL/rfc2086.php:471
 msgid "Connection failed: "
 msgstr "Verbinding mislukt: "
 
@@ -1993,17 +1984,13 @@ msgstr ""
 "details zijn niet juist. Probeer opnieuw of neem contact op met de "
 "systeembeheerder, wanneer u verdere hulp nodig heeft."
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:332
-#: framework/IMAP/IMAP/ACL/rfc2086.php:370
-#: framework/IMAP/IMAP/ACL/rfc2086.php:376
-#: framework/IMAP/IMAP/ACL/rfc2086.php:404
-#: framework/IMAP/IMAP/ACL/rfc2086.php:419
+#: framework/IMAP/IMAP/ACL/rfc2086.php:325
+#: framework/IMAP/IMAP/ACL/rfc2086.php:350
 #: framework/IMAP/IMAP/ACL/rfc2086.php:428
-#: framework/IMAP/IMAP/ACL/rfc2086.php:520
-#: framework/IMAP/IMAP/ACL/rfc2086.php:526
-#: framework/IMAP/IMAP/ACL/rfc2086.php:554
-#: framework/IMAP/IMAP/ACL/rfc2086.php:569
-#: framework/IMAP/IMAP/ACL/rfc2086.php:578
+#: framework/IMAP/IMAP/ACL/rfc2086.php:470
+#: framework/IMAP/IMAP/ACL/rfc2086.php:476
+#: framework/IMAP/IMAP/ACL/rfc2086.php:504
+#: framework/IMAP/IMAP/ACL/rfc2086.php:519
 #, php-format
 msgid "Could not retrieve ACL"
 msgstr "Kon ACL niet ophalen"
@@ -2023,9 +2010,7 @@ msgstr "Kon distributielijst %s niet ophalen."
 msgid "Could not retrieve distribution lists. %s"
 msgstr "Kon distributielijsten %s niet ophalen."
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:217
-#: framework/IMAP/IMAP/ACL/rfc2086.php:222
-#: framework/IMAP/IMAP/ACL/rfc2086.php:229
+#: framework/IMAP/IMAP/ACL/rfc2086.php:223
 msgid "Could not retrieve server's capabilities"
 msgstr "Kon serverbekwaamheden niet ophalen"
 
@@ -2099,7 +2084,7 @@ msgid "Couldn't find the Mozilla Sidebar. Make sure the sidebar is open."
 msgstr ""
 "Kon de Mozilla Sidebar niet vinden. Zorg ervoor dat de sidebar open is."
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:169
+#: framework/IMAP/IMAP/ACL/rfc2086.php:174
 #, php-format
 msgid ""
 "Couldn't give user \"%s\" the following rights for the folder \"%s\": %s"
@@ -2123,7 +2108,7 @@ msgstr "Landen drop down lijst"
 msgid "Create"
 msgstr "Maken"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:104
+#: framework/IMAP/IMAP/ACL/rfc2086.php:109
 msgid "Create Folder"
 msgstr "Maak map"
 
@@ -2135,7 +2120,7 @@ msgstr "Maak mappen"
 msgid "Create a new one"
 msgstr "Maak een nieuwe"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:92
+#: framework/IMAP/IMAP/ACL/rfc2086.php:97
 #: framework/IMAP/IMAP/ACL/rfc4314.php:52
 msgid "Create sub folders"
 msgstr "Maak submappen"
@@ -2195,15 +2180,15 @@ msgstr "Aanpassen van taken tijdens aanmelding bij %s."
 msgid "Cyprus"
 msgstr "Cyprus"
 
-#: config/nls.php.dist:230
+#: config/nls.php.dist:232
 msgid "Cyrillic (KOI8-R)"
 msgstr "Cyrillisch (KOI8-R)"
 
-#: config/nls.php.dist:231
+#: config/nls.php.dist:233
 msgid "Cyrillic (Windows-1251)"
 msgstr "Cyrillisch (Windows-1251)"
 
-#: config/nls.php.dist:232
+#: config/nls.php.dist:234
 msgid "Cyrillic/Ukrainian (KOI8-U)"
 msgstr "Cyrillisch/Ukrains (KOI8-U)"
 
@@ -2289,7 +2274,7 @@ msgstr "Dag"
 msgid "December"
 msgstr "December"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:980
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:857
 msgid "Declined: "
 msgstr "Afgewezen"
 
@@ -2350,7 +2335,7 @@ msgstr "Groep verwijderen"
 msgid "Delete Permission"
 msgstr "Recht verwijderen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:93
+#: framework/IMAP/IMAP/ACL/rfc2086.php:98
 msgid "Delete and purge messages"
 msgstr "Verwijder en wis berichten"
 
@@ -2376,7 +2361,7 @@ msgstr "Geselecteerde identiteit verwijderen"
 msgid "Delete sub folders"
 msgstr "Verwijder submappen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:105
+#: framework/IMAP/IMAP/ACL/rfc2086.php:110
 msgid "Delete/purge"
 msgstr "Verwijderen/wissen"
 
@@ -2744,8 +2729,8 @@ msgstr "Fout bij verwijderen van synchronisatiesessie:"
 msgid "Error deleting synchronization sessions:"
 msgstr "Fout bij verwijderen van synchronisatiesessies:"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:694
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:700
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:571
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:577
 #, php-format
 msgid "Error processing \"%s\""
 msgstr "Fout bij verwerken van \"%s\""
@@ -3044,7 +3029,7 @@ msgstr[1] "Aantal bestanden: %d bestanden"
 
 #: config/registry.php.dist:386
 msgid "File Manager"
-msgstr "Bestandbeheer"
+msgstr "Bestandsbeheer"
 
 #: framework/MIME/MIME/Viewer/zip.php:84 framework/MIME/MIME/Viewer/rar.php:61
 #: framework/MIME/MIME/Viewer/tgz.php:88
@@ -3312,7 +3297,7 @@ msgstr "Grijsschaal"
 msgid "Greece"
 msgstr "Griekenland"
 
-#: config/nls.php.dist:233
+#: config/nls.php.dist:235
 msgid "Greek (ISO-8859-7)"
 msgstr "Grieks (ISO-8859-7)"
 
@@ -3465,7 +3450,7 @@ msgstr "Zware regen"
 msgid "Heavy T-Storm"
 msgstr "Zware onweersbui"
 
-#: config/nls.php.dist:234
+#: config/nls.php.dist:236
 msgid "Hebrew (ISO-8859-8-I)"
 msgstr "Hebreeuws (ISO-8859-8-I)"
 
@@ -3789,7 +3774,7 @@ msgstr "Overgeërfde leden"
 msgid "Inline Notification"
 msgstr "Inline notificatie"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:102
+#: framework/IMAP/IMAP/ACL/rfc2086.php:107
 #: framework/IMAP/IMAP/ACL/rfc4314.php:64
 msgid "Insert"
 msgstr "Invoegen"
@@ -3798,7 +3783,7 @@ msgstr "Invoegen"
 msgid "Insert an email address to which you can receive the new password:"
 msgstr "Een e-mailadres invoegen, waar u het nieuwe wachtwoord kan ontvangen:"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:90
+#: framework/IMAP/IMAP/ACL/rfc2086.php:95
 #: framework/IMAP/IMAP/ACL/rfc4314.php:50
 msgid "Insert messages"
 msgstr "Berichten invoegen"
@@ -4042,7 +4027,7 @@ msgstr "Januari"
 msgid "Japan"
 msgstr "Japan"
 
-#: config/nls.php.dist:235
+#: config/nls.php.dist:237
 msgid "Japanese (ISO-2022-JP)"
 msgstr "Japans (ISO-2022-JP)"
 
@@ -4149,7 +4134,7 @@ msgstr "Korea, Democratische Volksrepubliek van"
 msgid "Korea, Republic of"
 msgstr "Korea, Republiek van"
 
-#: config/nls.php.dist:236
+#: config/nls.php.dist:238
 msgid "Korean (EUC-KR)"
 msgstr "Koreaans (EUC-KR)"
 
@@ -4361,12 +4346,12 @@ msgstr "Links"
 msgid "Linux Cookie"
 msgstr "Linux Cookie"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:98
+#: framework/IMAP/IMAP/ACL/rfc2086.php:103
 #: framework/IMAP/IMAP/ACL/rfc4314.php:60
 msgid "List"
 msgstr "Groepen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:86
+#: framework/IMAP/IMAP/ACL/rfc2086.php:91
 #: framework/IMAP/IMAP/ACL/rfc4314.php:46
 msgid "List - user can see the folder"
 msgstr "Lijst - gebruiker kan de map zien"
@@ -4591,22 +4576,22 @@ msgstr "MapQuestkaart"
 msgid "March"
 msgstr "Maart"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:101
+#: framework/IMAP/IMAP/ACL/rfc2086.php:106
 #: framework/IMAP/IMAP/ACL/rfc4314.php:63
 msgid "Mark (Other)"
 msgstr "Markeren (Anders)"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:100
+#: framework/IMAP/IMAP/ACL/rfc2086.php:105
 #: framework/IMAP/IMAP/ACL/rfc4314.php:62
 msgid "Mark (Seen)"
 msgstr "Markeren (Gezien)"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:88
+#: framework/IMAP/IMAP/ACL/rfc2086.php:93
 #: framework/IMAP/IMAP/ACL/rfc4314.php:48
 msgid "Mark with Seen/Unseen flags"
 msgstr "Markeer met Gezien/Niet Gezien vlaggen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:89
+#: framework/IMAP/IMAP/ACL/rfc2086.php:94
 #: framework/IMAP/IMAP/ACL/rfc4314.php:49
 msgid "Mark with other flags (e.g. Important/Answered)"
 msgstr "Markeer met andere vlaggen (b.v. Belangrijk/Beantwoord)"
@@ -5173,7 +5158,7 @@ msgid "No children can be added to this permission."
 msgstr "Aan dit recht kunnen geen child rechten worden toegevoegd."
 
 #: framework/Util/Util.php:793 framework/Horde/Horde.php:205
-#: framework/Horde/Horde.php:707
+#: framework/Horde/Horde.php:730
 #, php-format
 msgid "No configuration information specified for %s."
 msgstr "Geen configuratieinformatie opgegeven voor %s."
@@ -5250,7 +5235,7 @@ msgstr "Geen beledigende fortunes"
 msgid "No or unreadable content in Kolab XML object"
 msgstr "Geen of onleesbare inhoud in Kolab XML object"
 
-#: framework/Crypt/Crypt/smime.php:1309
+#: framework/Crypt/Crypt/smime.php:1319
 msgid ""
 "No path to the OpenSSL binary provided. The OpenSSL binary is necessary to "
 "work with PKCS 12 data."
@@ -5298,7 +5283,7 @@ msgstr "Bestand bestaat niet"
 msgid "No such folder %s"
 msgstr "Geen dergelijke map %s"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:927
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:804
 msgid "No summary available"
 msgstr "Geen samenvatting beschikbaar"
 
@@ -5340,7 +5325,7 @@ msgstr "Geen versie gevonden in uw configuratie. Hergenereer configuratie."
 msgid "None"
 msgstr "Geen"
 
-#: config/nls.php.dist:237
+#: config/nls.php.dist:239
 msgid "Nordic (ISO-8859-10)"
 msgstr "Noord Europees (ISO-8859-10)"
 
@@ -5524,7 +5509,7 @@ msgstr "Oman"
 msgid "Onclick event"
 msgstr "Onclick gebeurtenis"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:73
+#: framework/IMAP/IMAP/ACL/rfc2086.php:74
 msgid "Only IMAP servers support shared folders."
 msgstr "Alleen IMAP servers ondersteunen gedeelde mappen."
 
@@ -5767,7 +5752,7 @@ msgstr "Wachtwoord"
 msgid "Password changed successfully."
 msgstr "Wachwoord is gewijzigd."
 
-#: framework/Crypt/Crypt/smime.php:1345
+#: framework/Crypt/Crypt/smime.php:1355
 msgid "Password incorrect"
 msgstr "Wachtwoord onjuist"
 
@@ -5968,12 +5953,12 @@ msgstr "Poort"
 msgid "Portugal"
 msgstr "Portugal"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:103
+#: framework/IMAP/IMAP/ACL/rfc2086.php:108
 #: framework/IMAP/IMAP/ACL/rfc4314.php:65
 msgid "Post"
 msgstr "Versturen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:91
+#: framework/IMAP/IMAP/ACL/rfc2086.php:96
 #: framework/IMAP/IMAP/ACL/rfc4314.php:51
 msgid "Post to this folder (not enforced by IMAP)"
 msgstr "Stuur naar deze map (niet afgedwongen door IMAP)"
@@ -6149,7 +6134,7 @@ msgstr "Random Fortune"
 msgid "Ratio"
 msgstr "Verhouding"
 
-#: framework/Perms/Perms.php:401 framework/IMAP/IMAP/ACL/rfc2086.php:99
+#: framework/Perms/Perms.php:401 framework/IMAP/IMAP/ACL/rfc2086.php:104
 #: framework/IMAP/IMAP/ACL/rfc4314.php:61 templates/shares/edit.inc:62
 #: templates/shares/edit.inc:76 templates/shares/edit.inc:97
 #: templates/shares/edit.inc:111 templates/shares/edit.inc:132
@@ -6160,7 +6145,7 @@ msgstr "Verhouding"
 msgid "Read"
 msgstr "Lezen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:87
+#: framework/IMAP/IMAP/ACL/rfc2086.php:92
 #: framework/IMAP/IMAP/ACL/rfc4314.php:47
 msgid "Read messages"
 msgstr "Lees berichten"
@@ -6261,7 +6246,7 @@ msgstr "Verzoek kon niet worden beantwoord. Geretourneerde foutcode: "
 msgid "Requested service could not be found."
 msgstr "Gevraagde service kon niet worden gevonden."
 
-#: framework/Horde/Horde.php:212 framework/Horde/Horde.php:717
+#: framework/Horde/Horde.php:212 framework/Horde/Horde.php:740
 #, php-format
 msgid "Required \"%s\" not specified in %s configuration."
 msgstr "Vereiste \"%s\" niet opgegeven in %s configuratie."
@@ -7018,7 +7003,7 @@ msgstr "Bronadres"
 msgid "South Africa"
 msgstr "Zuid Afrika"
 
-#: config/nls.php.dist:238
+#: config/nls.php.dist:240
 msgid "South European (ISO-8859-3)"
 msgstr "Zuid Europees (ISO-8859-3)"
 
@@ -7391,7 +7376,7 @@ msgstr "Temperatuur<br />(%sHoog%s/%sLaag%s) &graden;%s"
 msgid "Template \"%s\" not found."
 msgstr "Sjabloon \"%s\" niet gevonden."
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:1000
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:877
 msgid "Tentative: "
 msgstr "Voorlopig"
 
@@ -7412,7 +7397,7 @@ msgstr "Alleen tekst"
 msgid "Th"
 msgstr "Do"
 
-#: config/nls.php.dist:239
+#: config/nls.php.dist:241
 msgid "Thai (TIS-620)"
 msgstr "Thais (TIS-620)"
 
@@ -7519,7 +7504,7 @@ msgstr ""
 msgid "The distribution list was not specified."
 msgstr "De distributielijst is niet opgegeven."
 
-#: framework/Prefs/Identity.php:480
+#: framework/Prefs/Identity.php:489
 #, php-format
 msgid ""
 "The email address %s has been added to your identities. You can close this "
@@ -7532,12 +7517,12 @@ msgstr ""
 msgid "The encryption features require a secure web connection."
 msgstr "De codeermogelijkheden vereisen een beveiligde webverbinding."
 
-#: framework/Horde/Horde.php:213 framework/Horde/Horde.php:718
+#: framework/Horde/Horde.php:213 framework/Horde/Horde.php:741
 #, php-format
 msgid "The file %s should contain a %s setting."
 msgstr "Het bestand %s dient een %s instelling te bevatten."
 
-#: framework/Horde/Horde.php:206 framework/Horde/Horde.php:708
+#: framework/Horde/Horde.php:206 framework/Horde/Horde.php:731
 #, php-format
 msgid "The file %s should contain some %s settings."
 msgstr "Het bestand %s dient enige %s instellingen te bevatten."
@@ -7553,11 +7538,11 @@ msgstr ""
 "De volgende toepassingen kwamen fouten tegen bij verwijderen van "
 "gebruikersdata: %s"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:717
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:594
 msgid "The following event has been successfully removed:"
 msgstr "De volgende gebeurtenis is met succes verwijderd:"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:699
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:576
 #, php-format
 msgid "The following event that was canceled is not present in %s's calendar:"
 msgstr ""
@@ -7659,7 +7644,7 @@ msgstr "Het nieuwe adres kan niet worden geverifieerd, probeer later opnieuw: "
 msgid "The number of fields must be numeric."
 msgstr "Deze waarde moet een geldig getal zijn."
 
-#: framework/Crypt/Crypt/smime.php:1235
+#: framework/Crypt/Crypt/smime.php:1245
 msgid "The openssl module is required for the Horde_Crypt_smime:: class."
 msgstr "De openssl module is vereist voor de Horde_Crypt_smime:: class."
 
@@ -7905,8 +7890,8 @@ msgstr ""
 "Een fout met het bijwerken van de distributielijst. Probeer later opnieuw, a."
 "u.b."
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:163
-#: framework/IMAP/IMAP/ACL/rfc2086.php:326
+#: framework/IMAP/IMAP/ACL/rfc2086.php:168
+#: framework/IMAP/IMAP/ACL/rfc2086.php:319
 msgid "This IMAP server does not support sharing folders."
 msgstr "Deze IMAP server ondersteunt geen deling van mappen."
 
@@ -8190,7 +8175,7 @@ msgstr "Tunesië"
 msgid "Turkey"
 msgstr "Turkije"
 
-#: config/nls.php.dist:240
+#: config/nls.php.dist:242
 msgid "Turkish (ISO-8859-9)"
 msgstr "Turks (ISO-8859-9)"
 
@@ -8243,7 +8228,7 @@ msgstr "Oeganda"
 msgid "Ukraine"
 msgstr "Oekraïne"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:693
+#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:570
 #, php-format
 msgid "Unable to access %s's calendar:"
 msgstr "Niet in staat %s's agenda aan te spreken:"
@@ -8558,19 +8543,15 @@ msgstr "Ongeauthoriseerd"
 msgid "Undo Changes"
 msgstr "Herstel wijzigingen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:222
-#: framework/IMAP/IMAP/ACL/rfc2086.php:377
-#: framework/IMAP/IMAP/ACL/rfc2086.php:527
+#: framework/IMAP/IMAP/ACL/rfc2086.php:477
 msgid "Unexpected response from server on connection: "
 msgstr "Onverwacht antwoord van de server op verbinding: "
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:229
-#: framework/IMAP/IMAP/ACL/rfc2086.php:405
-#: framework/IMAP/IMAP/ACL/rfc2086.php:420
+#: framework/IMAP/IMAP/ACL/rfc2086.php:223
+#: framework/IMAP/IMAP/ACL/rfc2086.php:351
 #: framework/IMAP/IMAP/ACL/rfc2086.php:429
-#: framework/IMAP/IMAP/ACL/rfc2086.php:555
-#: framework/IMAP/IMAP/ACL/rfc2086.php:570
-#: framework/IMAP/IMAP/ACL/rfc2086.php:579
+#: framework/IMAP/IMAP/ACL/rfc2086.php:505
+#: framework/IMAP/IMAP/ACL/rfc2086.php:520
 msgid "Unexpected response from server to: "
 msgstr "Onverwacht antwoord van server aan: "
 
@@ -8583,7 +8564,7 @@ msgstr "Onverwacht antwoord van server, probeer later opnieuw."
 msgid "Unfiled"
 msgstr "Onbenoemd"
 
-#: config/nls.php.dist:241
+#: config/nls.php.dist:243
 msgid "Unicode (UTF-8)"
 msgstr "Unicode (UTF-8)"
 
@@ -8651,8 +8632,8 @@ msgstr "Onbenoemd"
 msgid "Unsupported"
 msgstr "Niet ondersteund"
 
-#: framework/Crypt/Crypt/smime.php:690 framework/Crypt/Crypt/smime.php:930
-#: framework/Crypt/Crypt/smime.php:936
+#: framework/Crypt/Crypt/smime.php:690 framework/Crypt/Crypt/smime.php:940
+#: framework/Crypt/Crypt/smime.php:946
 msgid "Unsupported Extension"
 msgstr "Niet ondersteunde extentie"
 
@@ -8864,7 +8845,7 @@ msgstr "Erg hoog"
 msgid "Viet Nam"
 msgstr "Vietnam"
 
-#: config/nls.php.dist:242
+#: config/nls.php.dist:244
 msgid "Vietnamese (VISCII)"
 msgstr "Vietnamees (VISCII)"
 
@@ -8971,11 +8952,11 @@ msgstr "Welkom bij %s"
 msgid "Welcome, %s"
 msgstr "Welkom, %s"
 
-#: config/nls.php.dist:243
+#: config/nls.php.dist:245
 msgid "Western (ISO-8859-1)"
 msgstr "Westers (ISO-8859-1)"
 
-#: config/nls.php.dist:244
+#: config/nls.php.dist:246
 msgid "Western (ISO-8859-15)"
 msgstr "Westers (ISO-8859-15)"
 
@@ -9226,7 +9207,7 @@ msgstr "U mag geen lijst met gebruikers of shares opvragen."
 msgid "You are not allowed to remove user data."
 msgstr "U mag geen gebruikersdata verwijderen."
 
-#: framework/Horde/Horde.php:1660
+#: framework/Horde/Horde.php:1683
 msgid "You are not authenticated."
 msgstr "U bent niet geauthenticeerd."
 
@@ -9292,7 +9273,7 @@ msgstr ""
 "U dient een DataTree backend te configureren om inschrijvingen te kunnen "
 "gebruiken."
 
-#: framework/Horde/Horde.php:641
+#: framework/Horde/Horde.php:664
 msgid "You must configure a VFS backend."
 msgstr "U dient een VFS backend te configureren."
 
@@ -9710,7 +9691,7 @@ msgstr "naam"
 msgid "no such option: %s"
 msgstr "Geen dergelijke optie: %s"
 
-#: framework/Crypt/Crypt/smime.php:1223
+#: framework/Crypt/Crypt/smime.php:1233
 msgid "not yet implemented"
 msgstr "Nog niet van toepassing"
 

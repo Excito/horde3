@@ -12,7 +12,7 @@
  *      'port'           The port used to connect to the ssh2 server if other
  *                       than 22.</pre>
  *
- * $Horde: framework/VFS/lib/VFS/ssh2.php,v 1.1.2.16 2009/11/01 02:29:08 chuck Exp $
+ * $Horde: framework/VFS/lib/VFS/ssh2.php,v 1.1.2.17 2010/12/07 23:56:15 bklang Exp $
  *
  * Copyright 2006-2009 The Horde Project (http://www.horde.org/)
  *
@@ -671,6 +671,25 @@ class VFS_ssh2 extends VFS {
     }
 
     /**
+     * Returns if a given file or folder exists in a folder.
+     *
+     * @param string $path  The path to the folder.
+     * @param string $name  The file or folder name.
+     *
+     * @return boolean  True if it exists, false otherwise.
+     */
+    function exists($path, $name)
+    { 
+        $conn = $this->_connect();
+        if (is_a($conn, 'PEAR_Error')) {
+            return $conn;
+        }
+
+        return !(ssh2_sftp_stat($this->_sftp, ssh2_sftp_realpath($this->_sftp, $path) . '/' . $name) === false);
+    }
+
+
+    /**
      * Returns a sorted list of folders in the specified directory.
      *
      * @param string $path         The path of the directory to get the
@@ -1000,7 +1019,7 @@ class VFS_ssh2 extends VFS {
     function _wrap($remote)
     {
         return 'ssh2.sftp://' . $this->_params['username'] . ':' . $this->_params['password']
-            . '@' . $this->_params['hostspec'] . ':' . $this->_params['port'] . $remote;
+            . '@' . $this->_params['hostspec'] . ':' . $this->_params['port'] . ssh2_sftp_realpath($this->_sftp, $remote);
     }
 
 }

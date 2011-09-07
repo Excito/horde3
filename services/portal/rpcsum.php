@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: horde/services/portal/rpcsum.php,v 2.26.6.8 2009/01/06 15:27:33 jan Exp $
+ * $Horde: horde/services/portal/rpcsum.php,v 2.26.6.9 2010/09/27 10:10:05 jan Exp $
  *
  * Copyright 2001-2009 The Horde Project (http://www.horde.org/)
  *
@@ -33,6 +33,14 @@ if (is_null($actionID)) {
         $actionID = 'save';
     } elseif (Util::getPost('delete')) {
         $actionID = 'delete';
+    }
+}
+
+if ($actionID) {
+    $result = Horde::checkRequestToken('horde.prefs', Util::getFormData('horde_prefs_token'));
+    if (is_a($result, 'PEAR_Error')) {
+        $notification->push($result, 'horde.error');
+        $actionID = null;
     }
 }
 

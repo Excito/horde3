@@ -71,4 +71,4 @@ var AccessKeys = {
 
 }
 
-Event.observe(window, 'load', AccessKeys.replace.bind(AccessKeys));
+document.observe('dom:loaded', AccessKeys.replace.bind(AccessKeys));

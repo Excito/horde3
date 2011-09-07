@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: horde/services/prefs/index.php,v 1.1.2.6 2009/01/06 15:27:35 jan Exp $
+ * $Horde: horde/services/prefs/index.php,v 1.1.2.10 2010/09/27 17:37:49 slusarz Exp $
  *
  * Copyright 2006-2009 The Horde Project (http://www.horde.org/)
  *
@@ -10,19 +10,26 @@
  * @author Chuck Hagenbuch <chuck@horde.org>
  */
 
+/* SECURITY: This script is subject to CSRF attacks. It has been removed
+ * in Horde 4.  However, for BC, it needs to remain for certain applications &
+ * preferences.  The following is the list of allowed prefs to be set using
+ * this script. */
+$wl_prefs = array(
+    'dimp' => array(
+        'show_preview'
+    )
+);
+
+
 @define('HORDE_BASE', dirname(dirname(dirname(__FILE__))));
 require_once HORDE_BASE . '/lib/core.php';
 
 $registry = &Registry::singleton();
 
-/* Which application. */
+/* Which application/preference? */
 $app = Util::getFormData('app');
-if (!$app) {
-    echo '<ul id="app">';
-    foreach ($registry->listApps() as $app) {
-        echo '<li>' . htmlspecialchars($app) . '</li>';
-    }
-    echo '</ul>';
+$pref = Util::getFormData('pref');
+if (!isset($wl_prefs[$app][$pref])) {
     exit;
 }
 
@@ -31,30 +38,6 @@ if (!$app) {
 $authentication = 'none';
 $appbase = $registry->get('fileroot', $app);
 require_once $appbase . '/lib/base.php';
-
-/* Which preference. */
-$pref = Util::getFormData('pref');
-if (!$pref) {
-    /* Load prefs config file. */
-    $result = Horde::loadConfiguration('prefs.php', array('_prefs'), $app);
-    if (is_a($result, 'PEAR_Error')) {
-        exit;
-    }
-    extract($result);
-
-    echo '<ul id="pref">';
-    foreach ($_prefs as $pref => $params) {
-        switch ($params['type']) {
-        case 'special':
-        case 'link':
-            break;
-
-        default:
-            echo '<li preftype="' . htmlspecialchars($params['type']) . '">' . htmlspecialchars($pref) . '</li>';
-        }
-    }
-    echo '</ul>';
-}
 
 /* Which action. */
 if (Util::getPost('pref') == $pref) {

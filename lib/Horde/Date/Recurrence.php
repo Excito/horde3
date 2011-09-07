@@ -2,7 +2,7 @@
 /**
  * This file contains the Horde_Date_Recurrence class and according constants.
  *
- * $Horde: framework/Date/Date/Recurrence.php,v 1.7.2.15 2009/12/03 11:17:26 wrobel Exp $
+ * $Horde: framework/Date/Date/Recurrence.php,v 1.7.2.16 2010/10/14 14:18:05 jan Exp $
  *
  * Copyright 2007-2009 The Horde Project (http://www.horde.org/)
  *
@@ -922,7 +922,7 @@ class Horde_Date_Recurrence {
                $remainder = substr($remainder, 1);
         }
         if (!empty($remainder)) {
-            if (strpos($remainder, '#') !== false) {
+            if (strpos($remainder, '#') === 0) {
                 $this->setRecurCount(substr($remainder, 1));
             } else {
                 list($year, $month, $mday) = sscanf($remainder, '%04d%02d%02d');

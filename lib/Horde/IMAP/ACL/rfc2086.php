@@ -17,7 +17,7 @@
  *               'imap/ssl/novalidate-cert' (for a self-signed certificate).
  *               DEFAULT: 'imap'</pre>
  *
- * $Horde: framework/IMAP/IMAP/ACL/rfc2086.php,v 1.6.8.20 2009/01/06 15:23:12 jan Exp $
+ * $Horde: framework/IMAP/IMAP/ACL/rfc2086.php,v 1.6.8.27 2010/10/19 18:12:31 slusarz Exp $
  *
  * Copyright 2003-2009 The Horde Project (http://www.horde.org/)
  *
@@ -36,6 +36,13 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
      * @var resource
      */
     var $_imap;
+
+    /**
+     * Internal IMAP connection resource.
+     *
+     * @var resource
+     */
+    var $_internalImap;
 
     /**
      * List of server's capabilities, output of CAPABILITY command. Formated
@@ -62,22 +69,20 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
                                            'protocol' => 'imap'),
                                      $params);
 
-        $this->_caps = $this->_getCapability();
-        if (is_a($this->_caps, 'PEAR_Error')) {
-            $this->_error = $this->_caps;
-            return;
-        }
-
         if (substr($this->_params['protocol'], 0, 4) != 'imap') {
             /* No point in going any further if it's not an IMAP server. */
             $this->_error = PEAR::raiseError(_("Only IMAP servers support shared folders."));
             $this->_supported = false;
-        } elseif (!isset($this->_caps['acl'])) {
-            /* If we couldn't get the server's capability, we'll assume ACL is
-               not supported for now. */
-            $this->_supported = false;
         } else {
-            $this->_supported = true;
+            $this->_caps = $this->_getCapability();
+            if (is_a($this->_caps, 'PEAR_Error')) {
+                $this->_error = $this->_caps;
+                return;
+            }
+
+            /* If we couldn't get the server's capability, assume ACL is
+             * not supported for now. */
+            $this->_supported = isset($this->_caps['acl']);
         }
 
         $this->_protected = array($this->_params['username']);
@@ -200,32 +205,25 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
      *
      * @access private
      *
+     * @param resource $imap  The IMAP resource to use.
+     *
      * @return array  An array containing the server's capabilities.
      */
-    function _getCapability()
+    function _getCapability($imap = null)
     {
         $capabilities = null;
-        $server = $this->_params['hostspec'];
 
-        if (preg_match('|^[^/]+/ssl|', $this->_params['protocol'])) {
-            $server = 'ssl://' . $server;
-        }
-
-        $imap = fsockopen($server, $this->_params['port'], $errno, $errstr, 30);
-
-        if (!$imap)
-            return PEAR::raiseError(_("Could not retrieve server's capabilities") . ' - ' . ($errno ? _("Connection failed: ") . $errno . ' : ' . $errstr : _("Connection failed.")));
-
-        $response = fgets($imap, 4096);
-        if (!preg_match('/^\*\s+OK/', $response)) {
-            fclose ($imap);
-            return PEAR::raiseError(_("Could not retrieve server's capabilities") . ' - ' . _("Unexpected response from server on connection: ") . $response);
+        if (!$imap) {
+            $imap = $this->_internalLogin();
+            if (is_a($imap, 'PEAR_Error')) {
+                return $imap;
+            }
         }
 
         fputs($imap, "x CAPABILITY\r\n");
         $response = trim(fgets($imap, 1024));
-        if (!preg_match('/^\*\s+CAPABILITY/', $response)) {
-            fclose ($imap);
+        if (!preg_match('/^\*\s+CAPABILITY/i', $response)) {
+            fclose($imap);
             return PEAR::raiseError(_("Could not retrieve server's capabilities") . ' - ' . _("Unexpected response from server to: ") . '\'x CAPABILITY\' : ' . $response);
         }
 
@@ -245,7 +243,9 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
                 $capabilities[String::lower($var)] = 1;
             }
         }
-        fclose ($imap);
+
+        /* Read remaining responses. */
+        fgets($imap, 1024);
 
         return $capabilities;
     }
@@ -253,6 +253,9 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
     /**
      * Attempts to retrieve the existing ACL for a folder from the current
      * IMAP server.
+     *
+     * NB: if Auth_SASL is not installed this function will send the users
+     * password to the IMAP server as plain text!!
      *
      * @param string folder  The folder to get the ACL for.
      *
@@ -266,49 +269,6 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
      * </pre>
      */
     function getACL($folder)
-    {
-        if (isset($this->_caps['auth']['digest-md5'])) {
-            $acl = $this->_getACL($folder, 'digest-md5');
-            if (!is_a($acl, 'PEAR_Error')) {
-                return $acl;
-            }
-        }
-
-        if (isset($this->_caps['auth']['cram-md5'])) {
-            $acl = $this->_getACL($folder, 'cram-md5');
-            if (!is_a($acl, 'PEAR_Error')) {
-                return $acl;
-            }
-        }
-
-        // Fall through to plain.
-        return $this->_getACL($folder, 'login');
-    }
-
-    /**
-     * Attempts to retrieve the existing ACL for a folder from the current
-     * IMAP server.
-     *
-     * NB: if Auth_SASL is not installed this function will send the users
-     * password to the IMAP server as plain text!!
-     *
-     * @access private
-     * @todo Cleanup for PHP 5.
-     *
-     * @param string folder    The folder to get the ACL for.
-     * @param string authMech  The authorisation mechanism to use. One of
-     *                         cram-md5, digest-md5 or login.
-     *
-     * @return array  A hash containing information on the ACL
-     * <pre>
-     * Array (
-     *   user => Array (
-     *     right => 1
-     *   )
-     * )
-     * </pre>
-     */
-    function _getACL($folder, $authMech)
     {
         /* If imap_getacl() is available, use it */
         if (function_exists('imap_getacl')) {
@@ -342,91 +302,21 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
             return $returnACL;
         }
 
-        $have_sasl = false;
         $returnACL = array();
-        $server = $this->_params['hostspec'];
         $txid = 0;
 
-        /* Silence warnings during check if Auth_SASL module is installed. */
-        if (@include_once 'Auth/SASL.php') {
-            $have_sasl = true;
+        $imap = $this->_internalLogin();
+        if (is_a($imap, 'PEAR_Error')) {
+            return $imap;
         }
 
-        $pass = $this->_params['password'];
-
-        if (preg_match('|^[^/]+/ssl|', $this->_params['protocol'])) {
-            $server = 'ssl://' . $server;
-        }
-
-        /* Quote the folder string if it contains non alpha-numeric
-           characters. */
-        if (preg_match('/\W/',$folder)) {
-            $folder = '"' . $folder . '"';
-        }
-
-        $imap = fsockopen($server, $this->_params['port'], $errno, $errstr, 30);
-
-        if (!$imap)
-            return PEAR::raiseError(_("Could not retrieve ACL")
-                . ' - ' . ($errno ? _("Connection failed: ") . $errno.' : ' . $errstr : _("Connection failed.")));
-
-        $response = fgets($imap, 4096);
-        if (!preg_match('/^\*\s+OK/', $response)) {
-            fclose($imap);
-            return PEAR::raiseError(_("Could not retrieve ACL")
-                . ' - ' . _("Unexpected response from server on connection: ") . $response);
-        }
-
-        /* login using the preferred mechanism default to login if
-           Auth_SASL is not installed. */
-        if ($have_sasl && ($authMech == 'cram-md5')) {
-            $login = Auth_SASL::factory('crammd5');
-
-            fputs($imap, "$txid AUTHENTICATE CRAM-MD5\r\n");
-            $challenge = explode(' ', trim(fgets($imap, 1024)));
-
-            $response = $login->getResponse($_SESSION['imp']['user'], $pass, base64_decode($challenge[1]));
-            fputs($imap, base64_encode($response) . "\r\n");
-        } elseif ($have_sasl && ($authMech == 'digest-md5')) {
-            $login = Auth_SASL::factory('digestmd5');
-
-            fputs($imap, "$txid AUTHENTICATE DIGEST-MD5\r\n");
-            $challenge = explode(' ', trim(fgets($imap, 1024)));
-
-            $response = $login->getResponse($_SESSION['imp']['user'], $pass, base64_decode($challenge[1]),
-                $_SESSION['imp']['server'], $_SESSION['imp']['base_protocol']);
-
-            fputs($imap, base64_encode($response) . "\r\n");
-            $response = explode(' ', trim(fgets($imap, 1024)));
-            $response = base64_decode($response[1]);
-            if (strpos($response, 'rspauth=') === false) {
-                fclose($imap);
-                return PEAR::raiseError(_("Could not retrieve ACL")
-                    . ' - ' . _("Unexpected response from server to: ") . 'Digest-MD5 response', 'horde.warning');
-            }
-            fputs($imap, "\r\n");
-        } else {
-            if (preg_match('/\W/', $pass)) {
-                $pass = addslashes($pass);
-                $pass = '"' . $pass . '"';
-            }
-            fputs($imap, "$txid LOGIN " . $_SESSION['imp']['user'] . ' ' . $pass . "\r\n");
-        }
-
-        $response = trim(fgets($imap, 1024));
-        if (!preg_match("/^$txid\sOK/", $response)) {
-            fclose($imap);
-            return PEAR::raiseError(_("Could not retrieve ACL")
-                . ' - ' . _("Unexpected response from server to: ") . 'login : ' . $response);
-        }
-
-        $txid++;
-        fputs($imap, "$txid GETACL " . $folder . "\r\n");
+        fputs($imap, "$txid GETACL \"" . addcslashes($folder, '"') . "\"\r\n");
         $response = trim(fgets($imap, 4096));
         if (!preg_match('/^\*\s+ACL\s+(.*)/i', $response, $matches)) {
             fclose($imap);
-            return PEAR::raiseError(_("Could not retrieve ACL")
-                . ' - ' . _("Unexpected response from server to: ") . "'$txid GETACL' : " .$response);
+            return PEAR::raiseError(_("Could not retrieve ACL") . ' - '
+                                    . _("Unexpected response from server to: ")
+                                    . "'$txid GETACL' : " . $response);
         }
 
         $res_arr = $this->_atomise($matches[1]);
@@ -445,13 +335,15 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
                 $is_key = 1;
             }
         }
-        fclose($imap);
 
         return $returnACL;
     }
 
     /**
      * Can a user edit the ACL for this folder?
+     *
+     * NB: if Auth_SASL is not installed this function will send the users
+     * password to the IMAP server as plain text!!
      *
      * @param string $folder  The folder name.
      * @param string $user    A user name.
@@ -464,54 +356,53 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
         /* We can't establish if the user is in a group with the 'a'
            privilege, so just return true and leave the decision to the
            server */
-        if (strcmp($this->_params['username'], $user) != 0)
+        if (strcmp($this->_params['username'], $user) != 0) {
             return true;
-
-        if (isset($this->_caps['auth']['digest-md5'])) {
-            return $this->_canEdit($folder, 'digest-md5');
-        } elseif (isset($this->_caps['auth']['cram-md5'])) {
-            return $this->_canEdit($folder, 'cram-md5');
-        } else {
-            return $this->_canEdit($folder, 'login');
         }
+
+        $txid = 0;
+
+        $imap = $this->_internalLogin();
+        if (is_a($imap, 'PEAR_Error')) {
+            return $imap;
+        }
+
+        fputs($imap, "$txid MYRIGHTS \"" . addcslashes($folder, '"') . "\"\r\n");
+        $response = trim(fgets($imap, 4096));
+        if (!preg_match('/^\*\s+MYRIGHTS\s+(.*)/i', $response, $matches)) {
+            fclose($imap);
+            return PEAR::raiseError(_("Could not retrieve ACL") . ' - '
+                                    . _("Unexpected response from server to: ")
+                                    . "'$txid MYRIGHTS' : " .$response);
+        }
+
+        $res_arr = $this->_atomise($matches[1]);
+        $res_folder = array_shift($res_arr);
+        $res_rights = array_shift($res_arr);
+        fclose($imap);
+
+        return (strpos($res_rights, 'a') !== false);
     }
 
     /**
-     * Can current user edit ACL for a folder.
+     * Login to IMAP server.
      *
-     * NB: if Auth_SASL is not installed this function will send the users
-     * password to the IMAP server as plain text!!
-     *
-     * @access private
-     *
-     * @param string folder    The folder to get the ACL for.
-     * @param string authMech  The authorization mechanism to use. One of
-     *                         cram-md5, digest-md5 or login.
-     *
-     * @return boolean  True if current user has permission to edit the ACL on
-     *                  $folder
+     * @return mixed  PEAR_Error or resource.
      */
-    function _canEdit($folder, $authMech)
+    function _internalLogin()
     {
-        $have_sasl = false;
-        $server = $this->_params['hostspec'];
-        $txid = 0;
-
-        /* Silence warnings during check if Auth_SASL module is installed. */
-        if (@include_once 'Auth/SASL.php') {
-            $have_sasl = true;
+        if ($this->_internalImap) {
+            return $this->_internalImap;
         }
 
+        /* Silence warnings during check if Auth_SASL module is installed. */
+        $have_sasl = @include_once 'Auth/SASL.php';
+
+        $server = $this->_params['hostspec'];
         $pass = $this->_params['password'];
 
         if (preg_match('|^[^/]+/ssl|', $this->_params['protocol'])) {
             $server = 'ssl://' . $server;
-        }
-
-        /* Quote the folder string if it contains non alpha-numeric
-           characters. */
-        if (preg_match('/\W/',$folder)) {
-            $folder = '"' . $folder . '"';
         }
 
         $imap = fsockopen($server, $this->_params['port'], $errno, $errstr, 30);
@@ -527,20 +418,31 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
                 . ' - ' . _("Unexpected response from server on connection: ") . $response);
         }
 
-        /* login using the preferred mechanism default to login if
+        /* Get the list of pre-auth capabilities. */
+        $cap = $this->_getCapability($imap);
+
+        /* Login using the preferred mechanism default to login if
            Auth_SASL is not installed. */
-        if ($have_sasl && ($authMech == 'cram-md5')) {
+        $result = false;
+        $txid = 0;
+
+        if ($have_sasl && isset($cap['auth']['cram-md5'])) {
             $login = Auth_SASL::factory('crammd5');
 
-            fputs($imap, "$txid AUTHENTICATE CRAM-MD5\r\n");
+            fputs($imap, ++$txid . " AUTHENTICATE CRAM-MD5\r\n");
             $challenge = explode(' ', trim(fgets($imap, 1024)));
 
             $response = $login->getResponse($_SESSION['imp']['user'], $pass, base64_decode($challenge[1]));
             fputs($imap, base64_encode($response) . "\r\n");
-        } elseif ($have_sasl && ($authMech == 'digest-md5')) {
+
+            $response = trim(fgets($imap, 1024));
+            $result = preg_match("/^$txid\s+OK/i", $response);
+        }
+
+        if (!$result && $have_sasl && isset($cap['auth']['digest-md5'])) {
             $login = Auth_SASL::factory('digestmd5');
 
-            fputs($imap, "$txid AUTHENTICATE DIGEST-MD5\r\n");
+            fputs($imap, ++$txid . " AUTHENTICATE DIGEST-MD5\r\n");
             $challenge = explode(' ', trim(fgets($imap, 1024)));
 
             $response = $login->getResponse($_SESSION['imp']['user'], $pass, base64_decode($challenge[1]),
@@ -549,42 +451,44 @@ class IMAP_ACL_rfc2086 extends IMAP_ACL {
             fputs($imap, base64_encode($response) . "\r\n");
             $response = explode(' ', trim(fgets($imap, 1024)));
             $response = base64_decode($response[1]);
-            if (strpos($response, 'rspauth=') === false) {
-                fclose($imap);
-                return PEAR::raiseError(_("Could not retrieve ACL")
-                    . ' - ' . _("Unexpected response from server to: ") . 'Digest-MD5 response', 'horde.warning');
+
+            if (strpos($response, 'rspauth=') !== false) {
+                fputs($imap, "\r\n");
+                $response = trim(fgets($imap, 1024));
+                $result = preg_match("/^$txid\s+OK/i", $response);
             }
-            fputs($imap, "\r\n");
-        } else {
+        }
+
+        if (!$result) {
             if (preg_match('/\W/', $pass)) {
-                $pass = addslashes($pass);
-                $pass = '"' . $pass . '"';
+                $pass = '"' . addcslashes($pass, '"') . '"';
             }
-            fputs($imap, "$txid LOGIN " . $_SESSION['imp']['user'] . ' ' . $pass . "\r\n");
+            fputs($imap, ++$txid . " LOGIN " . $_SESSION['imp']['user'] . ' ' . $pass . "\r\n");
+
+            do {
+                $response = trim(fgets($imap, 1024));
+
+                if (preg_match("/^$txid\s+OK/i", $response)) {
+                    $result = true;
+                    break;
+                } elseif (preg_match("/^$txid\s+BAD/i", $response) ||
+                          preg_match("/^$txid\s+NO/i", $response)) {
+                    $result = false;
+                    break;
+                }
+            } while (!feof($imap));
         }
 
-        $response = trim(fgets($imap, 1024));
-        if (!preg_match("/^$txid\sOK/", $response)) {
+        if (!$result) {
             fclose($imap);
-            return PEAR::raiseError(_("Could not retrieve ACL")
-                . ' - ' . _("Unexpected response from server to: ") . 'login : ' . $response);
+            return PEAR::raiseError(_("Could not retrieve ACL") . ' - '
+                                    . _("Unexpected response from server to: ")
+                                    . 'login : ' . $response);
         }
 
-        $txid++;
-        fputs($imap, "$txid MYRIGHTS " . $folder . "\r\n");
-        $response = trim(fgets($imap, 4096));
-        if (!preg_match('/^\*\s+MYRIGHTS\s+(.*)/i', $response, $matches)) {
-            fclose($imap);
-            return PEAR::raiseError(_("Could not retrieve ACL")
-                . ' - ' . _("Unexpected response from server to: ") . "'$txid MYRIGHTS' : " .$response);
-        }
+        $this->_internalImap = $imap;
 
-        $res_arr = $this->_atomise($matches[1]);
-        $res_folder = array_shift($res_arr);
-        $res_rights = array_shift($res_arr);
-        fclose($imap);
-
-        return (strpos($res_rights, 'a') !== false);
+        return $imap;
     }
 
     /**

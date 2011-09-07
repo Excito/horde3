@@ -2,7 +2,7 @@
 /**
  * A Kolab object of type administrator.
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object/adminrole.php,v 1.1.2.4 2009/04/25 08:56:33 wrobel Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object/adminrole.php,v 1.1.2.5 2011/05/30 09:19:32 wrobel Exp $
  *
  * PHP version 4
  *
@@ -16,7 +16,7 @@
 /**
  * This class provides methods to deal with administrator object types.
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object/adminrole.php,v 1.1.2.4 2009/04/25 08:56:33 wrobel Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object/adminrole.php,v 1.1.2.5 2011/05/30 09:19:32 wrobel Exp $
  *
  * Copyright 2008-2009 The Horde Project (http://www.horde.org/)
  *
@@ -151,7 +151,7 @@ class Horde_Kolab_Server_Object_adminrole extends Horde_Kolab_Server_Object {
             $members = array($this->_uid);
 
             //FIXME: This is not okay and also contains too much LDAP knowledge
-            $parts = split(',', $this->required_group);
+            $parts = explode(',', $this->required_group);
             list($groupname) = sscanf($parts[0], 'cn=%s');
 
             $result = $this->_db->add(array(KOLAB_ATTR_CN => $groupname,

@@ -3,7 +3,7 @@
  * Implementation of Horde_Share class for shared objects that are hierarchical
  * in nature.
  *
- * $Horde: framework/Share/Share/sql_hierarchical.php,v 1.17.2.28 2010/03/17 16:20:15 jan Exp $
+ * $Horde: framework/Share/Share/sql_hierarchical.php,v 1.17.2.30 2011/01/28 14:58:22 jan Exp $
  *
  * @author  Duck <duck@obala.net>
  * @author  Michael J. Rubinsky <mrubinsk@horde.org>
@@ -72,6 +72,11 @@ class Horde_Share_sql_hierarchical extends Horde_Share_sql {
                          $direction = 0, $parent = null,
                          $allLevels = true, $ignorePerms = false)
     {
+        $key = md5(serialize(func_get_args()));
+        if (!empty($this->_listcache[$key])) {
+            return $this->_listcache[$key];
+        }
+
         $shares = array();
         if (is_null($sort_by)) {
             $sortfield = 's.share_id';
@@ -162,7 +167,9 @@ class Horde_Share_sql_hierarchical extends Horde_Share_sql {
             return $result;
         }
 
-        return $sharelist;
+        $this->_listcache[$key] = $sharelist;
+
+        return $this->_listcache[$key];
     }
 
     /**
@@ -214,7 +221,7 @@ class Horde_Share_sql_hierarchical extends Horde_Share_sql {
             $where .= ' OR (' . Horde_SQL::buildClause($this->_db, 's.perm_default',  '&', $perm) . ')';
 
             // (name == perm_users and key == $userid and val & $perm)
-            $query .= ' LEFT JOIN ' . $this->_table . '_users AS u ON u.share_id = s.share_id';
+            $query .= ' LEFT JOIN ' . $this->_table . '_users u ON u.share_id = s.share_id';
             $where .= ' OR ( u.user_uid = ' .  $this->_write_db->quote($userid)
             . ' AND (' . Horde_SQL::buildClause($this->_db, 'u.perm', '&', $perm) . '))';
 
@@ -229,7 +236,7 @@ class Horde_Share_sql_hierarchical extends Horde_Share_sql {
                 foreach ($ids as $id) {
                     $group_ids[] = $this->_db->quote((string)$id);
                 }
-                $query .= ' LEFT JOIN ' . $this->_table . '_groups AS g ON g.share_id = s.share_id';
+                $query .= ' LEFT JOIN ' . $this->_table . '_groups g ON g.share_id = s.share_id';
                 $where .= ' OR (g.group_uid IN (' . implode(',', $group_ids) . ')'
                     . ' AND (' . Horde_SQL::buildClause($this->_db, 'g.perm', '&', $perm) . '))';
             }

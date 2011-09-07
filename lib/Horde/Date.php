@@ -31,7 +31,7 @@ define('HORDE_DATE_MASK_ALLPARTS', 63);
  * Horde Date wrapper/logic class, including some calculation
  * functions.
  *
- * $Horde: framework/Date/Date.php,v 1.8.10.19 2009/12/10 12:19:58 jan Exp $
+ * $Horde: framework/Date/Date.php,v 1.8.10.21 2010/10/19 20:20:13 jan Exp $
  *
  * @package Horde_Date
  */
@@ -512,6 +512,7 @@ class Horde_Date {
     function datestamp()
     {
         if (class_exists('DateTime')) {
+            $this->_setTimeZone();
             $dt = new DateTime();
             $dt->setDate($this->year, $this->month, $this->mday);
             $dt->setTime(0, 0, 0);
@@ -534,6 +535,7 @@ class Horde_Date {
     function format($format)
     {
         if (class_exists('DateTime')) {
+            $this->_setTimeZone();
             $dt = new DateTime();
             $dt->setDate($this->year, $this->month, $this->mday);
             $dt->setTime($this->hour, $this->min, $this->sec);
@@ -775,6 +777,17 @@ class Horde_Date {
             return -12219321600;
         } else {
             return $ret;
+        }
+    }
+
+    /**
+     * Sets the current timezone, if available.
+     */
+    function _setTimeZone()
+    {
+        $tz = getenv('TZ');
+        if (!empty($tz)) {
+            date_default_timezone_set($tz);
         }
     }
 

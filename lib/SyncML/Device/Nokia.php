@@ -8,7 +8,7 @@
  * See the enclosed file COPYING for license information (LGPL). If you
  * did not receive this file, see http://www.fsf.org/copyleft/lgpl.html.
  *
- * $Horde: framework/SyncML/SyncML/Device/Nokia.php,v 1.2.2.12 2009/08/18 17:21:11 jan Exp $
+ * $Horde: framework/SyncML/SyncML/Device/Nokia.php,v 1.2.2.13 2010/10/05 21:22:12 mrubinsk Exp $
  *
  * @author  Karsten Fourmont <karsten@horde.org>
  * @package SyncML
@@ -44,6 +44,24 @@ class SyncML_Device_Nokia extends SyncML_Device {
         return array($content, $contentType);
     }
 
+    /**
+     * Converts the content from the backend to a format suitable for the
+     * client device.
+     *
+     * Strips the UID (primary key) information as client and server might use
+     * different ones.
+     *
+     * Charset conversions might be added here too.
+     *
+     * @param string $content      The content to convert
+     * @param string $contentType  The content type of content as returned
+     *                             from the backend
+     * @param string $database     The server database URI.
+     *
+     * @return array  Three-element array with the converted content, the
+     *                (possibly changed) new content type, and encoding type
+     *                (like b64 as used by Funambol).
+     */
     function convertServer2Client($content, $contentType, $database)
     {
         $database = $GLOBALS['backend']->_normalize($database);
@@ -59,7 +77,7 @@ class SyncML_Device_Nokia extends SyncML_Device {
             SYNCML_LOGFILE_DATA,
             "\nOutput converted for client ($contentType):\n$content\n");
 
-        return array($content, $contentType);
+        return array($content, $contentType, null);
     }
 
     function handleTasksInCalendar()
