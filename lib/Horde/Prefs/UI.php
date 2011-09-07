@@ -3,7 +3,7 @@
  * Class for auto-generating the preferences user interface and
  * processing the forms.
  *
- * $Horde: framework/Prefs/Prefs/UI.php,v 1.63.2.25 2009/07/11 23:35:26 chuck Exp $
+ * $Horde: framework/Prefs/Prefs/UI.php,v 1.63.2.26 2010/09/27 10:10:05 jan Exp $
  *
  * Copyright 2001-2009 The Horde Project (http://www.horde.org/)
  *
@@ -67,7 +67,11 @@ class Prefs_UI {
         /* Run through the action handlers */
         if (Util::getPost('actionID') == 'update_prefs') {
             if (isset($group) && Prefs_UI::groupIsEditable($group)) {
-                $updated = false;
+                $result = Horde::checkRequestToken('horde.prefs', Util::getFormData('horde_prefs_token'));
+                if (is_a($result, 'PEAR_Error')) {
+                    $notification->push($result, 'horde.error');
+                    return $updated;
+                }
 
                 foreach ($prefGroups[$group]['members'] as $pref) {
                     if (!$prefs->isLocked($pref) ||

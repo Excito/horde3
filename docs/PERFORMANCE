@@ -2,8 +2,8 @@
  Horde Performance Guide
 =========================
 
-:Last update:   $Date: 2010/03/24 16:30:37 $
-:Revision:      $Revision: 1.9.10.25 $
+:Last update:   $Date: 2010/11/01 13:53:15 $
+:Revision:      $Revision: 1.9.10.26 $
 :Contact:       horde@lists.horde.org
 
 .. contents:: Contents
@@ -171,7 +171,8 @@ IMAP tuning
 
 * Follow the IMAP servers' performance hints:
 
-  - Cyrus: http://asg.web.cmu.edu/cyrus/download/imapd/install-perf.html
+  - Cyrus: http://www.cyrusimap.org/docs/cyrus-imapd/2.4.2/install-perf.php
+  - Cyrus: http://git.cyrusimap.org/cyrus-imapd/tree/doc/install-perf.html
   - Dovecot: http://wiki.dovecot.org/PerformanceTuning
 
 .. _up-imapproxy: http://www.imapproxy.org/

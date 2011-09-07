@@ -2,7 +2,7 @@
 /**
  * @package Kolab_Storage
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/IMAP/test.php,v 1.1.2.4 2009/03/08 05:30:12 wrobel Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/IMAP/test.php,v 1.1.2.5 2011/05/30 09:19:32 wrobel Exp $
  */
 
 /**
@@ -14,7 +14,7 @@ define('KOLAB_IMAP_FLAG_DELETED', 1);
  * The Horde_Kolab_IMAP_Connection_test class simulates an IMAP server for
  * testing purposes.
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/IMAP/test.php,v 1.1.2.4 2009/03/08 05:30:12 wrobel Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/IMAP/test.php,v 1.1.2.5 2011/05/30 09:19:32 wrobel Exp $
  *
  * Copyright 2007-2009 The Horde Project (http://www.horde.org/)
  *
@@ -93,7 +93,7 @@ class Horde_Kolab_IMAP_test extends Horde_Kolab_IMAP {
     function _parseFolder($folder)
     {
         if (substr($folder, 0, 5) == 'INBOX') {
-            $user = split('@', $this->_user);
+            $user = explode('@', $this->_user);
             return 'user/' . $user[0] . substr($folder, 5);
         }
         return $folder;
@@ -346,7 +346,7 @@ class Horde_Kolab_IMAP_test extends Horde_Kolab_IMAP {
     function getMailboxes()
     {
         $mboxes = array_keys($GLOBALS['KOLAB_TESTING']);
-        $user = split('@', $this->_user);
+        $user = explode('@', $this->_user);
         $pattern = '#^user/' . $user[0] . '#';
         $result = array();
         foreach ($mboxes as $mbox) {

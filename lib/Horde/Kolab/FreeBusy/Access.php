@@ -2,7 +2,7 @@
 /**
  * Access handlers for Kolab free/busy.
  *
- * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php,v 1.15.2.2 2009/03/06 20:47:39 wrobel Exp $
+ * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php,v 1.15.2.4 2010/06/25 08:08:29 wrobel Exp $
  *
  * @package Kolab_FreeBusy
  */
@@ -17,7 +17,7 @@ require_once 'Horde/Auth.php';
  * The Horde_Kolab_FreeBusy_Access:: class provides functionality to check
  * free/busy access rights for the specified folder.
  *
- * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php,v 1.15.2.2 2009/03/06 20:47:39 wrobel Exp $
+ * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php,v 1.15.2.4 2010/06/25 08:08:29 wrobel Exp $
  *
  * Copyright 2004-2008 Klarälvdalens Datakonsult AB
  *
@@ -40,9 +40,16 @@ class Horde_Kolab_FreeBusy_Access {
     /**
      * Did the above combination authenticate?
      *
-     * @var string
+     * @var boolean
      */
     var $_authenticated = false;
+
+    /**
+     * Contains an error string if authentication failed.
+     *
+     * @var string
+     */
+    var $_auth_error;
 
     /**
      * The object representing the user calling the script.
@@ -227,8 +234,8 @@ class Horde_Kolab_FreeBusy_Access {
         }
 
         if (!$this->_authenticated) {
-            return PEAR::raiseError(sprintf(_("Invalid authentication for user %s!"), 
-                                            $this->user));
+            return PEAR::raiseError(sprintf(_("Invalid authentication for user %s: %s"), 
+                                            $this->user, $this->_auth_error));
         }
         return true;
     }
@@ -301,6 +308,8 @@ class Horde_Kolab_FreeBusy_Access {
                     'remote_addr' => isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null,
                 );
                 Auth::setCredential('password', $pass);
+            } else {
+                $this->_auth_error = $auth->getLogoutReasonString();
             }
         }
     }
@@ -407,7 +416,7 @@ class Horde_Kolab_FreeBusy_Access {
     {
         $userdom = false;
         $ownerdom = false;
-        if (ereg( '(.*)@(.*)', $this->user, $regs)) {
+        if (preg_match('/(.*)@(.*)/', $this->user, $regs)) {
             // Regular user
             $user = $regs[1];
             $userdom  = $regs[2];
@@ -415,7 +424,7 @@ class Horde_Kolab_FreeBusy_Access {
             $user = $this->user;
         }
 
-        if(ereg( '(.*)@(.*)', $this->owner, $regs)) {
+        if(preg_match('/(.*)@(.*)/', $this->owner, $regs)) {
             // Regular owner
             $owner = $regs[1];
             $ownerdom = $regs[2];

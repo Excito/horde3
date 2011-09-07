@@ -3,7 +3,7 @@
  * The Horde_Cache_xcache:: class provides an XCache implementation of
  * the Horde caching system.
  *
- * $Horde: framework/Cache/Cache/xcache.php,v 1.8.2.1 2007/12/20 13:48:51 jan Exp $
+ * $Horde: framework/Cache/Cache/xcache.php,v 1.8.2.3 2010/07/29 00:54:14 mrubinsk Exp $
  *
  * Copyright 2006-2007 Duck <duck@obala.net>
  *
@@ -15,20 +15,6 @@
  * @package Horde_Cache
  */
 class Horde_Cache_xcache extends Horde_Cache {
-
-    /**
-     * Construct a new Horde_Cache_xcache object.
-     *
-     * @param array $params  Parameter array.
-     */
-    function Horde_Cache_xcache($params = array())
-    {
-        parent::Horde_Cache($params);
-
-        if (empty($this->_params['prefix'])) {
-            $this->_params['prefix'] = ($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : $_SERVER['HOSTNAME'];
-        }
-    }
 
     /**
      * Attempts to retrieve a piece of cached data and return it to the caller.
@@ -111,6 +97,7 @@ class Horde_Cache_xcache extends Horde_Cache {
             return true;
         }
 
+        $key = $this->_params['prefix'] . $key;
         $expire = xcache_get($key . '_expire');
 
         // set prune period

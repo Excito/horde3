@@ -12,7 +12,7 @@
  *
  * @package Horde_MIME
  *
- * $Horde: framework/MIME/MIME/mime.mapping.php,v 1.11.2.6 2008/11/07 02:34:34 chuck Exp $
+ * $Horde: framework/MIME/MIME/mime.mapping.php,v 1.11.2.7 2010/09/21 13:32:10 jan Exp $
  *
  * Generated: 11/05/08 23:30:23 by chuck on technest.org
  */
@@ -890,5 +890,22 @@ $mime_extension_map = array(
     'CSSL'          => 'text/css',
     'wk3'           => 'application/vnd.lotus-1-2-3',
     'abw'           => 'application/x-abiword',
-    'pict1'         => 'image/x-pict'
+    'pict1'         => 'image/x-pict',
+    'xlam'          => 'application/vnd.ms-excel.addin.macroEnabled.12',
+    'xlsb'          => 'application/vnd.ms-excel.sheet.binary.macroEnabled.12',
+    'xlsm'          => 'application/vnd.ms-excel.sheet.macroEnabled.12',
+    'xltm'          => 'application/vnd.ms-excel.template.macroEnabled.12',
+    'docm'          => 'application/vnd.ms-word.document.macroEnabled.12',
+    'dotm'          => 'application/vnd.ms-word.template.macroEnabled.12',
+    'ppam'          => 'application/vnd.ms-powerpoint.addin.macroEnabled.12',
+    'pptm'          => 'application/vnd.ms-powerpoint.presentation.macroEnabled.12',
+    'ppsm'          => 'application/vnd.ms-powerpoint.slideshow.macroEnabled.12',
+    'potm'          => 'application/vnd.ms-powerpoint.template.macroEnabled.12',
+    'potx'          => 'application/vnd.openxmlformats-officedocument.presentationml.template',
+    'ppsx'          => 'application/vnd.openxmlformats-officedocument.presentationml.slideshow',
+    'pptx'          => 'application/vnd.openxmlformats-officedocument.presentationml.presentation',
+    'xlsx'          => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    'xltx'          => 'application/vnd.openxmlformats-officedocument.spreadsheetml.template',
+    'docx'          => 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+    'dotx'          => 'application/vnd.openxmlformats-officedocument.wordprocessingml.template'
 );

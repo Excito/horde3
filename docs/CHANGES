@@ -1,3 +1,58 @@
+-------
+v3.3.12
+-------
+
+[jan] Convert charset of group names in SQL driver (Bug #9611).
+[jan] Fix deleting of SyncML anchors if PHP short_open_tag is off (Bug #9349).
+[jan] Add an experimental new Share SQL driver with better performance.
+[jan] Fix integer overflow in ASN.1 parser for S/MIME messages.
+[jan] Fix splitread database usage in VFS (Bug #9467).
+[jan] Fix invalidating permission cache in SQL driver (Bug #9392).
+
+
+-------
+v3.3.11
+-------
+
+[mms] SECURITY: Fix XSS when viewing details of a vCard (Bug #9357).
+[jan] Fix exporting recurrence exceptions to vCalendar 1.0.
+[jan] Skip event status synchronization with Outlook, which is broken.
+[jan] Don't send SIF data to recent Funambol clients, unless requested.
+[jan] Log all queries and errors by the history library.
+
+
+-------
+v3.3.10
+-------
+
+[jan] Fix searching DataTree elements (groups) if backend charset is different
+      from interface charset (Bug #9323).
+[mms] Fix accessing IMAP ACLs that contain non-alphanumeric characters
+      (Bug #9299).
+[jan] Avoid fatal errors when using DateTime with not properly configured
+      PHP 5.3+ (Bug #9312).
+[jan] Fix importing recurrence exceptions from vCalendar 1.0.
+[mms] Fix preferences management regression (Bug #9289).
+[jan] Fix conversion of all-day events and certain yearly recurring events for
+      Funambol clients.
+[mms] Fix memcache cache regression (Bug #9279).
+[jan] Fix SyncML page sometimes deleting more anchors than selected.
+
+
+------
+v3.3.9
+------
+
+[jan] SECURITY: Add token protection to preference forms.
+[mms] SECURITY: Fix XSS in util/icon_browser.php.
+[mms] Fix generating RFC 2231 parameters with charset information (Bug #9212).
+[mms] On invalid token during logout, redirect to initial page (Bug #7669).
+[mjr] Don't allow fixed blocks to be changed to another type (Bug #9141).
+[jan] Show future alarms in the alarm management screen too.
+[mjr] Fix bug in Horde_Cache that would prevent cache entries from being
+      expired in certain cases, and prevent cache key collisions.
+
+
 ------
 v3.3.8
 ------
@@ -12,7 +67,7 @@ v3.3.7
 [mjr] Fix issue in Horde_Image that would cause generated images to lose
       transparency in certain situations.
 [jan] Allow to update existing identities while requiring email confirmation
-      (Sebastian Radish, Bug #8877).
+      (Sebastian Rettenberger, Bug #8877).
 [jan] Fix casting errors when using SQL shares and groups on PostgreSQL
       (Bug #8899).
 [gwr] Allow conf.d style directory configuration overriding (Request #8172).

@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: horde/login.php,v 2.175.2.17 2009/01/06 15:13:50 jan Exp $
+ * $Horde: horde/login.php,v 2.175.2.18 2010/08/11 05:40:30 slusarz Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -63,7 +63,9 @@ if ($logout_reason) {
     if (Auth::getAuth()) {
         $result = Horde::checkRequestToken('horde.logout', Util::getFormData('horde_logout_token'));
         if (is_a($result, 'PEAR_Error')) {
-            exit($result->getMessage());
+            $notification->push($result, 'horde.error');
+            require HORDE_BASE . '/index.php';
+            exit;
         }
     }
 

@@ -2,14 +2,14 @@
 /**
  * @package Kolab_Storage
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/IMAP.php,v 1.1.2.2 2009/01/06 15:23:15 jan Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/IMAP.php,v 1.1.2.3 2011/05/30 09:19:31 wrobel Exp $
  */
 
 /**
  * The Horde_Kolab_IMAP class provides a wrapper around two different Kolab IMAP
  * connection types.
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/IMAP.php,v 1.1.2.2 2009/01/06 15:23:15 jan Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/IMAP.php,v 1.1.2.3 2011/05/30 09:19:31 wrobel Exp $
  *
  * Copyright 2007-2009 The Horde Project (http://www.horde.org/)
  *
@@ -129,7 +129,7 @@ class Horde_Kolab_IMAP {
 
         $class = 'Horde_Kolab_IMAP_' . $driver;
         if (class_exists($class)) {
-            $driver = &new $class($server, $port);
+            $driver = new $class($server, $port);
         } else {
             return PEAR::raiseError(sprintf(_("Failed to load Kolab IMAP driver %s"), $driver));
         }

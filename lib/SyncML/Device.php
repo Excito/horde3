@@ -10,7 +10,7 @@
  * or sent by the client, the Source/LocURI of the device request might be
  * sufficent to identify it.
  *
- * $Horde: framework/SyncML/SyncML/Device.php,v 1.7.2.16 2009/01/06 15:23:37 jan Exp $
+ * $Horde: framework/SyncML/SyncML/Device.php,v 1.7.2.17 2010/10/26 10:13:49 jan Exp $
  *
  * Copyright 2005-2009 The Horde Project (http://www.horde.org/)
  *
@@ -21,6 +21,14 @@
  * @package SyncML
  */
 class SyncML_Device {
+
+    /**
+     * The original preferred content type of the client, if provided through
+     * DevInf.
+     *
+     * @var string
+     */
+    var $requestedContentType;
 
     /**
      * Attempts to return a concrete SyncML_Device instance based on $driver.
@@ -116,6 +124,7 @@ class SyncML_Device {
         if (!empty($ds)) {
             $r = $ds->getPreferredRXContentType();
             if (!empty($r)) {
+                $this->requestedContentType = $r;
                 return $r;
             }
         }

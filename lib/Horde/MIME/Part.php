@@ -40,7 +40,7 @@ define('MIME_DEFAULT_ENCODING', '7bit');
  * The MIME_Part:: class provides a wrapper around MIME parts and methods
  * for dealing with them.
  *
- * $Horde: framework/MIME/MIME/Part.php,v 1.177.4.29 2010/04/13 12:12:08 jan Exp $
+ * $Horde: framework/MIME/MIME/Part.php,v 1.177.4.30 2010/07/07 23:27:51 slusarz Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -1380,7 +1380,7 @@ class MIME_Part {
     function setContentID($cid = null)
     {
         if (is_null($this->_contentid)) {
-            $this->_contentid = (is_null($cid)) ? (base_convert(microtime(), 10, 36) . '@' . $_SERVER['SERVER_NAME']) : $cid;
+            $this->_contentid = (is_null($cid)) ? (base_convert(uniqid(mt_rand()), 10, 36) . '@' . $_SERVER['SERVER_NAME']) : $cid;
         }
         return $this->_contentid;
     }
@@ -1454,7 +1454,7 @@ class MIME_Part {
     function _generateBoundary()
     {
         if (is_null($this->_boundary)) {
-            $this->_boundary = '=_' . base_convert(microtime(), 10, 36);
+            $this->_boundary = '=_' . base_convert(uniqid(mt_rand()), 10, 36);
         }
         return $this->_boundary;
     }

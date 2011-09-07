@@ -31,7 +31,7 @@
  * The table structure for the DataTree system is in
  * scripts/sql/horde_datatree.sql.
  *
- * $Horde: framework/DataTree/DataTree/sql.php,v 1.156.2.44 2009/02/25 05:35:42 chuck Exp $
+ * $Horde: framework/DataTree/DataTree/sql.php,v 1.156.2.46 2010/10/21 20:02:46 jan Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -391,6 +391,7 @@ class DataTree_sql extends DataTree {
         $query = 'SELECT datatree_id FROM ' . $this->_params['table'] .
             ' WHERE group_uid = ? AND datatree_name = ? AND datatree_parents = ?';
 
+        $object_name = String::convertCharset($object_name, NLS::getCharset(), $this->_params['charset']);
         $object_names = explode(':', $object_name);
         $object_parents = '';
         foreach ($object_names as $name) {
@@ -422,6 +423,7 @@ class DataTree_sql extends DataTree {
             . ' AND datatree_parents = ?';
 
         $ids = array();
+        $name = String::convertCharset($name, NLS::getCharset(), $this->_params['charset']);
         $parts = explode(':', $name);
         foreach ($parts as $part) {
             $result = $this->_db->getOne($query, array($this->_params['group'], $part, count($ids) ? ':' . implode(':', $ids) : ''));

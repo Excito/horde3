@@ -7,7 +7,7 @@ require_once dirname(__FILE__) . '/../Image.php';
  * extension. It mainly provides some utility functions, such as the
  * ability to make pixels, for now.
  *
- * $Horde: framework/Image/Image/gd.php,v 1.48.10.24 2010/03/28 16:39:11 mrubinsk Exp $
+ * $Horde: framework/Image/Image/gd.php,v 1.48.10.25 2010/09/05 16:51:39 mrubinsk Exp $
  *
  * Copyright 2002-2009 The Horde Project (http://www.horde.org/)
  *
@@ -175,6 +175,8 @@ class Horde_Image_gd extends Horde_Image {
      *
      * @param string $id          An arbitrary id for the image.
      * @param string $image_data  The data to use for the image.
+     *
+     * @return PEAR_Error if image data could not be loaded.
      */
     function loadString($id, $image_data)
     {

@@ -2,7 +2,7 @@
 /**
  * Base for PHPUnit scenarios.
  *
- * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/Test/FreeBusy.php,v 1.1.2.2 2009/04/25 19:16:42 wrobel Exp $
+ * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/Test/FreeBusy.php,v 1.1.2.3 2010/10/10 16:26:50 wrobel Exp $
  *
  * PHP version 5
  *
@@ -21,7 +21,7 @@ require_once 'Horde/Kolab/Test/Storage.php';
 /**
  * Base for PHPUnit scenarios.
  *
- * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/Test/FreeBusy.php,v 1.1.2.2 2009/04/25 19:16:42 wrobel Exp $
+ * $Horde: framework/Kolab_FreeBusy/lib/Horde/Kolab/Test/FreeBusy.php,v 1.1.2.3 2010/10/10 16:26:50 wrobel Exp $
  *
  * Copyright 2008-2009 The Horde Project (http://www.horde.org/)
  *
@@ -50,7 +50,9 @@ class Horde_Kolab_Test_FreeBusy extends Horde_Kolab_Test_Storage
         global $conf;
 
         $conf['kolab']['ldap']['phpdn'] = null;
-        $conf['fb']['cache_dir']             = '/tmp';
+        $conf['fb']['cache_dir']             = Horde::getTempDir() . '/Kolab_FreeBusy_Test_' . md5(uniqid(mt_rand(), true));
+        mkdir($conf['fb']['cache_dir'], 0755);
+
         $conf['kolab']['freebusy']['server'] = 'https://fb.example.org/freebusy';
         $conf['fb']['use_acls'] = true;
     }
@@ -128,6 +130,8 @@ class Horde_Kolab_Test_FreeBusy extends Horde_Kolab_Test_Storage
 
             $_GET['folder']   = $arguments[0];
             $_GET['extended'] = '1';
+            $_SERVER['PHP_AUTH_USER'] = $arguments[1];
+            $_SERVER['PHP_AUTH_PW'] = $arguments[2];
 
             $fb = &new Horde_Kolab_FreeBusy();
 
@@ -139,6 +143,8 @@ class Horde_Kolab_Test_FreeBusy extends Horde_Kolab_Test_Storage
 
             $_GET['uid']   = $arguments[0];
             $_GET['extended'] = '1';
+            $_SERVER['PHP_AUTH_USER'] = $arguments[1];
+            $_SERVER['PHP_AUTH_PW'] = $arguments[2];
 
             $fb = &new Horde_Kolab_FreeBusy();
 

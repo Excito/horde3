@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: horde/services/portal/syncml.php,v 1.3.2.15 2009/01/06 15:27:33 jan Exp $
+ * $Horde: horde/services/portal/syncml.php,v 1.3.2.17 2010/09/29 13:42:24 jan Exp $
  *
  * Copyright 2005-2009 The Horde Project (http://www.horde.org/)
  *
@@ -20,6 +20,14 @@ require_once 'SyncML/Backend.php';
 $backend = SyncML_Backend::factory('Horde');
 
 $actionID = Util::getFormData('actionID');
+if ($actionID) {
+    $result = Horde::checkRequestToken('horde.prefs', Util::getFormData('horde_prefs_token'));
+    if (is_a($result, 'PEAR_Error')) {
+        $notification->push($result, 'horde.error');
+        $actionID = null;
+    }
+}
+
 switch ($actionID) {
 case 'deleteanchor':
     $deviceid = Util::getFormData('deviceid');
@@ -59,7 +67,7 @@ if (!is_a($result, 'PEAR_Error')) {
 }
 $app = 'horde';
 $chunk = Util::nonInputVar('chunk');
-Prefs_UI::generateHeader('syncml', $chunk);
+Prefs_UI::generateHeader(null, $chunk);
 
 require HORDE_TEMPLATES . '/syncml/syncml.inc';
 if (!$chunk) {

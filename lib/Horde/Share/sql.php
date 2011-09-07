@@ -3,7 +3,7 @@
  * Horde_Share_sql:: provides the sql backend for the horde share
  * driver.
  *
- * $Horde: framework/Share/Share/sql.php,v 1.1.2.58 2010/03/17 16:20:15 jan Exp $
+ * $Horde: framework/Share/Share/sql.php,v 1.1.2.64 2011/02/18 17:27:07 jan Exp $
  *
  * Copyright 2008-2009 The Horde Project (http://www.horde.org/)
  *
@@ -129,7 +129,7 @@ class Horde_Share_sql extends Horde_Share {
     function _getShareUsers(&$share)
     {
         if ($this->_hasUsers($share)) {
-            $stmt = $this->_db->prepare('SELECT user_uid, perm FROM ' . $this->_table . '_users WHERE share_id = ?');
+            $stmt = $this->_db->prepare('SELECT * FROM ' . $this->_table . '_users WHERE share_id = ?');
             if (is_a($stmt, 'PEAR_Error')) {
                 Horde::logMessage($stmt, __FILE__, __LINE__, PEAR_LOG_ERR);
                 return $stmt;
@@ -140,7 +140,7 @@ class Horde_Share_sql extends Horde_Share {
                 return $result;
             } elseif (!empty($result)) {
                 while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC)) {
-                    $share['perm']['users'][$row['user_uid']] = (int)$row['perm'];
+                    $share['perm']['users'][$row['user_uid']] = $this->_buildPermsFromRow($row);
                 }
             }
             $stmt->free();
@@ -156,7 +156,7 @@ class Horde_Share_sql extends Horde_Share {
     {
         if ($this->_hasGroups($share)) {
             // Get groups permissions
-            $stmt = $this->_db->prepare('SELECT group_uid, perm FROM ' . $this->_table . '_groups WHERE share_id = ?');
+            $stmt = $this->_db->prepare('SELECT * FROM ' . $this->_table . '_groups WHERE share_id = ?');
             if (is_a($stmt, 'PEAR_Error')) {
                 Horde::logMessage($stmt, __FILE__, __LINE__, PEAR_LOG_ERR);
                 return $stmt;
@@ -167,7 +167,7 @@ class Horde_Share_sql extends Horde_Share {
                 return $result;
             } elseif (!empty($result)) {
                 while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC)) {
-                    $share['perm']['groups'][$row['group_uid']] = (int)$row['perm'];
+                    $share['perm']['groups'][$row['group_uid']] = $this->_buildPermsFromRow($row);
                 }
             }
             $stmt->free();
@@ -396,8 +396,8 @@ class Horde_Share_sql extends Horde_Share {
             Horde::logMessage($result, __FILE__, __LINE__, PEAR_LOG_ERR);
             return $result;
         } elseif (!empty($result)) {
-            while ($share = $result->fetchRow(MDB2_FETCHMODE_ASSOC)) {
-                $shares[$share['share_id']]['perm']['users'][$share['user_uid']] = (int)$share['perm'];
+            while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC)) {
+                $shares[$row['share_id']]['perm']['users'][$row['user_uid']] = $this->_buildPermsFromRow($row);
             }
             $result->free();
         }
@@ -409,8 +409,8 @@ class Horde_Share_sql extends Horde_Share {
             Horde::logMessage($result, __FILE__, __LINE__, PEAR_LOG_ERR);
             return $result;
         } elseif (!empty($result)) {
-            while ($share = $result->fetchRow(MDB2_FETCHMODE_ASSOC)) {
-                $shares[$share['share_id']]['perm']['groups'][$share['group_uid']] = (int)$share['perm'];
+            while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC)) {
+                $shares[$row['share_id']]['perm']['groups'][$row['group_uid']] = $this->_buildPermsFromRow($row);
             }
             $result->free();
         }
@@ -440,6 +440,11 @@ class Horde_Share_sql extends Horde_Share {
     function &listShares($userid, $perm = PERMS_SHOW, $attributes = null,
                          $from = 0, $count = 0, $sort_by = null, $direction = 0)
     {
+        $key = md5(serialize(func_get_args()));
+        if (!empty($this->_listcache[$key])) {
+            return $this->_listcache[$key];
+        }
+
         $shares = array();
         if (is_null($sort_by)) {
             $sortfield = 's.share_name';
@@ -464,6 +469,9 @@ class Horde_Share_sql extends Horde_Share {
             @sqlite_query('PRAGMA full_column_names=0', $connection);
             @sqlite_query('PRAGMA short_column_names=1', $connection);
         }
+
+        // Log query at debug level
+        Horde::logMessage(sprintf('SQL query by Horde_Share_sql::listShares: %s', $query), __FILE__, __LINE__, PEAR_LOG_DEBUG);
 
         $result = $this->_db->query($query);
         if (is_a($result, 'PEAR_Error')) {
@@ -496,8 +504,8 @@ class Horde_Share_sql extends Horde_Share {
                 Horde::logMessage($result, __FILE__, __LINE__, PEAR_LOG_ERR);
                 return $result;
             } elseif (!empty($result)) {
-                while ($share = $result->fetchRow(MDB2_FETCHMODE_ASSOC)) {
-                    $shares[$share['share_id']]['perm']['users'][$share['user_uid']] = (int)$share['perm'];
+                while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC)) {
+                    $shares[$row['share_id']]['perm']['users'][$row['user_uid']] = $this->_buildPermsFromRow($row);
                 }
                 $result->free();
             }
@@ -513,8 +521,8 @@ class Horde_Share_sql extends Horde_Share {
                 Horde::logMessage($result, __FILE__, __LINE__, PEAR_LOG_ERR);
                 return $result;
             } elseif (!empty($result)) {
-                while ($share = $result->fetchRow(MDB2_FETCHMODE_ASSOC)) {
-                    $shares[$share['share_id']]['perm']['groups'][$share['group_uid']] = (int)$share['perm'];
+                while ($row = $result->fetchRow(MDB2_FETCHMODE_ASSOC)) {
+                    $shares[$row['share_id']]['perm']['groups'][$row['group_uid']] = $this->_buildPermsFromRow($row);
                 }
                 $result->free();
             }
@@ -536,7 +544,9 @@ class Horde_Share_sql extends Horde_Share {
             return $result;
         }
 
-        return $sharelist;
+        $this->_listcache[$key] = $sharelist;
+
+        return $this->_listcache[$key];
     }
 
     /**
@@ -675,7 +685,7 @@ class Horde_Share_sql extends Horde_Share {
             $where .= ' OR (' . Horde_SQL::buildClause($this->_db, 's.perm_default',  '&', $perm) . ')';
 
             // (name == perm_users and key == $userid and val & $perm)
-            $query .= ' LEFT JOIN ' . $this->_table . '_users AS u ON u.share_id = s.share_id';
+            $query .= ' LEFT JOIN ' . $this->_table . '_users u ON u.share_id = s.share_id';
             $where .= ' OR ( u.user_uid = ' .  $this->_write_db->quote($userid)
                 . ' AND (' . Horde_SQL::buildClause($this->_db, 'u.perm', '&', $perm) . '))';
 
@@ -690,7 +700,7 @@ class Horde_Share_sql extends Horde_Share {
                 foreach ($ids as $id) {
                     $group_ids[] = $this->_db->quote((string)$id);
                 }
-                $query .= ' LEFT JOIN ' . $this->_table . '_groups AS g ON g.share_id = s.share_id';
+                $query .= ' LEFT JOIN ' . $this->_table . '_groups g ON g.share_id = s.share_id';
                 $where .= ' OR (g.group_uid IN (' . implode(',', $group_ids) . ')'
                     . ' AND (' . Horde_SQL::buildClause($this->_db, 'g.perm', '&', $perm) . '))';
             } elseif (is_a($groups, 'PEAR_Error')) {
@@ -768,15 +778,20 @@ class Horde_Share_sql extends Horde_Share {
             $this->_write_db->setOption('portability', MDB2_PORTABILITY_FIX_CASE | MDB2_PORTABILITY_ERRORS | MDB2_PORTABILITY_RTRIM | MDB2_PORTABILITY_FIX_ASSOC_FIELD_NAMES);
             break;
 
-        case 'pgsql':
-            /* The debug handler breaks PostgreSQL. In most cases it shouldn't
-             * be necessary, but this may mean we simply can't support use of
-             * multiple Postgres databases right now. See
-             * http://bugs.horde.org/ticket/7825 */
-            $this->_write_db->setOption('debug', false);
-            // Fall through
-
         default:
+            switch ($this->_write_db->phptype) {
+            case 'oci8':
+                $this->_write_db->setOption('emulate_database', false);
+                break;
+
+            case 'pgsql':
+                /* The debug handler breaks PostgreSQL. In most cases it
+                 * shouldn't be necessary, but this may mean we simply can't
+                 * support use of multiple Postgres databases right now. See
+                 * http://bugs.horde.org/ticket/7825 */
+                $this->_write_db->setOption('debug', false);
+                break;
+            }
             $this->_write_db->setOption('field_case', CASE_LOWER);
             $this->_write_db->setOption('portability', MDB2_PORTABILITY_FIX_CASE | MDB2_PORTABILITY_ERRORS | MDB2_PORTABILITY_FIX_ASSOC_FIELD_NAMES);
         }
@@ -798,15 +813,20 @@ class Horde_Share_sql extends Horde_Share {
                 $this->_db->setOption('portability', MDB2_PORTABILITY_FIX_CASE | MDB2_PORTABILITY_ERRORS | MDB2_PORTABILITY_RTRIM | MDB2_PORTABILITY_FIX_ASSOC_FIELD_NAMES);
                 break;
 
-            case 'pgsql':
-                /* The debug handler breaks PostgreSQL. In most cases it shouldn't
-                 * be necessary, but this may mean we simply can't support use of
-                 * multiple Postgres databases right now. See
-                 * http://bugs.horde.org/ticket/7825 */
-                $this->_write_db->setOption('debug', false);
-                // Fall through
-
             default:
+                switch ($this->_db->phptype) {
+                case 'oci8':
+                    $this->_db->setOption('emulate_database', false);
+                    break;
+
+                case 'pgsql':
+                    /* The debug handler breaks PostgreSQL. In most cases it
+                     * shouldn't be necessary, but this may mean we simply
+                     * can't support use of multiple Postgres databases right
+                     * now. See http://bugs.horde.org/ticket/7825 */
+                    $this->_write_db->setOption('debug', false);
+                    break;
+                }
                 $this->_db->setOption('field_case', CASE_LOWER);
                 $this->_db->setOption('portability', MDB2_PORTABILITY_FIX_CASE | MDB2_PORTABILITY_ERRORS | MDB2_PORTABILITY_FIX_ASSOC_FIELD_NAMES);
             }
@@ -816,6 +836,18 @@ class Horde_Share_sql extends Horde_Share {
         }
 
         return true;
+    }
+
+    /**
+     * Builds a permission bit mask from the "perm" column.
+     *
+     * @param array $row     A data row including permission columns.
+     *
+     * @return integer  A permission mask.
+     */
+    function _buildPermsFromRow($row)
+    {
+        return (int)$row['perm'];
     }
 
     /**

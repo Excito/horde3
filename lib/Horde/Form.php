@@ -12,7 +12,7 @@ include_once 'Horde/String.php';
  * The Horde_Form:: package provides form rendering, validation, and
  * other functionality for the Horde Application Framework.
  *
- * $Horde: framework/Form/Form.php,v 1.306.2.77 2009/09/14 07:22:07 jan Exp $
+ * $Horde: framework/Form/Form.php,v 1.306.2.80 2010/10/10 21:16:29 jan Exp $
  *
  * Copyright 2001-2007 Robert E. Coyle <robertecoyle@hotmail.com>
  * Copyright 2001-2009 The Horde Project (http://www.horde.org/)
@@ -159,6 +159,9 @@ class Horde_Form {
             Horde::fatal(PEAR::raiseError(sprintf('Nonexistant class "%s" for field type "%s"', $type_class, $type)), __FILE__, __LINE__);
         }
         $type_ob = new $type_class();
+        if (!$params) {
+            $params = array();
+        }
         call_user_func_array(array(&$type_ob, 'init'), $params);
         return $type_ob;
     }
@@ -1398,7 +1401,7 @@ class Horde_Form_Type_longtext extends Horde_Form_Type_text {
                 'cols'   => array('label' => _("Number of columns"),
                                   'type'  => 'int'),
                 'helper' => array('label' => _("Helpers"),
-                                  'type'  => 'array')));
+                                  'type'  => 'stringarray')));
     }
 
 }
@@ -3013,7 +3016,7 @@ class Horde_Form_Type_set extends Horde_Form_Type {
     var $_values;
     var $_checkAll = false;
 
-    function init(&$values, $checkAll = false)
+    function init($values, $checkAll = false)
     {
         $this->_values = $values;
         $this->_checkAll = $checkAll;

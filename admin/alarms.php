@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: horde/admin/alarms.php,v 1.5.2.4 2009/01/06 15:22:10 jan Exp $
+ * $Horde: horde/admin/alarms.php,v 1.5.2.5 2010/07/06 13:49:11 jan Exp $
  *
  * Copyright 2007-2009 The Horde Project (http://www.horde.org/)
  *
@@ -118,7 +118,7 @@ if ($id) {
     }
 }
 
-$alarms = $horde_alarm->listAlarms('');
+$alarms = $horde_alarm->globalAlarms();
 
 $title = _("Alarms");
 require HORDE_TEMPLATES . '/common-header.inc';

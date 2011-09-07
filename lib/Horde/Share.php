@@ -4,7 +4,7 @@
  * methods take care of any site-specific restrictions configured in in the
  * application's prefs.php and conf.php files.
  *
- * $Horde: framework/Share/Share.php,v 1.111.2.33 2009/04/20 21:09:02 jan Exp $
+ * $Horde: framework/Share/Share.php,v 1.111.2.35 2011/01/31 17:48:19 jan Exp $
  *
  * Copyright 2002-2009 The Horde Project (http://www.horde.org/)
  * Copyright 2002-2007 Infoteck Internet <webmaster@infoteck.qc.ca>
@@ -168,7 +168,7 @@ class Horde_Share {
         $driver = str_replace('horde_share_', '', String::lower(get_class($this)));
         require_once 'Horde/SessionObjects.php';
         $session = &Horde_SessionObjects::singleton();
-        $session->overwrite('horde_share_' . $this->_app . '_' . $driver, $this, false);
+        $session->overwrite('horde_share_' . $this->_app . '_' . $driver . '1', $this, false);
     }
 
     /**

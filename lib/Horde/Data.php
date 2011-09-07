@@ -26,7 +26,7 @@ require_once 'PEAR.php';
  * Abstract class to handle different kinds of Data formats and to
  * help data exchange between Horde applications and external sources.
  *
- * $Horde: framework/Data/Data.php,v 1.80.10.19 2009/01/06 15:23:00 jan Exp $
+ * $Horde: framework/Data/Data.php,v 1.80.10.20 2010/05/09 18:44:05 mrubinsk Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -121,7 +121,7 @@ class Horde_Data extends PEAR {
      * Returns the full filename including the basename and extension.
      *
      * @param string $basename  Basename for the file.
-     * 
+     *
      * @return string  The file name.
      */
     function getFilename($basename)
@@ -253,7 +253,7 @@ class Horde_Data extends PEAR {
                 return $date;
             }
             $index = array_flip(explode('/', $params['format'][$key]));
-            return $dates[$index['year']] . '-' . $dates[$index['month']] . '-' . $dates[$index['mday']];
+            return sprintf('%d-%02d-%02d', $dates[$index['year']], $dates[$index['month']], $dates[$index['mday']]);
 
         case 'time':
             $dates = explode($params['delimiter'][$key], $date);

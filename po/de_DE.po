@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Horde 3.3-cvs\n"
 "Report-Msgid-Bugs-To: dev@lists.horde.org\n"
-"POT-Creation-Date: 2010-04-26 17:24+0200\n"
-"PO-Revision-Date: 2010-04-26 17:25+0200\n"
+"POT-Creation-Date: 2010-10-25 11:45+0200\n"
+"PO-Revision-Date: 2010-10-25 11:48+0200\n"
 "Last-Translator: Jan Schneider <jan@horde.org>\n"
 "Language-Team: German <dev@lists.horde.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: framework/Form/Form.php:3122
+#: framework/Form/Form.php:3125
 #, php-format
 msgid " (%s days ago)"
 msgstr " (vor %s Tagen)"
@@ -30,20 +30,20 @@ msgstr " (vor %s Tagen)"
 msgid " (Accesskey %s)"
 msgstr " (Zugriffstaste %s)"
 
-#: framework/Form/Form.php:3130
+#: framework/Form/Form.php:3133
 #, php-format
 msgid " (in %s days)"
 msgstr " (in %s Tagen)"
 
-#: framework/Form/Form.php:3126
+#: framework/Form/Form.php:3129
 msgid " (today)"
 msgstr " (heute)"
 
-#: framework/Form/Form.php:3128
+#: framework/Form/Form.php:3131
 msgid " (tomorrow)"
 msgstr " (morgen)"
 
-#: framework/Form/Form.php:3124
+#: framework/Form/Form.php:3127
 msgid " (yesterday)"
 msgstr " (gestern)"
 
@@ -52,7 +52,7 @@ msgstr " (gestern)"
 msgid " at "
 msgstr " mit "
 
-#: framework/DataTree/DataTree/sql.php:597
+#: framework/DataTree/DataTree/sql.php:599
 #, php-format
 msgid "\"%s\" already exists"
 msgstr "\"%s\" existiert bereits."
@@ -67,13 +67,13 @@ msgstr "\"%s\" ist kein Verzeichnis."
 msgid "\"%s\" is not a valid choice."
 msgstr "\"%s\" ist keine gültige Auswahl."
 
-#: framework/Form/Form.php:2251
+#: framework/Form/Form.php:2254
 #, php-format
 msgid "\"%s\" is not a valid email address."
 msgstr "\"%s\" ist keine gültige E-Mail-Adresse."
 
-#: framework/Horde/Horde/Registry.php:751
-#: framework/Horde/Horde/Registry.php:1115
+#: framework/Horde/Horde/Registry.php:752
+#: framework/Horde/Horde/Registry.php:1116
 #, php-format
 msgid "\"%s\" is not configured in the Horde Registry."
 msgstr "\"%s\" ist in der Horde Registry nicht konfiguriert."
@@ -187,8 +187,8 @@ msgstr "%s Registrierung"
 msgid "%s Terms of Agreement"
 msgstr "%s Nutzungsbedingungen"
 
-#: framework/VFS/lib/VFS/smb.php:527 framework/VFS/lib/VFS/smb.php:582
 #: framework/VFS/lib/VFS/ftp.php:770 framework/VFS/lib/VFS/ftp.php:837
+#: framework/VFS/lib/VFS/smb.php:527 framework/VFS/lib/VFS/smb.php:582
 #: framework/VFS/lib/VFS/ssh2.php:751 framework/VFS/lib/VFS/ssh2.php:821
 #, php-format
 msgid "%s already exists."
@@ -205,49 +205,17 @@ msgstr "%s mit %s %s"
 msgid "%s authentication credentials"
 msgstr "%s-Anmeldedaten"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:866
-#, php-format
-msgid "%s has accepted the invitation to the following event:"
-msgstr "%s hat die Einladung zu dem folgenden Termin angenommen:"
-
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:865
-#, php-format
-msgid "%s has accepted the update to the following event:"
-msgstr "%s hat die Aktualisierung des folgenden Termins angenommen:"
-
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:595
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource.php:316
 #, php-format
 msgid "%s has been cancelled"
 msgstr "%s wurde abgesagt"
-
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:856
-#, php-format
-msgid "%s has declined the invitation to the following event:"
-msgstr "%s hat die Einladung zu dem folgenden Termin abgelehnt:"
-
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:855
-#, php-format
-msgid "%s has declined the update to the following event:"
-msgstr "%s hat die Aktualisierung des folgenden Termins abgelehnt:"
-
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:876
-#, php-format
-msgid "%s has tentatively accepted the invitation to the following event:"
-msgstr ""
-"%s hat die Einladung zu dem folgenden Termin unter Vorbehalt angenommen:"
-
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:875
-#, php-format
-msgid "%s has tentatively accepted the update to the following event:"
-msgstr ""
-"%s hat die Aktualisierung des folgenden Termins unter Vorbehalt angenommen:"
 
 #: framework/Block/Block/Collection.php:132
 #, php-format
 msgid "%s is not activated."
 msgstr "%s ist nicht aktiviert."
 
-#: framework/Horde/Horde/Registry.php:815
+#: framework/Horde/Horde/Registry.php:816
 #, php-format
 msgid "%s is not authorised for %s."
 msgstr "Benutzer %s ist für %s nicht autorisiert."
@@ -261,7 +229,7 @@ msgstr ""
 "%s wird die Wartungsarbeiten durchführen, die unten markiert sind. Markieren "
 "Sie alle Aufgaben, die jetzt durchgeführt werden sollen."
 
-#: framework/Form/Form.php:3077
+#: framework/Form/Form.php:3080
 #, php-format
 msgid "%s is required"
 msgstr "%s ist notwendig"
@@ -317,17 +285,17 @@ msgstr ", böig %s %s"
 msgid ", variable from %s to %s"
 msgstr ", schwankend von %s bis %s"
 
+#: framework/Form/Form.php:2792 framework/Form/Form.php:2858
 #: framework/Perms/Perms/UI.php:341 framework/Perms/Perms/UI.php:400
-#: framework/Form/Form.php:2789 framework/Form/Form.php:2855
 #: framework/UI/UI/VarRenderer/html.php:828
 msgid "-- select --"
 msgstr "-- Auswählen --"
 
-#: framework/Alarm/Alarm.php:348
+#: framework/Alarm/Alarm.php:368
 msgid "1 day"
 msgstr "1 Tag"
 
-#: framework/Alarm/Alarm.php:346
+#: framework/Alarm/Alarm.php:366
 msgid "1 hour"
 msgstr "1 Stunde"
 
@@ -335,7 +303,7 @@ msgstr "1 Stunde"
 msgid "12 Hour Format"
 msgstr "12-Stunden-Format"
 
-#: framework/Alarm/Alarm.php:345
+#: framework/Alarm/Alarm.php:365
 msgid "15 minutes"
 msgstr "15 Minuten"
 
@@ -343,7 +311,7 @@ msgstr "15 Minuten"
 msgid "24 Hour Format"
 msgstr "24-Stunden-Format"
 
-#: templates/data/time.inc:28 templates/data/datetime.inc:109
+#: templates/data/datetime.inc:109 templates/data/time.inc:28
 msgid "24 hours"
 msgstr "24 Stunden"
 
@@ -355,7 +323,7 @@ msgstr "401 Nicht autorisiert"
 msgid "404 Not Found"
 msgstr "404 Nicht gefunden"
 
-#: framework/Alarm/Alarm.php:344
+#: framework/Alarm/Alarm.php:364
 msgid "5 minutes"
 msgstr "5 Minuten"
 
@@ -363,7 +331,7 @@ msgstr "5 Minuten"
 msgid "500 Server Error"
 msgstr "500 Serverfehler"
 
-#: framework/Alarm/Alarm.php:347
+#: framework/Alarm/Alarm.php:367
 msgid "6 hours"
 msgstr "6 Stunden"
 
@@ -453,7 +421,7 @@ msgstr ""
 "Ein öffentlicher und ein privater S/MIME-Schlüssel sowie ein Passwort wird "
 "für die Unterzeichnung einer Nachricht benötigt."
 
-#: framework/Form/Form.php:1629 framework/Form/Form.php:1675
+#: framework/Form/Form.php:1632 framework/Form/Form.php:1678
 msgid "A temporary directory"
 msgstr "Ein temporäres Verzeichnis"
 
@@ -505,7 +473,7 @@ msgstr "Vormittags Gewitterschauer"
 msgid "AM T-Storms"
 msgstr "Vormittags Gewitter"
 
-#: templates/data/time.inc:29 templates/data/datetime.inc:110
+#: templates/data/datetime.inc:110 templates/data/time.inc:29
 msgid "AM/PM"
 msgstr "AM/PM"
 
@@ -513,9 +481,9 @@ msgstr "AM/PM"
 msgid "API ID"
 msgstr "API ID"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:867
-msgid "Accepted: "
-msgstr "Angenommen: "
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource/Itip/Response/Type/Accept.php:49
+msgid "Accepted"
+msgstr "Angenommen"
 
 #: framework/VFS/lib/VFS/musql.php:319
 msgid "Access denied creating VFS directory."
@@ -551,7 +519,7 @@ msgid "Accounting"
 msgstr "Buchhaltung"
 
 #: framework/Perms/Perms/UI.php:195 framework/UI/UI/VarRenderer/html.php:631
-#: templates/portal/add.inc:14 templates/admin/groups/addchild.inc:12
+#: templates/admin/groups/addchild.inc:12 templates/portal/add.inc:14
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -640,9 +608,8 @@ msgstr "\"%s\" wurde zum System hinzugefügt. Sie können sich jetzt anmelden."
 msgid "Adding users is disabled."
 msgstr "Das Hinzufügen von Benutzern ist nicht möglich."
 
-#: framework/MIME/MIME/Viewer/vcard.php:159
-#: framework/MIME/MIME/Viewer/vcard.php:217 framework/Form/Form.php:1556
-#: lib/Block/vatid.php:102
+#: framework/Form/Form.php:1559 framework/MIME/MIME/Viewer/vcard.php:159
+#: framework/MIME/MIME/Viewer/vcard.php:217 lib/Block/vatid.php:102
 msgid "Address"
 msgstr "Adresse"
 
@@ -650,17 +617,17 @@ msgstr "Adresse"
 msgid "Address Book"
 msgstr "Adressbuch"
 
-#: framework/Form/Form.php:1578
+#: framework/Form/Form.php:1581
 msgid "Address Link"
 msgstr "Adresslink"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:111
 #: framework/IMAP/IMAP/ACL/rfc4314.php:70
-#: framework/IMAP/IMAP/ACL/rfc2086.php:106
 msgid "Administer"
 msgstr "Administrieren"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:99
 #: framework/IMAP/IMAP/ACL/rfc4314.php:56
-#: framework/IMAP/IMAP/ACL/rfc2086.php:94
 msgid "Administer - set permissions for other users"
 msgstr "Verwalten - Rechte für andere Benutzer festlegen"
 
@@ -672,8 +639,8 @@ msgstr "Administration"
 msgid "Ads"
 msgstr "Werbung"
 
-#: framework/NLS/NLS/tld.php:18 framework/NLS/NLS/countries.php:11
-#: framework/NLS/NLS/GeoIP.php:56
+#: framework/NLS/NLS/GeoIP.php:56 framework/NLS/NLS/countries.php:11
+#: framework/NLS/NLS/tld.php:18
 msgid "Afghanistan"
 msgstr "Afghanistan"
 
@@ -713,13 +680,13 @@ msgstr "Alarmtitel"
 msgid "Alarms"
 msgstr "Alarme"
 
-#: framework/NLS/NLS/tld.php:21 framework/NLS/NLS/countries.php:12
-#: framework/NLS/NLS/GeoIP.php:57
+#: framework/NLS/NLS/GeoIP.php:57 framework/NLS/NLS/countries.php:12
+#: framework/NLS/NLS/tld.php:21
 msgid "Albania"
 msgstr "Albanien"
 
-#: framework/NLS/NLS/tld.php:75 framework/NLS/NLS/countries.php:13
-#: framework/NLS/NLS/GeoIP.php:70
+#: framework/NLS/NLS/GeoIP.php:70 framework/NLS/NLS/countries.php:13
+#: framework/NLS/NLS/tld.php:75
 msgid "Algeria"
 msgstr "Algerien"
 
@@ -743,11 +710,11 @@ msgstr "Alle Gruppen"
 msgid "All Permissions"
 msgstr "Alle Rechte"
 
-#: services/portal/syncml.php:46
+#: services/portal/syncml.php:54
 msgid "All synchronization sessions deleted."
 msgstr "Alle Synchronisationssitzungen gelöscht."
 
-#: framework/Form/Form.php:2439
+#: framework/Form/Form.php:2442
 msgid "Allow multiple addresses?"
 msgstr "Mehrere Adressen erlauben?"
 
@@ -771,12 +738,12 @@ msgstr "Alternativer IMSP-Benutzername"
 msgid "Alternate email address"
 msgstr "Alternative E-Mail-Adresse"
 
-#: framework/NLS/NLS/tld.php:27 framework/NLS/NLS/countries.php:14
-#: framework/NLS/NLS/GeoIP.php:58
+#: framework/NLS/NLS/GeoIP.php:58 framework/NLS/NLS/countries.php:14
+#: framework/NLS/NLS/tld.php:27
 msgid "American Samoa"
 msgstr "Amerikanisch-Samoa"
 
-#: framework/Prefs/Prefs/UI.php:95 framework/Prefs/Prefs/UI.php:115
+#: framework/Prefs/Prefs/UI.php:99 framework/Prefs/Prefs/UI.php:119
 msgid "An illegal value was specified."
 msgstr "Es wurde ein ungültiger Wert angegeben."
 
@@ -788,18 +755,18 @@ msgstr "Ein unbekannter Fehler ist aufgetreten."
 msgid "An unknown person"
 msgstr "Eine unbekannte Person"
 
-#: framework/NLS/NLS/tld.php:16 framework/NLS/NLS/countries.php:15
-#: framework/NLS/NLS/GeoIP.php:55
+#: framework/NLS/NLS/GeoIP.php:55 framework/NLS/NLS/countries.php:15
+#: framework/NLS/NLS/tld.php:16
 msgid "Andorra"
 msgstr "Andorra"
 
-#: framework/NLS/NLS/tld.php:24 framework/NLS/NLS/countries.php:16
-#: framework/NLS/NLS/GeoIP.php:58
+#: framework/NLS/NLS/GeoIP.php:58 framework/NLS/NLS/countries.php:16
+#: framework/NLS/NLS/tld.php:24
 msgid "Angola"
 msgstr "Angola"
 
-#: framework/NLS/NLS/tld.php:20 framework/NLS/NLS/countries.php:17
-#: framework/NLS/NLS/GeoIP.php:57
+#: framework/NLS/NLS/GeoIP.php:57 framework/NLS/NLS/countries.php:17
+#: framework/NLS/NLS/tld.php:20
 msgid "Anguilla"
 msgstr "Anguilla"
 
@@ -811,13 +778,13 @@ msgstr "Anonymer Proxy"
 msgid "Answer"
 msgstr "Antwort"
 
-#: framework/NLS/NLS/tld.php:25 framework/NLS/NLS/countries.php:18
-#: framework/NLS/NLS/GeoIP.php:58
+#: framework/NLS/NLS/GeoIP.php:58 framework/NLS/NLS/countries.php:18
+#: framework/NLS/NLS/tld.php:25
 msgid "Antarctica"
 msgstr "Antarktis"
 
-#: framework/NLS/NLS/tld.php:19 framework/NLS/NLS/countries.php:19
-#: framework/NLS/NLS/GeoIP.php:56
+#: framework/NLS/NLS/GeoIP.php:56 framework/NLS/NLS/countries.php:19
+#: framework/NLS/NLS/tld.php:19
 msgid "Antigua and Barbuda"
 msgstr "Antigua und Barbuda"
 
@@ -856,17 +823,17 @@ msgstr "Das Konto bestätigen:"
 msgid "April"
 msgstr "April"
 
-#: config/nls.php.dist:223
+#: config/nls.php.dist:225
 msgid "Arabic (Windows-1256)"
 msgstr "Arabisch (Windows-1256)"
 
-#: framework/MIME/MIME/Viewer/rar.php:57 framework/MIME/MIME/Viewer/zip.php:77
-#: framework/MIME/MIME/Viewer/tgz.php:84
+#: framework/MIME/MIME/Viewer/rar.php:57 framework/MIME/MIME/Viewer/tgz.php:84
+#: framework/MIME/MIME/Viewer/zip.php:77
 msgid "Archive File Size"
 msgstr "Archivgröße"
 
-#: framework/MIME/MIME/Viewer/rar.php:56 framework/MIME/MIME/Viewer/zip.php:76
-#: framework/MIME/MIME/Viewer/tgz.php:83
+#: framework/MIME/MIME/Viewer/rar.php:56 framework/MIME/MIME/Viewer/tgz.php:83
+#: framework/MIME/MIME/Viewer/zip.php:76
 msgid "Archive Name"
 msgstr "Archivname"
 
@@ -888,17 +855,17 @@ msgid "Are you sure you wish to delete \"%s\" and any sub-groups?"
 msgstr ""
 "Sind Sie sicher, dass Sie \"%s\" und alle Untergruppen löschen möchten?"
 
-#: framework/NLS/NLS/tld.php:26 framework/NLS/NLS/countries.php:20
-#: framework/NLS/NLS/GeoIP.php:58
+#: framework/NLS/NLS/GeoIP.php:58 framework/NLS/NLS/countries.php:20
+#: framework/NLS/NLS/tld.php:26
 msgid "Argentina"
 msgstr "Argentinien"
 
-#: framework/NLS/NLS/tld.php:22 framework/NLS/NLS/countries.php:21
-#: framework/NLS/NLS/GeoIP.php:57
+#: framework/NLS/NLS/GeoIP.php:57 framework/NLS/NLS/countries.php:21
+#: framework/NLS/NLS/tld.php:22
 msgid "Armenia"
 msgstr "Armenien"
 
-#: config/nls.php.dist:224
+#: config/nls.php.dist:226
 msgid "Armenian (ARMSCII-8)"
 msgstr "Armenisch (ARMSCII-8)"
 
@@ -906,8 +873,8 @@ msgstr "Armenisch (ARMSCII-8)"
 msgid "Art"
 msgstr "Kunst"
 
-#: framework/NLS/NLS/tld.php:30 framework/NLS/NLS/countries.php:22
-#: framework/NLS/NLS/GeoIP.php:59
+#: framework/NLS/NLS/GeoIP.php:59 framework/NLS/NLS/countries.php:22
+#: framework/NLS/NLS/tld.php:30
 msgid "Aruba"
 msgstr "Aruba"
 
@@ -927,7 +894,7 @@ msgstr "Asien/Pazifische Region"
 msgid "Ask for confirmation before doing maintenance operations?"
 msgstr "Anstehende Wartungsarbeiten bestätigen lassen?"
 
-#: framework/Form/Form.php:4080
+#: framework/Form/Form.php:4083
 msgid "Assignment columns"
 msgstr "Zuordnungsfelder"
 
@@ -956,8 +923,8 @@ msgstr "Es wurde versucht, ein nicht existierendes Recht zu bearbeiten."
 msgid "Attribute \"%s\" not supported!"
 msgstr "Dat Attribut \"%s\" wird nicht unterstützt!"
 
-#: framework/MIME/MIME/Viewer/rar.php:62 framework/MIME/MIME/Viewer/zip.php:85
-#: framework/MIME/MIME/Viewer/tgz.php:89
+#: framework/MIME/MIME/Viewer/rar.php:62 framework/MIME/MIME/Viewer/tgz.php:89
+#: framework/MIME/MIME/Viewer/zip.php:85
 msgid "Attributes"
 msgstr "Attribute"
 
@@ -967,13 +934,13 @@ msgstr "Attribute"
 msgid "August"
 msgstr "August"
 
-#: framework/NLS/NLS/tld.php:29 framework/NLS/NLS/countries.php:23
-#: framework/NLS/NLS/GeoIP.php:59
+#: framework/NLS/NLS/GeoIP.php:59 framework/NLS/NLS/countries.php:23
+#: framework/NLS/NLS/tld.php:29
 msgid "Australia"
 msgstr "Australien"
 
-#: framework/NLS/NLS/tld.php:28 framework/NLS/NLS/countries.php:24
-#: framework/NLS/NLS/GeoIP.php:59
+#: framework/NLS/NLS/GeoIP.php:59 framework/NLS/NLS/countries.php:24
+#: framework/NLS/NLS/tld.php:28
 msgid "Austria"
 msgstr "Österreich"
 
@@ -1103,8 +1070,8 @@ msgstr "Anmeldung beim SMB-Server fehlgeschlagen."
 msgid "Available fields:"
 msgstr "Verfügbare Felder:"
 
-#: framework/NLS/NLS/tld.php:32 framework/NLS/NLS/countries.php:25
-#: framework/NLS/NLS/GeoIP.php:59
+#: framework/NLS/NLS/GeoIP.php:59 framework/NLS/NLS/countries.php:25
+#: framework/NLS/NLS/tld.php:32
 msgid "Azerbaijan"
 msgstr "Aserbaidschan"
 
@@ -1124,27 +1091,27 @@ msgstr "Falsches Kerberos-Passwort."
 msgid "Bad kerberos username."
 msgstr "Falscher Kerberos-Benutzername."
 
-#: framework/NLS/NLS/tld.php:46 framework/NLS/NLS/countries.php:26
-#: framework/NLS/NLS/GeoIP.php:62
+#: framework/NLS/NLS/GeoIP.php:62 framework/NLS/NLS/countries.php:26
+#: framework/NLS/NLS/tld.php:46
 msgid "Bahamas"
 msgstr "Bahamas"
 
-#: framework/NLS/NLS/tld.php:39 framework/NLS/NLS/countries.php:27
-#: framework/NLS/NLS/GeoIP.php:61
+#: framework/NLS/NLS/GeoIP.php:61 framework/NLS/NLS/countries.php:27
+#: framework/NLS/NLS/tld.php:39
 msgid "Bahrain"
 msgstr "Bahrein"
 
-#: config/nls.php.dist:225
+#: config/nls.php.dist:227
 msgid "Baltic (ISO-8859-13)"
 msgstr "Baltisch (ISO-8859-13)"
 
-#: framework/NLS/NLS/tld.php:35 framework/NLS/NLS/countries.php:28
-#: framework/NLS/NLS/GeoIP.php:60
+#: framework/NLS/NLS/GeoIP.php:60 framework/NLS/NLS/countries.php:28
+#: framework/NLS/NLS/tld.php:35
 msgid "Bangladesh"
 msgstr "Bangladesch"
 
-#: framework/NLS/NLS/tld.php:34 framework/NLS/NLS/countries.php:29
-#: framework/NLS/NLS/GeoIP.php:60
+#: framework/NLS/NLS/GeoIP.php:60 framework/NLS/NLS/countries.php:29
+#: framework/NLS/NLS/tld.php:34
 msgid "Barbados"
 msgstr "Barbados"
 
@@ -1161,33 +1128,33 @@ msgstr "Basis-Bilder-Verzeichnis \"%s\" nicht gefunden."
 msgid "Bcc"
 msgstr "Bcc"
 
-#: framework/NLS/NLS/tld.php:50 framework/NLS/NLS/countries.php:30
-#: framework/NLS/NLS/GeoIP.php:63
+#: framework/NLS/NLS/GeoIP.php:63 framework/NLS/NLS/countries.php:30
+#: framework/NLS/NLS/tld.php:50
 msgid "Belarus"
 msgstr "Weißruland"
 
-#: framework/NLS/NLS/tld.php:36 framework/NLS/NLS/countries.php:31
-#: framework/NLS/NLS/GeoIP.php:60
+#: framework/NLS/NLS/GeoIP.php:60 framework/NLS/NLS/countries.php:31
+#: framework/NLS/NLS/tld.php:36
 msgid "Belgium"
 msgstr "Belgien"
 
-#: framework/NLS/NLS/tld.php:51 framework/NLS/NLS/countries.php:32
-#: framework/NLS/NLS/GeoIP.php:63
+#: framework/NLS/NLS/GeoIP.php:63 framework/NLS/NLS/countries.php:32
+#: framework/NLS/NLS/tld.php:51
 msgid "Belize"
 msgstr "Belize"
 
-#: framework/NLS/NLS/tld.php:41 framework/NLS/NLS/countries.php:33
-#: framework/NLS/NLS/GeoIP.php:61
+#: framework/NLS/NLS/GeoIP.php:61 framework/NLS/NLS/countries.php:33
+#: framework/NLS/NLS/tld.php:41
 msgid "Benin"
 msgstr "Benin"
 
-#: framework/NLS/NLS/tld.php:42 framework/NLS/NLS/countries.php:34
-#: framework/NLS/NLS/GeoIP.php:62
+#: framework/NLS/NLS/GeoIP.php:62 framework/NLS/NLS/countries.php:34
+#: framework/NLS/NLS/tld.php:42
 msgid "Bermuda"
 msgstr "Bermudas"
 
-#: framework/NLS/NLS/tld.php:47 framework/NLS/NLS/countries.php:35
-#: framework/NLS/NLS/GeoIP.php:63
+#: framework/NLS/NLS/GeoIP.php:63 framework/NLS/NLS/countries.php:35
+#: framework/NLS/NLS/tld.php:47
 msgid "Bhutan"
 msgstr "Bhutan"
 
@@ -1195,7 +1162,7 @@ msgstr "Bhutan"
 msgid "Birthday"
 msgstr "Geburtstag"
 
-#: framework/Block/Block/Collection.php:367
+#: framework/Block/Block/Collection.php:372
 #, php-format
 msgid "Block \"%s\" of application \"%s\" not found."
 msgstr "Block \"%s\" der Anwendung \"%s\" nicht gefunden."
@@ -1216,8 +1183,8 @@ msgstr "Blauer Mond"
 msgid "Blue and White"
 msgstr "Blau und Weiß"
 
-#: framework/NLS/NLS/tld.php:44 framework/NLS/NLS/countries.php:36
-#: framework/NLS/NLS/GeoIP.php:62
+#: framework/NLS/NLS/GeoIP.php:62 framework/NLS/NLS/countries.php:36
+#: framework/NLS/NLS/tld.php:44
 msgid "Bolivia"
 msgstr "Bolivien"
 
@@ -1225,8 +1192,8 @@ msgstr "Bolivien"
 msgid "Bookmarks"
 msgstr "Lesezeichen"
 
-#: framework/NLS/NLS/tld.php:33 framework/NLS/NLS/countries.php:37
-#: framework/NLS/NLS/GeoIP.php:60
+#: framework/NLS/NLS/GeoIP.php:60 framework/NLS/NLS/countries.php:37
+#: framework/NLS/NLS/tld.php:33
 msgid "Bosnia and Herzegovina"
 msgstr "Bosnien-Herzegowina"
 
@@ -1234,23 +1201,23 @@ msgstr "Bosnien-Herzegowina"
 msgid "Both"
 msgstr "Beides"
 
-#: framework/NLS/NLS/tld.php:49 framework/NLS/NLS/countries.php:38
-#: framework/NLS/NLS/GeoIP.php:63
+#: framework/NLS/NLS/GeoIP.php:63 framework/NLS/NLS/countries.php:38
+#: framework/NLS/NLS/tld.php:49
 msgid "Botswana"
 msgstr "Botswana"
 
-#: framework/NLS/NLS/tld.php:48 framework/NLS/NLS/countries.php:39
-#: framework/NLS/NLS/GeoIP.php:63
+#: framework/NLS/NLS/GeoIP.php:63 framework/NLS/NLS/countries.php:39
+#: framework/NLS/NLS/tld.php:48
 msgid "Bouvet Island"
 msgstr "Bouvetinsel"
 
-#: framework/NLS/NLS/tld.php:45 framework/NLS/NLS/countries.php:40
-#: framework/NLS/NLS/GeoIP.php:62
+#: framework/NLS/NLS/GeoIP.php:62 framework/NLS/NLS/countries.php:40
+#: framework/NLS/NLS/tld.php:45
 msgid "Brazil"
 msgstr "Brasilien"
 
-#: framework/NLS/NLS/tld.php:120 framework/NLS/NLS/countries.php:41
-#: framework/NLS/NLS/GeoIP.php:81
+#: framework/NLS/NLS/GeoIP.php:81 framework/NLS/NLS/countries.php:41
+#: framework/NLS/NLS/tld.php:120
 msgid "British Indian Ocean Territory"
 msgstr "Britisches Territorium im Indischen Ozean"
 
@@ -1262,18 +1229,18 @@ msgstr "Braun"
 msgid "Browser:"
 msgstr "Browser:"
 
-#: framework/NLS/NLS/tld.php:43 framework/NLS/NLS/countries.php:42
-#: framework/NLS/NLS/GeoIP.php:62
+#: framework/NLS/NLS/GeoIP.php:62 framework/NLS/NLS/countries.php:42
+#: framework/NLS/NLS/tld.php:43
 msgid "Brunei Darussalam"
 msgstr "Brunei Darussalam"
 
-#: framework/NLS/NLS/tld.php:38 framework/NLS/NLS/countries.php:43
-#: framework/NLS/NLS/GeoIP.php:61
+#: framework/NLS/NLS/GeoIP.php:61 framework/NLS/NLS/countries.php:43
+#: framework/NLS/NLS/tld.php:38
 msgid "Bulgaria"
 msgstr "Bulgarien"
 
-#: framework/NLS/NLS/tld.php:37 framework/NLS/NLS/countries.php:44
-#: framework/NLS/NLS/GeoIP.php:61
+#: framework/NLS/NLS/GeoIP.php:61 framework/NLS/NLS/countries.php:44
+#: framework/NLS/NLS/tld.php:37
 msgid "Burkina Faso"
 msgstr "Burkina Faso"
 
@@ -1281,8 +1248,8 @@ msgstr "Burkina Faso"
 msgid "Burnt Orange"
 msgstr "Rot-Orange"
 
-#: framework/NLS/NLS/tld.php:40 framework/NLS/NLS/countries.php:45
-#: framework/NLS/NLS/GeoIP.php:61
+#: framework/NLS/NLS/GeoIP.php:61 framework/NLS/NLS/countries.php:45
+#: framework/NLS/NLS/tld.php:40
 msgid "Burundi"
 msgstr "Burundi"
 
@@ -1298,7 +1265,7 @@ msgstr "CRL Distributionsstelle"
 msgid "Cache init was not completed."
 msgstr "Der Zwischenspeicher konnte nicht initialisiert werden."
 
-#: framework/Share/Share/kolab.php:447 framework/Kolab/Kolab.php:743
+#: framework/Kolab/Kolab.php:743 framework/Share/Share/kolab.php:447
 #: framework/UI/UI/VarRenderer/html.php:523 config/registry.php.dist:148
 msgid "Calendar"
 msgstr "Kalender"
@@ -1307,13 +1274,13 @@ msgstr "Kalender"
 msgid "Calm"
 msgstr "Windstill"
 
-#: framework/NLS/NLS/tld.php:131 framework/NLS/NLS/countries.php:46
-#: framework/NLS/NLS/GeoIP.php:83
+#: framework/NLS/NLS/GeoIP.php:83 framework/NLS/NLS/countries.php:46
+#: framework/NLS/NLS/tld.php:131
 msgid "Cambodia"
 msgstr "Kambodscha"
 
-#: framework/NLS/NLS/tld.php:61 framework/NLS/NLS/countries.php:47
-#: framework/NLS/NLS/GeoIP.php:67
+#: framework/NLS/NLS/GeoIP.php:67 framework/NLS/NLS/countries.php:47
+#: framework/NLS/NLS/tld.php:61
 msgid "Cameroon"
 msgstr "Kamerun"
 
@@ -1331,8 +1298,8 @@ msgstr ""
 msgid "Can't connect to IMAP server: %s"
 msgstr "Verbindung zum IMAP-Server kann nicht hergestellt werden: %s"
 
-#: framework/NLS/NLS/tld.php:52 framework/NLS/NLS/countries.php:48
-#: framework/NLS/NLS/GeoIP.php:64
+#: framework/NLS/NLS/GeoIP.php:64 framework/NLS/NLS/countries.php:48
+#: framework/NLS/NLS/tld.php:52
 msgid "Canada"
 msgstr "Kanada"
 
@@ -1360,15 +1327,15 @@ msgstr ""
 "Verbindung zum Kolab-LDAP-Server kann nicht hergestellt werden. PHP "
 "unterstützt kein LDAP!"
 
-#: framework/VFS/lib/VFS.php:409 framework/VFS/lib/VFS/smb.php:511
-#: framework/VFS/lib/VFS/file.php:272 framework/VFS/lib/VFS/ftp.php:749
-#: framework/VFS/lib/VFS/ssh2.php:730 framework/VFS/lib/VFS/sql_file.php:181
+#: framework/VFS/lib/VFS.php:409 framework/VFS/lib/VFS/file.php:272
+#: framework/VFS/lib/VFS/ftp.php:749 framework/VFS/lib/VFS/smb.php:511
+#: framework/VFS/lib/VFS/sql_file.php:181 framework/VFS/lib/VFS/ssh2.php:730
 msgid "Cannot copy file(s) - source and destination are the same."
 msgstr ""
 "Datei(en) können nicht kopiert werden - Quell- und Zieldateien sind "
 "identisch."
 
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:290
+#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:286
 msgid "Cannot create this folder! The name has not yet been set."
 msgstr ""
 "Dieser Order kann nicht angelegt werden! Der Name wurde noch nicht "
@@ -1384,9 +1351,9 @@ msgstr "Die Datei \"%s\" konnte nicht gelöscht werden."
 msgid "Cannot find a temporary directory."
 msgstr "Kein temporäres Verzeichnis gefunden."
 
-#: framework/VFS/lib/VFS/smb.php:566 framework/VFS/lib/VFS/file.php:231
-#: framework/VFS/lib/VFS/ftp.php:816 framework/VFS/lib/VFS/ssh2.php:799
-#: framework/VFS/lib/VFS/sql_file.php:140
+#: framework/VFS/lib/VFS/file.php:231 framework/VFS/lib/VFS/ftp.php:816
+#: framework/VFS/lib/VFS/smb.php:566 framework/VFS/lib/VFS/sql_file.php:140
+#: framework/VFS/lib/VFS/ssh2.php:799
 msgid "Cannot move file(s) - destination is within source."
 msgstr ""
 "Datei(en) können nicht verschoben werden - Zieldatei befindet sich im "
@@ -1413,12 +1380,12 @@ msgid_plural "Cannot remove, %d children exist."
 msgstr[0] "Konnte nicht entfernt werden, %d Kind existiert."
 msgstr[1] "Konnte nicht entfernt werden, %d Kinder existieren."
 
-#: framework/DataTree/DataTree/sql.php:776
+#: framework/DataTree/DataTree/sql.php:778
 #, php-format
 msgid "Cannot remove, %d children exist."
 msgstr "Konnte nicht entfernt werden, %d Kinder existieren."
 
-#: framework/DataTree/DataTree/sql.php:701
+#: framework/DataTree/DataTree/sql.php:703
 msgid ""
 "Cannot reorder, number of entries supplied for reorder does not match number "
 "stored."
@@ -1442,8 +1409,8 @@ msgstr ""
 msgid "Cannot write to file \"%s\""
 msgstr "Die Datei \"%s\" kann nicht gespeichert werden"
 
-#: framework/NLS/NLS/tld.php:66 framework/NLS/NLS/countries.php:49
-#: framework/NLS/NLS/GeoIP.php:68
+#: framework/NLS/NLS/GeoIP.php:68 framework/NLS/NLS/countries.php:49
+#: framework/NLS/NLS/tld.php:66
 msgid "Cape Verde"
 msgstr "Kap Verde"
 
@@ -1455,12 +1422,12 @@ msgstr "Provider"
 msgid "Categories and Labels"
 msgstr "Kategorien und Beschriftungen"
 
-#: framework/Form/Form.php:4356
+#: framework/Form/Form.php:4359
 msgid "Category"
 msgstr "Kategorie"
 
-#: framework/NLS/NLS/tld.php:138 framework/NLS/NLS/countries.php:50
-#: framework/NLS/NLS/GeoIP.php:86
+#: framework/NLS/NLS/GeoIP.php:86 framework/NLS/NLS/countries.php:50
+#: framework/NLS/NLS/tld.php:138
 msgid "Cayman Islands"
 msgstr "Cayman-Inseln"
 
@@ -1472,16 +1439,16 @@ msgstr "Cc"
 msgid "Cell Phone"
 msgstr "Mobiltelefon"
 
-#: config/nls.php.dist:226
+#: config/nls.php.dist:228
 msgid "Celtic (ISO-8859-14)"
 msgstr "Keltisch (ISO-8859-14)"
 
-#: framework/NLS/NLS/tld.php:55 framework/NLS/NLS/countries.php:51
-#: framework/NLS/NLS/GeoIP.php:65
+#: framework/NLS/NLS/GeoIP.php:65 framework/NLS/NLS/countries.php:51
+#: framework/NLS/NLS/tld.php:55
 msgid "Central African Republic"
 msgstr "Zentralafrikanische Republik"
 
-#: config/nls.php.dist:227
+#: config/nls.php.dist:229
 msgid "Central European (ISO-8859-2)"
 msgstr "Mitteleuropäisch (ISO-8859-2)"
 
@@ -1497,8 +1464,8 @@ msgstr "Zertifikatbesitzer"
 msgid "Certificate Policies"
 msgstr "Zertifikatrichtlinien"
 
-#: framework/NLS/NLS/tld.php:227 framework/NLS/NLS/countries.php:52
-#: framework/NLS/NLS/GeoIP.php:108
+#: framework/NLS/NLS/GeoIP.php:108 framework/NLS/NLS/countries.php:52
+#: framework/NLS/NLS/tld.php:227
 msgid "Chad"
 msgstr "Tschad"
 
@@ -1526,7 +1493,7 @@ msgstr ""
 "Das Ändern Ihres Passworts wird von diesem System zur Zeit nicht "
 "unterstützt. Bitte wenden Sie sich an Ihren Administrator."
 
-#: framework/Form/Form.php:2451
+#: framework/Form/Form.php:2454
 msgid "Character to split multiple addresses with"
 msgstr "Zeichen, durch das mehrere E-Mail-Adressen getrenn werden sollen"
 
@@ -1546,21 +1513,21 @@ msgstr "Überprüfe"
 msgid "Child"
 msgstr "Kind"
 
-#: framework/NLS/NLS/tld.php:60 framework/NLS/NLS/countries.php:53
-#: framework/NLS/NLS/GeoIP.php:67
+#: framework/NLS/NLS/GeoIP.php:67 framework/NLS/NLS/countries.php:53
+#: framework/NLS/NLS/tld.php:60
 msgid "Chile"
 msgstr "Chile"
 
-#: framework/NLS/NLS/tld.php:62 framework/NLS/NLS/countries.php:54
-#: framework/NLS/NLS/GeoIP.php:67
+#: framework/NLS/NLS/GeoIP.php:67 framework/NLS/NLS/countries.php:54
+#: framework/NLS/NLS/tld.php:62
 msgid "China"
 msgstr "China"
 
-#: config/nls.php.dist:228
+#: config/nls.php.dist:230
 msgid "Chinese Simplified (GB2312)"
 msgstr "Chinesisch vereinfacht (GB2312)"
 
-#: config/nls.php.dist:229
+#: config/nls.php.dist:231
 msgid "Chinese Traditional (Big5)"
 msgstr "Chinesisch traditionell (Big5)"
 
@@ -1585,8 +1552,8 @@ msgstr "Wählen Sie einen Benutzernamen"
 msgid "Choose how to display dates:"
 msgstr "Legen Sie fest, wie das Datum angezeigt werden soll:"
 
-#: framework/NLS/NLS/tld.php:67 framework/NLS/NLS/countries.php:55
-#: framework/NLS/NLS/GeoIP.php:68
+#: framework/NLS/NLS/GeoIP.php:68 framework/NLS/NLS/countries.php:55
+#: framework/NLS/NLS/tld.php:67
 msgid "Christmas Island"
 msgstr "Weihnachtsinsel"
 
@@ -1632,7 +1599,7 @@ msgstr "Fortfahren"
 msgid "Clickatell via HTTP"
 msgstr "Clickatell per HTTP"
 
-#: templates/syncml/syncml.inc:12
+#: templates/syncml/syncml.inc:20
 msgid "Client Anchor"
 msgstr "Client-Anker"
 
@@ -1656,8 +1623,8 @@ msgstr "Später Wolken"
 msgid "Cloudy"
 msgstr "Bewölkt"
 
-#: framework/NLS/NLS/tld.php:53 framework/NLS/NLS/countries.php:56
-#: framework/NLS/NLS/GeoIP.php:64
+#: framework/NLS/NLS/GeoIP.php:64 framework/NLS/NLS/countries.php:56
+#: framework/NLS/NLS/tld.php:53
 msgid "Cocos (Keeling) Islands"
 msgstr "Kokosinseln"
 
@@ -1669,8 +1636,8 @@ msgstr "Schließen"
 msgid "Collapse Sidebar"
 msgstr "Menü einfahren"
 
-#: framework/NLS/NLS/tld.php:63 framework/NLS/NLS/countries.php:57
-#: framework/NLS/NLS/GeoIP.php:67
+#: framework/NLS/NLS/GeoIP.php:67 framework/NLS/NLS/countries.php:57
+#: framework/NLS/NLS/tld.php:63
 msgid "Colombia"
 msgstr "Kolumbien"
 
@@ -1682,11 +1649,11 @@ msgstr "Kolumbien"
 msgid "Color Picker"
 msgstr "Farbauswahl"
 
-#: framework/Form/Form.php:3766
+#: framework/Form/Form.php:3769
 msgid "Colour selection"
 msgstr "Farbwahl"
 
-#: framework/Form/Form.php:2670
+#: framework/Form/Form.php:2673
 msgid "Column titles"
 msgstr "Spaltenüberschriften"
 
@@ -1710,8 +1677,8 @@ msgstr "Kommentar"
 msgid "Common Name"
 msgstr "Eindeutiger Name"
 
-#: framework/NLS/NLS/tld.php:133 framework/NLS/NLS/countries.php:58
-#: framework/NLS/NLS/GeoIP.php:84
+#: framework/NLS/NLS/GeoIP.php:84 framework/NLS/NLS/countries.php:58
+#: framework/NLS/NLS/tld.php:133
 msgid "Comoros"
 msgstr "Komoren"
 
@@ -1760,7 +1727,7 @@ msgstr "Passwort bestätigen"
 msgid "Confirm new email address"
 msgstr "Bestätigung der neuen E-Mail-Adresse"
 
-#: framework/NLS/NLS/countries.php:59 framework/NLS/NLS/GeoIP.php:66
+#: framework/NLS/NLS/GeoIP.php:66 framework/NLS/NLS/countries.php:59
 msgid "Congo"
 msgstr "Kongo"
 
@@ -1768,20 +1735,16 @@ msgstr "Kongo"
 msgid "Congo, Republic of"
 msgstr "Republik Kongo"
 
-#: framework/NLS/NLS/tld.php:54 framework/NLS/NLS/countries.php:60
-#: framework/NLS/NLS/GeoIP.php:65
+#: framework/NLS/NLS/GeoIP.php:65 framework/NLS/NLS/countries.php:60
+#: framework/NLS/NLS/tld.php:54
 msgid "Congo, The Democratic Republic of the"
 msgstr "Demokratische Republic Kongo"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:217
-#: framework/IMAP/IMAP/ACL/rfc2086.php:371
-#: framework/IMAP/IMAP/ACL/rfc2086.php:521
+#: framework/IMAP/IMAP/ACL/rfc2086.php:412
 msgid "Connection failed."
 msgstr "Verbindung fehlgeschlagen."
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:217
-#: framework/IMAP/IMAP/ACL/rfc2086.php:371
-#: framework/IMAP/IMAP/ACL/rfc2086.php:521
+#: framework/IMAP/IMAP/ACL/rfc2086.php:412
 msgid "Connection failed: "
 msgstr "Verbindung fehlgeschlagen: "
 
@@ -1803,7 +1766,7 @@ msgstr "Verbindung zum FTP-Server fehlgeschlagen."
 msgid "Connection to SSH2 server failed."
 msgstr "Verbindung zum SSH2-Server fehlgeschlagen."
 
-#: framework/Share/Share/kolab.php:443 framework/Kolab/Kolab.php:755
+#: framework/Kolab/Kolab.php:755 framework/Share/Share/kolab.php:443
 msgid "Contacts"
 msgstr "Kontakte"
 
@@ -1812,18 +1775,18 @@ msgstr "Kontakte"
 msgid "Content type of compressed file: %s"
 msgstr "Inhaltstyp der komprimierten Datei: %s"
 
-#: framework/MIME/MIME/Viewer/rar.php:54 framework/MIME/MIME/Viewer/zip.php:71
-#: framework/MIME/MIME/Viewer/tgz.php:81
+#: framework/MIME/MIME/Viewer/rar.php:54 framework/MIME/MIME/Viewer/tgz.php:81
+#: framework/MIME/MIME/Viewer/zip.php:71
 #, php-format
 msgid "Contents of \"%s\""
 msgstr "Inhalt von \"%s\""
 
-#: services/resetpassword.php:32 services/changepassword.php:35
+#: services/changepassword.php:35 services/resetpassword.php:32
 msgid "Continue"
 msgstr "Weiter"
 
-#: framework/NLS/NLS/tld.php:59 framework/NLS/NLS/countries.php:61
-#: framework/NLS/NLS/GeoIP.php:66
+#: framework/NLS/NLS/GeoIP.php:66 framework/NLS/NLS/countries.php:61
+#: framework/NLS/NLS/tld.php:59
 msgid "Cook Islands"
 msgstr "Cook-Inseln"
 
@@ -1845,13 +1808,13 @@ msgstr "Kornblume"
 msgid "Cost ID"
 msgstr "Kosten-ID"
 
-#: framework/NLS/NLS/tld.php:64 framework/NLS/NLS/countries.php:62
-#: framework/NLS/NLS/GeoIP.php:67
+#: framework/NLS/NLS/GeoIP.php:67 framework/NLS/NLS/countries.php:62
+#: framework/NLS/NLS/tld.php:64
 msgid "Costa Rica"
 msgstr "Costa Rica"
 
-#: framework/NLS/NLS/tld.php:58 framework/NLS/NLS/countries.php:63
-#: framework/NLS/NLS/GeoIP.php:66
+#: framework/NLS/NLS/GeoIP.php:66 framework/NLS/NLS/countries.php:63
+#: framework/NLS/NLS/tld.php:58
 msgid "Cote d'Ivoire"
 msgstr "Elfenbeinküste"
 
@@ -1888,8 +1851,8 @@ msgstr "Anbindung an LDAP-Server fehlgeschlagen."
 msgid "Could not bind to MSAD server."
 msgstr "Anbindung an MSAD-Server fehlgeschlagen."
 
-#: framework/Net_SMS/SMS/sms2email_http.php:165
 #: framework/Net_SMS/SMS/clickatell_http.php:182
+#: framework/Net_SMS/SMS/sms2email_http.php:165
 #, php-format
 msgid "Could not check balance. %s"
 msgstr "Kontostand konnte nicht überprüft werden. %s"
@@ -1935,7 +1898,7 @@ msgstr "Verteilerliste konnte nicht gelöscht werden. %s"
 msgid "Could not delete setup upgrade script \"%s\"."
 msgstr "Das Aktualisierungsskript \"%s\" konnte nicht gelöscht werden."
 
-#: framework/Crypt/Crypt/smime.php:384 framework/Crypt/Crypt/pgp.php:1180
+#: framework/Crypt/Crypt/pgp.php:1180 framework/Crypt/Crypt/smime.php:384
 msgid "Could not determine the recipient's e-mail address."
 msgstr "Die E-Mail-Adresse des Empfängers konnte nicht ermittelt werden."
 
@@ -1951,8 +1914,8 @@ msgstr "Verteilerliste konnte nicht ausgelesen werden. %s"
 msgid "Could not fetch the complete list of distribution lists."
 msgstr "Liste der Verteilerlisten konnte nicht ausgelesen werden."
 
-#: framework/VFS_ISOWriter/ISOWriter/RealOutputStrategy.php:68
 #: framework/VFS_ISOWriter/ISOWriter/RealInputStrategy.php:84
+#: framework/VFS_ISOWriter/ISOWriter/RealOutputStrategy.php:68
 #, php-format
 msgid "Could not load strategy \"%s\"."
 msgstr "Die Strategie \"%s\" konnte nicht geladen werden."
@@ -1972,8 +1935,8 @@ msgstr "Öffentlicher Schlüssel konnte nicht vom Schlüsselserver geholt werden."
 msgid "Could not open \"%s\" for writing."
 msgstr "\"%s\" konnte nicht zum Schreiben geöffnet werden."
 
-#: framework/Net_SMS/SMS/sms2email_http.php:683
 #: framework/Net_SMS/SMS/clickatell_http.php:350
+#: framework/Net_SMS/SMS/sms2email_http.php:683
 #: framework/Net_SMS/SMS/win_http.php:268
 #, php-format
 msgid "Could not open %s."
@@ -1989,12 +1952,12 @@ msgstr "Das Maintenance_Task Modul %s konnte nicht geöffnet werden"
 msgid "Could not open directory \"%s\"."
 msgstr "Verzeichnis \"%s\" konnte nicht geöffnet werden."
 
+#: framework/Group/Group/kolab.php:154 framework/Group/Group/kolab.php:215
+#: framework/Group/Group/kolab.php:279 framework/Group/Group/kolab.php:324
 #: framework/Group/Group/ldap.php:74 framework/Group/Group/ldap.php:121
 #: framework/Group/Group/ldap.php:154 framework/Group/Group/ldap.php:242
 #: framework/Group/Group/ldap.php:453 framework/Group/Group/ldap.php:596
-#: framework/Group/Group/ldap.php:690 framework/Group/Group/kolab.php:154
-#: framework/Group/Group/kolab.php:215 framework/Group/Group/kolab.php:279
-#: framework/Group/Group/kolab.php:324
+#: framework/Group/Group/ldap.php:690
 msgid "Could not reach the LDAP server"
 msgstr "Verbindung zum LDAP-Server konnte nicht hergestellt werden"
 
@@ -2022,17 +1985,12 @@ msgstr ""
 "weil einige Angaben nicht richtig waren. Versuchen Sie es erneut oder wenden "
 "Sie sich an Ihren Administrator, wenn Sie weitere Hilfe benötigen."
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:332
-#: framework/IMAP/IMAP/ACL/rfc2086.php:370
-#: framework/IMAP/IMAP/ACL/rfc2086.php:376
-#: framework/IMAP/IMAP/ACL/rfc2086.php:404
-#: framework/IMAP/IMAP/ACL/rfc2086.php:419
-#: framework/IMAP/IMAP/ACL/rfc2086.php:428
-#: framework/IMAP/IMAP/ACL/rfc2086.php:520
-#: framework/IMAP/IMAP/ACL/rfc2086.php:526
-#: framework/IMAP/IMAP/ACL/rfc2086.php:554
-#: framework/IMAP/IMAP/ACL/rfc2086.php:569
-#: framework/IMAP/IMAP/ACL/rfc2086.php:578
+#: framework/IMAP/IMAP/ACL/rfc2086.php:292
+#: framework/IMAP/IMAP/ACL/rfc2086.php:317
+#: framework/IMAP/IMAP/ACL/rfc2086.php:374
+#: framework/IMAP/IMAP/ACL/rfc2086.php:411
+#: framework/IMAP/IMAP/ACL/rfc2086.php:417
+#: framework/IMAP/IMAP/ACL/rfc2086.php:484
 #, php-format
 msgid "Could not retrieve ACL"
 msgstr "ACL konnte nicht gelesen werden"
@@ -2052,9 +2010,7 @@ msgstr "Verteilerliste konnte nicht ausgelesen werden. %s"
 msgid "Could not retrieve distribution lists. %s"
 msgstr "Verteilerlisten konnte nicht ausgelesen werden. %s"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:217
-#: framework/IMAP/IMAP/ACL/rfc2086.php:222
-#: framework/IMAP/IMAP/ACL/rfc2086.php:229
+#: framework/IMAP/IMAP/ACL/rfc2086.php:227
 msgid "Could not retrieve server's capabilities"
 msgstr "Die Serverfähigkeiten konnten nicht ausgelesen werden"
 
@@ -2130,7 +2086,7 @@ msgstr ""
 "Die Mozilla Sidebar konnte nicht gefunden werden. Stellen Sie sicher, dass "
 "die Sidebar geöffnet ist."
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:169
+#: framework/IMAP/IMAP/ACL/rfc2086.php:174
 #, php-format
 msgid ""
 "Couldn't give user \"%s\" the following rights for the folder \"%s\": %s"
@@ -2138,7 +2094,7 @@ msgstr ""
 "Dem Benutzer \"%s\" konnten die folgende Rechte für den Ordner \"%s\" nicht "
 "zugewiesen werden: %s"
 
-#: framework/Form/Form.php:1445
+#: framework/Form/Form.php:1448
 msgid "Counted text"
 msgstr "Gezählter Text"
 
@@ -2146,7 +2102,7 @@ msgstr "Gezählter Text"
 msgid "Country"
 msgstr "Land"
 
-#: framework/Form/Form.php:1702
+#: framework/Form/Form.php:1705
 msgid "Country drop down list"
 msgstr "Länder-Auswahlliste"
 
@@ -2155,7 +2111,7 @@ msgstr "Länder-Auswahlliste"
 msgid "Create"
 msgstr "Erstellen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:104
+#: framework/IMAP/IMAP/ACL/rfc2086.php:109
 msgid "Create Folder"
 msgstr "Verzeichnis erstellen"
 
@@ -2167,8 +2123,8 @@ msgstr "Verzeichnisse erstellen"
 msgid "Create a new one"
 msgstr "Neue Identität anlegen"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:97
 #: framework/IMAP/IMAP/ACL/rfc4314.php:52
-#: framework/IMAP/IMAP/ACL/rfc2086.php:92
 msgid "Create sub folders"
 msgstr "Unterordner erstellen"
 
@@ -2176,11 +2132,11 @@ msgstr "Unterordner erstellen"
 msgid "Creator Permissions"
 msgstr "Erstellerrechte"
 
-#: framework/Form/Form.php:4195
+#: framework/Form/Form.php:4198
 msgid "Credit card number"
 msgstr "Kreditkartennummer"
 
-#: framework/NLS/NLS/countries.php:64 framework/NLS/NLS/GeoIP.php:79
+#: framework/NLS/NLS/GeoIP.php:79 framework/NLS/NLS/countries.php:64
 msgid "Croatia"
 msgstr "Kroatien"
 
@@ -2188,8 +2144,8 @@ msgstr "Kroatien"
 msgid "Croatia/Hrvatska"
 msgstr "Kroatien"
 
-#: framework/NLS/NLS/tld.php:65 framework/NLS/NLS/countries.php:65
-#: framework/NLS/NLS/GeoIP.php:68
+#: framework/NLS/NLS/GeoIP.php:68 framework/NLS/NLS/countries.php:65
+#: framework/NLS/NLS/tld.php:65
 msgid "Cuba"
 msgstr "Kuba"
 
@@ -2224,25 +2180,25 @@ msgstr ""
 "Legen Sie fest, welche Aufgaben nach der Anmeldung bei %s erledigt werden "
 "sollen."
 
-#: framework/NLS/NLS/tld.php:68 framework/NLS/NLS/countries.php:66
-#: framework/NLS/NLS/GeoIP.php:68
+#: framework/NLS/NLS/GeoIP.php:68 framework/NLS/NLS/countries.php:66
+#: framework/NLS/NLS/tld.php:68
 msgid "Cyprus"
 msgstr "Zypern"
 
-#: config/nls.php.dist:230
+#: config/nls.php.dist:232
 msgid "Cyrillic (KOI8-R)"
 msgstr "Kyrillisch (KOI8-R)"
 
-#: config/nls.php.dist:231
+#: config/nls.php.dist:233
 msgid "Cyrillic (Windows-1251)"
 msgstr "Kyrillisch (Windows-1251)"
 
-#: config/nls.php.dist:232
+#: config/nls.php.dist:234
 msgid "Cyrillic/Ukrainian (KOI8-U)"
 msgstr "Kyrillisch/Ukrainisch (KOI8-U)"
 
-#: framework/NLS/NLS/tld.php:69 framework/NLS/NLS/countries.php:67
-#: framework/NLS/NLS/GeoIP.php:69
+#: framework/NLS/NLS/GeoIP.php:69 framework/NLS/NLS/countries.php:67
+#: framework/NLS/NLS/tld.php:69
 msgid "Czech Republic"
 msgstr "Tschechische Republik"
 
@@ -2254,14 +2210,14 @@ msgstr "Tschechische Republik"
 msgid "DD"
 msgstr "TT"
 
-#: framework/Form/Form.php:4251
+#: framework/Form/Form.php:4254
 msgid ""
 "DSN (see http://pear.php.net/manual/en/package.database.db.intro-dsn.php)"
 msgstr ""
 "DSN (siehe http://pear.php.net/manual/en/package.database.db.intro-dsn.php)"
 
-#: framework/Maintenance/Maintenance.php:64
 #: framework/Date/Date/Recurrence.php:199
+#: framework/Maintenance/Maintenance.php:64
 msgid "Daily"
 msgstr "Täglich"
 
@@ -2283,15 +2239,15 @@ msgstr "DataTree"
 msgid "DataTree Browser"
 msgstr "DataTree Browser"
 
-#: templates/syncml/syncml.inc:10
+#: templates/syncml/syncml.inc:18
 msgid "Database"
 msgstr "Datenbank"
 
-#: framework/Form/Form.php:4249
+#: framework/Form/Form.php:4252
 msgid "Database lookup"
 msgstr "Datenbankabfrage"
 
-#: framework/MIME/MIME/Viewer/rfc822.php:75 framework/Form/Form.php:3151
+#: framework/Form/Form.php:3154 framework/MIME/MIME/Viewer/rfc822.php:75
 #: lib/Block/vatid.php:95
 msgid "Date"
 msgstr "Datum"
@@ -2300,11 +2256,11 @@ msgstr "Datum"
 msgid "Date Received"
 msgstr "Empfangsdatum"
 
-#: framework/Form/Form.php:3726
+#: framework/Form/Form.php:3729
 msgid "Date and time selection"
 msgstr "Datums- und Zeitauswahl"
 
-#: framework/Form/Form.php:3560
+#: framework/Form/Form.php:3563
 msgid "Date selection"
 msgstr "Datumsauswahl"
 
@@ -2323,11 +2279,11 @@ msgstr "Tag"
 msgid "December"
 msgstr "Dezember"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:857
-msgid "Declined: "
-msgstr "Abgelehnt: "
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource/Itip/Response/Type/Decline.php:49
+msgid "Declined"
+msgstr "Abgelehnt"
 
-#: framework/Prefs/Prefs/UI.php:216 lib/prefs.php:137
+#: framework/Prefs/Prefs/UI.php:220 lib/prefs.php:137
 msgid "Default"
 msgstr "Standard"
 
@@ -2348,27 +2304,27 @@ msgstr "Standardshell"
 msgid "Definitions"
 msgstr "Definitionen"
 
-#: admin/groups.php:77 framework/Perms/Perms.php:403
-#: framework/Perms/Perms/UI.php:480 framework/Perms/Perms/UI.php:497
-#: framework/IMAP/IMAP/ACL/rfc4314.php:68 templates/syncml/syncml.inc:13
-#: templates/syncml/syncml.inc:29 templates/shares/edit.inc:64
+#: admin/groups.php:77 framework/IMAP/IMAP/ACL/rfc4314.php:68
+#: framework/Perms/Perms.php:403 framework/Perms/Perms/UI.php:480
+#: framework/Perms/Perms/UI.php:497 templates/admin/groups/delete.inc:10
+#: templates/admin/user/list.inc:31 templates/rpcsum/rpcsum.inc:69
+#: templates/rpcsum/rpcsum.inc:89 templates/shares/edit.inc:64
 #: templates/shares/edit.inc:84 templates/shares/edit.inc:99
 #: templates/shares/edit.inc:119 templates/shares/edit.inc:134
 #: templates/shares/edit.inc:154 templates/shares/edit.inc:169
 #: templates/shares/edit.inc:193 templates/shares/edit.inc:228
 #: templates/shares/edit.inc:255 templates/shares/edit.inc:271
 #: templates/shares/edit.inc:291 templates/shares/edit.inc:320
-#: templates/rpcsum/rpcsum.inc:69 templates/rpcsum/rpcsum.inc:89
-#: templates/admin/groups/delete.inc:10 templates/admin/user/list.inc:31
+#: templates/syncml/syncml.inc:21 templates/syncml/syncml.inc:41
 msgid "Delete"
 msgstr "Löschen"
 
-#: admin/groups.php:241 admin/alarms.php:135
+#: admin/alarms.php:135 admin/groups.php:241
 #, php-format
 msgid "Delete \"%s\""
 msgstr "\"%s\" löschen"
 
-#: templates/syncml/syncml.inc:38
+#: templates/syncml/syncml.inc:55
 msgid "Delete All SyncML Data"
 msgstr "Alle SyncML-Daten löschen"
 
@@ -2384,7 +2340,7 @@ msgstr "Gruppe löschen"
 msgid "Delete Permission"
 msgstr "Rechte löschen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:93
+#: framework/IMAP/IMAP/ACL/rfc2086.php:98
 msgid "Delete and purge messages"
 msgstr "Nachrichten löschen und aufräumen"
 
@@ -2410,7 +2366,7 @@ msgstr "Ausgewählte Identität löschen"
 msgid "Delete sub folders"
 msgstr "Unterordner löschen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:105
+#: framework/IMAP/IMAP/ACL/rfc2086.php:110
 msgid "Delete/purge"
 msgstr "Löschen/Aufräumen"
 
@@ -2419,21 +2375,21 @@ msgstr "Löschen/Aufräumen"
 msgid "Deleted setup upgrade script \"%s\"."
 msgstr "Das Aktualisierungsskript \"%s\" wurde gelöscht."
 
-#: services/portal/syncml.php:33
+#: services/portal/syncml.php:41
 #, php-format
 msgid "Deleted synchronization session for device \"%s\" and database \"%s\"."
 msgstr ""
 "Synchronisationssitzung für Gerät \"%s\" und Datenbank \"%s\" gelöscht."
 
-#: framework/Net_SMS/SMS/sms2email_http.php:572
-#: framework/Net_SMS/SMS/sms2email_http.php:604
 #: framework/Net_SMS/SMS/clickatell_http.php:229
 #: framework/Net_SMS/SMS/clickatell_http.php:261
+#: framework/Net_SMS/SMS/sms2email_http.php:572
+#: framework/Net_SMS/SMS/sms2email_http.php:604
 msgid "Delivery time"
 msgstr "Auslieferungszeit"
 
-#: framework/NLS/NLS/tld.php:72 framework/NLS/NLS/countries.php:68
-#: framework/NLS/NLS/GeoIP.php:69
+#: framework/NLS/NLS/GeoIP.php:69 framework/NLS/NLS/countries.php:68
+#: framework/NLS/NLS/tld.php:72
 msgid "Denmark"
 msgstr "Dänemark"
 
@@ -2449,7 +2405,7 @@ msgstr "Abteilung"
 msgid "Describe the Problem"
 msgstr "Beschreiben Sie das Problem"
 
-#: framework/Form/Form.php:939
+#: framework/Form/Form.php:942
 msgid "Description"
 msgstr "Beschreibung"
 
@@ -2465,7 +2421,7 @@ msgstr "Details:"
 msgid "Development"
 msgstr "Entwicklung"
 
-#: templates/syncml/syncml.inc:9
+#: templates/syncml/syncml.inc:17
 msgid "Device"
 msgstr "Gerät"
 
@@ -2491,7 +2447,7 @@ msgstr "%s wählen"
 msgid "Directory %s is not writeable"
 msgstr "Das Verzeichnis %s ist nicht beschreibbar"
 
-#: framework/Alarm/Alarm.php:343
+#: framework/Alarm/Alarm.php:363
 msgid "Dismiss"
 msgstr "Ausschalten"
 
@@ -2511,7 +2467,7 @@ msgstr "Detailierte Vorhersage anzeigen"
 msgid "Display forecast (TAF)"
 msgstr "Vorhersage (TAF) anzeigen"
 
-#: framework/Form/Form.php:3570 framework/Form/Form.php:3736
+#: framework/Form/Form.php:3573 framework/Form/Form.php:3739
 msgid "Display format"
 msgstr "Anzeigeformat"
 
@@ -2519,8 +2475,8 @@ msgstr "Anzeigeformat"
 msgid "Disposition Notification"
 msgstr "Empfangsbestätigung"
 
-#: framework/NLS/NLS/tld.php:71 framework/NLS/NLS/countries.php:69
-#: framework/NLS/NLS/GeoIP.php:69
+#: framework/NLS/NLS/GeoIP.php:69 framework/NLS/NLS/countries.php:69
+#: framework/NLS/NLS/tld.php:71
 msgid "Djibouti"
 msgstr "Dschibuti"
 
@@ -2532,7 +2488,7 @@ msgstr "Nicht löschen"
 msgid "Do not directly access maintenance.php"
 msgstr "Greifen Sie nicht direkt auf maintenance.php zu"
 
-#: templates/data/tsvinfo.inc:12 templates/data/csvinfo.inc:12
+#: templates/data/csvinfo.inc:12 templates/data/tsvinfo.inc:12
 msgid "Does the first row contain the field names? If yes, check this box:"
 msgstr ""
 "Enthält die erste Zeile die Feldnamen? Wenn ja, dieses Auswahlkästchen "
@@ -2543,13 +2499,13 @@ msgstr ""
 msgid "Domestic Address"
 msgstr "Inlandsadresse"
 
-#: framework/NLS/NLS/tld.php:73 framework/NLS/NLS/countries.php:70
-#: framework/NLS/NLS/GeoIP.php:69
+#: framework/NLS/NLS/GeoIP.php:69 framework/NLS/NLS/countries.php:70
+#: framework/NLS/NLS/tld.php:73
 msgid "Dominica"
 msgstr "Dominica"
 
-#: framework/NLS/NLS/tld.php:74 framework/NLS/NLS/countries.php:71
-#: framework/NLS/NLS/GeoIP.php:70
+#: framework/NLS/NLS/GeoIP.php:70 framework/NLS/NLS/countries.php:71
+#: framework/NLS/NLS/tld.php:74
 msgid "Dominican Republic"
 msgstr "Dominikanische Republik"
 
@@ -2571,7 +2527,7 @@ msgstr "Erzeugte Konfiguration als PHP-Skript herunterladen."
 msgid "Drizzle"
 msgstr "Nieselregen"
 
-#: framework/Form/Form.php:2835
+#: framework/Form/Form.php:2838
 msgid "Drop down list"
 msgstr "Auswahlliste"
 
@@ -2603,20 +2559,20 @@ msgstr "EU-UStId-Identifizierung"
 msgid "East Timor"
 msgstr "Osttimor"
 
-#: framework/NLS/NLS/tld.php:76 framework/NLS/NLS/countries.php:72
-#: framework/NLS/NLS/GeoIP.php:70
+#: framework/NLS/NLS/GeoIP.php:70 framework/NLS/NLS/countries.php:72
+#: framework/NLS/NLS/tld.php:76
 msgid "Ecuador"
 msgstr "Ecuador"
 
-#: framework/Perms/Perms.php:402 framework/Block/Block/Layout.php:106
-#: framework/Block/Block/Layout.php:107 templates/shares/edit.inc:63
-#: templates/shares/edit.inc:80 templates/shares/edit.inc:98
-#: templates/shares/edit.inc:115 templates/shares/edit.inc:133
-#: templates/shares/edit.inc:150 templates/shares/edit.inc:168
-#: templates/shares/edit.inc:189 templates/shares/edit.inc:224
-#: templates/shares/edit.inc:251 templates/shares/edit.inc:270
-#: templates/shares/edit.inc:287 templates/shares/edit.inc:316
-#: templates/rpcsum/rpcsum.inc:68
+#: framework/Block/Block/Layout.php:106 framework/Block/Block/Layout.php:107
+#: framework/Perms/Perms.php:402 templates/rpcsum/rpcsum.inc:68
+#: templates/shares/edit.inc:63 templates/shares/edit.inc:80
+#: templates/shares/edit.inc:98 templates/shares/edit.inc:115
+#: templates/shares/edit.inc:133 templates/shares/edit.inc:150
+#: templates/shares/edit.inc:168 templates/shares/edit.inc:189
+#: templates/shares/edit.inc:224 templates/shares/edit.inc:251
+#: templates/shares/edit.inc:270 templates/shares/edit.inc:287
+#: templates/shares/edit.inc:316
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -2655,17 +2611,17 @@ msgstr "Rechte für \"%s\" bearbeiten"
 msgid "Education"
 msgstr "Bildung"
 
-#: framework/NLS/NLS/tld.php:78 framework/NLS/NLS/countries.php:73
-#: framework/NLS/NLS/GeoIP.php:70
+#: framework/NLS/NLS/GeoIP.php:70 framework/NLS/NLS/countries.php:73
+#: framework/NLS/NLS/tld.php:78
 msgid "Egypt"
 msgstr "Ägypten"
 
-#: framework/NLS/NLS/tld.php:223 framework/NLS/NLS/countries.php:74
-#: framework/NLS/NLS/GeoIP.php:107
+#: framework/NLS/NLS/GeoIP.php:107 framework/NLS/NLS/countries.php:74
+#: framework/NLS/NLS/tld.php:223
 msgid "El Salvador"
 msgstr "El Salvador"
 
-#: framework/MIME/MIME/Viewer/vcard.php:280 framework/Form/Form.php:2436
+#: framework/Form/Form.php:2439 framework/MIME/MIME/Viewer/vcard.php:280
 msgid "Email"
 msgstr "E-Mail-Adresse"
 
@@ -2674,15 +2630,15 @@ msgstr "E-Mail-Adresse"
 msgid "Email Address"
 msgstr "E-Mail-Adresse"
 
-#: framework/Alarm/Alarm.php:460
+#: framework/Alarm/Alarm.php:480
 msgid "Email Notification"
 msgstr "E-Mail-Benachrichtigung"
 
-#: framework/Alarm/Alarm.php:462
+#: framework/Alarm/Alarm.php:482
 msgid "Email address (optional)"
 msgstr "E-Mail-Adresse (optional)"
 
-#: framework/Form/Form.php:2686
+#: framework/Form/Form.php:2689
 msgid "Email addresses must match."
 msgstr "Die E-Mail-Adressen müssen gleich sein."
 
@@ -2690,7 +2646,7 @@ msgstr "Die E-Mail-Adressen müssen gleich sein."
 msgid "Email addresses to confirm not found."
 msgstr "Zu bestätigende E-Mail-Adressen nicht gefunden."
 
-#: framework/Form/Form.php:2714
+#: framework/Form/Form.php:2717
 msgid "Email with confirmation"
 msgstr "E-Mail-Adresse mit Bestätigung"
 
@@ -2706,8 +2662,8 @@ msgstr "Smileys"
 msgid "Empty message."
 msgstr "Leere Nachricht."
 
-#: framework/Group/Group/ldap.php:248 framework/Group/Group/ldap.php:459
 #: framework/Group/Group/kolab.php:160 framework/Group/Group/kolab.php:221
+#: framework/Group/Group/ldap.php:248 framework/Group/Group/ldap.php:459
 msgid "Empty result"
 msgstr "Leeres Ergebnis"
 
@@ -2715,8 +2671,8 @@ msgstr "Leeres Ergebnis"
 msgid "Empty result."
 msgstr "Leeres Ergebnis."
 
-#: framework/Form/Form.php:3348 framework/Form/Form.php:3564
-#: framework/Form/Form.php:3730
+#: framework/Form/Form.php:3351 framework/Form/Form.php:3567
+#: framework/Form/Form.php:3733
 msgid "End year"
 msgstr "Endjahr"
 
@@ -2742,20 +2698,20 @@ msgstr "Wert für pref_name angeben:"
 msgid "Enter value for pref_scope:"
 msgstr "Wert für pref_scope eingeben:"
 
-#: framework/NLS/NLS/tld.php:102 framework/NLS/NLS/countries.php:75
-#: framework/NLS/NLS/GeoIP.php:76
+#: framework/NLS/NLS/GeoIP.php:76 framework/NLS/NLS/countries.php:75
+#: framework/NLS/NLS/tld.php:102
 msgid "Equatorial Guinea"
 msgstr "Äquatorial-Guinea"
 
-#: framework/NLS/NLS/tld.php:80 framework/NLS/NLS/countries.php:76
-#: framework/NLS/NLS/GeoIP.php:71
+#: framework/NLS/NLS/GeoIP.php:71 framework/NLS/NLS/countries.php:76
+#: framework/NLS/NLS/tld.php:80
 msgid "Eritrea"
 msgstr "Eritrea"
 
-#: framework/Notification/Notification/Listener/status.php:27
 #: framework/Block/Block/Layout/View.php:91
 #: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/View.php:254
-#: lib/Block/weatherdotcom.php:53 lib/Block/metar.php:44
+#: framework/Notification/Notification/Listener/status.php:27
+#: lib/Block/metar.php:44 lib/Block/weatherdotcom.php:53
 msgid "Error"
 msgstr "Fehler"
 
@@ -2775,16 +2731,16 @@ msgstr ""
 "Im Verzeichnis %s konnte nicht gelöscht werden; richtiges Format: "
 "[anwendung]/[pfad]"
 
-#: services/portal/syncml.php:29
+#: services/portal/syncml.php:37
 msgid "Error deleting synchronization session:"
 msgstr "Fehler beim Löschen der Synchronisationssitzung:"
 
-#: services/portal/syncml.php:42
+#: services/portal/syncml.php:50
 msgid "Error deleting synchronization sessions:"
 msgstr "Fehler beim Löschen der Synchronisationssitzungen:"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:571
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:577
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource.php:292
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource.php:298
 #, php-format
 msgid "Error processing \"%s\""
 msgstr "Fehler beim Verarbeiten von \"%s\""
@@ -2822,13 +2778,13 @@ msgstr "Fehler beim Schreiben von \"%s\"."
 msgid "Errors:"
 msgstr "Fehler:"
 
-#: framework/NLS/NLS/tld.php:77 framework/NLS/NLS/countries.php:77
-#: framework/NLS/NLS/GeoIP.php:70
+#: framework/NLS/NLS/GeoIP.php:70 framework/NLS/NLS/countries.php:77
+#: framework/NLS/NLS/tld.php:77
 msgid "Estonia"
 msgstr "Estland"
 
-#: framework/NLS/NLS/tld.php:82 framework/NLS/NLS/countries.php:78
-#: framework/NLS/NLS/GeoIP.php:71
+#: framework/NLS/NLS/GeoIP.php:71 framework/NLS/NLS/countries.php:78
+#: framework/NLS/NLS/tld.php:82
 msgid "Ethiopia"
 msgstr "Äthiopien"
 
@@ -2883,7 +2839,7 @@ msgstr "Alle 60 Sekunden"
 msgid "Example values:"
 msgstr "Beispielwerte:"
 
-#: admin/phpshell.php:58 admin/cmdshell.php:52 admin/sqlshell.php:133
+#: admin/cmdshell.php:52 admin/phpshell.php:58 admin/sqlshell.php:133
 msgid "Execute"
 msgstr "Ausführen"
 
@@ -2943,8 +2899,8 @@ msgstr ""
 msgid "Failed regenerating calendar %s: %s"
 msgstr "Der Kalender %s konnte nicht neu geladen werden: %s"
 
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:1103
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:1109
+#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:1101
+#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:1107
 #, php-format
 msgid "Failed retrieving the message with ID %s. Original error: %s."
 msgstr ""
@@ -2997,7 +2953,7 @@ msgstr "Kolab-IMAP-%s-Treiber konnte nicht geladen werden"
 msgid "Failed to load Kolab XML driver %s"
 msgstr "Kolab-XML-%s-Treiber konnte nicht geladen werden"
 
-#: framework/VFS/lib/VFS/smb.php:589 framework/VFS/lib/VFS/ftp.php:842
+#: framework/VFS/lib/VFS/ftp.php:842 framework/VFS/lib/VFS/smb.php:589
 #: framework/VFS/lib/VFS/ssh2.php:826
 #, php-format
 msgid "Failed to move to \"%s\"."
@@ -3008,7 +2964,7 @@ msgstr "Es konnte nicht nach \"%s\" verschoben werden."
 msgid "Failed to retrieve: %s"
 msgstr "Fehler beim Lesen: %s"
 
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:1238
+#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:1236
 #, php-format
 msgid "Failed triggering folder %s. Error was: %s"
 msgstr "Fehler beim Anlegen des Ordners %s. Fehlermeldung des Servers: %s"
@@ -3017,13 +2973,13 @@ msgstr "Fehler beim Anlegen des Ordners %s. Fehlermeldung des Servers: %s"
 msgid "Fair"
 msgstr "Heiter"
 
-#: framework/NLS/NLS/tld.php:86 framework/NLS/NLS/countries.php:79
-#: framework/NLS/NLS/GeoIP.php:72
+#: framework/NLS/NLS/GeoIP.php:72 framework/NLS/NLS/countries.php:79
+#: framework/NLS/NLS/tld.php:86
 msgid "Falkland Islands (Malvinas)"
 msgstr "Falklandinseln"
 
-#: framework/NLS/NLS/tld.php:88 framework/NLS/NLS/countries.php:80
-#: framework/NLS/NLS/GeoIP.php:73
+#: framework/NLS/NLS/GeoIP.php:73 framework/NLS/NLS/countries.php:80
+#: framework/NLS/NLS/tld.php:88
 msgid "Faroe Islands"
 msgstr "Faröer"
 
@@ -3065,25 +3021,25 @@ msgstr "Vereinzelte Schauer"
 msgid "Few Snow Showers"
 msgstr "Vereinzelte Schneeschauer"
 
-#: framework/Form/Form.php:2668
+#: framework/Form/Form.php:2671
 msgid "Field matrix"
 msgstr "Feldmatrix"
 
-#: framework/Form/Form.php:4304
+#: framework/Form/Form.php:4307
 msgid "Figlet CAPTCHA"
 msgstr "Figlet CAPTCHA"
 
-#: framework/Form/Form.php:4308
+#: framework/Form/Form.php:4311
 msgid "Figlet font"
 msgstr "Figlet-Font"
 
-#: framework/NLS/NLS/tld.php:85 framework/NLS/NLS/countries.php:81
-#: framework/NLS/NLS/GeoIP.php:72
+#: framework/NLS/NLS/GeoIP.php:72 framework/NLS/NLS/countries.php:81
+#: framework/NLS/NLS/tld.php:85
 msgid "Fiji"
 msgstr "Fidschi"
 
-#: framework/MIME/MIME/Viewer/rar.php:58 framework/MIME/MIME/Viewer/zip.php:80
-#: framework/MIME/MIME/Viewer/tgz.php:85
+#: framework/MIME/MIME/Viewer/rar.php:58 framework/MIME/MIME/Viewer/tgz.php:85
+#: framework/MIME/MIME/Viewer/zip.php:80
 #, php-format
 msgid "File Count: %d file"
 msgid_plural "File Count: %d files"
@@ -3094,16 +3050,16 @@ msgstr[1] "Anzahl: %d Dateien"
 msgid "File Manager"
 msgstr "Dateimanager"
 
-#: framework/MIME/MIME/Viewer/rar.php:61 framework/MIME/MIME/Viewer/zip.php:84
-#: framework/MIME/MIME/Viewer/tgz.php:88
+#: framework/MIME/MIME/Viewer/rar.php:61 framework/MIME/MIME/Viewer/tgz.php:88
+#: framework/MIME/MIME/Viewer/zip.php:84
 msgid "File Name"
 msgstr "Dateiname"
 
-#: framework/Form/Form.php:3954
+#: framework/Form/Form.php:3957
 msgid "File selection"
 msgstr "Dateiauswahl"
 
-#: framework/Form/Form.php:1744
+#: framework/Form/Form.php:1747
 msgid "File upload"
 msgstr "Datei-Hochladen"
 
@@ -3115,8 +3071,8 @@ msgstr "Das Hochladen von Dateien wird nicht unterstützt."
 msgid "Filters"
 msgstr "Filter"
 
-#: framework/NLS/NLS/tld.php:84 framework/NLS/NLS/countries.php:82
-#: framework/NLS/NLS/GeoIP.php:71
+#: framework/NLS/NLS/GeoIP.php:71 framework/NLS/NLS/countries.php:82
+#: framework/NLS/NLS/tld.php:84
 msgid "Finland"
 msgstr "Finnland"
 
@@ -3132,8 +3088,8 @@ msgstr "Erstes Viertel"
 msgid "Fix ratio"
 msgstr "Verhältnis zurücksetzen"
 
-#: framework/Net_SMS/SMS/sms2email_http.php:576
 #: framework/Net_SMS/SMS/clickatell_http.php:233
+#: framework/Net_SMS/SMS/sms2email_http.php:576
 msgid "Flash"
 msgstr "Flash"
 
@@ -3157,7 +3113,7 @@ msgstr "Später Nebel"
 msgid "Foggy"
 msgstr "Neblig"
 
-#: framework/VFS/lib/VFS/sql.php:289 framework/VFS/lib/VFS/musql.php:106
+#: framework/VFS/lib/VFS/musql.php:106 framework/VFS/lib/VFS/sql.php:289
 #, php-format
 msgid "Folder \"%s\" does not exist"
 msgstr "Das Verzeichnis \"%s\" existiert nicht"
@@ -3172,7 +3128,7 @@ msgstr "Der Order %s existiert nicht!"
 msgid "Folder %s has type \"%s\" not \"event\"!"
 msgstr "Der Ordner %s hat den Typ \"%s\" nicht \"event\"!"
 
-#: framework/Form/Form.php:4327
+#: framework/Form/Form.php:4330
 msgid "Font"
 msgstr "Schriftart"
 
@@ -3234,8 +3190,8 @@ msgstr "%s Ergebnisse erhalten, nur eines erwartet!"
 msgid "Fr"
 msgstr "Fr"
 
-#: framework/NLS/NLS/tld.php:89 framework/NLS/NLS/countries.php:83
-#: framework/NLS/NLS/GeoIP.php:73
+#: framework/NLS/NLS/GeoIP.php:73 framework/NLS/NLS/countries.php:83
+#: framework/NLS/NLS/tld.php:89
 msgid "France"
 msgstr "Frankreich"
 
@@ -3247,18 +3203,18 @@ msgstr "Europäisches Frankreich"
 msgid "Freezing Drizzle"
 msgstr "Gefrierender Nieselregen"
 
-#: framework/NLS/NLS/tld.php:94 framework/NLS/NLS/countries.php:84
-#: framework/NLS/NLS/GeoIP.php:74
+#: framework/NLS/NLS/GeoIP.php:74 framework/NLS/NLS/countries.php:84
+#: framework/NLS/NLS/tld.php:94
 msgid "French Guiana"
 msgstr "Französisch-Guayana"
 
-#: framework/NLS/NLS/tld.php:188 framework/NLS/NLS/countries.php:85
-#: framework/NLS/NLS/GeoIP.php:98
+#: framework/NLS/NLS/GeoIP.php:98 framework/NLS/NLS/countries.php:85
+#: framework/NLS/NLS/tld.php:188
 msgid "French Polynesia"
 msgstr "Französisch-Polynesien"
 
-#: framework/NLS/NLS/tld.php:228 framework/NLS/NLS/countries.php:86
-#: framework/NLS/NLS/GeoIP.php:109
+#: framework/NLS/NLS/GeoIP.php:109 framework/NLS/NLS/countries.php:86
+#: framework/NLS/NLS/tld.php:228
 msgid "French Southern Territories"
 msgstr "Französische Gebiete im südlichen Indischen Ozean"
 
@@ -3283,13 +3239,13 @@ msgstr "Vollmond"
 msgid "Full Name"
 msgstr "Vollständiger Name"
 
-#: framework/NLS/NLS/tld.php:90 framework/NLS/NLS/countries.php:87
-#: framework/NLS/NLS/GeoIP.php:73
+#: framework/NLS/NLS/GeoIP.php:73 framework/NLS/NLS/countries.php:87
+#: framework/NLS/NLS/tld.php:90
 msgid "Gabon"
 msgstr "Gabun"
 
-#: framework/NLS/NLS/tld.php:99 framework/NLS/NLS/countries.php:88
-#: framework/NLS/NLS/GeoIP.php:75
+#: framework/NLS/NLS/GeoIP.php:75 framework/NLS/NLS/countries.php:88
+#: framework/NLS/NLS/tld.php:99
 msgid "Gambia"
 msgstr "Gambia"
 
@@ -3302,23 +3258,23 @@ msgstr "%s-Konfiguration erzeugen"
 msgid "Generated Code"
 msgstr "Erzeugter Code"
 
-#: framework/NLS/NLS/tld.php:93 framework/NLS/NLS/countries.php:89
-#: framework/NLS/NLS/GeoIP.php:74
+#: framework/NLS/NLS/GeoIP.php:74 framework/NLS/NLS/countries.php:89
+#: framework/NLS/NLS/tld.php:93
 msgid "Georgia"
 msgstr "Georgien"
 
-#: framework/NLS/NLS/tld.php:70 framework/NLS/NLS/countries.php:90
-#: framework/NLS/NLS/GeoIP.php:69
+#: framework/NLS/NLS/GeoIP.php:69 framework/NLS/NLS/countries.php:90
+#: framework/NLS/NLS/tld.php:70
 msgid "Germany"
 msgstr "Deutschland"
 
-#: framework/NLS/NLS/tld.php:96 framework/NLS/NLS/countries.php:91
-#: framework/NLS/NLS/GeoIP.php:75
+#: framework/NLS/NLS/GeoIP.php:75 framework/NLS/NLS/countries.php:91
+#: framework/NLS/NLS/tld.php:96
 msgid "Ghana"
 msgstr "Ghana"
 
-#: framework/NLS/NLS/tld.php:97 framework/NLS/NLS/countries.php:92
-#: framework/NLS/NLS/GeoIP.php:75
+#: framework/NLS/NLS/GeoIP.php:75 framework/NLS/NLS/countries.php:92
+#: framework/NLS/NLS/tld.php:97
 msgid "Gibraltar"
 msgstr "Gibraltar"
 
@@ -3355,12 +3311,12 @@ msgstr "Google Suche ist deaktiviert."
 msgid "Grayscale"
 msgstr "Graustufen"
 
-#: framework/NLS/NLS/tld.php:103 framework/NLS/NLS/countries.php:93
-#: framework/NLS/NLS/GeoIP.php:76
+#: framework/NLS/NLS/GeoIP.php:76 framework/NLS/NLS/countries.php:93
+#: framework/NLS/NLS/tld.php:103
 msgid "Greece"
 msgstr "Griechenland"
 
-#: config/nls.php.dist:233
+#: config/nls.php.dist:235
 msgid "Greek (ISO-8859-7)"
 msgstr "Griechisch (ISO-8859-7)"
 
@@ -3368,13 +3324,13 @@ msgstr "Griechisch (ISO-8859-7)"
 msgid "Green"
 msgstr "Grün"
 
-#: framework/NLS/NLS/tld.php:98 framework/NLS/NLS/countries.php:94
-#: framework/NLS/NLS/GeoIP.php:75
+#: framework/NLS/NLS/GeoIP.php:75 framework/NLS/NLS/countries.php:94
+#: framework/NLS/NLS/tld.php:98
 msgid "Greenland"
 msgstr "Grönland"
 
-#: framework/NLS/NLS/tld.php:92 framework/NLS/NLS/countries.php:95
-#: framework/NLS/NLS/GeoIP.php:74
+#: framework/NLS/NLS/GeoIP.php:74 framework/NLS/NLS/countries.php:95
+#: framework/NLS/NLS/tld.php:92
 msgid "Grenada"
 msgstr "Grenada"
 
@@ -3425,18 +3381,18 @@ msgstr ""
 msgid "Groups"
 msgstr "Gruppen"
 
-#: framework/NLS/NLS/tld.php:101 framework/NLS/NLS/countries.php:96
-#: framework/NLS/NLS/GeoIP.php:76
+#: framework/NLS/NLS/GeoIP.php:76 framework/NLS/NLS/countries.php:96
+#: framework/NLS/NLS/tld.php:101
 msgid "Guadeloupe"
 msgstr "Guadeloupe"
 
-#: framework/NLS/NLS/tld.php:106 framework/NLS/NLS/countries.php:97
-#: framework/NLS/NLS/GeoIP.php:77
+#: framework/NLS/NLS/GeoIP.php:77 framework/NLS/NLS/countries.php:97
+#: framework/NLS/NLS/tld.php:106
 msgid "Guam"
 msgstr "Guam"
 
-#: framework/NLS/NLS/tld.php:105 framework/NLS/NLS/countries.php:98
-#: framework/NLS/NLS/GeoIP.php:77
+#: framework/NLS/NLS/GeoIP.php:77 framework/NLS/NLS/countries.php:98
+#: framework/NLS/NLS/tld.php:105
 msgid "Guatemala"
 msgstr "Guatemala"
 
@@ -3452,22 +3408,22 @@ msgstr "Gastrechte"
 msgid "Guestbook"
 msgstr "Gästebuch"
 
-#: framework/NLS/NLS/tld.php:100 framework/NLS/NLS/countries.php:99
-#: framework/NLS/NLS/GeoIP.php:75
+#: framework/NLS/NLS/GeoIP.php:75 framework/NLS/NLS/countries.php:99
+#: framework/NLS/NLS/tld.php:100
 msgid "Guinea"
 msgstr "Guinea"
 
-#: framework/NLS/NLS/tld.php:107 framework/NLS/NLS/countries.php:100
-#: framework/NLS/NLS/GeoIP.php:78
+#: framework/NLS/NLS/GeoIP.php:78 framework/NLS/NLS/countries.php:100
+#: framework/NLS/NLS/tld.php:107
 msgid "Guinea-Bissau"
 msgstr "Guinea-Bissau"
 
-#: framework/NLS/NLS/tld.php:108 framework/NLS/NLS/countries.php:101
-#: framework/NLS/NLS/GeoIP.php:78
+#: framework/NLS/NLS/GeoIP.php:78 framework/NLS/NLS/countries.php:101
+#: framework/NLS/NLS/tld.php:108
 msgid "Guyana"
 msgstr "Guyana"
 
-#: framework/Form/Form.php:959
+#: framework/Form/Form.php:962
 msgid "HTML"
 msgstr "HTML"
 
@@ -3479,8 +3435,8 @@ msgstr "HTML-Version der Nachricht"
 msgid "HTTP Authentication not found."
 msgstr "HTTP-Authentifizierung nicht gefunden."
 
-#: framework/NLS/NLS/tld.php:113 framework/NLS/NLS/countries.php:102
-#: framework/NLS/NLS/GeoIP.php:80
+#: framework/NLS/NLS/GeoIP.php:80 framework/NLS/NLS/countries.php:102
+#: framework/NLS/NLS/tld.php:113
 msgid "Haiti"
 msgstr "Haiti"
 
@@ -3492,7 +3448,7 @@ msgstr "Hash-Algorithmus"
 msgid "Haze"
 msgstr "Diesig"
 
-#: framework/Form/Form.php:922 framework/Form/Form.php:3892
+#: framework/Form/Form.php:925 framework/Form/Form.php:3895
 msgid "Header"
 msgstr "Überschrift"
 
@@ -3500,7 +3456,7 @@ msgstr "Überschrift"
 msgid "Headers"
 msgstr "Kopfeinträge"
 
-#: framework/NLS/NLS/countries.php:103 framework/NLS/NLS/GeoIP.php:79
+#: framework/NLS/NLS/GeoIP.php:79 framework/NLS/NLS/countries.php:103
 msgid "Heard Island and McDonald Islands"
 msgstr "Heard- und McDonaldinseln"
 
@@ -3516,7 +3472,7 @@ msgstr "Starker Regen"
 msgid "Heavy T-Storm"
 msgstr "Starke Gewitter"
 
-#: config/nls.php.dist:234
+#: config/nls.php.dist:236
 msgid "Hebrew (ISO-8859-8-I)"
 msgstr "Hebräisch (ISO-8859-8-I)"
 
@@ -3534,7 +3490,7 @@ msgstr "Hilfe"
 msgid "Help _Topics"
 msgstr "_Hilfeeinträge"
 
-#: framework/Form/Form.php:1400
+#: framework/Form/Form.php:1403
 msgid "Helpers"
 msgstr "Helfer"
 
@@ -3542,7 +3498,7 @@ msgstr "Helfer"
 msgid "Hemisphere"
 msgstr "Hemisphere"
 
-#: templates/data/tsvinfo.inc:10 templates/data/csvinfo.inc:10
+#: templates/data/csvinfo.inc:10 templates/data/tsvinfo.inc:10
 msgid "Here is the beginning of the file:"
 msgstr "Dies ist der Beginn der Datei:"
 
@@ -3558,8 +3514,8 @@ msgstr "Ergebnisse ausblenden"
 msgid "High"
 msgstr "Hoch"
 
-#: framework/NLS/NLS/tld.php:250 framework/NLS/NLS/countries.php:104
-#: framework/NLS/NLS/GeoIP.php:114
+#: framework/NLS/NLS/GeoIP.php:114 framework/NLS/NLS/countries.php:104
+#: framework/NLS/NLS/tld.php:250
 msgid "Holy See (Vatican City State)"
 msgstr "Vatikanstadt"
 
@@ -3576,13 +3532,13 @@ msgstr "Heimverzeichnis"
 msgid "Home Phone"
 msgstr "Telefon privat"
 
-#: framework/NLS/NLS/tld.php:111 framework/NLS/NLS/countries.php:105
-#: framework/NLS/NLS/GeoIP.php:79
+#: framework/NLS/NLS/GeoIP.php:79 framework/NLS/NLS/countries.php:105
+#: framework/NLS/NLS/tld.php:111
 msgid "Honduras"
 msgstr "Honduras"
 
-#: framework/NLS/NLS/tld.php:109 framework/NLS/NLS/countries.php:106
-#: framework/NLS/NLS/GeoIP.php:78
+#: framework/NLS/NLS/GeoIP.php:78 framework/NLS/NLS/countries.php:106
+#: framework/NLS/NLS/tld.php:109
 msgid "Hong Kong"
 msgstr "Hong Kong"
 
@@ -3626,7 +3582,7 @@ msgstr "Wieviele Felder (Spalten) gibt es?"
 msgid "How many seconds before we check for new articles?"
 msgstr "Nach wie vielen Sekunden soll nach neuen Beiträgen geschaut werden?"
 
-#: lib/Block/weatherdotcom.php:306 lib/Block/metar.php:242
+#: lib/Block/metar.php:242 lib/Block/weatherdotcom.php:306
 msgid "Humidity"
 msgstr "Luftfeuchtigkeit"
 
@@ -3638,8 +3594,8 @@ msgstr "Luftfeuchtigkeit: "
 msgid "Humorists"
 msgstr "Komiker"
 
-#: framework/NLS/NLS/tld.php:114 framework/NLS/NLS/countries.php:107
-#: framework/NLS/NLS/GeoIP.php:80
+#: framework/NLS/NLS/GeoIP.php:80 framework/NLS/NLS/countries.php:107
+#: framework/NLS/NLS/tld.php:114
 msgid "Hungary"
 msgstr "Ungarn"
 
@@ -3665,14 +3621,14 @@ msgstr "I Zeichen"
 msgid "IMAP error. Folder: %s. Error: %s"
 msgstr "IMAP-Fehler. Ordner: %s. Fehler: %s"
 
-#: framework/Kolab_Server/lib/Horde/Kolab/IMAP/pear.php:424
-#: framework/Kolab_Server/lib/Horde/Kolab/IMAP/pear.php:474
-#: framework/Kolab_Server/lib/Horde/Kolab/IMAP/pear.php:494
 #: framework/Kolab_Server/lib/Horde/Kolab/IMAP/cclient.php:389
 #: framework/Kolab_Server/lib/Horde/Kolab/IMAP/cclient.php:413
 #: framework/Kolab_Server/lib/Horde/Kolab/IMAP/cclient.php:719
 #: framework/Kolab_Server/lib/Horde/Kolab/IMAP/cclient.php:743
 #: framework/Kolab_Server/lib/Horde/Kolab/IMAP/cclient.php:764
+#: framework/Kolab_Server/lib/Horde/Kolab/IMAP/pear.php:424
+#: framework/Kolab_Server/lib/Horde/Kolab/IMAP/pear.php:474
+#: framework/Kolab_Server/lib/Horde/Kolab/IMAP/pear.php:494
 #, php-format
 msgid "IMAP error. Message: %s. Error: %s"
 msgstr "IMAP-Fehler. Nachricht: %s. Fehler: %s"
@@ -3683,17 +3639,17 @@ msgstr "IMAP-Fehler. Nachricht: %s. Fehler: %s"
 msgid "IMAP error. Server: %s. Error: %s"
 msgstr "IMAP-Fehler. Server: %s. Fehler: %s"
 
-#: framework/Auth/Auth/cyrus.php:170 framework/Auth/Auth/cyrsql.php:307
+#: framework/Auth/Auth/cyrsql.php:307 framework/Auth/Auth/cyrus.php:170
 #, php-format
 msgid "IMAP mailbox creation failed: %s"
 msgstr "Anlegen des IMAP-Postfachs ist fehlgeschlagen: %s"
 
-#: framework/Auth/Auth/cyrus.php:214 framework/Auth/Auth/cyrsql.php:368
+#: framework/Auth/Auth/cyrsql.php:368 framework/Auth/Auth/cyrus.php:214
 #, php-format
 msgid "IMAP mailbox deletion failed: %s"
 msgstr "Löschen des IMAP-Postfachs ist fehlgeschlagen: %s"
 
-#: framework/Auth/Auth/cyrus.php:177 framework/Auth/Auth/cyrsql.php:314
+#: framework/Auth/Auth/cyrsql.php:314 framework/Auth/Auth/cyrus.php:177
 #, php-format
 msgid "IMAP mailbox quota creation failed: %s"
 msgstr "Festlegen der IMAP-Postfach-Quota ist fehlgeschlagen: %s"
@@ -3706,7 +3662,7 @@ msgstr "IP-Adresse nicht verfügbar."
 msgid "IP Address not within allowed CIDR block."
 msgstr "IP-Adresse nicht im erlaubten CIDR-Block."
 
-#: framework/Form/Form.php:1341
+#: framework/Form/Form.php:1344
 msgid "IP address"
 msgstr "IP-Adresse"
 
@@ -3714,8 +3670,8 @@ msgstr "IP-Adresse"
 msgid "IP lockdown violation."
 msgstr "Verletzung der festgelegten IP."
 
-#: framework/NLS/NLS/tld.php:123 framework/NLS/NLS/countries.php:108
-#: framework/NLS/NLS/GeoIP.php:82
+#: framework/NLS/NLS/GeoIP.php:82 framework/NLS/NLS/countries.php:108
+#: framework/NLS/NLS/tld.php:123
 msgid "Iceland"
 msgstr "Island"
 
@@ -3732,7 +3688,7 @@ msgstr "Icons für %s"
 msgid "Icons with text"
 msgstr "Bilder und Text"
 
-#: framework/Form/Form.php:3956
+#: framework/Form/Form.php:3959
 msgid "Id"
 msgstr "Id"
 
@@ -3763,16 +3719,16 @@ msgstr ""
 msgid "Image"
 msgstr "Bild"
 
-#: framework/Form/Form.php:4323
+#: framework/Form/Form.php:4326
 msgid "Image CAPTCHA"
 msgstr "Bilder CAPTCHA"
 
-#: framework/Form/Form.php:2083
+#: framework/Form/Form.php:2086
 msgid "Image upload"
 msgstr "Bild-Hochladen"
 
-#: templates/data/tsvinfo.inc:7 templates/data/datemap.inc:7
-#: templates/data/csvmap.inc:54 templates/data/csvinfo.inc:7
+#: templates/data/csvinfo.inc:7 templates/data/csvmap.inc:54
+#: templates/data/datemap.inc:7 templates/data/tsvinfo.inc:7
 #, php-format
 msgid "Import, Step %d"
 msgstr "Importieren, Schritt %d"
@@ -3815,8 +3771,8 @@ msgstr ""
 "wenden Sie sich an Ihren Systemadministrator, wenn Sie weitere Hilfe "
 "benötigen."
 
-#: framework/NLS/NLS/tld.php:119 framework/NLS/NLS/countries.php:109
-#: framework/NLS/NLS/GeoIP.php:81
+#: framework/NLS/NLS/GeoIP.php:81 framework/NLS/NLS/countries.php:109
+#: framework/NLS/NLS/tld.php:119
 msgid "India"
 msgstr "Indien"
 
@@ -3824,8 +3780,8 @@ msgstr "Indien"
 msgid "Individual Users"
 msgstr "Einzelne Benutzer"
 
-#: framework/NLS/NLS/tld.php:115 framework/NLS/NLS/countries.php:110
-#: framework/NLS/NLS/GeoIP.php:80
+#: framework/NLS/NLS/GeoIP.php:80 framework/NLS/NLS/countries.php:110
+#: framework/NLS/NLS/tld.php:115
 msgid "Indonesia"
 msgstr "Indonesien"
 
@@ -3841,12 +3797,12 @@ msgstr "Informationen nicht mehr verfügbar."
 msgid "Inherited Members"
 msgstr "Vererbte Mitglieder"
 
-#: framework/Alarm/Alarm.php:453
+#: framework/Alarm/Alarm.php:473
 msgid "Inline Notification"
 msgstr "Eingebettete Benachrichtigung"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:107
 #: framework/IMAP/IMAP/ACL/rfc4314.php:64
-#: framework/IMAP/IMAP/ACL/rfc2086.php:102
 msgid "Insert"
 msgstr "Einfügen"
 
@@ -3856,8 +3812,8 @@ msgstr ""
 "Geben Sie eine E-Mail-Adresse an, an die das neue Passwort geschickt werden "
 "soll:"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:95
 #: framework/IMAP/IMAP/ACL/rfc4314.php:50
-#: framework/IMAP/IMAP/ACL/rfc2086.php:90
 msgid "Insert messages"
 msgstr "Nachrichten hinzufügen"
 
@@ -3877,11 +3833,11 @@ msgstr "Zu wenig Guthaben, um an die Verteilerliste zu verschicken."
 msgid "Insufficient credit."
 msgstr "Zu wenig Guthaben."
 
-#: framework/Form/Form.php:1070
+#: framework/Form/Form.php:1073
 msgid "Integer"
 msgstr "Ganzzahl"
 
-#: framework/Form/Form.php:1124
+#: framework/Form/Form.php:1127
 msgid "Integer list"
 msgstr "Liste von Ganzzahlen"
 
@@ -3941,10 +3897,10 @@ msgstr "Ungültige Aktion %s"
 msgid "Invalid application."
 msgstr "Ungültige Anwendung."
 
-#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php:230
+#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php:237
 #, php-format
-msgid "Invalid authentication for user %s!"
-msgstr "Ungültige Anmeldung für Benutzer %s!"
+msgid "Invalid authentication for user %s: %s"
+msgstr "Ungültige Anmeldung für Benutzer %s: %s"
 
 #: framework/Group/Group/ldap.php:724
 msgid "Invalid basedn configured"
@@ -3959,8 +3915,8 @@ msgstr "Ungültige Batch-ID."
 msgid "Invalid character in e-mail address: %s."
 msgstr "Ungültiges Zeichen in der E-Mail-Adresse: %s."
 
-#: framework/Form/Form.php:2807 framework/Form/Form.php:2885
-#: framework/Form/Form.php:2958 framework/Form/Form.php:3037
+#: framework/Form/Form.php:2810 framework/Form/Form.php:2888
+#: framework/Form/Form.php:2961 framework/Form/Form.php:3040
 #: framework/Form/Form/Type/tableset.php:37
 msgid "Invalid data submitted."
 msgstr "Ungültige Daten eingegeben."
@@ -4047,18 +4003,18 @@ msgstr "Inventar"
 msgid "Invert selection"
 msgstr "Auswahl umkehren"
 
-#: framework/NLS/NLS/tld.php:122 framework/NLS/NLS/countries.php:111
-#: framework/NLS/NLS/GeoIP.php:82
+#: framework/NLS/NLS/GeoIP.php:82 framework/NLS/NLS/countries.php:111
+#: framework/NLS/NLS/tld.php:122
 msgid "Iran, Islamic Republic of"
 msgstr "Islamische Republik Iran"
 
-#: framework/NLS/NLS/tld.php:121 framework/NLS/NLS/countries.php:112
-#: framework/NLS/NLS/GeoIP.php:81
+#: framework/NLS/NLS/GeoIP.php:81 framework/NLS/NLS/countries.php:112
+#: framework/NLS/NLS/tld.php:121
 msgid "Iraq"
 msgstr "Irak"
 
-#: framework/NLS/NLS/tld.php:116 framework/NLS/NLS/countries.php:113
-#: framework/NLS/NLS/GeoIP.php:80
+#: framework/NLS/NLS/GeoIP.php:80 framework/NLS/NLS/countries.php:113
+#: framework/NLS/NLS/tld.php:116
 msgid "Ireland"
 msgstr "Irland"
 
@@ -4070,8 +4026,8 @@ msgstr "Isle of Man"
 msgid "Isolated T-Storms"
 msgstr "Vereinzelte Gewitter"
 
-#: framework/NLS/NLS/tld.php:117 framework/NLS/NLS/countries.php:114
-#: framework/NLS/NLS/GeoIP.php:80
+#: framework/NLS/NLS/GeoIP.php:80 framework/NLS/NLS/countries.php:114
+#: framework/NLS/NLS/tld.php:117
 msgid "Israel"
 msgstr "Israel"
 
@@ -4079,13 +4035,13 @@ msgstr "Israel"
 msgid "Issuer"
 msgstr "Aussteller"
 
-#: framework/NLS/NLS/tld.php:124 framework/NLS/NLS/countries.php:115
-#: framework/NLS/NLS/GeoIP.php:82
+#: framework/NLS/NLS/GeoIP.php:82 framework/NLS/NLS/countries.php:115
+#: framework/NLS/NLS/tld.php:124
 msgid "Italy"
 msgstr "Italien"
 
-#: framework/NLS/NLS/tld.php:126 framework/NLS/NLS/countries.php:116
-#: framework/NLS/NLS/GeoIP.php:82
+#: framework/NLS/NLS/GeoIP.php:82 framework/NLS/NLS/countries.php:116
+#: framework/NLS/NLS/tld.php:126
 msgid "Jamaica"
 msgstr "Jamaika"
 
@@ -4095,12 +4051,12 @@ msgstr "Jamaika"
 msgid "January"
 msgstr "Januar"
 
-#: framework/NLS/NLS/tld.php:128 framework/NLS/NLS/countries.php:117
-#: framework/NLS/NLS/GeoIP.php:83
+#: framework/NLS/NLS/GeoIP.php:83 framework/NLS/NLS/countries.php:117
+#: framework/NLS/NLS/tld.php:128
 msgid "Japan"
 msgstr "Japan"
 
-#: config/nls.php.dist:235
+#: config/nls.php.dist:237
 msgid "Japanese (ISO-2022-JP)"
 msgstr "Japanisch (ISO-2022-JP)"
 
@@ -4108,8 +4064,8 @@ msgstr "Japanisch (ISO-2022-JP)"
 msgid "Jersey"
 msgstr "Jersey"
 
-#: framework/NLS/NLS/tld.php:127 framework/NLS/NLS/countries.php:118
-#: framework/NLS/NLS/GeoIP.php:83
+#: framework/NLS/NLS/GeoIP.php:83 framework/NLS/NLS/countries.php:118
+#: framework/NLS/NLS/tld.php:127
 msgid "Jordan"
 msgstr "Jordanien"
 
@@ -4125,8 +4081,8 @@ msgstr "Juli"
 msgid "June"
 msgstr "Juni"
 
-#: framework/NLS/NLS/tld.php:139 framework/NLS/NLS/countries.php:119
-#: framework/NLS/NLS/GeoIP.php:86
+#: framework/NLS/NLS/GeoIP.php:86 framework/NLS/NLS/countries.php:119
+#: framework/NLS/NLS/tld.php:139
 msgid "Kazakhstan"
 msgstr "Kasachstan"
 
@@ -4134,8 +4090,8 @@ msgstr "Kasachstan"
 msgid "Keep original?"
 msgstr "Original beibehalten?"
 
-#: framework/NLS/NLS/tld.php:129 framework/NLS/NLS/countries.php:120
-#: framework/NLS/NLS/GeoIP.php:83
+#: framework/NLS/NLS/GeoIP.php:83 framework/NLS/NLS/countries.php:120
+#: framework/NLS/NLS/tld.php:129
 msgid "Kenya"
 msgstr "Kenia"
 
@@ -4184,8 +4140,8 @@ msgstr "Stichwort"
 msgid "Kids"
 msgstr "Kinder"
 
-#: framework/NLS/NLS/tld.php:132 framework/NLS/NLS/countries.php:121
-#: framework/NLS/NLS/GeoIP.php:84
+#: framework/NLS/NLS/GeoIP.php:84 framework/NLS/NLS/countries.php:121
+#: framework/NLS/NLS/tld.php:132
 msgid "Kiribati"
 msgstr "Kiribati"
 
@@ -4198,27 +4154,27 @@ msgstr "Kolab"
 msgid "Kolab cache: Object uid %s does not exist in the cache!"
 msgstr "Kolab cache: Objekt-UID %s existiert nicht im Cache!"
 
-#: framework/NLS/NLS/tld.php:135 framework/NLS/NLS/countries.php:122
-#: framework/NLS/NLS/GeoIP.php:85
+#: framework/NLS/NLS/GeoIP.php:85 framework/NLS/NLS/countries.php:122
+#: framework/NLS/NLS/tld.php:135
 msgid "Korea, Democratic People's Republic of"
 msgstr "Demokratische Volksrepublic Korea"
 
-#: framework/NLS/NLS/tld.php:136 framework/NLS/NLS/countries.php:123
-#: framework/NLS/NLS/GeoIP.php:85
+#: framework/NLS/NLS/GeoIP.php:85 framework/NLS/NLS/countries.php:123
+#: framework/NLS/NLS/tld.php:136
 msgid "Korea, Republic of"
 msgstr "Republik Korea"
 
-#: config/nls.php.dist:236
+#: config/nls.php.dist:238
 msgid "Korean (EUC-KR)"
 msgstr "Koreanisch (EUC-KR)"
 
-#: framework/NLS/NLS/tld.php:137 framework/NLS/NLS/countries.php:124
-#: framework/NLS/NLS/GeoIP.php:86
+#: framework/NLS/NLS/GeoIP.php:86 framework/NLS/NLS/countries.php:124
+#: framework/NLS/NLS/tld.php:137
 msgid "Kuwait"
 msgstr "Kuwait"
 
-#: framework/NLS/NLS/tld.php:130 framework/NLS/NLS/countries.php:125
-#: framework/NLS/NLS/GeoIP.php:83
+#: framework/NLS/NLS/GeoIP.php:83 framework/NLS/NLS/countries.php:125
+#: framework/NLS/NLS/tld.php:130
 msgid "Kyrgyzstan"
 msgstr "Kirgisistan"
 
@@ -4246,8 +4202,8 @@ msgstr "LDAP-Fehler: Objekt %s nicht gefunden: %s"
 msgid "Language"
 msgstr "Sprache"
 
-#: framework/NLS/NLS/tld.php:140 framework/NLS/NLS/countries.php:126
-#: framework/NLS/NLS/GeoIP.php:87
+#: framework/NLS/NLS/GeoIP.php:87 framework/NLS/NLS/countries.php:126
+#: framework/NLS/NLS/tld.php:140
 msgid "Lao People's Democratic Republic"
 msgstr "Laos"
 
@@ -4285,8 +4241,8 @@ msgstr "Letzte Anmeldung: %s von %s"
 msgid "Last login: Never"
 msgstr "Letzte Anmeldung: Noch nie"
 
-#: framework/NLS/NLS/tld.php:149 framework/NLS/NLS/countries.php:127
-#: framework/NLS/NLS/GeoIP.php:89
+#: framework/NLS/NLS/GeoIP.php:89 framework/NLS/NLS/countries.php:127
+#: framework/NLS/NLS/tld.php:149
 msgid "Latvia"
 msgstr "Lettland"
 
@@ -4298,36 +4254,36 @@ msgstr "Lavendel"
 msgid "Law"
 msgstr "Gesetz"
 
-#: framework/NLS/NLS/tld.php:141 framework/NLS/NLS/countries.php:128
-#: framework/NLS/NLS/GeoIP.php:87
+#: framework/NLS/NLS/GeoIP.php:87 framework/NLS/NLS/countries.php:128
+#: framework/NLS/NLS/tld.php:141
 msgid "Lebanon"
 msgstr "Libanon"
 
-#: framework/Form/Form.php:4086
+#: framework/Form/Form.php:4089
 msgid "Left header"
 msgstr "Linke Überschrift"
 
-#: framework/Form/Form.php:4082
+#: framework/Form/Form.php:4085
 msgid "Left values"
 msgstr "Linke Werte"
 
-#: framework/NLS/NLS/tld.php:146 framework/NLS/NLS/countries.php:129
-#: framework/NLS/NLS/GeoIP.php:88
+#: framework/NLS/NLS/GeoIP.php:88 framework/NLS/NLS/countries.php:129
+#: framework/NLS/NLS/tld.php:146
 msgid "Lesotho"
 msgstr "Lesotho"
 
-#: framework/NLS/NLS/tld.php:145 framework/NLS/NLS/countries.php:130
-#: framework/NLS/NLS/GeoIP.php:88
+#: framework/NLS/NLS/GeoIP.php:88 framework/NLS/NLS/countries.php:130
+#: framework/NLS/NLS/tld.php:145
 msgid "Liberia"
 msgstr "Liberia"
 
-#: framework/NLS/NLS/tld.php:150 framework/NLS/NLS/countries.php:131
-#: framework/NLS/NLS/GeoIP.php:89
+#: framework/NLS/NLS/GeoIP.php:89 framework/NLS/NLS/countries.php:131
+#: framework/NLS/NLS/tld.php:150
 msgid "Libyan Arab Jamahiriya"
 msgstr "Libyen"
 
-#: framework/NLS/NLS/tld.php:143 framework/NLS/NLS/countries.php:132
-#: framework/NLS/NLS/GeoIP.php:88
+#: framework/NLS/NLS/GeoIP.php:88 framework/NLS/NLS/countries.php:132
+#: framework/NLS/NLS/tld.php:143
 msgid "Liechtenstein"
 msgstr "Liechtenstein"
 
@@ -4379,36 +4335,36 @@ msgstr "Leichte Schneeschauer"
 msgid "Limerick"
 msgstr "Limerick"
 
-#: framework/Form/Form.php:2143
+#: framework/Form/Form.php:2146
 msgid "Link"
 msgstr "Link"
 
-#: framework/Form/Form.php:2146
+#: framework/Form/Form.php:2149
 msgid "Link URL"
 msgstr "Link-URL"
 
-#: framework/Form/Form.php:2161
+#: framework/Form/Form.php:2164
 msgid "Link access key"
 msgstr "Link-Zugriffstaste"
 
-#: framework/Form/Form.php:3960
+#: framework/Form/Form.php:3963
 msgid "Link style"
 msgstr "Link-Stil"
 
-#: framework/Form/Form.php:2152
+#: framework/Form/Form.php:2155
 msgid "Link target"
 msgstr "Link-Ziel"
 
-#: framework/Form/Form.php:2149 framework/Form/Form.php:3958
+#: framework/Form/Form.php:2152 framework/Form/Form.php:3961
 msgid "Link text"
 msgstr "Link-Text"
 
-#: framework/Form/Form.php:2445
+#: framework/Form/Form.php:2448
 msgid "Link the email address to the compose page when displaying?"
 msgstr ""
 "E-Mail-Adresse beim Anzeigen zum Fenster für neue Nachrichten verlinken?"
 
-#: framework/Form/Form.php:2158
+#: framework/Form/Form.php:2161
 msgid "Link title attribute"
 msgstr "Link-Title-Attribut"
 
@@ -4421,13 +4377,13 @@ msgstr "Links"
 msgid "Linux Cookie"
 msgstr "Linux-Glückskekse"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:103
 #: framework/IMAP/IMAP/ACL/rfc4314.php:60
-#: framework/IMAP/IMAP/ACL/rfc2086.php:98
 msgid "List"
 msgstr "Liste"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:91
 #: framework/IMAP/IMAP/ACL/rfc4314.php:46
-#: framework/IMAP/IMAP/ACL/rfc2086.php:86
 msgid "List - user can see the folder"
 msgstr "List - Benutzer kann den Ordner sehen"
 
@@ -4485,8 +4441,8 @@ msgstr "Das Anzeigen der Benutzer ist nicht möglich."
 msgid "Literature"
 msgstr "Literatur"
 
-#: framework/NLS/NLS/tld.php:147 framework/NLS/NLS/countries.php:133
-#: framework/NLS/NLS/GeoIP.php:89
+#: framework/NLS/NLS/GeoIP.php:89 framework/NLS/NLS/countries.php:133
+#: framework/NLS/NLS/tld.php:147
 msgid "Lithuania"
 msgstr "Litauen"
 
@@ -4502,13 +4458,13 @@ msgstr "Lokale Uhrzeit: "
 msgid "Locale and Time"
 msgstr "Sprache und Zeit"
 
-#: framework/Crypt/Crypt/smime.php:575 lib/Block/weatherdotcom.php:62
-#: lib/Block/sunrise.php:22 lib/Block/metar.php:80
+#: framework/Crypt/Crypt/smime.php:575 lib/Block/metar.php:80
+#: lib/Block/sunrise.php:22 lib/Block/weatherdotcom.php:62
 msgid "Location"
 msgstr "Ort"
 
-#: login.php:237 services/portal/sidebar.php:190 templates/login/mobile.inc:3
-#: templates/login/mobile.inc:15 templates/login/login.inc:77
+#: login.php:239 services/portal/sidebar.php:190 templates/login/login.inc:77
+#: templates/login/mobile.inc:3 templates/login/mobile.inc:15
 msgid "Log in"
 msgstr "Anmelden"
 
@@ -4534,7 +4490,7 @@ msgstr ""
 msgid "Login failed."
 msgstr "Anmeldung fehlgeschlagen."
 
-#: framework/Form/Form.php:1394
+#: framework/Form/Form.php:1397
 msgid "Long text"
 msgstr "Langer Text"
 
@@ -4554,8 +4510,8 @@ msgstr "Loyola"
 msgid "Loyola Blue"
 msgstr "Loyola Blau"
 
-#: framework/NLS/NLS/tld.php:148 framework/NLS/NLS/countries.php:134
-#: framework/NLS/NLS/GeoIP.php:89
+#: framework/NLS/NLS/GeoIP.php:89 framework/NLS/NLS/countries.php:134
+#: framework/NLS/NLS/tld.php:148
 msgid "Luxembourg"
 msgstr "Luxemburg"
 
@@ -4580,18 +4536,18 @@ msgstr "MS-TNEF-Anhang enthielt keine Daten."
 msgid "MSG"
 msgstr "HINWEIS"
 
-#: framework/NLS/NLS/tld.php:161 framework/NLS/NLS/countries.php:135
-#: framework/NLS/NLS/GeoIP.php:92
+#: framework/NLS/NLS/GeoIP.php:92 framework/NLS/NLS/countries.php:135
+#: framework/NLS/NLS/tld.php:161
 msgid "Macao"
 msgstr "Macao"
 
-#: framework/NLS/NLS/tld.php:157 framework/NLS/NLS/countries.php:136
-#: framework/NLS/NLS/GeoIP.php:91
+#: framework/NLS/NLS/GeoIP.php:91 framework/NLS/NLS/countries.php:136
+#: framework/NLS/NLS/tld.php:157
 msgid "Macedonia, The Former Yugoslav Republic of"
 msgstr "Die ehemalige Jugoslawische Republik Mazedonien"
 
-#: framework/NLS/NLS/tld.php:155 framework/NLS/NLS/countries.php:137
-#: framework/NLS/NLS/GeoIP.php:90
+#: framework/NLS/NLS/GeoIP.php:90 framework/NLS/NLS/countries.php:137
+#: framework/NLS/NLS/tld.php:155
 msgid "Madagascar"
 msgstr "Madagaskar"
 
@@ -4607,28 +4563,28 @@ msgstr "Webmail"
 msgid "Mail Admin"
 msgstr "E-Mail Administration"
 
-#: framework/NLS/NLS/tld.php:169 framework/NLS/NLS/countries.php:138
-#: framework/NLS/NLS/GeoIP.php:94
+#: framework/NLS/NLS/GeoIP.php:94 framework/NLS/NLS/countries.php:138
+#: framework/NLS/NLS/tld.php:169
 msgid "Malawi"
 msgstr "Malawi"
 
-#: framework/NLS/NLS/tld.php:171 framework/NLS/NLS/countries.php:139
-#: framework/NLS/NLS/GeoIP.php:95
+#: framework/NLS/NLS/GeoIP.php:95 framework/NLS/NLS/countries.php:139
+#: framework/NLS/NLS/tld.php:171
 msgid "Malaysia"
 msgstr "Malaysia"
 
-#: framework/NLS/NLS/tld.php:168 framework/NLS/NLS/countries.php:140
-#: framework/NLS/NLS/GeoIP.php:94
+#: framework/NLS/NLS/GeoIP.php:94 framework/NLS/NLS/countries.php:140
+#: framework/NLS/NLS/tld.php:168
 msgid "Maldives"
 msgstr "Malidiven"
 
-#: framework/NLS/NLS/tld.php:158 framework/NLS/NLS/countries.php:141
-#: framework/NLS/NLS/GeoIP.php:92
+#: framework/NLS/NLS/GeoIP.php:92 framework/NLS/NLS/countries.php:141
+#: framework/NLS/NLS/tld.php:158
 msgid "Mali"
 msgstr "Mali"
 
-#: framework/NLS/NLS/tld.php:166 framework/NLS/NLS/countries.php:142
-#: framework/NLS/NLS/GeoIP.php:94
+#: framework/NLS/NLS/GeoIP.php:94 framework/NLS/NLS/countries.php:142
+#: framework/NLS/NLS/tld.php:166
 msgid "Malta"
 msgstr "Malta"
 
@@ -4651,33 +4607,33 @@ msgstr "MapQuest-Karte"
 msgid "March"
 msgstr "März"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:106
 #: framework/IMAP/IMAP/ACL/rfc4314.php:63
-#: framework/IMAP/IMAP/ACL/rfc2086.php:101
 msgid "Mark (Other)"
 msgstr "Markieren (Sonstige)"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:105
 #: framework/IMAP/IMAP/ACL/rfc4314.php:62
-#: framework/IMAP/IMAP/ACL/rfc2086.php:100
 msgid "Mark (Seen)"
 msgstr "Markieren (Gelesen)"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:93
 #: framework/IMAP/IMAP/ACL/rfc4314.php:48
-#: framework/IMAP/IMAP/ACL/rfc2086.php:88
 msgid "Mark with Seen/Unseen flags"
 msgstr "Mit Gelesen-/Ungelesen-Status versehen"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:94
 #: framework/IMAP/IMAP/ACL/rfc4314.php:49
-#: framework/IMAP/IMAP/ACL/rfc2086.php:89
 msgid "Mark with other flags (e.g. Important/Answered)"
 msgstr "Mit anderem Status versehen (z.B. Wichtig/Beantwortet)"
 
-#: framework/NLS/NLS/tld.php:156 framework/NLS/NLS/countries.php:143
-#: framework/NLS/NLS/GeoIP.php:91
+#: framework/NLS/NLS/GeoIP.php:91 framework/NLS/NLS/countries.php:143
+#: framework/NLS/NLS/tld.php:156
 msgid "Marshall Islands"
 msgstr "Marshallinseln"
 
-#: framework/NLS/NLS/tld.php:163 framework/NLS/NLS/countries.php:144
-#: framework/NLS/NLS/GeoIP.php:93
+#: framework/NLS/NLS/GeoIP.php:93 framework/NLS/NLS/countries.php:144
+#: framework/NLS/NLS/tld.php:163
 msgid "Martinique"
 msgstr "Martinique"
 
@@ -4685,13 +4641,13 @@ msgstr "Martinique"
 msgid "Matching fields:"
 msgstr "Zugeordnete Felder:"
 
-#: framework/NLS/NLS/tld.php:164 framework/NLS/NLS/countries.php:145
-#: framework/NLS/NLS/GeoIP.php:93
+#: framework/NLS/NLS/GeoIP.php:93 framework/NLS/NLS/countries.php:145
+#: framework/NLS/NLS/tld.php:164
 msgid "Mauritania"
 msgstr "Mauretanien"
 
-#: framework/NLS/NLS/tld.php:167 framework/NLS/NLS/countries.php:146
-#: framework/NLS/NLS/GeoIP.php:94
+#: framework/NLS/NLS/GeoIP.php:94 framework/NLS/NLS/countries.php:146
+#: framework/NLS/NLS/tld.php:167
 msgid "Mauritius"
 msgstr "Mauritius"
 
@@ -4715,12 +4671,12 @@ msgstr "Höchsttemperatur der letzten 6 Stunden: "
 msgid "Maximum Number of Portal Blocks"
 msgstr "Maximale Anzahl an Portalblöcken"
 
-#: framework/Form/Form.php:2089
+#: framework/Form/Form.php:2092
 msgid "Maximum file size in bytes"
 msgstr "Maximale Dateigröße in Bytes"
 
-#: framework/Form/Form.php:1207 framework/Form/Form.php:1227
-#: framework/Form/Form.php:1256
+#: framework/Form/Form.php:1210 framework/Form/Form.php:1230
+#: framework/Form/Form.php:1259
 msgid "Maximum length"
 msgstr "Maximale Länge"
 
@@ -4730,8 +4686,8 @@ msgstr "Maximale Länge"
 msgid "May"
 msgstr "Mai"
 
-#: framework/NLS/NLS/tld.php:260 framework/NLS/NLS/countries.php:147
-#: framework/NLS/NLS/GeoIP.php:117
+#: framework/NLS/NLS/GeoIP.php:117 framework/NLS/NLS/countries.php:147
+#: framework/NLS/NLS/tld.php:260
 msgid "Mayotte"
 msgstr "Mayotte Island"
 
@@ -4771,10 +4727,10 @@ msgstr ""
 msgid "Message expired."
 msgstr "Nachricht nicht mehr gültig."
 
-#: framework/Net_SMS/SMS/sms2email_http.php:578
-#: framework/Net_SMS/SMS/sms2email_http.php:611
 #: framework/Net_SMS/SMS/clickatell_http.php:235
 #: framework/Net_SMS/SMS/clickatell_http.php:268
+#: framework/Net_SMS/SMS/sms2email_http.php:578
+#: framework/Net_SMS/SMS/sms2email_http.php:611
 msgid "Message type"
 msgstr "Nachrichtentyp"
 
@@ -4807,17 +4763,17 @@ msgstr "Methode"
 msgid "Method \"%s\" is not defined"
 msgstr "Die Methode \"%s\" ist nicht definiert"
 
-#: lib/Block/weatherdotcom.php:72 lib/Block/metar.php:90
+#: lib/Block/metar.php:90 lib/Block/weatherdotcom.php:72
 msgid "Metric"
 msgstr "Metrisch"
 
-#: framework/NLS/NLS/tld.php:170 framework/NLS/NLS/countries.php:148
-#: framework/NLS/NLS/GeoIP.php:95
+#: framework/NLS/NLS/GeoIP.php:95 framework/NLS/NLS/countries.php:148
+#: framework/NLS/NLS/tld.php:170
 msgid "Mexico"
 msgstr "Mexiko"
 
-#: framework/NLS/NLS/tld.php:87 framework/NLS/NLS/countries.php:149
-#: framework/NLS/NLS/GeoIP.php:72
+#: framework/NLS/NLS/GeoIP.php:72 framework/NLS/NLS/countries.php:149
+#: framework/NLS/NLS/tld.php:87
 msgid "Micronesia, Federated States of"
 msgstr "Föderierte Staaten von Mikronesien"
 
@@ -4872,7 +4828,7 @@ msgstr "Mo"
 msgid "Mobile Mail"
 msgstr "Webmail Mobil"
 
-#: framework/Form/Form.php:1300
+#: framework/Form/Form.php:1303
 msgid "Mobile phone number"
 msgstr "Mobiltelefonnummer"
 
@@ -4880,8 +4836,8 @@ msgstr "Mobiltelefonnummer"
 msgid "Moderate"
 msgstr "Mäßig"
 
-#: framework/MIME/MIME/Viewer/rar.php:64 framework/MIME/MIME/Viewer/zip.php:87
-#: framework/MIME/MIME/Viewer/tgz.php:91
+#: framework/MIME/MIME/Viewer/rar.php:64 framework/MIME/MIME/Viewer/tgz.php:91
+#: framework/MIME/MIME/Viewer/zip.php:87
 msgid "Modified Date"
 msgstr "Änderungsdatum"
 
@@ -4889,13 +4845,13 @@ msgstr "Änderungsdatum"
 msgid "Modulus"
 msgstr "Modulus"
 
-#: framework/NLS/NLS/tld.php:153 framework/NLS/NLS/countries.php:150
-#: framework/NLS/NLS/GeoIP.php:90
+#: framework/NLS/NLS/GeoIP.php:90 framework/NLS/NLS/countries.php:150
+#: framework/NLS/NLS/tld.php:153
 msgid "Moldova, Republic of"
 msgstr "Republik Moldau"
 
-#: framework/NLS/NLS/tld.php:152 framework/NLS/NLS/countries.php:151
-#: framework/NLS/NLS/GeoIP.php:90
+#: framework/NLS/NLS/GeoIP.php:90 framework/NLS/NLS/countries.php:151
+#: framework/NLS/NLS/tld.php:152
 msgid "Monaco"
 msgstr "Monaco"
 
@@ -4903,8 +4859,8 @@ msgstr "Monaco"
 msgid "Monday"
 msgstr "Montag"
 
-#: framework/NLS/NLS/tld.php:160 framework/NLS/NLS/countries.php:152
-#: framework/NLS/NLS/GeoIP.php:92
+#: framework/NLS/NLS/GeoIP.php:92 framework/NLS/NLS/countries.php:152
+#: framework/NLS/NLS/tld.php:160
 msgid "Mongolia"
 msgstr "Mongolei"
 
@@ -4912,17 +4868,17 @@ msgstr "Mongolei"
 msgid "Montenegro"
 msgstr "Montenegro"
 
-#: framework/Form/Form.php:3344
+#: framework/Form/Form.php:3347
 msgid "Month and year"
 msgstr "Monat und Jahr"
 
-#: framework/Maintenance/Maintenance.php:62
 #: framework/Date/Date/Recurrence.php:202
+#: framework/Maintenance/Maintenance.php:62
 msgid "Monthly"
 msgstr "Monatlich"
 
-#: framework/NLS/NLS/tld.php:165 framework/NLS/NLS/countries.php:153
-#: framework/NLS/NLS/GeoIP.php:94
+#: framework/NLS/NLS/GeoIP.php:94 framework/NLS/NLS/countries.php:153
+#: framework/NLS/NLS/tld.php:165
 msgid "Montserrat"
 msgstr "Montserrat"
 
@@ -4935,8 +4891,8 @@ msgstr "Mondphasen"
 msgid "More fields found in line %d than the expected %d."
 msgstr "Mehr Felder in Zeile %d als die erwarteten %d gefunden."
 
-#: framework/NLS/NLS/tld.php:151 framework/NLS/NLS/countries.php:154
-#: framework/NLS/NLS/GeoIP.php:90
+#: framework/NLS/NLS/GeoIP.php:90 framework/NLS/NLS/countries.php:154
+#: framework/NLS/NLS/tld.php:151
 msgid "Morocco"
 msgstr "Marokko"
 
@@ -4981,8 +4937,8 @@ msgstr "Nach unten"
 msgid "Move up"
 msgstr "Nach oben"
 
-#: framework/NLS/NLS/tld.php:172 framework/NLS/NLS/countries.php:155
-#: framework/NLS/NLS/GeoIP.php:95
+#: framework/NLS/NLS/GeoIP.php:95 framework/NLS/NLS/countries.php:155
+#: framework/NLS/NLS/tld.php:172
 msgid "Mozambique"
 msgstr "Mosambik"
 
@@ -4990,7 +4946,7 @@ msgstr "Mosambik"
 msgid "Mozilla"
 msgstr "Mozilla"
 
-#: framework/Form/Form.php:2911
+#: framework/Form/Form.php:2914
 msgid "Multi-level drop down lists"
 msgstr "Auswahlliste in mehreren Ebenen"
 
@@ -4998,7 +4954,7 @@ msgstr "Auswahlliste in mehreren Ebenen"
 msgid "Multimap UK map"
 msgstr "Multimap-UK-Karte"
 
-#: framework/Form/Form.php:2968
+#: framework/Form/Form.php:2971
 msgid "Multiple selection"
 msgstr "Mehrfachauswahl"
 
@@ -5022,8 +4978,8 @@ msgstr "Mein Portal"
 msgid "My Portal Layout"
 msgstr "Mein Portallayout"
 
-#: framework/NLS/NLS/tld.php:159 framework/NLS/NLS/countries.php:156
-#: framework/NLS/NLS/GeoIP.php:92
+#: framework/NLS/NLS/GeoIP.php:92 framework/NLS/NLS/countries.php:156
+#: framework/NLS/NLS/tld.php:159
 msgid "Myanmar"
 msgstr "Burma"
 
@@ -5031,18 +4987,18 @@ msgstr "Burma"
 msgid "NO, I Do NOT Agree"
 msgstr "NEIN, ich stimme NICHT zu"
 
-#: framework/Crypt/Crypt/pgp.php:447 framework/MIME/MIME/Viewer/vcard.php:89
-#: framework/MIME/MIME/Viewer/tnef.php:36 lib/Block/vatid.php:99
+#: framework/Crypt/Crypt/pgp.php:447 framework/MIME/MIME/Viewer/tnef.php:36
+#: framework/MIME/MIME/Viewer/vcard.php:89 lib/Block/vatid.php:99
 msgid "Name"
 msgstr "Name"
 
-#: framework/NLS/NLS/tld.php:173 framework/NLS/NLS/countries.php:157
-#: framework/NLS/NLS/GeoIP.php:95
+#: framework/NLS/NLS/GeoIP.php:95 framework/NLS/NLS/countries.php:157
+#: framework/NLS/NLS/tld.php:173
 msgid "Namibia"
 msgstr "Namibia"
 
-#: framework/NLS/NLS/tld.php:182 framework/NLS/NLS/countries.php:158
-#: framework/NLS/NLS/GeoIP.php:97
+#: framework/NLS/NLS/GeoIP.php:97 framework/NLS/NLS/countries.php:158
+#: framework/NLS/NLS/tld.php:182
 msgid "Nauru"
 msgstr "Nauru"
 
@@ -5050,18 +5006,18 @@ msgstr "Nauru"
 msgid "NeXT"
 msgstr "NeXT"
 
-#: framework/NLS/NLS/tld.php:181 framework/NLS/NLS/countries.php:159
-#: framework/NLS/NLS/GeoIP.php:97
+#: framework/NLS/NLS/GeoIP.php:97 framework/NLS/NLS/countries.php:159
+#: framework/NLS/NLS/tld.php:181
 msgid "Nepal"
 msgstr "Nepal"
 
-#: framework/NLS/NLS/tld.php:179 framework/NLS/NLS/countries.php:160
-#: framework/NLS/NLS/GeoIP.php:97
+#: framework/NLS/NLS/GeoIP.php:97 framework/NLS/NLS/countries.php:160
+#: framework/NLS/NLS/tld.php:179
 msgid "Netherlands"
 msgstr "Niederlande"
 
-#: framework/NLS/NLS/tld.php:23 framework/NLS/NLS/countries.php:161
-#: framework/NLS/NLS/GeoIP.php:57
+#: framework/NLS/NLS/GeoIP.php:57 framework/NLS/NLS/countries.php:161
+#: framework/NLS/NLS/tld.php:23
 msgid "Netherlands Antilles"
 msgstr "Niederländische Antillen"
 
@@ -5106,8 +5062,8 @@ msgstr "Netzwerkwerkzeuge"
 msgid "Never"
 msgstr "Nie"
 
-#: framework/NLS/NLS/tld.php:174 framework/NLS/NLS/countries.php:162
-#: framework/NLS/NLS/GeoIP.php:95
+#: framework/NLS/NLS/GeoIP.php:95 framework/NLS/NLS/countries.php:162
+#: framework/NLS/NLS/tld.php:174
 msgid "New Caledonia"
 msgstr "Neukaledonien"
 
@@ -5130,8 +5086,8 @@ msgstr "Neumond"
 msgid "New Username (optional)"
 msgstr "Neuer Benutzername (optional)"
 
-#: framework/NLS/NLS/tld.php:184 framework/NLS/NLS/countries.php:163
-#: framework/NLS/NLS/GeoIP.php:98
+#: framework/NLS/NLS/GeoIP.php:98 framework/NLS/NLS/countries.php:163
+#: framework/NLS/NLS/tld.php:184
 msgid "New Zealand"
 msgstr "Neuseeland"
 
@@ -5152,8 +5108,8 @@ msgstr "Die neuen Passwörter stimmen nicht überein."
 msgid "News"
 msgstr "Nachrichten"
 
-#: templates/data/tsvinfo.inc:15 templates/data/datemap.inc:41
-#: templates/data/csvmap.inc:119 templates/data/csvinfo.inc:25
+#: templates/data/csvinfo.inc:25 templates/data/csvmap.inc:119
+#: templates/data/datemap.inc:41 templates/data/tsvinfo.inc:15
 msgid "Next"
 msgstr "Weiter"
 
@@ -5161,7 +5117,7 @@ msgstr "Weiter"
 msgid "Next 4 Phases"
 msgstr "Nächste 4 Phasen"
 
-#: framework/Prefs/Prefs/UI.php:394
+#: framework/Prefs/Prefs/UI.php:398
 msgid "Next options"
 msgstr "Nächste Einstellungen"
 
@@ -5169,18 +5125,18 @@ msgstr "Nächste Einstellungen"
 msgid "Next>"
 msgstr "Weiter>"
 
-#: framework/NLS/NLS/tld.php:178 framework/NLS/NLS/countries.php:164
-#: framework/NLS/NLS/GeoIP.php:96
+#: framework/NLS/NLS/GeoIP.php:96 framework/NLS/NLS/countries.php:164
+#: framework/NLS/NLS/tld.php:178
 msgid "Nicaragua"
 msgstr "Nicaragua"
 
-#: framework/NLS/NLS/tld.php:175 framework/NLS/NLS/countries.php:165
-#: framework/NLS/NLS/GeoIP.php:96
+#: framework/NLS/NLS/GeoIP.php:96 framework/NLS/NLS/countries.php:165
+#: framework/NLS/NLS/tld.php:175
 msgid "Niger"
 msgstr "Niger"
 
-#: framework/NLS/NLS/tld.php:177 framework/NLS/NLS/countries.php:166
-#: framework/NLS/NLS/GeoIP.php:96
+#: framework/NLS/NLS/GeoIP.php:96 framework/NLS/NLS/countries.php:166
+#: framework/NLS/NLS/tld.php:177
 msgid "Nigeria"
 msgstr "Nigeria"
 
@@ -5188,8 +5144,8 @@ msgstr "Nigeria"
 msgid "Night"
 msgstr "Nachts"
 
-#: framework/NLS/NLS/tld.php:183 framework/NLS/NLS/countries.php:167
-#: framework/NLS/NLS/GeoIP.php:97
+#: framework/NLS/NLS/GeoIP.php:97 framework/NLS/NLS/countries.php:167
+#: framework/NLS/NLS/tld.php:183
 msgid "Niue"
 msgstr "Niue"
 
@@ -5275,8 +5231,8 @@ msgstr "Keine Datei hochgeladen"
 msgid "No icons found."
 msgstr "Keine Icons gefunden."
 
-#: lib/Block/weatherdotcom.php:134 lib/Block/sunrise.php:40
-#: lib/Block/metar.php:138
+#: lib/Block/metar.php:138 lib/Block/sunrise.php:40
+#: lib/Block/weatherdotcom.php:134
 msgid "No location is set."
 msgstr "Es wurde kein Ort festgelegt."
 
@@ -5349,7 +5305,7 @@ msgstr "Kein Trennzeichen angegeben."
 msgid "No stable version exists yet."
 msgstr "Noch keine stabile Version verfügbar."
 
-#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy.php:140
+#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy.php:131
 #, php-format
 msgid "No such account %s!"
 msgstr "Kein Benutzerkonto %s gefunden!"
@@ -5358,12 +5314,12 @@ msgstr "Kein Benutzerkonto %s gefunden!"
 msgid "No such file"
 msgstr "Datei nicht gefunden"
 
-#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php:129
+#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php:136
 #, php-format
 msgid "No such folder %s"
 msgstr "Ordner %s nicht gefunden"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:804
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource/Itip/Event/Vevent.php:87
 msgid "No summary available"
 msgstr "Keine Zusammenfassung verfügbar"
 
@@ -5404,16 +5360,16 @@ msgstr ""
 "Konfiguration."
 
 #: framework/Crypt/Crypt/pgp.php:474 framework/Crypt/Crypt/pgp.php:475
-#: templates/syncml/syncml.inc:5 templates/prefs/identityselect.inc:93
+#: templates/prefs/identityselect.inc:93 templates/syncml/syncml.inc:13
 msgid "None"
 msgstr "Keine"
 
-#: config/nls.php.dist:237
+#: config/nls.php.dist:239
 msgid "Nordic (ISO-8859-10)"
 msgstr "Nordisch (ISO-8859-10)"
 
-#: framework/NLS/NLS/tld.php:176 framework/NLS/NLS/countries.php:168
-#: framework/NLS/NLS/GeoIP.php:96
+#: framework/NLS/NLS/GeoIP.php:96 framework/NLS/NLS/countries.php:168
+#: framework/NLS/NLS/tld.php:176
 msgid "Norfolk Island"
 msgstr "Norfolkinsel"
 
@@ -5421,13 +5377,13 @@ msgstr "Norfolkinsel"
 msgid "Northern Hemisphere"
 msgstr "Nördliche Hemisphere"
 
-#: framework/NLS/NLS/tld.php:162 framework/NLS/NLS/countries.php:169
-#: framework/NLS/NLS/GeoIP.php:93
+#: framework/NLS/NLS/GeoIP.php:93 framework/NLS/NLS/countries.php:169
+#: framework/NLS/NLS/tld.php:162
 msgid "Northern Mariana Islands"
 msgstr "Nördliche Marianen"
 
-#: framework/NLS/NLS/tld.php:180 framework/NLS/NLS/countries.php:170
-#: framework/NLS/NLS/GeoIP.php:97
+#: framework/NLS/NLS/GeoIP.php:97 framework/NLS/NLS/countries.php:170
+#: framework/NLS/NLS/tld.php:180
 msgid "Norway"
 msgstr "Norwegen"
 
@@ -5456,10 +5412,10 @@ msgid "Not implemented!"
 msgstr "Nicht implementiert!"
 
 #: framework/VFS_ISOWriter/ISOWriter.php:63
-#: framework/VFS_ISOWriter/ISOWriter/RealOutputStrategy.php:83
-#: framework/VFS_ISOWriter/ISOWriter/RealOutputStrategy.php:94
 #: framework/VFS_ISOWriter/ISOWriter/RealInputStrategy.php:47
 #: framework/VFS_ISOWriter/ISOWriter/RealInputStrategy.php:58
+#: framework/VFS_ISOWriter/ISOWriter/RealOutputStrategy.php:83
+#: framework/VFS_ISOWriter/ISOWriter/RealOutputStrategy.php:94
 msgid "Not implemented."
 msgstr "Nicht implementiert."
 
@@ -5470,16 +5426,16 @@ msgstr "Nicht implementiert."
 #: framework/VFS/lib/VFS.php:498 framework/VFS/lib/VFS.php:531
 #: framework/VFS/lib/VFS.php:592 framework/VFS/lib/VFS.php:674
 #: framework/VFS/lib/VFS.php:743 framework/VFS/lib/VFS.php:760
-#: framework/VFS/lib/VFS/kolab.php:113 framework/VFS/lib/VFS/kolab.php:145
 #: framework/VFS/lib/VFS/horde.php:82 framework/VFS/lib/VFS/horde.php:131
 #: framework/VFS/lib/VFS/horde.php:151 framework/VFS/lib/VFS/horde.php:170
 #: framework/VFS/lib/VFS/horde.php:189 framework/VFS/lib/VFS/horde.php:207
 #: framework/VFS/lib/VFS/horde.php:227 framework/VFS/lib/VFS/horde.php:330
+#: framework/VFS/lib/VFS/kolab.php:113 framework/VFS/lib/VFS/kolab.php:145
 msgid "Not supported."
 msgstr "Nicht unterstützt."
 
-#: framework/Share/Share/kolab.php:445 framework/Kolab/Kolab.php:732
-#: framework/MIME/MIME/Viewer/vcard.php:303 config/registry.php.dist:194
+#: framework/Kolab/Kolab.php:732 framework/MIME/MIME/Viewer/vcard.php:303
+#: framework/Share/Share/kolab.php:445 config/registry.php.dist:194
 msgid "Notes"
 msgstr "Notizen"
 
@@ -5493,7 +5449,7 @@ msgstr "Nichts anzuzeigen, bitte zurückgehen."
 msgid "November"
 msgstr "November"
 
-#: framework/Form/Form.php:1043
+#: framework/Form/Form.php:1046
 msgid "Number"
 msgstr "Zahl"
 
@@ -5501,19 +5457,19 @@ msgstr "Zahl"
 msgid "Number of articles to display"
 msgstr "Anzahl der anzuzeigenden Beiträge"
 
-#: framework/Form/Form.php:1451
+#: framework/Form/Form.php:1454
 msgid "Number of characters"
 msgstr "Anzahl der Zeichen"
 
-#: framework/Form/Form.php:1398 framework/Form/Form.php:1449
-#: framework/Form/Form.php:1560 framework/Form/Form.php:1633
-#: framework/Form/Form.php:1679
+#: framework/Form/Form.php:1401 framework/Form/Form.php:1452
+#: framework/Form/Form.php:1563 framework/Form/Form.php:1636
+#: framework/Form/Form.php:1682
 msgid "Number of columns"
 msgstr "Anzahl der Spalten"
 
-#: framework/Form/Form.php:1396 framework/Form/Form.php:1447
-#: framework/Form/Form.php:1558 framework/Form/Form.php:1631
-#: framework/Form/Form.php:1677
+#: framework/Form/Form.php:1399 framework/Form/Form.php:1450
+#: framework/Form/Form.php:1561 framework/Form/Form.php:1634
+#: framework/Form/Form.php:1680
 msgid "Number of rows"
 msgstr "Anzahl der Zeilen"
 
@@ -5542,7 +5498,7 @@ msgstr "Objekt nicht gefunden."
 msgid "Object type %s not allowed for folder type %s!"
 msgstr "Objekttyp %s ist im Ordnertyp %s nicht erlaubt!"
 
-#: framework/Form/Form.php:1097
+#: framework/Form/Form.php:1100
 msgid "Octal"
 msgstr "Oktalzahl"
 
@@ -5582,16 +5538,16 @@ msgstr "Altes Passwort"
 msgid "Old password is not correct."
 msgstr "Falsches altes Passwort."
 
-#: framework/NLS/NLS/tld.php:185 framework/NLS/NLS/countries.php:171
-#: framework/NLS/NLS/GeoIP.php:98
+#: framework/NLS/NLS/GeoIP.php:98 framework/NLS/NLS/countries.php:171
+#: framework/NLS/NLS/tld.php:185
 msgid "Oman"
 msgstr "Oman"
 
-#: framework/Form/Form.php:2155
+#: framework/Form/Form.php:2158
 msgid "Onclick event"
 msgstr "Onclick-Event"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:73
+#: framework/IMAP/IMAP/ACL/rfc2086.php:74
 msgid "Only IMAP servers support shared folders."
 msgstr "Nur IMAP-Server unterstützen gemeinsame Ordner."
 
@@ -5599,11 +5555,11 @@ msgstr "Nur IMAP-Server unterstützen gemeinsame Ordner."
 msgid "Only offensive fortunes"
 msgstr "Nur anstößige Glückskekse"
 
-#: framework/Form/Form.php:2697
+#: framework/Form/Form.php:2700
 msgid "Only one email address allowed."
 msgstr "Nur eine E-Mail-Adresse erlaubt."
 
-#: framework/Form/Form.php:2240
+#: framework/Form/Form.php:2243
 msgid "Only one email address is allowed."
 msgstr "Nur eine E-Mail-Adresse ist erlaubt."
 
@@ -5672,11 +5628,6 @@ msgstr "Andere Zeichen"
 msgid "Owner"
 msgstr "Besitzer"
 
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:489
-#, php-format
-msgid "Owner of folder %s cannot be determined."
-msgstr "Besitzer des Ordners %s konnte nicht festgestellt werden."
-
 #: templates/shares/edit.inc:38 templates/shares/edit.inc:47
 msgid "Owner:"
 msgstr "Besitzer:"
@@ -5697,7 +5648,7 @@ msgstr "Digitale PGP-Signatur"
 msgid "PGP Encrypted Data"
 msgstr "PGP-verschlüsselte Daten"
 
-#: framework/Form/Form.php:1625
+#: framework/Form/Form.php:1628
 msgid "PGP Key"
 msgstr "PGP-Schlüssel"
 
@@ -5782,33 +5733,33 @@ msgstr "Die POSIX-Erweiterung fehlt"
 msgid "P_HP Shell"
 msgstr "_PHP Shell"
 
-#: framework/NLS/NLS/tld.php:191 framework/NLS/NLS/countries.php:172
-#: framework/NLS/NLS/GeoIP.php:99
+#: framework/NLS/NLS/GeoIP.php:99 framework/NLS/NLS/countries.php:172
+#: framework/NLS/NLS/tld.php:191
 msgid "Pakistan"
 msgstr "Pakistan"
 
-#: framework/NLS/NLS/tld.php:198 framework/NLS/NLS/countries.php:173
-#: framework/NLS/NLS/GeoIP.php:101
+#: framework/NLS/NLS/GeoIP.php:101 framework/NLS/NLS/countries.php:173
+#: framework/NLS/NLS/tld.php:198
 msgid "Palau"
 msgstr "Palau"
 
-#: framework/NLS/NLS/tld.php:196 framework/NLS/NLS/countries.php:174
-#: framework/NLS/NLS/GeoIP.php:101
+#: framework/NLS/NLS/GeoIP.php:101 framework/NLS/NLS/countries.php:174
+#: framework/NLS/NLS/tld.php:196
 msgid "Palestinian Territory, Occupied"
 msgstr "Besetzte Palästinensische Gebiete"
 
-#: framework/NLS/NLS/tld.php:186 framework/NLS/NLS/countries.php:175
-#: framework/NLS/NLS/GeoIP.php:98
+#: framework/NLS/NLS/GeoIP.php:98 framework/NLS/NLS/countries.php:175
+#: framework/NLS/NLS/tld.php:186
 msgid "Panama"
 msgstr "Panama"
 
-#: framework/NLS/NLS/tld.php:189 framework/NLS/NLS/countries.php:176
-#: framework/NLS/NLS/GeoIP.php:99
+#: framework/NLS/NLS/GeoIP.php:99 framework/NLS/NLS/countries.php:176
+#: framework/NLS/NLS/tld.php:189
 msgid "Papua New Guinea"
 msgstr "Papua-Neuguinea"
 
-#: framework/NLS/NLS/tld.php:199 framework/NLS/NLS/countries.php:177
-#: framework/NLS/NLS/GeoIP.php:102
+#: framework/NLS/NLS/GeoIP.php:102 framework/NLS/NLS/countries.php:177
+#: framework/NLS/NLS/tld.php:199
 msgid "Paraguay"
 msgstr "Paraguay"
 
@@ -5821,12 +5772,11 @@ msgstr "Paketadresse"
 msgid "Partly Cloudy"
 msgstr "Teilweise bewölkt"
 
-#: admin/user.php:44 admin/user.php:55 admin/setup/index.php:244
+#: admin/setup/index.php:244 admin/user.php:44 admin/user.php:55
+#: framework/Form/Form.php:2744 framework/Net_SMS/SMS/clickatell_http.php:208
 #: framework/Net_SMS/SMS/sms2email_http.php:546
-#: framework/Net_SMS/SMS/clickatell_http.php:208
-#: framework/Net_SMS/SMS/win_http.php:160 framework/Form/Form.php:2741
-#: templates/login/login.inc:64 templates/admin/user/update.inc:44
-#: config/registry.php.dist:402
+#: framework/Net_SMS/SMS/win_http.php:160 templates/admin/user/update.inc:44
+#: templates/login/login.inc:64 config/registry.php.dist:402
 msgid "Password"
 msgstr "Passwort"
 
@@ -5842,7 +5792,7 @@ msgstr "Falsches Passwort"
 msgid "Password required for RADIUS authentication."
 msgstr "Kein Passwort für die RADIUS-Authentifizierung angegeben."
 
-#: framework/Form/Form.php:2774
+#: framework/Form/Form.php:2777
 msgid "Password with confirmation"
 msgstr "Passwort mit Bestätigung"
 
@@ -5854,7 +5804,7 @@ msgstr "Passwort:"
 msgid "Password: "
 msgstr "Passwort: "
 
-#: admin/user.php:167 framework/Form/Form.php:2756
+#: admin/user.php:167 framework/Form/Form.php:2759
 #: templates/admin/user/update.inc:15
 msgid "Passwords must match."
 msgstr "Die Passwörter müssen gleich sein."
@@ -5863,7 +5813,7 @@ msgstr "Die Passwörter müssen gleich sein."
 msgid "Paste"
 msgstr "Einfügen"
 
-#: framework/Form/Form.php:1627
+#: framework/Form/Form.php:1630
 msgid "Path to the GnuPG binary"
 msgstr "Pfad zum GnuPG-Programm"
 
@@ -5900,8 +5850,8 @@ msgstr "Zugriff verweigert"
 msgid "Permissions"
 msgstr "Rechte"
 
-#: admin/perms/edit.php:110 admin/perms/addchild.php:61
-#: admin/perms/index.php:23 admin/perms/delete.php:59
+#: admin/perms/addchild.php:61 admin/perms/delete.php:59
+#: admin/perms/edit.php:110 admin/perms/index.php:23
 msgid "Permissions Administration"
 msgstr "Rechteverwaltung"
 
@@ -5909,8 +5859,8 @@ msgstr "Rechteverwaltung"
 msgid "Personal Information"
 msgstr "Persönliche Angaben"
 
-#: framework/NLS/NLS/tld.php:187 framework/NLS/NLS/countries.php:178
-#: framework/NLS/NLS/GeoIP.php:98
+#: framework/NLS/NLS/GeoIP.php:98 framework/NLS/NLS/countries.php:178
+#: framework/NLS/NLS/tld.php:187
 msgid "Peru"
 msgstr "Peru"
 
@@ -5918,8 +5868,8 @@ msgstr "Peru"
 msgid "Pets"
 msgstr "Haustiere"
 
-#: framework/NLS/NLS/tld.php:190 framework/NLS/NLS/countries.php:179
-#: framework/NLS/NLS/GeoIP.php:99
+#: framework/NLS/NLS/GeoIP.php:99 framework/NLS/NLS/countries.php:179
+#: framework/NLS/NLS/tld.php:190
 msgid "Philippines"
 msgstr "Philippinen"
 
@@ -5927,7 +5877,7 @@ msgstr "Philippinen"
 msgid "Phone"
 msgstr "Telefon"
 
-#: framework/Form/Form.php:1288
+#: framework/Form/Form.php:1291
 msgid "Phone number"
 msgstr "Telefonnummer"
 
@@ -5940,7 +5890,7 @@ msgstr "Foto"
 msgid "Photos"
 msgstr "Fotos"
 
-#: framework/NLS/NLS/countries.php:180 framework/NLS/NLS/GeoIP.php:100
+#: framework/NLS/NLS/GeoIP.php:100 framework/NLS/NLS/countries.php:180
 msgid "Pitcairn"
 msgstr "Pitcairn"
 
@@ -5956,19 +5906,19 @@ msgstr "Textversion der Nachricht"
 msgid "Platitudes"
 msgstr "Plattheiten"
 
-#: framework/Alarm/Alarm.php:455
+#: framework/Alarm/Alarm.php:475
 msgid "Play a sound?"
 msgstr "Einen Klang abspielen?"
 
-#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php:226
+#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php:233
 msgid "Please authenticate!"
 msgstr "Bitte melden Sie sich an!"
 
-#: framework/Form/Form.php:3798
+#: framework/Form/Form.php:3801
 msgid "Please choose a sound."
 msgstr "Bitte wählen Sie einen Klang aus:"
 
-#: framework/Form/Form.php:3322
+#: framework/Form/Form.php:3325
 msgid "Please enter a month and a year."
 msgstr "Bitte einen Monat und ein Jahr angeben."
 
@@ -5976,17 +5926,17 @@ msgstr "Bitte einen Monat und ein Jahr angeben."
 msgid "Please enter a name for the new category:"
 msgstr "Bitte geben Sie einen Namen für die neue Kategorie an:"
 
-#: framework/Form/Form.php:1326
+#: framework/Form/Form.php:1329
 msgid "Please enter a valid IP address."
 msgstr "Bitte eine gültige IP-Adresse eingeben."
 
-#: framework/Form/Form.php:3402
+#: framework/Form/Form.php:3405
 msgid "Please enter a valid date, check the number of days in the month."
 msgstr ""
 "Bitte geben Sie ein gültiges Datum an; überprüfen Sie die Zahl der Tage in "
 "dem Monat."
 
-#: framework/Form/Form.php:3200
+#: framework/Form/Form.php:3203
 msgid "Please enter a valid time."
 msgstr "Bitte einen gültigen Zeitwert eingeben."
 
@@ -6010,8 +5960,8 @@ msgstr ""
 msgid "Please type the new category name:"
 msgstr "Bitte den neuen Kategorienamen eingeben:"
 
-#: framework/NLS/NLS/tld.php:192 framework/NLS/NLS/countries.php:181
-#: framework/NLS/NLS/GeoIP.php:99
+#: framework/NLS/NLS/GeoIP.php:99 framework/NLS/NLS/countries.php:181
+#: framework/NLS/NLS/tld.php:192
 msgid "Poland"
 msgstr "Polen"
 
@@ -6023,7 +5973,7 @@ msgstr "Politik"
 msgid "Polls"
 msgstr "Umfragen"
 
-#: framework/Alarm/Alarm.php:458
+#: framework/Alarm/Alarm.php:478
 msgid "Popup Notification"
 msgstr "Popup-Benachrichtigung"
 
@@ -6031,18 +5981,18 @@ msgstr "Popup-Benachrichtigung"
 msgid "Port"
 msgstr "Port"
 
-#: framework/NLS/NLS/tld.php:197 framework/NLS/NLS/countries.php:182
-#: framework/NLS/NLS/GeoIP.php:101
+#: framework/NLS/NLS/GeoIP.php:101 framework/NLS/NLS/countries.php:182
+#: framework/NLS/NLS/tld.php:197
 msgid "Portugal"
 msgstr "Portugal"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:108
 #: framework/IMAP/IMAP/ACL/rfc4314.php:65
-#: framework/IMAP/IMAP/ACL/rfc2086.php:103
 msgid "Post"
 msgstr "Abschicken"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:96
 #: framework/IMAP/IMAP/ACL/rfc4314.php:51
-#: framework/IMAP/IMAP/ACL/rfc2086.php:91
 msgid "Post to this folder (not enforced by IMAP)"
 msgstr "Senden an diesen Ordner (nicht durch IMAP)"
 
@@ -6071,7 +6021,7 @@ msgid "Preference storage directory is not available."
 msgstr ""
 "Das Verzeichnis zum Speichern der Benutzereinstellungen ist nicht verfügbar."
 
-#: framework/Share/Share/kolab.php:453 framework/Kolab/Kolab.php:777
+#: framework/Kolab/Kolab.php:777 framework/Share/Share/kolab.php:453
 msgid "Preferences"
 msgstr "Benutzereinstellungen"
 
@@ -6106,7 +6056,7 @@ msgstr "Luftdruck: "
 msgid "Preview"
 msgstr "Vorschau"
 
-#: framework/Prefs/Prefs/UI.php:391
+#: framework/Prefs/Prefs/UI.php:395
 msgid "Previous options"
 msgstr "Voherige Einstellungen"
 
@@ -6122,12 +6072,12 @@ msgstr "Probleme"
 msgid "Problem Description"
 msgstr "Problembeschreibung"
 
-#: framework/Form/Form.php:1704 framework/Form/Form.php:2839
-#: framework/Form/Form.php:2915 framework/Form/Form.php:4255
+#: framework/Form/Form.php:1707 framework/Form/Form.php:2842
+#: framework/Form/Form.php:2918 framework/Form/Form.php:4258
 msgid "Prompt text"
 msgstr "Nachfragetext"
 
-#: framework/Form/Form.php:2442
+#: framework/Form/Form.php:2445
 msgid "Protect address from spammers?"
 msgstr "Adresse vor Spammern schützen?"
 
@@ -6147,8 +6097,8 @@ msgstr "Informationen zum öffentlichen Schlüssel"
 msgid "Public/Private keypair not generated successfully."
 msgstr "Das öffentliche/private Schlüsselpaar konnte nicht erstellt werden."
 
-#: framework/NLS/NLS/tld.php:195 framework/NLS/NLS/countries.php:183
-#: framework/NLS/NLS/GeoIP.php:100
+#: framework/NLS/NLS/GeoIP.php:100 framework/NLS/NLS/countries.php:183
+#: framework/NLS/NLS/tld.php:195
 msgid "Puerto Rico"
 msgstr "Puerto Rico"
 
@@ -6164,8 +6114,8 @@ msgstr "Nachrichten aufräumen"
 msgid "Purple Horde"
 msgstr "Lila Horde"
 
-#: framework/NLS/NLS/tld.php:200 framework/NLS/NLS/countries.php:184
-#: framework/NLS/NLS/GeoIP.php:102
+#: framework/NLS/NLS/GeoIP.php:102 framework/NLS/NLS/countries.php:184
+#: framework/NLS/NLS/tld.php:200
 msgid "Qatar"
 msgstr "Katar"
 
@@ -6182,7 +6132,7 @@ msgstr "Speicherplatz-Kontingent"
 msgid "RSA Public Key (%d bit)"
 msgstr "Öffentlicher RSA Schlüssel (%d Bit)"
 
-#: framework/Form/Form.php:3003
+#: framework/Form/Form.php:3006
 msgid "Radio selection"
 msgstr "Auswahlknopf"
 
@@ -6218,19 +6168,20 @@ msgstr "Glückskeks"
 msgid "Ratio"
 msgstr "Verhältnis"
 
-#: framework/Perms/Perms.php:401 framework/IMAP/IMAP/ACL/rfc4314.php:61
-#: framework/IMAP/IMAP/ACL/rfc2086.php:99 templates/shares/edit.inc:62
-#: templates/shares/edit.inc:76 templates/shares/edit.inc:97
-#: templates/shares/edit.inc:111 templates/shares/edit.inc:132
-#: templates/shares/edit.inc:146 templates/shares/edit.inc:167
-#: templates/shares/edit.inc:185 templates/shares/edit.inc:220
-#: templates/shares/edit.inc:247 templates/shares/edit.inc:269
-#: templates/shares/edit.inc:283 templates/shares/edit.inc:312
+#: framework/IMAP/IMAP/ACL/rfc2086.php:104
+#: framework/IMAP/IMAP/ACL/rfc4314.php:61 framework/Perms/Perms.php:401
+#: templates/shares/edit.inc:62 templates/shares/edit.inc:76
+#: templates/shares/edit.inc:97 templates/shares/edit.inc:111
+#: templates/shares/edit.inc:132 templates/shares/edit.inc:146
+#: templates/shares/edit.inc:167 templates/shares/edit.inc:185
+#: templates/shares/edit.inc:220 templates/shares/edit.inc:247
+#: templates/shares/edit.inc:269 templates/shares/edit.inc:283
+#: templates/shares/edit.inc:312
 msgid "Read"
 msgstr "Lesen"
 
+#: framework/IMAP/IMAP/ACL/rfc2086.php:92
 #: framework/IMAP/IMAP/ACL/rfc4314.php:47
-#: framework/IMAP/IMAP/ACL/rfc2086.php:87
 msgid "Read messages"
 msgstr "Nachrichten lesen"
 
@@ -6268,12 +6219,12 @@ msgstr "Portalansicht aktualisieren:"
 msgid "Refresh rate:"
 msgstr "Aktualisierungsrhythmus:"
 
-#: framework/Form/Form.php:1203 framework/Form/Form.php:1223
-#: framework/Form/Form.php:1252
+#: framework/Form/Form.php:1206 framework/Form/Form.php:1226
+#: framework/Form/Form.php:1255
 msgid "Regex"
 msgstr "Regulärer Ausdruck"
 
-#: framework/Form/Form.php:4212
+#: framework/Form/Form.php:4215
 msgid "Relationship browser"
 msgstr "Verbindungs-Browser"
 
@@ -6334,9 +6285,9 @@ msgstr "Der gewünschte Dienst konnte nicht gefunden werden."
 msgid "Required \"%s\" not specified in %s configuration."
 msgstr "\"%s\" wurde in der Konfiguration für %s nicht angegeben."
 
-#: framework/VFS/lib/VFS/sql.php:768 framework/VFS/lib/VFS/ftp.php:929
-#: framework/VFS/lib/VFS/ssh2.php:932 framework/VFS/lib/VFS/horde.php:41
-#: framework/VFS/lib/VFS/sql_file.php:753
+#: framework/VFS/lib/VFS/ftp.php:929 framework/VFS/lib/VFS/horde.php:41
+#: framework/VFS/lib/VFS/sql.php:768 framework/VFS/lib/VFS/sql_file.php:753
+#: framework/VFS/lib/VFS/ssh2.php:932
 #, php-format
 msgid "Required \"%s\" not specified in VFS configuration."
 msgstr "\"%s\" wurde in der VFS-Konfiguration nicht angegeben."
@@ -6350,15 +6301,15 @@ msgstr "\"%s\" wurde in der Konfiguration nicht angegeben."
 msgid "Required Field"
 msgstr "Notwendiges Feld"
 
-#: framework/Form/Form.php:628
+#: framework/Form/Form.php:631
 msgid "Required secret is invalid - potentially malicious request."
 msgstr ""
 "Benötigter Sicherheitscode ist ungültig - möglicherweise bösartige Anfrage."
 
-#: admin/user.php:32 framework/Form/Form.php:353
+#: admin/user.php:32 framework/Form/Form.php:356
 #: framework/Form/Form/Renderer.php:318
-#: framework/UI/UI/VarRenderer/html.php:233 templates/rpcsum/rpcsum.inc:91
-#: templates/admin/user/update.inc:78
+#: framework/UI/UI/VarRenderer/html.php:233 templates/admin/user/update.inc:78
+#: templates/rpcsum/rpcsum.inc:91
 msgid "Reset"
 msgstr "Zurücksetzen"
 
@@ -6374,7 +6325,7 @@ msgstr "Setzen Sie Ihr Passwort zurück"
 msgid "Restore Last Query"
 msgstr "Letzte Abfrage einfügen"
 
-#: admin/phpshell.php:86 admin/cmdshell.php:29 admin/sqlshell.php:70
+#: admin/cmdshell.php:29 admin/phpshell.php:86 admin/sqlshell.php:70
 msgid "Results"
 msgstr "Ergebnisse"
 
@@ -6393,8 +6344,8 @@ msgstr "Lesen der DN fehlgeschlagen. Fehlermeldung: %s"
 msgid "Retrieving attributes failed. Error was: %s"
 msgstr "Lesen der Attribute fehlgeschlagen. Fehlermeldung: %s"
 
-#: templates/syncml/syncml.inc:39 templates/rpcsum/rpcsum.inc:92
-#: templates/prefs/end.inc:4
+#: templates/prefs/end.inc:4 templates/rpcsum/rpcsum.inc:92
+#: templates/syncml/syncml.inc:56
 msgid "Return to Options"
 msgstr "Zurück zu Einstellungen"
 
@@ -6406,7 +6357,7 @@ msgstr "Zurückgelieferte Fehlermeldung:"
 msgid "Retype new password"
 msgstr "Neues Passwort erneut eingeben"
 
-#: framework/NLS/NLS/countries.php:185 framework/NLS/NLS/GeoIP.php:102
+#: framework/NLS/NLS/GeoIP.php:102 framework/NLS/NLS/countries.php:185
 msgid "Reunion"
 msgstr "Réunion"
 
@@ -6434,11 +6385,11 @@ msgstr "Rätsel"
 msgid "Right click context menu"
 msgstr "Kontextmenü bei Rechtsklick"
 
-#: framework/Form/Form.php:4088
+#: framework/Form/Form.php:4091
 msgid "Right header"
 msgstr "Rechte Überschrift"
 
-#: framework/Form/Form.php:4084
+#: framework/Form/Form.php:4087
 msgid "Right values"
 msgstr "Rechte Werte"
 
@@ -6446,8 +6397,8 @@ msgstr "Rechte Werte"
 msgid "Role"
 msgstr "Rolle"
 
-#: framework/NLS/NLS/tld.php:202 framework/NLS/NLS/countries.php:186
-#: framework/NLS/NLS/GeoIP.php:102
+#: framework/NLS/NLS/GeoIP.php:102 framework/NLS/NLS/countries.php:186
+#: framework/NLS/NLS/tld.php:202
 msgid "Romania"
 msgstr "Rumänien"
 
@@ -6467,13 +6418,13 @@ msgstr "Nach rechts drehen"
 msgid "Run"
 msgstr "Starten"
 
-#: framework/NLS/NLS/tld.php:204 framework/NLS/NLS/countries.php:187
-#: framework/NLS/NLS/GeoIP.php:103
+#: framework/NLS/NLS/GeoIP.php:103 framework/NLS/NLS/countries.php:187
+#: framework/NLS/NLS/tld.php:204
 msgid "Russian Federation"
 msgstr "Russische Förderation"
 
-#: framework/NLS/NLS/tld.php:205 framework/NLS/NLS/countries.php:188
-#: framework/NLS/NLS/GeoIP.php:103
+#: framework/NLS/NLS/GeoIP.php:103 framework/NLS/NLS/countries.php:188
+#: framework/NLS/NLS/tld.php:205
 msgid "Rwanda"
 msgstr "Ruanda"
 
@@ -6485,7 +6436,7 @@ msgstr "S/MIME Signatur"
 msgid "S/MIME Encrypted Message"
 msgstr "Mit S/MIME verschlüsselte Nachricht"
 
-#: framework/Form/Form.php:1673
+#: framework/Form/Form.php:1676
 msgid "S/MIME Key"
 msgstr "S/MIME-Schlüssel"
 
@@ -6501,7 +6452,7 @@ msgstr "SMPP-Gateway"
 msgid "SQL Shell"
 msgstr "SQL Shell"
 
-#: framework/Form/Form.php:4253
+#: framework/Form/Form.php:4256
 msgid "SQL statement for value lookups"
 msgstr "SQL-Anweisung zur Abfrage der Werte"
 
@@ -6521,43 +6472,43 @@ msgstr "S_QL Shell"
 msgid "Sa"
 msgstr "Sa"
 
-#: framework/NLS/NLS/tld.php:212 framework/NLS/NLS/countries.php:189
-#: framework/NLS/NLS/GeoIP.php:104
+#: framework/NLS/NLS/GeoIP.php:104 framework/NLS/NLS/countries.php:189
+#: framework/NLS/NLS/tld.php:212
 msgid "Saint Helena"
 msgstr "Saint Helena"
 
-#: framework/NLS/NLS/tld.php:134 framework/NLS/NLS/countries.php:190
-#: framework/NLS/NLS/GeoIP.php:84
+#: framework/NLS/NLS/GeoIP.php:84 framework/NLS/NLS/countries.php:190
+#: framework/NLS/NLS/tld.php:134
 msgid "Saint Kitts and Nevis"
 msgstr "Saint Kitts und Nevis"
 
-#: framework/NLS/NLS/tld.php:142 framework/NLS/NLS/countries.php:191
-#: framework/NLS/NLS/GeoIP.php:87
+#: framework/NLS/NLS/GeoIP.php:87 framework/NLS/NLS/countries.php:191
+#: framework/NLS/NLS/tld.php:142
 msgid "Saint Lucia"
 msgstr "Saint Lucia"
 
-#: framework/NLS/NLS/tld.php:193 framework/NLS/NLS/countries.php:192
-#: framework/NLS/NLS/GeoIP.php:100
+#: framework/NLS/NLS/GeoIP.php:100 framework/NLS/NLS/countries.php:192
+#: framework/NLS/NLS/tld.php:193
 msgid "Saint Pierre and Miquelon"
 msgstr "Saint Pierre und Miquelon"
 
-#: framework/NLS/NLS/tld.php:251 framework/NLS/NLS/countries.php:193
-#: framework/NLS/NLS/GeoIP.php:115
+#: framework/NLS/NLS/GeoIP.php:115 framework/NLS/NLS/countries.php:193
+#: framework/NLS/NLS/tld.php:251
 msgid "Saint Vincent and the Grenadines"
 msgstr "Saint Vincent und die Grenadinen"
 
-#: framework/NLS/NLS/tld.php:258 framework/NLS/NLS/countries.php:194
-#: framework/NLS/NLS/GeoIP.php:117
+#: framework/NLS/NLS/GeoIP.php:117 framework/NLS/NLS/countries.php:194
+#: framework/NLS/NLS/tld.php:258
 msgid "Samoa"
 msgstr "Samoa"
 
-#: framework/NLS/NLS/tld.php:217 framework/NLS/NLS/countries.php:195
-#: framework/NLS/NLS/GeoIP.php:106
+#: framework/NLS/NLS/GeoIP.php:106 framework/NLS/NLS/countries.php:195
+#: framework/NLS/NLS/tld.php:217
 msgid "San Marino"
 msgstr "San Marino"
 
-#: framework/NLS/NLS/tld.php:221 framework/NLS/NLS/countries.php:196
-#: framework/NLS/NLS/GeoIP.php:107
+#: framework/NLS/NLS/GeoIP.php:107 framework/NLS/NLS/countries.php:196
+#: framework/NLS/NLS/tld.php:221
 msgid "Sao Tome and Principe"
 msgstr "Sao Tome und Principe"
 
@@ -6565,8 +6516,8 @@ msgstr "Sao Tome und Principe"
 msgid "Satellite Provider"
 msgstr "Satellitenprovider"
 
-#: framework/NLS/NLS/tld.php:206 framework/NLS/NLS/countries.php:197
-#: framework/NLS/NLS/GeoIP.php:103
+#: framework/NLS/NLS/GeoIP.php:103 framework/NLS/NLS/countries.php:197
+#: framework/NLS/NLS/tld.php:206
 msgid "Saudi Arabia"
 msgstr "Saudi-Arabien"
 
@@ -6574,7 +6525,7 @@ msgstr "Saudi-Arabien"
 msgid "Save"
 msgstr "Speichern"
 
-#: templates/shares/edit.inc:330 templates/admin/groups/edit.inc:63
+#: templates/admin/groups/edit.inc:63 templates/shares/edit.inc:330
 #, php-format
 msgid "Save \"%s\""
 msgstr "\"%s\" speichern"
@@ -6637,7 +6588,7 @@ msgstr "Suche fehlgeschlagen: Fehlermeldung: %s"
 msgid "Search:"
 msgstr "Suche:"
 
-#: framework/Form/Form.php:3933
+#: framework/Form/Form.php:3936
 msgid "Select Files"
 msgstr "Dateien auswählen"
 
@@ -6666,7 +6617,7 @@ msgstr "Hinzuzufügenden Benutzer auswählen:"
 msgid "Select all"
 msgstr "Alle auswählen"
 
-#: framework/Form/Form.php:3405
+#: framework/Form/Form.php:3408
 msgid "Select all date components."
 msgstr "Legen Sie alle Datumskomponenten fest."
 
@@ -6715,11 +6666,11 @@ msgstr "Wählen Sie die Reihenfolge von Datum und Zeit:"
 msgid "Select the identity you want to change:"
 msgstr "Wählen Sie die Identität, die Sie ändern möchten:"
 
-#: templates/data/time.inc:16 templates/data/datetime.inc:97
+#: templates/data/datetime.inc:97 templates/data/time.inc:16
 msgid "Select the time delimiter:"
 msgstr "Wählen Sie das Zeittrennzeichen:"
 
-#: templates/data/time.inc:25 templates/data/datetime.inc:106
+#: templates/data/datetime.inc:106 templates/data/time.inc:25
 msgid "Select the time format:"
 msgstr "Wählen Sie das Zeitformat:"
 
@@ -6744,8 +6695,8 @@ msgstr "SMS verschicken"
 msgid "Sending failed: %s"
 msgstr "Senden fehlgeschlagen: %s"
 
-#: framework/NLS/NLS/tld.php:218 framework/NLS/NLS/countries.php:198
-#: framework/NLS/NLS/GeoIP.php:106
+#: framework/NLS/NLS/GeoIP.php:106 framework/NLS/NLS/countries.php:198
+#: framework/NLS/NLS/tld.php:218
 msgid "Senegal"
 msgstr "Senegal"
 
@@ -6771,7 +6722,7 @@ msgstr "Serbien und Montenegro"
 msgid "Serial Number"
 msgstr "Seriennummer"
 
-#: templates/syncml/syncml.inc:11
+#: templates/syncml/syncml.inc:19
 msgid "Server Time"
 msgstr "Serverzeit"
 
@@ -6795,7 +6746,7 @@ msgstr "Sitzungs-Zeitstempel:"
 msgid "Sessions"
 msgstr "Sitzungen"
 
-#: framework/Form/Form.php:3052
+#: framework/Form/Form.php:3055
 msgid "Set"
 msgstr "Auswahl-Satz"
 
@@ -6844,8 +6795,8 @@ msgstr "Aktualisierungsskripte sind verfügbar"
 msgid "Several locations possible with the parameter: "
 msgstr "Mehrere passende Orte mit diesem Parameter: "
 
-#: framework/NLS/NLS/tld.php:208 framework/NLS/NLS/countries.php:200
-#: framework/NLS/NLS/GeoIP.php:104
+#: framework/NLS/NLS/GeoIP.php:104 framework/NLS/NLS/countries.php:200
+#: framework/NLS/NLS/tld.php:208
 msgid "Seychelles"
 msgstr "Seychellen"
 
@@ -6901,7 +6852,7 @@ msgstr ""
 msgid "Show extra detail?"
 msgstr "Weitere Details anzeigen?"
 
-#: framework/Form/Form.php:3962
+#: framework/Form/Form.php:3965
 msgid "Show icon?"
 msgstr "Symbol anzeigen?"
 
@@ -6909,15 +6860,15 @@ msgstr "Symbol anzeigen?"
 msgid "Show last login time when logging in?"
 msgstr "Anzeigen, wann die letzte Anmeldung erfolgt ist?"
 
-#: framework/Form/Form.php:2087
+#: framework/Form/Form.php:2090
 msgid "Show option to keep original?"
 msgstr "Erhalten des Originals ermöglichen?"
 
-#: framework/Form/Form.php:3566 framework/Form/Form.php:3732
+#: framework/Form/Form.php:3569 framework/Form/Form.php:3735
 msgid "Show picker?"
 msgstr "Auswähler anzeigen?"
 
-#: framework/Form/Form.php:3290 framework/Form/Form.php:3738
+#: framework/Form/Form.php:3293 framework/Form/Form.php:3741
 msgid "Show seconds?"
 msgstr "Sekunden anzeigen?"
 
@@ -6926,7 +6877,7 @@ msgstr "Sekunden anzeigen?"
 msgid "Show the %s Menu on the left?"
 msgstr "Das %s-Menü auf der linken Seite anzeigen?"
 
-#: framework/Form/Form.php:2085
+#: framework/Form/Form.php:2088
 msgid "Show upload?"
 msgstr "Hochladen ermöglichen?"
 
@@ -6961,8 +6912,8 @@ msgstr "Verkleinern"
 msgid "Shrink or move neighbouring block(s) out of the way first"
 msgstr "Verkleinern oder verschieben Sie erst die benachbarten Blöcke"
 
-#: framework/NLS/NLS/tld.php:216 framework/NLS/NLS/countries.php:201
-#: framework/NLS/NLS/GeoIP.php:105
+#: framework/NLS/NLS/GeoIP.php:105 framework/NLS/NLS/countries.php:201
+#: framework/NLS/NLS/tld.php:216
 msgid "Sierra Leone"
 msgstr "Sierra Leone"
 
@@ -6982,16 +6933,16 @@ msgstr "Signaturalgorithmus"
 msgid "Simplex"
 msgstr "Simplex"
 
-#: framework/NLS/NLS/tld.php:211 framework/NLS/NLS/countries.php:202
-#: framework/NLS/NLS/GeoIP.php:104
+#: framework/NLS/NLS/GeoIP.php:104 framework/NLS/NLS/countries.php:202
+#: framework/NLS/NLS/tld.php:211
 msgid "Singapore"
 msgstr "Singapur"
 
-#: framework/MIME/MIME/Viewer/rar.php:63 framework/MIME/MIME/Viewer/zip.php:86
-#: framework/MIME/MIME/Viewer/tgz.php:90 framework/Form/Form.php:1205
-#: framework/Form/Form.php:1225 framework/Form/Form.php:1254
-#: framework/Form/Form.php:2972 framework/Form/Form.php:3890
-#: framework/Form/Form.php:4090
+#: framework/Form/Form.php:1208 framework/Form/Form.php:1228
+#: framework/Form/Form.php:1257 framework/Form/Form.php:2975
+#: framework/Form/Form.php:3893 framework/Form/Form.php:4093
+#: framework/MIME/MIME/Viewer/rar.php:63 framework/MIME/MIME/Viewer/tgz.php:90
+#: framework/MIME/MIME/Viewer/zip.php:86
 msgid "Size"
 msgstr "Größe"
 
@@ -6999,13 +6950,13 @@ msgstr "Größe"
 msgid "Skip Maintenance"
 msgstr "Wartungsarbeiten überspringen"
 
-#: framework/NLS/NLS/tld.php:215 framework/NLS/NLS/countries.php:203
-#: framework/NLS/NLS/GeoIP.php:105
+#: framework/NLS/NLS/GeoIP.php:105 framework/NLS/NLS/countries.php:203
+#: framework/NLS/NLS/tld.php:215
 msgid "Slovakia"
 msgstr "Slowakei"
 
-#: framework/NLS/NLS/tld.php:213 framework/NLS/NLS/countries.php:204
-#: framework/NLS/NLS/GeoIP.php:105
+#: framework/NLS/NLS/GeoIP.php:105 framework/NLS/NLS/countries.php:204
+#: framework/NLS/NLS/tld.php:213
 msgid "Slovenia"
 msgstr "Slowenien"
 
@@ -7013,7 +6964,7 @@ msgstr "Slowenien"
 msgid "Small"
 msgstr "Klein"
 
-#: framework/Alarm/Alarm.php:350
+#: framework/Alarm/Alarm.php:370
 msgid "Snooze..."
 msgstr "Erinnern in..."
 
@@ -7053,13 +7004,13 @@ msgstr "Schneehöhe: "
 msgid "Snow equivalent in water: "
 msgstr "Schneemenge als Wasser: "
 
-#: framework/NLS/NLS/tld.php:207 framework/NLS/NLS/countries.php:205
-#: framework/NLS/NLS/GeoIP.php:103
+#: framework/NLS/NLS/GeoIP.php:103 framework/NLS/NLS/countries.php:205
+#: framework/NLS/NLS/tld.php:207
 msgid "Solomon Islands"
 msgstr "Solomoninseln"
 
-#: framework/NLS/NLS/tld.php:219 framework/NLS/NLS/countries.php:206
-#: framework/NLS/NLS/GeoIP.php:106
+#: framework/NLS/NLS/GeoIP.php:106 framework/NLS/NLS/countries.php:206
+#: framework/NLS/NLS/tld.php:219
 msgid "Somalia"
 msgstr "Somalien"
 
@@ -7067,34 +7018,34 @@ msgstr "Somalien"
 msgid "Songs & Poems"
 msgstr "Lieder & Gedichte"
 
-#: framework/Form/Form.php:3886
+#: framework/Form/Form.php:3889
 msgid "Sort order selection"
 msgstr "Auswahl der Sortierreihenfolge"
 
-#: framework/Form/Form.php:3807
+#: framework/Form/Form.php:3810
 msgid "Sound selection"
 msgstr "Klangauswahl"
 
-#: framework/Net_SMS/SMS/sms2email_http.php:568
-#: framework/Net_SMS/SMS/sms2email_http.php:598
 #: framework/Net_SMS/SMS/clickatell_http.php:225
 #: framework/Net_SMS/SMS/clickatell_http.php:255
+#: framework/Net_SMS/SMS/sms2email_http.php:568
+#: framework/Net_SMS/SMS/sms2email_http.php:598
 #: framework/Net_SMS/SMS/win_http.php:175
 #: framework/Net_SMS/SMS/win_http.php:198
 msgid "Source address"
 msgstr "Ursprungsadresse"
 
-#: framework/NLS/NLS/tld.php:262 framework/NLS/NLS/countries.php:207
-#: framework/NLS/NLS/GeoIP.php:118
+#: framework/NLS/NLS/GeoIP.php:118 framework/NLS/NLS/countries.php:207
+#: framework/NLS/NLS/tld.php:262
 msgid "South Africa"
 msgstr "Südafrika"
 
-#: config/nls.php.dist:238
+#: config/nls.php.dist:240
 msgid "South European (ISO-8859-3)"
 msgstr "Südeuropäisch (ISO-8859-3)"
 
-#: framework/NLS/NLS/tld.php:104 framework/NLS/NLS/countries.php:208
-#: framework/NLS/NLS/GeoIP.php:77
+#: framework/NLS/NLS/GeoIP.php:77 framework/NLS/NLS/countries.php:208
+#: framework/NLS/NLS/tld.php:104
 msgid "South Georgia and the South Sandwich Islands"
 msgstr "Südgeorgien und die Südlichen Sandwichinseln"
 
@@ -7106,12 +7057,12 @@ msgstr "Südliche Hemisphere"
 msgid "Soviet Union"
 msgstr "Sowjetunion"
 
-#: framework/Form/Form.php:905
+#: framework/Form/Form.php:908
 msgid "Spacer"
 msgstr "Abstandhalter"
 
-#: framework/NLS/NLS/tld.php:81 framework/NLS/NLS/countries.php:209
-#: framework/NLS/NLS/GeoIP.php:71
+#: framework/NLS/NLS/GeoIP.php:71 framework/NLS/NLS/countries.php:209
+#: framework/NLS/NLS/tld.php:81
 msgid "Spain"
 msgstr "Spanien"
 
@@ -7135,14 +7086,14 @@ msgstr "Angabe der UID oder eines Suchergebnisses ist notwendig!"
 msgid "Sports"
 msgstr "Sport"
 
-#: framework/NLS/NLS/tld.php:144 framework/NLS/NLS/countries.php:210
-#: framework/NLS/NLS/GeoIP.php:88
+#: framework/NLS/NLS/GeoIP.php:88 framework/NLS/NLS/countries.php:210
+#: framework/NLS/NLS/tld.php:144
 msgid "Sri Lanka"
 msgstr "Sri Lanka"
 
-#: framework/Net_SMS/SMS/sms2email_http.php:576
 #: framework/Net_SMS/SMS/clickatell_http.php:233
-#: lib/Block/weatherdotcom.php:71 lib/Block/metar.php:89
+#: framework/Net_SMS/SMS/sms2email_http.php:576 lib/Block/metar.php:89
+#: lib/Block/weatherdotcom.php:71
 msgid "Standard"
 msgstr "Standard"
 
@@ -7150,8 +7101,8 @@ msgstr "Standard"
 msgid "Star Trek"
 msgstr "Star Trek"
 
-#: framework/Form/Form.php:3346 framework/Form/Form.php:3562
-#: framework/Form/Form.php:3728
+#: framework/Form/Form.php:3349 framework/Form/Form.php:3565
+#: framework/Form/Form.php:3731
 msgid "Start year"
 msgstr "Startjahr"
 
@@ -7167,7 +7118,7 @@ msgstr "Bundesstaat oder Provinz"
 msgid "Status"
 msgstr "Status"
 
-#: framework/Form/Form.php:3568 framework/Form/Form.php:3734
+#: framework/Form/Form.php:3571 framework/Form/Form.php:3737
 msgid "Storage format"
 msgstr "Speicherformat"
 
@@ -7175,11 +7126,11 @@ msgstr "Speicherformat"
 msgid "Street Address"
 msgstr "Straße"
 
-#: framework/Form/Form.php:1221
+#: framework/Form/Form.php:1224
 msgid "String list"
 msgstr "Zeichenliste"
 
-#: framework/Form/Form.php:1250
+#: framework/Form/Form.php:1253
 msgid "String list returning an array"
 msgstr "Zeichenliste die einen Array zurückliefert"
 
@@ -7196,7 +7147,7 @@ msgstr "Unterverzeichnis \"%s\" nicht gefunden."
 msgid "Subject"
 msgstr "Betreff"
 
-#: framework/Form/Form.php:346 framework/Form/Form/Renderer.php:315
+#: framework/Form/Form.php:349 framework/Form/Form/Renderer.php:315
 msgid "Submit"
 msgstr "Abschicken"
 
@@ -7208,11 +7159,6 @@ msgid ""
 msgstr ""
 "Die Registrierungsanfrage für \"%s\" wurde abgeschickt. Sie können sich noch "
 "nicht anmelden, solange die Anfrage noch nicht bestätigt wurde."
-
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:526
-#, php-format
-msgid "Subpath of folder %s cannot be determined."
-msgstr "Pfad des Ordners %s konnte nicht festgestellt werden."
 
 #: admin/sqlshell.php:108
 #: framework/Notification/Notification/Listener/status.php:28
@@ -7273,8 +7219,8 @@ msgstr "\"%s\" wurde erfolgreich aktualisiert"
 msgid "Successfully wrote %s"
 msgstr "%s wurde erfolgreich gespeichert"
 
-#: framework/NLS/NLS/tld.php:209 framework/NLS/NLS/countries.php:211
-#: framework/NLS/NLS/GeoIP.php:104
+#: framework/NLS/NLS/GeoIP.php:104 framework/NLS/NLS/countries.php:211
+#: framework/NLS/NLS/tld.php:209
 msgid "Sudan"
 msgstr "Sudan"
 
@@ -7314,8 +7260,8 @@ msgstr "Sonnenuntergang"
 msgid "Sunset: "
 msgstr "Sonnenuntergang: "
 
-#: framework/NLS/NLS/tld.php:220 framework/NLS/NLS/countries.php:212
-#: framework/NLS/NLS/GeoIP.php:106
+#: framework/NLS/NLS/GeoIP.php:106 framework/NLS/NLS/countries.php:212
+#: framework/NLS/NLS/tld.php:220
 msgid "Suriname"
 msgstr "Surinam"
 
@@ -7323,7 +7269,7 @@ msgstr "Surinam"
 msgid "Surname"
 msgstr "Nachname"
 
-#: framework/NLS/NLS/countries.php:213 framework/NLS/NLS/GeoIP.php:105
+#: framework/NLS/NLS/GeoIP.php:105 framework/NLS/NLS/countries.php:213
 msgid "Svalbard and Jan Mayen"
 msgstr "Svalbard und Jan Mayen"
 
@@ -7331,18 +7277,18 @@ msgstr "Svalbard und Jan Mayen"
 msgid "Svalbard and Jan Mayen Islands"
 msgstr "Svalbard und Jan-Mayen"
 
-#: framework/NLS/NLS/tld.php:225 framework/NLS/NLS/countries.php:214
-#: framework/NLS/NLS/GeoIP.php:108
+#: framework/NLS/NLS/GeoIP.php:108 framework/NLS/NLS/countries.php:214
+#: framework/NLS/NLS/tld.php:225
 msgid "Swaziland"
 msgstr "Swasiland"
 
-#: framework/NLS/NLS/tld.php:210 framework/NLS/NLS/countries.php:215
-#: framework/NLS/NLS/GeoIP.php:104
+#: framework/NLS/NLS/GeoIP.php:104 framework/NLS/NLS/countries.php:215
+#: framework/NLS/NLS/tld.php:210
 msgid "Sweden"
 msgstr "Schweden"
 
-#: framework/NLS/NLS/tld.php:57 framework/NLS/NLS/countries.php:216
-#: framework/NLS/NLS/GeoIP.php:66
+#: framework/NLS/NLS/GeoIP.php:66 framework/NLS/NLS/countries.php:216
+#: framework/NLS/NLS/tld.php:57
 msgid "Switzerland"
 msgstr "Schweiz"
 
@@ -7354,8 +7300,8 @@ msgstr "SyncML"
 msgid "Syndicated Feed"
 msgstr "Ausgelieferter Feed"
 
-#: framework/NLS/NLS/tld.php:224 framework/NLS/NLS/countries.php:217
-#: framework/NLS/NLS/GeoIP.php:107
+#: framework/NLS/NLS/GeoIP.php:107 framework/NLS/NLS/countries.php:217
+#: framework/NLS/NLS/tld.php:224
 msgid "Syrian Arab Republic"
 msgstr "Arabische Republik Syrien"
 
@@ -7407,7 +7353,7 @@ msgstr "Werkzeugleiste für Tabellen"
 msgid "Tag Cloud"
 msgstr "Tagwolke"
 
-#: framework/NLS/NLS/tld.php:241 framework/NLS/NLS/GeoIP.php:111
+#: framework/NLS/NLS/GeoIP.php:111 framework/NLS/NLS/tld.php:241
 msgid "Taiwan"
 msgstr "Taiwan"
 
@@ -7415,8 +7361,8 @@ msgstr "Taiwan"
 msgid "Taiwan, Province of China"
 msgstr "Taiwan, chinesische Provinz"
 
-#: framework/NLS/NLS/tld.php:231 framework/NLS/NLS/countries.php:219
-#: framework/NLS/NLS/GeoIP.php:109
+#: framework/NLS/NLS/GeoIP.php:109 framework/NLS/NLS/countries.php:219
+#: framework/NLS/NLS/tld.php:231
 msgid "Tajikistan"
 msgstr "Tadschikistan"
 
@@ -7424,12 +7370,12 @@ msgstr "Tadschikistan"
 msgid "Tango Blue"
 msgstr "Tango Blau"
 
-#: framework/NLS/NLS/tld.php:242 framework/NLS/NLS/countries.php:220
-#: framework/NLS/NLS/GeoIP.php:112
+#: framework/NLS/NLS/GeoIP.php:112 framework/NLS/NLS/countries.php:220
+#: framework/NLS/NLS/tld.php:242
 msgid "Tanzania, United Republic of"
 msgstr "Vereinigte Republik Tansania"
 
-#: framework/Share/Share/kolab.php:449 framework/Kolab/Kolab.php:766
+#: framework/Kolab/Kolab.php:766 framework/Share/Share/kolab.php:449
 #: config/registry.php.dist:171
 msgid "Tasks"
 msgstr "Aufgaben"
@@ -7464,12 +7410,12 @@ msgstr "Temperatur<br />(%sMax%s/%sMin%s) &deg;%s"
 msgid "Template \"%s\" not found."
 msgstr "Vorlage \"%s\" nicht gefunden."
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:877
-msgid "Tentative: "
-msgstr "Unter Vorbehalt: "
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource/Itip/Response/Type/Tentative.php:49
+msgid "Tentative"
+msgstr "Unter Vorbehalt"
 
-#: framework/Form/Form.php:1201 framework/Form/Form.php:4306
-#: framework/Form/Form.php:4325
+#: framework/Form/Form.php:1204 framework/Form/Form.php:4309
+#: framework/Form/Form.php:4328
 msgid "Text"
 msgstr "Text"
 
@@ -7485,12 +7431,12 @@ msgstr "Nur Text"
 msgid "Th"
 msgstr "Do"
 
-#: config/nls.php.dist:239
+#: config/nls.php.dist:241
 msgid "Thai (TIS-620)"
 msgstr "Thailändisch (TIS-620)"
 
-#: framework/NLS/NLS/tld.php:230 framework/NLS/NLS/countries.php:221
-#: framework/NLS/NLS/GeoIP.php:109
+#: framework/NLS/NLS/GeoIP.php:109 framework/NLS/NLS/countries.php:221
+#: framework/NLS/NLS/tld.php:230
 msgid "Thailand"
 msgstr "Thailand"
 
@@ -7552,7 +7498,7 @@ msgstr ""
 msgid "The alarm backend is not currently available."
 msgstr "Das Alarmsystem ist zur Zeit nicht verfügbar."
 
-#: framework/Alarm/Alarm.php:523
+#: framework/Alarm/Alarm.php:543
 #, php-format
 msgid "The alarm backend is not currently available: %s"
 msgstr "Das Alarmsystem ist zur Zeit nicht verfügbar: %s"
@@ -7627,11 +7573,11 @@ msgstr ""
 "Bei den folgenden Anwendungen sind Fehler aufgetreten, während die "
 "Benutzerdaten entfernt wurden: %s"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:594
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource.php:315
 msgid "The following event has been successfully removed:"
 msgstr "Der folgende Termin wurde erfolgreich gelöscht:"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:576
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource.php:297
 #, php-format
 msgid "The following event that was canceled is not present in %s's calendar:"
 msgstr "Der folgende abgesagte Termin befindet sich nicht in %ss Kalender:"
@@ -7645,12 +7591,12 @@ msgstr ""
 "Administratoren weiter unten ausgegeben. Benutzer, die keine Administratoren "
 "sind, bekommen diese Details nicht zu sehen."
 
-#: services/prefs.php:134
+#: services/prefs.php:142
 #, php-format
 msgid "The identity \"%s\" has been deleted."
 msgstr "Die Identität \"%s\" wurde gelöscht."
 
-#: framework/Form/Form.php:1848
+#: framework/Form/Form.php:1851
 msgid ""
 "The image file size could not be determined or it was 0 bytes. The upload "
 "may have been interrupted."
@@ -7658,7 +7604,7 @@ msgstr ""
 "Die Dateigröße des Bildes konnte nicht bestimmt werden, oder das Bild war "
 "leer. Vielleicht wurde der Hochladevorgang unterbrochen."
 
-#: framework/Form/Form.php:1852
+#: framework/Form/Form.php:1855
 #, php-format
 msgid "The image file was larger than the maximum allowed size (%d bytes)."
 msgstr "Das Bild war größer als die maximal erlaubte Größe (%d Bytes)."
@@ -7707,7 +7653,7 @@ msgstr ""
 "\n"
 "Das heißt nicht, dass die Nachricht auch gelesen oder verstanden wurde."
 
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:920
+#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:918
 #, php-format
 msgid ""
 "The message with ID %s does not exist. This probably means that the Kolab "
@@ -7718,11 +7664,11 @@ msgstr ""
 "dass dieses Kolab-Object von jemand anderem verändert wurde, während Sie es "
 "bearbeitet haben. Ihre Änderungen sind verloren."
 
-#: framework/Form/Form.php:2448
+#: framework/Form/Form.php:2451
 msgid "The name to use when linking to the compose page"
 msgstr "Name für den Link zur Nachrichtenerstellung"
 
-#: services/prefs.php:113
+#: services/prefs.php:121
 msgid "The new from address can't be verified, try again later: "
 msgstr ""
 "Die neue E-Mail-Adresse kann zur Zeit nicht bestätigt werden, probieren Sie "
@@ -7745,9 +7691,9 @@ msgstr ""
 "Die Benutzereinstellung \"%s\" konnte nicht gespeichert werden, weil ihre "
 "Daten die maximal erlaubte Größe überschreiten"
 
-#: framework/Prefs/Prefs/ldap.php:346 framework/Prefs/Prefs/file.php:80
-#: framework/Prefs/Prefs/sql.php:135 framework/Prefs/Prefs/kolab_imap.php:108
-#: framework/Prefs/Prefs/imsp.php:90
+#: framework/Prefs/Prefs/file.php:80 framework/Prefs/Prefs/imsp.php:90
+#: framework/Prefs/Prefs/kolab_imap.php:108 framework/Prefs/Prefs/ldap.php:346
+#: framework/Prefs/Prefs/sql.php:135
 msgid ""
 "The preferences backend is currently unavailable and your preferences have "
 "not been loaded. You may continue to use the system with default settings."
@@ -7758,13 +7704,13 @@ msgstr ""
 
 #: framework/MIME/MIME/Viewer/deb.php:31
 #: framework/MIME/MIME/Viewer/enscript.php:34
+#: framework/MIME/MIME/Viewer/msexcel.php:31
 #: framework/MIME/MIME/Viewer/mspowerpoint.php:31
 #: framework/MIME/MIME/Viewer/msword.php:31
 #: framework/MIME/MIME/Viewer/rpm.php:31 framework/MIME/MIME/Viewer/rtf.php:33
+#: framework/MIME/MIME/Viewer/srchighlite.php:36
 #: framework/MIME/MIME/Viewer/webcpp.php:36
 #: framework/MIME/MIME/Viewer/wordperfect.php:32
-#: framework/MIME/MIME/Viewer/srchighlite.php:36
-#: framework/MIME/MIME/Viewer/msexcel.php:31
 #, php-format
 msgid ""
 "The program used to view this data type (%s) was not found on the system."
@@ -7788,12 +7734,12 @@ msgstr "Die gesuchte URL %s wurde auf diesem Server nicht gefunden."
 msgid "The separator must be one single character."
 msgstr "Das Trennzeichen muss als einzelnes Zeichen angegeben werden."
 
-#: services/portal/rpcsum.php:80
+#: services/portal/rpcsum.php:88
 #, php-format
 msgid "The server \"%s\" has been deleted."
 msgstr "Der Server \"%s\" wurde entfernt."
 
-#: services/portal/rpcsum.php:51
+#: services/portal/rpcsum.php:59
 #, php-format
 msgid "The server \"%s\" has been saved."
 msgstr "Der Server \"%s\" wurde gespeichert."
@@ -7827,7 +7773,7 @@ msgstr "Die Registrierungsanfrage von \"%s\" wurde entfernt."
 msgid "The specified row (%d) does not exist."
 msgstr "Die angegebene Zeile (%d) existiert nicht."
 
-#: framework/Form/Form.php:4281
+#: framework/Form/Form.php:4284
 msgid "The text you entered did not match the text on the screen."
 msgstr ""
 "Der Text, den Sie angegeben haben, entspricht nicht dem Text auf dem "
@@ -7865,7 +7811,7 @@ msgstr "Themen-Verzeichnis \"%s\" nicht gefunden."
 msgid "There are no email addresses to confirm."
 msgstr "Keine zu bestätigende E-Mail-Adressen gefunden."
 
-#: framework/Prefs/Prefs/UI.php:210 framework/Prefs/Prefs/UI.php:234
+#: framework/Prefs/Prefs/UI.php:214 framework/Prefs/Prefs/UI.php:238
 msgid "There are no options available."
 msgstr "Es sind keine Einstellungen verfügbar."
 
@@ -7873,7 +7819,7 @@ msgstr "Es sind keine Einstellungen verfügbar."
 msgid "There are no parts that can be displayed inline."
 msgstr "Es gibt keine anzeigbaren Nachrichtenteile."
 
-#: framework/Form/Form.php:1427
+#: framework/Form/Form.php:1430
 #, php-format
 msgid ""
 "There are too many characters in this field. You have entered %d character; "
@@ -7985,8 +7931,8 @@ msgstr ""
 "Bei der Aktualisierung der Verteilerliste ist ein Fehler aufgetreten. Bitte "
 "versuchen Sie es später noch einmal."
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:163
-#: framework/IMAP/IMAP/ACL/rfc2086.php:326
+#: framework/IMAP/IMAP/ACL/rfc2086.php:168
+#: framework/IMAP/IMAP/ACL/rfc2086.php:286
 msgid "This IMAP server does not support sharing folders."
 msgstr "Dieser IMAP-Server unterstützt keine gemeinsamen Ordner."
 
@@ -8010,7 +7956,7 @@ msgstr "Dies scheint kein gültiges RAR-Archiv zu sein."
 msgid "This does not appear to be a valid zip file."
 msgstr "Dies scheint kein gültiges ZIP-Archiv zu sein."
 
-#: framework/Form/Form.php:4111
+#: framework/Form/Form.php:4114
 msgid "This does not seem to be a valid card number."
 msgstr "Dies scheint keine gültige Kartennummer zu sein."
 
@@ -8062,45 +8008,45 @@ msgstr ""
 "Vodafone-Italien-Gateway ausschließlich an Vodafone-Nummern. Dafür wird ein "
 "E-Mail-Konto bei Vodafone Italien (http://www.190.it) benötigt."
 
-#: framework/Form/Form.php:976 framework/Form/Form.php:1053
-#: framework/Form/Form.php:1080 framework/Form/Form.php:1107
-#: framework/Form/Form.php:1172 framework/Form/Form.php:1272
-#: framework/Form/Form.php:1330 framework/Form/Form.php:1424
-#: framework/Form/Form.php:1833 framework/Form/Form.php:2681
-#: framework/Form/Form.php:2729 framework/Form/Form.php:2751
-#: framework/Form/Form.php:2798 framework/Form/Form.php:2876
-#: framework/Form/Form.php:2947 framework/Form/Form.php:3161
-#: framework/Form/Form.php:3203 framework/Form/Form.php:3397
-#: framework/Form/Form.php:3749 framework/Form/Form.php:3790
-#: framework/Form/Form.php:4103 framework/Form/Form.php:4276
-#: framework/Form/Form.php:4362 framework/Form/Form.php:4839
-#: framework/Form/Form.php:4847
+#: framework/Form/Form.php:979 framework/Form/Form.php:1056
+#: framework/Form/Form.php:1083 framework/Form/Form.php:1110
+#: framework/Form/Form.php:1175 framework/Form/Form.php:1275
+#: framework/Form/Form.php:1333 framework/Form/Form.php:1427
+#: framework/Form/Form.php:1836 framework/Form/Form.php:2684
+#: framework/Form/Form.php:2732 framework/Form/Form.php:2754
+#: framework/Form/Form.php:2801 framework/Form/Form.php:2879
+#: framework/Form/Form.php:2950 framework/Form/Form.php:3164
+#: framework/Form/Form.php:3206 framework/Form/Form.php:3400
+#: framework/Form/Form.php:3752 framework/Form/Form.php:3793
+#: framework/Form/Form.php:4106 framework/Form/Form.php:4279
+#: framework/Form/Form.php:4365 framework/Form/Form.php:4842
+#: framework/Form/Form.php:4850
 msgid "This field is required."
 msgstr "Dieses Feld ist notwendig."
 
-#: framework/Form/Form.php:1061
+#: framework/Form/Form.php:1064
 msgid "This field may only contain integers."
 msgstr "Dieses Feld darf nur ganze Zahlen enthalten."
 
-#: framework/Form/Form.php:3169
+#: framework/Form/Form.php:3172
 msgid "This field may only contain numbers and the colon."
 msgstr "Dieses Feld darf nur Zahlen und einen Punkt enthalten."
 
-#: framework/Form/Form.php:1088
+#: framework/Form/Form.php:1091
 msgid "This field may only contain octal values."
 msgstr "Dieses Feld darf nur Oktalzahlen enthalten."
 
-#: framework/Form/Form.php:1115
+#: framework/Form/Form.php:1118
 msgid "This field must be a comma or space separated list of integers"
 msgstr ""
 "Dieses Feld muss eine komma- oder leerzeichengetrennte Liste von ganzen "
 "Zahlen enthalten"
 
-#: framework/Form/Form.php:987
+#: framework/Form/Form.php:990
 msgid "This field must be a valid number."
 msgstr "Dieses Feld muss eine gültige Zahl enthalten."
 
-#: framework/Form/Form.php:3757
+#: framework/Form/Form.php:3760
 msgid ""
 "This field must contain a color code in the RGB Hex format, for example "
 "'#1234af'."
@@ -8108,12 +8054,12 @@ msgstr ""
 "Dieses Feld muss einen Farbwert im hexadezimalen RGB-Format enthalten, z. B. "
 "'#1234af'."
 
-#: framework/Form/Form.php:625
+#: framework/Form/Form.php:628
 msgid "This form has already been processed."
 msgstr "Dieses Formular wurde bereits verarbeitet."
 
 #: framework/Kolab_Storage/lib/Horde/Kolab/Deprecated.php:589
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:1159
+#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:1157
 #, php-format
 msgid ""
 "This is a Kolab Groupware object. To view this object you will need an email "
@@ -8131,7 +8077,7 @@ msgstr ""
 "Diese Nachricht wurde in einem Zeichensatz (%s) erstellt, der nicht Ihrem "
 "eigenen entspricht."
 
-#: framework/Prefs/Prefs/UI.php:126
+#: framework/Prefs/Prefs/UI.php:130
 msgid "This number must be at least one."
 msgstr "Diese Zahl muss 1 oder größer sein."
 
@@ -8153,7 +8099,7 @@ msgstr "Dieser Server kann ZIP- und GZIP-Dateien nicht entpacken."
 msgid "This system is currently deactivated."
 msgstr "Dieses System ist zur Zeit deaktiviert."
 
-#: framework/Prefs/Prefs/UI.php:124
+#: framework/Prefs/Prefs/UI.php:128
 msgid "This value must be a number."
 msgstr "Dieser Wert muss eine Zahl sein."
 
@@ -8165,7 +8111,7 @@ msgstr "Gewitter"
 msgid "Tickets"
 msgstr "Tickets"
 
-#: framework/Form/Form.php:3178
+#: framework/Form/Form.php:3181
 msgid "Time"
 msgstr "Zeit"
 
@@ -8177,7 +8123,7 @@ msgstr "Zeiterfassung"
 msgid "Time format"
 msgstr "Zeitformat"
 
-#: framework/Form/Form.php:3288
+#: framework/Form/Form.php:3291
 msgid "Time selection"
 msgstr "Zeitauswahl"
 
@@ -8185,12 +8131,12 @@ msgstr "Zeitauswahl"
 msgid "Timestamp or unknown"
 msgstr "Zeitstempel oder unbekannt"
 
-#: templates/syncml/syncml.inc:2
+#: templates/syncml/syncml.inc:10
 msgid "Timestamps of successful synchronization sessions"
 msgstr "Zeitpunkte erfolgreicher Synchronisationssitzungen"
 
-#: framework/NLS/NLS/tld.php:233 framework/NLS/NLS/countries.php:222
-#: framework/NLS/NLS/GeoIP.php:110
+#: framework/NLS/NLS/GeoIP.php:110 framework/NLS/NLS/countries.php:222
+#: framework/NLS/NLS/tld.php:233
 msgid "Timor-Leste"
 msgstr "Timor-Leste"
 
@@ -8223,13 +8169,13 @@ msgstr ""
 msgid "Today"
 msgstr "Heute"
 
-#: framework/NLS/NLS/tld.php:229 framework/NLS/NLS/countries.php:223
-#: framework/NLS/NLS/GeoIP.php:109
+#: framework/NLS/NLS/GeoIP.php:109 framework/NLS/NLS/countries.php:223
+#: framework/NLS/NLS/tld.php:229
 msgid "Togo"
 msgstr "Togo"
 
-#: framework/NLS/NLS/tld.php:232 framework/NLS/NLS/countries.php:224
-#: framework/NLS/NLS/GeoIP.php:110
+#: framework/NLS/NLS/GeoIP.php:110 framework/NLS/NLS/countries.php:224
+#: framework/NLS/NLS/tld.php:232
 msgid "Tokelau"
 msgstr "Tokelau"
 
@@ -8237,8 +8183,8 @@ msgstr "Tokelau"
 msgid "Tomorrow"
 msgstr "Morgen"
 
-#: framework/NLS/NLS/tld.php:236 framework/NLS/NLS/countries.php:225
-#: framework/NLS/NLS/GeoIP.php:110
+#: framework/NLS/NLS/GeoIP.php:110 framework/NLS/NLS/countries.php:225
+#: framework/NLS/NLS/tld.php:236
 msgid "Tonga"
 msgstr "Tonga"
 
@@ -8250,12 +8196,12 @@ msgstr "Zu viele ungültige Anmeldeversuche in den letzten Minuten."
 msgid "Translations"
 msgstr "Übersetzungen"
 
-#: framework/NLS/NLS/tld.php:239 framework/NLS/NLS/countries.php:226
-#: framework/NLS/NLS/GeoIP.php:111
+#: framework/NLS/NLS/GeoIP.php:111 framework/NLS/NLS/countries.php:226
+#: framework/NLS/NLS/tld.php:239
 msgid "Trinidad and Tobago"
 msgstr "Trinidad und Tobago"
 
-#: framework/Form/Form.php:2112
+#: framework/Form/Form.php:2115
 msgid "True or false"
 msgstr "Wahr oder falsch"
 
@@ -8263,32 +8209,32 @@ msgstr "Wahr oder falsch"
 msgid "Tu"
 msgstr "Di"
 
-#: framework/NLS/NLS/tld.php:235 framework/NLS/NLS/countries.php:227
-#: framework/NLS/NLS/GeoIP.php:110
+#: framework/NLS/NLS/GeoIP.php:110 framework/NLS/NLS/countries.php:227
+#: framework/NLS/NLS/tld.php:235
 msgid "Tunisia"
 msgstr "Tunesien"
 
-#: framework/NLS/NLS/tld.php:238 framework/NLS/NLS/countries.php:228
-#: framework/NLS/NLS/GeoIP.php:111
+#: framework/NLS/NLS/GeoIP.php:111 framework/NLS/NLS/countries.php:228
+#: framework/NLS/NLS/tld.php:238
 msgid "Turkey"
 msgstr "Türkei"
 
-#: config/nls.php.dist:240
+#: config/nls.php.dist:242
 msgid "Turkish (ISO-8859-9)"
 msgstr "Türkisch (ISO-8859-9)"
 
-#: framework/NLS/NLS/tld.php:234 framework/NLS/NLS/countries.php:229
-#: framework/NLS/NLS/GeoIP.php:110
+#: framework/NLS/NLS/GeoIP.php:110 framework/NLS/NLS/countries.php:229
+#: framework/NLS/NLS/tld.php:234
 msgid "Turkmenistan"
 msgstr "Turkmenistan"
 
-#: framework/NLS/NLS/tld.php:226 framework/NLS/NLS/countries.php:230
-#: framework/NLS/NLS/GeoIP.php:108
+#: framework/NLS/NLS/GeoIP.php:108 framework/NLS/NLS/countries.php:230
+#: framework/NLS/NLS/tld.php:226
 msgid "Turks and Caicos Islands"
 msgstr "Turks- und Caicosinseln"
 
-#: framework/NLS/NLS/tld.php:240 framework/NLS/NLS/countries.php:231
-#: framework/NLS/NLS/GeoIP.php:111
+#: framework/NLS/NLS/GeoIP.php:111 framework/NLS/NLS/countries.php:231
+#: framework/NLS/NLS/tld.php:240
 msgid "Tuvalu"
 msgstr "Tuvalu"
 
@@ -8316,17 +8262,17 @@ msgstr "Homepage"
 msgid "URL for your script delivery status report"
 msgstr "URL Ihres Skripts für den Versandstatusbericht"
 
-#: framework/NLS/NLS/tld.php:244 framework/NLS/NLS/countries.php:232
-#: framework/NLS/NLS/GeoIP.php:112
+#: framework/NLS/NLS/GeoIP.php:112 framework/NLS/NLS/countries.php:232
+#: framework/NLS/NLS/tld.php:244
 msgid "Uganda"
 msgstr "Uganda"
 
-#: framework/NLS/NLS/tld.php:243 framework/NLS/NLS/countries.php:233
-#: framework/NLS/NLS/GeoIP.php:112
+#: framework/NLS/NLS/GeoIP.php:112 framework/NLS/NLS/countries.php:233
+#: framework/NLS/NLS/tld.php:243
 msgid "Ukraine"
 msgstr "Ukraine"
 
-#: framework/Kolab_Filter/lib/Horde/Kolab/Resource.php:570
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource.php:291
 #, php-format
 msgid "Unable to access %s's calendar:"
 msgstr "Zugriff auf %ss Kalender nicht möglich:"
@@ -8335,7 +8281,7 @@ msgstr "Zugriff auf %ss Kalender nicht möglich:"
 msgid "Unable to access VFS directory."
 msgstr "Auf das VFS-Verzeichnis konnte nicht zugegriffen werden."
 
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/List.php:374
+#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/List.php:399
 #, php-format
 msgid "Unable to add %s: destination folder already exists"
 msgstr ""
@@ -8414,18 +8360,18 @@ msgstr ""
 msgid "Unable to create empty VFS file."
 msgstr "Leere VFS-Datei konnte nicht angelegt werden."
 
-#: framework/VFS/lib/VFS.php:260 framework/VFS/lib/VFS/smb.php:116
-#: framework/VFS/lib/VFS/ftp.php:158 framework/VFS/lib/VFS/ssh2.php:153
+#: framework/VFS/lib/VFS.php:260 framework/VFS/lib/VFS/ftp.php:158
+#: framework/VFS/lib/VFS/smb.php:116 framework/VFS/lib/VFS/ssh2.php:153
 msgid "Unable to create temporary file."
 msgstr "Temporäre Datei konnte nicht angelegt werden."
 
-#: framework/Compress/Compress/tar.php:74
 #: framework/Compress/Compress/gzip.php:51
 #: framework/Compress/Compress/gzip.php:81
+#: framework/Compress/Compress/tar.php:74
 msgid "Unable to decompress data."
 msgstr "Die Daten konnten nicht dekomprimiert werden."
 
-#: framework/VFS/lib/VFS/smb.php:276 framework/VFS/lib/VFS/ftp.php:347
+#: framework/VFS/lib/VFS/ftp.php:347 framework/VFS/lib/VFS/smb.php:276
 #: framework/VFS/lib/VFS/ssh2.php:334
 #, php-format
 msgid "Unable to delete \"%s\", the directory is not empty."
@@ -8437,7 +8383,7 @@ msgid "Unable to delete \"%s\": %s."
 msgstr "\"%s\" kann nicht gelöscht werden: %s."
 
 #: framework/VFS/lib/VFS/file.php:405 framework/VFS/lib/VFS/kolab.php:194
-#: framework/VFS/lib/VFS/sql.php:460 framework/VFS/lib/VFS/musql.php:371
+#: framework/VFS/lib/VFS/musql.php:371 framework/VFS/lib/VFS/sql.php:460
 #: framework/VFS/lib/VFS/sql_file.php:363
 #, php-format
 msgid "Unable to delete %s, the directory is not empty"
@@ -8465,8 +8411,8 @@ msgid "Unable to delete VFS file \"%s\"."
 msgstr "Die VFS-Datei \"%s\" konnte nicht gelöscht werden."
 
 #: framework/VFS/lib/VFS/file.php:377 framework/VFS/lib/VFS/kolab.php:136
-#: framework/VFS/lib/VFS/sql.php:344 framework/VFS/lib/VFS/musql.php:178
-#: framework/VFS/lib/VFS/musql.php:197 framework/VFS/lib/VFS/musql.php:204
+#: framework/VFS/lib/VFS/musql.php:178 framework/VFS/lib/VFS/musql.php:197
+#: framework/VFS/lib/VFS/musql.php:204 framework/VFS/lib/VFS/sql.php:344
 #: framework/VFS/lib/VFS/sql_file.php:412
 #: framework/VFS/lib/VFS/sql_file.php:420
 msgid "Unable to delete VFS file."
@@ -8486,7 +8432,7 @@ msgstr "Das VFS konnte nicht rekursiv gelöscht werden: %s."
 msgid "Unable to determine current directory."
 msgstr "Das aktuelle Verzeichnis konnte nicht bestimmt werden."
 
-#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php:391
+#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php:400
 msgid "Unable to determine owner of the free/busy data!"
 msgstr "Besitzer der Frei-/Gebuchtdaten konnte nicht festgestellt werden!"
 
@@ -8498,8 +8444,8 @@ msgstr "smbclient kann nicht ausgeführt werden."
 msgid "Unable to extract certificate details"
 msgstr "Die Zertifikatdetails konnten nicht ausgelesen werden"
 
-#: framework/Net_IMSP/IMSP.php:447 framework/Net_IMSP/IMSP/Auth.php:121
-#: framework/Alarm/Alarm.php:528
+#: framework/Alarm/Alarm.php:548 framework/Net_IMSP/IMSP.php:447
+#: framework/Net_IMSP/IMSP/Auth.php:121
 #, php-format
 msgid "Unable to load the definition of %s."
 msgstr "Der %s-Treiber konnte nicht geladen werden."
@@ -8510,7 +8456,7 @@ msgstr "Der %s-Treiber konnte nicht geladen werden."
 msgid "Unable to move VFS file."
 msgstr "Die VFS-Datei konnte nicht verschoben werden."
 
-#: framework/VFS/lib/VFS/smb.php:127 framework/VFS/lib/VFS/ftp.php:168
+#: framework/VFS/lib/VFS/ftp.php:168 framework/VFS/lib/VFS/smb.php:127
 #: framework/VFS/lib/VFS/ssh2.php:158
 #, php-format
 msgid "Unable to open VFS file \"%s\"."
@@ -8542,16 +8488,17 @@ msgstr "Die VFS-Datei konnte nicht gelesen werden (filesize() fehlgeschlagen)."
 msgid "Unable to read VFS file (size() failed)."
 msgstr "Die VFS-Datei konnte nicht gelesen werden (size() fehlgeschlagen)."
 
-#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php:205
+#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy.php:399
+#: framework/Kolab_FreeBusy/lib/Horde/Kolab/FreeBusy/Access.php:212
 #, php-format
 msgid "Unable to read free/busy information from %s"
 msgstr "Fehler beim Auslesen der Frei/Gebucht-Informationen von %s"
 
-#: framework/VFS/lib/VFS/file.php:764
+#: framework/VFS/lib/VFS/file.php:766
 msgid "Unable to read the vfsroot directory."
 msgstr "Das vfsroot-Verzeichnis konnte nicht gelesen werden."
 
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/List.php:407
+#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/List.php:432
 #, php-format
 msgid "Unable to rename %s to %s: destination folder already exists"
 msgstr ""
@@ -8575,7 +8522,7 @@ msgstr "Das VFS-Verzeichnis konnte nicht umbenannt werden."
 msgid "Unable to rename VFS directory: %s."
 msgstr "Das VFS-Verzeichnis konnte nicht umbenannt werden: %s."
 
-#: framework/VFS/lib/VFS/smb.php:340 framework/VFS/lib/VFS/ftp.php:395
+#: framework/VFS/lib/VFS/ftp.php:395 framework/VFS/lib/VFS/smb.php:340
 #: framework/VFS/lib/VFS/ssh2.php:382
 #, php-format
 msgid "Unable to rename VFS file \"%s\"."
@@ -8590,8 +8537,8 @@ msgstr "Die VFS-Datei %s/%s konnte nicht umbenannt werden."
 msgid "Unable to rename VFS file to same name."
 msgstr "Die VFS-Datei kann nicht auf den gleichen Namen umbenannt werden."
 
-#: framework/VFS/lib/VFS/sql.php:391 framework/VFS/lib/VFS/musql.php:235
-#: framework/VFS/lib/VFS/musql.php:531 framework/VFS/lib/VFS/sql_file.php:308
+#: framework/VFS/lib/VFS/musql.php:235 framework/VFS/lib/VFS/musql.php:531
+#: framework/VFS/lib/VFS/sql.php:391 framework/VFS/lib/VFS/sql_file.php:308
 #: framework/VFS/lib/VFS/sql_file.php:330
 msgid "Unable to rename VFS file."
 msgstr "Die VFS-Datei konnte nicht umbenannt werden."
@@ -8612,7 +8559,7 @@ msgstr "Dieses Word-Dokument lässt sich nicht anzeigen"
 msgid "Unable to translate this WordPerfect document"
 msgstr "Dieses WordPerfect-Dokument lässt sich nicht anzeigen"
 
-#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:1272
+#: framework/Kolab_Storage/lib/Horde/Kolab/Storage/Folder.php:1270
 #, php-format
 msgid "Unable to trigger URL %s. Response: %s"
 msgstr "Die URL %s konnte nicht angesprochen werden. Antwort: %s"
@@ -8651,19 +8598,14 @@ msgstr "Nicht autorisiert"
 msgid "Undo Changes"
 msgstr "Änderungen rückgängig machen"
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:222
-#: framework/IMAP/IMAP/ACL/rfc2086.php:377
-#: framework/IMAP/IMAP/ACL/rfc2086.php:527
+#: framework/IMAP/IMAP/ACL/rfc2086.php:418
 msgid "Unexpected response from server on connection: "
 msgstr "Ungültige Rückmeldung vom Server beim Herstellen der Verbindung: "
 
-#: framework/IMAP/IMAP/ACL/rfc2086.php:229
-#: framework/IMAP/IMAP/ACL/rfc2086.php:405
-#: framework/IMAP/IMAP/ACL/rfc2086.php:420
-#: framework/IMAP/IMAP/ACL/rfc2086.php:429
-#: framework/IMAP/IMAP/ACL/rfc2086.php:555
-#: framework/IMAP/IMAP/ACL/rfc2086.php:570
-#: framework/IMAP/IMAP/ACL/rfc2086.php:579
+#: framework/IMAP/IMAP/ACL/rfc2086.php:227
+#: framework/IMAP/IMAP/ACL/rfc2086.php:318
+#: framework/IMAP/IMAP/ACL/rfc2086.php:375
+#: framework/IMAP/IMAP/ACL/rfc2086.php:485
 msgid "Unexpected response from server to: "
 msgstr "Unerwartete Antwort des Servers auf: "
 
@@ -8677,31 +8619,31 @@ msgstr ""
 msgid "Unfiled"
 msgstr "Nicht zugeordnet"
 
-#: config/nls.php.dist:241
+#: config/nls.php.dist:243
 msgid "Unicode (UTF-8)"
 msgstr "Unicode (UTF-8)"
 
-#: framework/NLS/NLS/tld.php:17 framework/NLS/NLS/countries.php:234
-#: framework/NLS/NLS/GeoIP.php:56
+#: framework/NLS/NLS/GeoIP.php:56 framework/NLS/NLS/countries.php:234
+#: framework/NLS/NLS/tld.php:17
 msgid "United Arab Emirates"
 msgstr "Vereinigte Arabische Emirate"
 
+#: framework/NLS/NLS/GeoIP.php:74 framework/NLS/NLS/countries.php:235
 #: framework/NLS/NLS/tld.php:91 framework/NLS/NLS/tld.php:245
-#: framework/NLS/NLS/countries.php:235 framework/NLS/NLS/GeoIP.php:74
 msgid "United Kingdom"
 msgstr "Vereinigtes Königreich"
 
-#: framework/NLS/NLS/tld.php:247 framework/NLS/NLS/countries.php:236
-#: framework/NLS/NLS/GeoIP.php:113
+#: framework/NLS/NLS/GeoIP.php:113 framework/NLS/NLS/countries.php:236
+#: framework/NLS/NLS/tld.php:247
 msgid "United States"
 msgstr "Vereinigte Staaten"
 
-#: framework/NLS/NLS/tld.php:246 framework/NLS/NLS/countries.php:237
-#: framework/NLS/NLS/GeoIP.php:113
+#: framework/NLS/NLS/GeoIP.php:113 framework/NLS/NLS/countries.php:237
+#: framework/NLS/NLS/tld.php:246
 msgid "United States Minor Outlying Islands"
 msgstr "Kleinere Amerikanische Überseeinseln"
 
-#: lib/Block/weatherdotcom.php:67 lib/Block/metar.php:86
+#: lib/Block/metar.php:86 lib/Block/weatherdotcom.php:67
 msgid "Units"
 msgstr "Einheiten"
 
@@ -8735,13 +8677,13 @@ msgstr "Unbekannter Kolab-Objekttyp für DN %s."
 msgid "Unnamed"
 msgstr "Unbenannt"
 
-#: framework/Group/Group/mock.php:42 framework/Group/Group/mock.php:53
-#: framework/Group/Group/mock.php:64 framework/Group/Group/mock.php:76
-#: framework/Group/Group/mock.php:86 framework/Group/Group/mock.php:97
 #: framework/Group/Group/kolab.php:92 framework/Group/Group/kolab.php:104
 #: framework/Group/Group/kolab.php:114 framework/Group/Group/kolab.php:125
 #: framework/Group/Group/kolab.php:383 framework/Group/Group/kolab.php:394
-#: framework/Group/Group/kolab.php:406
+#: framework/Group/Group/kolab.php:406 framework/Group/Group/mock.php:42
+#: framework/Group/Group/mock.php:53 framework/Group/Group/mock.php:64
+#: framework/Group/Group/mock.php:76 framework/Group/Group/mock.php:86
+#: framework/Group/Group/mock.php:97
 msgid "Unsupported"
 msgstr "Nicht unterstützt"
 
@@ -8778,8 +8720,8 @@ msgstr ""
 "Die Konfigurationsdateien aller Anwendungen wurden auf den Server "
 "hochgeladen."
 
-#: framework/NLS/NLS/tld.php:248 framework/NLS/NLS/countries.php:238
-#: framework/NLS/NLS/GeoIP.php:113
+#: framework/NLS/NLS/GeoIP.php:113 framework/NLS/NLS/countries.php:238
+#: framework/NLS/NLS/tld.php:248
 msgid "Uruguay"
 msgstr "Uruguay"
 
@@ -8820,7 +8762,7 @@ msgstr "Das Benutzer \"%s\" existiert nicht."
 msgid "User Administration"
 msgstr "Benutzerverwaltung"
 
-#: framework/Prefs/Prefs/UI.php:284
+#: framework/Prefs/Prefs/UI.php:288
 msgid "User Options"
 msgstr "Benutzereinstellungen"
 
@@ -8845,12 +8787,12 @@ msgstr "Benutzerkonto nicht gefunden"
 msgid "User to add:"
 msgstr "Hinzuzufügender Benutzer:"
 
-#: admin/user.php:41 admin/user.php:54 admin/setup/index.php:243
+#: admin/setup/index.php:243 admin/user.php:41 admin/user.php:54
+#: framework/Net_SMS/SMS/clickatell_http.php:207
 #: framework/Net_SMS/SMS/sms2email_http.php:545
 #: framework/Net_SMS/SMS/vodafoneitaly_smtp.php:94
-#: framework/Net_SMS/SMS/clickatell_http.php:207
 #: framework/Net_SMS/SMS/win_http.php:159 services/resetpassword.php:36
-#: templates/login/login.inc:59 templates/admin/user/approve.inc:16
+#: templates/admin/user/approve.inc:16 templates/login/login.inc:59
 msgid "Username"
 msgstr "Benutzername"
 
@@ -8875,8 +8817,8 @@ msgstr "Benutzer"
 msgid "Users in the system:"
 msgstr "Benutzer des Systems:"
 
-#: framework/NLS/NLS/tld.php:249 framework/NLS/NLS/countries.php:239
-#: framework/NLS/NLS/GeoIP.php:114
+#: framework/NLS/NLS/GeoIP.php:114 framework/NLS/NLS/countries.php:239
+#: framework/NLS/NLS/tld.php:249
 msgid "Uzbekistan"
 msgstr "Usbekistan"
 
@@ -8904,28 +8846,28 @@ msgstr "Abwesenheit"
 msgid "Validity"
 msgstr "Gültigkeit"
 
-#: framework/Net_SMS/SMS/sms2email_http.php:606
 #: framework/Net_SMS/SMS/clickatell_http.php:263
+#: framework/Net_SMS/SMS/sms2email_http.php:606
 msgid "Value in minutes from now."
 msgstr "Wert in Minuten von jetzt an."
 
-#: framework/Form/Form.php:1167
+#: framework/Form/Form.php:1170
 #, php-format
 msgid "Value is over the maximum length of %d."
 msgstr "Der Wert ist über der maximalen Länge von %d."
 
-#: framework/Form/Form.php:2970 framework/Form/Form.php:3005
-#: framework/Form/Form.php:3054 framework/Form/Form.php:3888
+#: framework/Form/Form.php:2973 framework/Form/Form.php:3008
+#: framework/Form/Form.php:3057 framework/Form/Form.php:3891
 #: framework/Form/Form/Type/tableset.php:59
 msgid "Values"
 msgstr "Werte"
 
-#: framework/Form/Form.php:2837 framework/Form/Form.php:2913
+#: framework/Form/Form.php:2840 framework/Form/Form.php:2916
 msgid "Values to select from"
 msgstr "Werte, aus denen ausgewählt werden kann"
 
-#: framework/NLS/NLS/tld.php:256 framework/NLS/NLS/countries.php:240
-#: framework/NLS/NLS/GeoIP.php:117
+#: framework/NLS/NLS/GeoIP.php:117 framework/NLS/NLS/countries.php:240
+#: framework/NLS/NLS/tld.php:256
 msgid "Vanuatu"
 msgstr "Vanuatu"
 
@@ -8933,8 +8875,8 @@ msgstr "Vanuatu"
 msgid "Variable"
 msgstr "Drehend"
 
-#: framework/NLS/NLS/tld.php:252 framework/NLS/NLS/countries.php:241
-#: framework/NLS/NLS/GeoIP.php:115
+#: framework/NLS/NLS/GeoIP.php:115 framework/NLS/NLS/countries.php:241
+#: framework/NLS/NLS/tld.php:252
 msgid "Venezuela"
 msgstr "Venezuela"
 
@@ -8959,12 +8901,12 @@ msgstr "Versionskontrolle"
 msgid "Very High"
 msgstr "Sehr Hoch"
 
-#: framework/NLS/NLS/tld.php:255 framework/NLS/NLS/countries.php:242
-#: framework/NLS/NLS/GeoIP.php:116
+#: framework/NLS/NLS/GeoIP.php:116 framework/NLS/NLS/countries.php:242
+#: framework/NLS/NLS/tld.php:255
 msgid "Viet Nam"
 msgstr "Vietnam"
 
-#: config/nls.php.dist:242
+#: config/nls.php.dist:244
 msgid "Vietnamese (VISCII)"
 msgstr "Vietnamesisch (VISCII)"
 
@@ -8982,13 +8924,13 @@ msgstr "%s [%s] anzeigen"
 msgid "View an external web page"
 msgstr "Externe Webseite anzeigen"
 
-#: framework/NLS/NLS/tld.php:253 framework/NLS/NLS/countries.php:243
-#: framework/NLS/NLS/GeoIP.php:116
+#: framework/NLS/NLS/GeoIP.php:116 framework/NLS/NLS/countries.php:243
+#: framework/NLS/NLS/tld.php:253
 msgid "Virgin Islands, British"
 msgstr "Britische Jungferninseln"
 
-#: framework/NLS/NLS/tld.php:254 framework/NLS/NLS/countries.php:244
-#: framework/NLS/NLS/GeoIP.php:116
+#: framework/NLS/NLS/GeoIP.php:116 framework/NLS/NLS/countries.php:244
+#: framework/NLS/NLS/tld.php:254
 msgid "Virgin Islands, U.S."
 msgstr "Amerikanische Jungferninseln"
 
@@ -9012,7 +8954,7 @@ msgstr "WARNUNG"
 msgid "WIN via HTTP"
 msgstr "WIN per HTTP"
 
-#: framework/NLS/NLS/countries.php:245 framework/NLS/NLS/GeoIP.php:117
+#: framework/NLS/NLS/GeoIP.php:117 framework/NLS/NLS/countries.php:245
 msgid "Wallis and Futuna"
 msgstr "Wallis und Futuna"
 
@@ -9020,8 +8962,9 @@ msgstr "Wallis und Futuna"
 msgid "Wallis and Futuna Islands"
 msgstr "Wallis und Futuna"
 
+#: framework/MIME/MIME/Viewer/html.php:136
 #: framework/Notification/Notification/Listener/status.php:29
-#: framework/MIME/MIME/Viewer/html.php:136 lib/Block/account.php:100
+#: lib/Block/account.php:100
 msgid "Warning"
 msgstr "Warnung"
 
@@ -9051,8 +8994,8 @@ msgstr "Wetterdaten von"
 msgid "Web Site"
 msgstr "Website"
 
-#: framework/Maintenance/Maintenance.php:63
 #: framework/Date/Date/Recurrence.php:200
+#: framework/Maintenance/Maintenance.php:63
 msgid "Weekly"
 msgstr "Wöchentlich"
 
@@ -9060,8 +9003,8 @@ msgstr "Wöchentlich"
 msgid "Welcome"
 msgstr "Willkommen"
 
-#: templates/login/mobile.inc:4 templates/login/login.inc:52
-#: templates/login/header.inc:8
+#: templates/login/header.inc:8 templates/login/login.inc:52
+#: templates/login/mobile.inc:4
 #, php-format
 msgid "Welcome to %s"
 msgstr "Willkommen bei %s"
@@ -9071,16 +9014,16 @@ msgstr "Willkommen bei %s"
 msgid "Welcome, %s"
 msgstr "Willkommen, %s"
 
-#: config/nls.php.dist:243
+#: config/nls.php.dist:245
 msgid "Western (ISO-8859-1)"
 msgstr "Westeuropäisch (ISO-8859-1)"
 
-#: config/nls.php.dist:244
+#: config/nls.php.dist:246
 msgid "Western (ISO-8859-15)"
 msgstr "Westeuropäisch (ISO-8859-15)"
 
-#: framework/NLS/NLS/tld.php:79 framework/NLS/NLS/countries.php:246
-#: framework/NLS/NLS/GeoIP.php:71
+#: framework/NLS/NLS/GeoIP.php:71 framework/NLS/NLS/countries.php:246
+#: framework/NLS/NLS/tld.php:79
 msgid "Western Sahara"
 msgstr "Westsahara"
 
@@ -9117,7 +9060,7 @@ msgstr "Welche Phasen"
 msgid "Which plugins to enable for the Rich Text editor."
 msgstr "Welche Plugins für den WYSIWYG-Editor sollen aktiviert werden?"
 
-#: framework/Form/Form.php:4092
+#: framework/Form/Form.php:4095
 msgid "Width in CSS units"
 msgstr "Breite in CSS-Einheiten"
 
@@ -9244,13 +9187,13 @@ msgstr "JJJJ"
 msgid "Yahoo! map"
 msgstr "Yahoo! Karte"
 
-#: framework/Maintenance/Maintenance.php:61
 #: framework/Date/Date/Recurrence.php:205
+#: framework/Maintenance/Maintenance.php:61
 msgid "Yearly"
 msgstr "Jährlich"
 
-#: framework/NLS/NLS/tld.php:259 framework/NLS/NLS/countries.php:247
-#: framework/NLS/NLS/GeoIP.php:117
+#: framework/NLS/NLS/GeoIP.php:117 framework/NLS/NLS/countries.php:247
+#: framework/NLS/NLS/tld.php:259
 msgid "Yemen"
 msgstr "Jemen"
 
@@ -9345,7 +9288,7 @@ msgstr "Sie dürfen das Zeichen '\\' nicht in Ihrem Namen verwenden."
 msgid "You did not authenticate."
 msgstr "Sie sind nicht angemeldet."
 
-#: framework/Form/Form.php:2701
+#: framework/Form/Form.php:2704
 msgid "You did not enter a valid email address."
 msgstr "Sie haben keine gültige E-Mail-Adresse angegeben."
 
@@ -9382,11 +9325,11 @@ msgstr ""
 "\n"
 "Wenn Sie mit diese Nachricht nichts anfangen können, bitte löschen."
 
-#: framework/Form/Form.php:3633
+#: framework/Form/Form.php:3636
 msgid "You must choose a date."
 msgstr "Sie müssen ein Datum auswählen."
 
-#: framework/Form/Form.php:3631
+#: framework/Form/Form.php:3634
 msgid "You must choose a time."
 msgstr "Sie müssen eine Uhrzeit auswählen."
 
@@ -9409,7 +9352,7 @@ msgstr ""
 msgid "You must describe the problem before you can send the problem report."
 msgstr "Sie müssen das Problem beschreiben, um den Bericht abzuschicken."
 
-#: framework/Form/Form.php:1276
+#: framework/Form/Form.php:1279
 msgid ""
 "You must enter a valid phone number, digits only with an optional '+' for "
 "the international dialing prefix."
@@ -9417,24 +9360,24 @@ msgstr ""
 "Sie müssen eine gültige Telefonnummer angeben, nur aus Zahlen und ggf. einem "
 "\"+\" für internationale Vorwahlen bestehend."
 
-#: framework/Form/Form.php:1178
+#: framework/Form/Form.php:1181
 msgid "You must enter a valid value."
 msgstr "Sie müssen einen gültigen Wert angegeben."
 
-#: framework/Form/Form.php:2261
+#: framework/Form/Form.php:2264
 msgid "You must enter an email address."
 msgstr "Sie müssen eine E-Mail-Adresse angeben."
 
-#: framework/Form/Form.php:2259
+#: framework/Form/Form.php:2262
 msgid "You must enter at least one email address."
 msgstr "Sie müssen mindestens eine E-Mail-Adresse angeben."
 
-#: framework/Prefs/Prefs/UI.php:149
+#: framework/Prefs/Prefs/UI.php:153
 #, php-format
 msgid "You must provide a setting for \"%s\"."
 msgstr "Sie müssen eine Einstellung für \"%s\" angeben."
 
-#: services/portal/rpcsum.php:82
+#: services/portal/rpcsum.php:90
 msgid "You must select an server to be deleted."
 msgstr "Sie müssen erst den zu entfernenden Server auswählen."
 
@@ -9541,7 +9484,7 @@ msgstr ""
 msgid "Your current time zone:"
 msgstr "Ihre aktuelle Zeitzone:"
 
-#: services/prefs.php:140
+#: services/prefs.php:148
 msgid "Your default identity has been changed."
 msgstr "Ihre Standardidentität wurde geändert."
 
@@ -9562,11 +9505,11 @@ msgstr "Ihr Zugang ist abgelaufen."
 msgid "Your new password for %s is: %s"
 msgstr "Ihr neues Passwort für %s lautet: %s"
 
-#: framework/Prefs/Prefs/UI.php:184
+#: framework/Prefs/Prefs/UI.php:188
 msgid "Your options have been updated for the duration of this session."
 msgstr "Ihre Einstellungen wurden für die Dauer dieser Sitzung gespeichert."
 
-#: framework/Prefs/Prefs/UI.php:186
+#: framework/Prefs/Prefs/UI.php:190
 msgid "Your options have been updated."
 msgstr "Ihre Einstellungen wurden gespeichert."
 
@@ -9602,7 +9545,7 @@ msgstr "Ihr Passwort ist abgelaufen."
 msgid "Your remote servers:"
 msgstr "Ihre Server:"
 
-#: framework/NLS/NLS/tld.php:261 framework/NLS/NLS/GeoIP.php:118
+#: framework/NLS/NLS/GeoIP.php:118 framework/NLS/NLS/tld.php:261
 msgid "Yugoslavia"
 msgstr "Jugoslawien"
 
@@ -9610,13 +9553,13 @@ msgstr "Jugoslawien"
 msgid "Zaire"
 msgstr "Zaire"
 
-#: framework/NLS/NLS/tld.php:263 framework/NLS/NLS/countries.php:248
-#: framework/NLS/NLS/GeoIP.php:118
+#: framework/NLS/NLS/GeoIP.php:118 framework/NLS/NLS/countries.php:248
+#: framework/NLS/NLS/tld.php:263
 msgid "Zambia"
 msgstr "Sambia"
 
-#: framework/NLS/NLS/tld.php:264 framework/NLS/NLS/countries.php:249
-#: framework/NLS/NLS/GeoIP.php:118
+#: framework/NLS/NLS/GeoIP.php:118 framework/NLS/NLS/countries.php:249
+#: framework/NLS/NLS/tld.php:264
 msgid "Zimbabwe"
 msgstr "Simbabwe"
 
@@ -9769,6 +9712,31 @@ msgstr "böig"
 msgid "h:"
 msgstr "h:"
 
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource/Itip/Response/Type/Accept.php:63
+msgid "has accepted the invitation to the following event"
+msgstr "hat die Einladung zu dem folgenden Termin angenommen"
+
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource/Itip/Response/Type/Accept.php:62
+msgid "has accepted the update to the following event"
+msgstr "hat die Aktualisierung des folgenden Termins angenommen"
+
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource/Itip/Response/Type/Decline.php:63
+msgid "has declined the invitation to the following event"
+msgstr "hat die Einladung zu dem folgenden Termin abgelehnt"
+
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource/Itip/Response/Type/Decline.php:62
+msgid "has declined the update to the following event"
+msgstr "hat die Aktualisierung des folgenden Termins abgelehnt"
+
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource/Itip/Response/Type/Tentative.php:63
+msgid "has tentatively accepted the invitation to the following event"
+msgstr "hat die Einladung zu dem folgenden Termin unter Vorbehalt angenommen"
+
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource/Itip/Response/Type/Tentative.php:62
+msgid "has tentatively accepted the update to the following event"
+msgstr ""
+"hat die Aktualisierung des folgenden Termins unter Vorbehalt angenommen"
+
 #: framework/UI/UI/VarRenderer/html.php:396
 msgid "hh"
 msgstr "hh"
@@ -9777,8 +9745,8 @@ msgstr "hh"
 msgid "host name unknown"
 msgstr "Hostname unbekannt"
 
-#: framework/Net_SMS/SMS/sms2email_http.php:574
 #: framework/Net_SMS/SMS/clickatell_http.php:231
+#: framework/Net_SMS/SMS/sms2email_http.php:574
 msgid "immediate"
 msgstr "sofort"
 
@@ -9836,6 +9804,10 @@ msgstr "Option %s: ungültiger Ganzzahl-Wert: '%s'"
 #, php-format
 msgid "option %s: invalid long integer value: '%s'"
 msgstr "Option %s: ungültiger Lange-Ganzzahl-Wert: '%s'"
+
+#: framework/Kolab_Resource/lib/Horde/Kolab/Resource.php:245
+msgid "outside bookable period"
+msgstr "außerhalb des buchbaren Zeitraums"
 
 #: framework/MIME/MIME/Message.php:172
 msgid "permission denied"
@@ -9902,8 +9874,8 @@ msgstr "unbekannter Fehler"
 msgid "unnamed"
 msgstr "unbenannt"
 
-#: framework/Net_SMS/SMS/sms2email_http.php:574
 #: framework/Net_SMS/SMS/clickatell_http.php:231
+#: framework/Net_SMS/SMS/sms2email_http.php:574
 msgid "user select"
 msgstr "benutzerdefiniert"
 
@@ -9919,7 +9891,7 @@ msgstr "b:"
 msgid "weather.com"
 msgstr "weather.com"
 
-#: framework/Form/Form.php:1428
+#: framework/Form/Form.php:1431
 #, php-format
 msgid "you must enter less than %d."
 msgstr "Sie müssen weniger als %d angeben."

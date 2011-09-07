@@ -3,7 +3,7 @@
  * The Horde_Cache_eaccelerator:: class provides a eAccelerator content cache
  * (version 0.9.5+) implementation of the Horde caching system.
  *
- * $Horde: framework/Cache/Cache/eaccelerator.php,v 1.9.2.1 2007/12/20 13:48:51 jan Exp $
+ * $Horde: framework/Cache/Cache/eaccelerator.php,v 1.9.2.2 2010/06/13 18:01:37 mrubinsk Exp $
  *
  * Copyright 2006-2007 Duck <duck@obala.net>
  *
@@ -26,6 +26,7 @@ class Horde_Cache_eaccelerator extends Horde_Cache {
      */
     function get($key, $lifetime = 1)
     {
+        $key = $this->_params['prefix'] . $key;
         $this->_setExpire($key, $lifetime);
         return eaccelerator_get($key);
     }
@@ -41,6 +42,7 @@ class Horde_Cache_eaccelerator extends Horde_Cache {
      */
     function set($key, $data, $lifetime = null)
     {
+        $key = $this->_params['prefix'] . $key;
         $lifetime = $this->_getLifetime($lifetime);
         eaccelerator_put($key . '_expire', time(), $lifetime);
         return eaccelerator_put($key, $data, $lifetime);
@@ -56,6 +58,7 @@ class Horde_Cache_eaccelerator extends Horde_Cache {
      */
     function exists($key, $lifetime = 1)
     {
+        $key = $this->_params['prefix'] . $key;
         $this->_setExpire($key, $lifetime);
         return eaccelerator_get($key) === false ? false : true;
     }
@@ -69,6 +72,7 @@ class Horde_Cache_eaccelerator extends Horde_Cache {
      */
     function expire($key)
     {
+        $key = $this->_params['prefix'] . $key;
         eaccelerator_rm($key . '_expire');
         return eaccelerator_rm($key);
     }
@@ -88,7 +92,7 @@ class Horde_Cache_eaccelerator extends Horde_Cache {
             // Don't expire.
             return true;
         }
-
+        $key = $this->_params['prefix'] . $key;
         $expire = eaccelerator_get($key . '_expire');
 
         // Set prune period.

@@ -3,7 +3,7 @@
  * The Horde_Cache_zps4:: class provides a Zend Performance Suite
  * (version 4.0+) implementation of the Horde caching system.
  *
- * $Horde: framework/Cache/Cache/zps4.php,v 1.1.10.9 2009/01/06 15:22:56 jan Exp $
+ * $Horde: framework/Cache/Cache/zps4.php,v 1.1.10.10 2010/06/13 18:01:37 mrubinsk Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -26,6 +26,7 @@ class Horde_Cache_zps4 extends Horde_Cache {
      */
     function get($key, $lifetime = 1)
     {
+        $key = $this->_params['prefix'] . $key;
         return output_cache_get($key, $lifetime);
     }
 
@@ -40,6 +41,7 @@ class Horde_Cache_zps4 extends Horde_Cache {
      */
     function set($key, $data, $lifetime = null)
     {
+        $key = $this->_params['prefix'] . $key;
         output_cache_put($key, $data);
         return true;
     }
@@ -54,6 +56,7 @@ class Horde_Cache_zps4 extends Horde_Cache {
      */
     function exists($key, $lifetime = 1)
     {
+        $key = $this->_params['prefix'] . $key;
         $exists = output_cache_exists($key, $lifetime);
         output_cache_stop();
         return $exists;
@@ -68,6 +71,7 @@ class Horde_Cache_zps4 extends Horde_Cache {
      */
     function expire($key)
     {
+        $key = $this->_params['prefix'] . $key;
         return output_cache_remove_key($key);
     }
 

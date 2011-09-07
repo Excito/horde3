@@ -3,7 +3,7 @@
  * The Horde_Cache_apc:: class provides an Alternative PHP Cache implementation
  * of the Horde caching system.
  *
- * $Horde: framework/Cache/Cache/apc.php,v 1.9.2.1 2007/12/20 13:48:51 jan Exp $
+ * $Horde: framework/Cache/Cache/apc.php,v 1.9.2.2 2010/06/13 18:01:37 mrubinsk Exp $
  *
  * Copyright 2006-2007 Duck <duck@obala.net>
  *
@@ -27,6 +27,7 @@ class Horde_Cache_apc extends Horde_Cache {
      */
     function get($key, $lifetime = 1)
     {
+        $key = $this->_params['prefix'] . $key;
         $this->_setExpire($key, $lifetime);
         return apc_fetch($key);
     }
@@ -42,6 +43,7 @@ class Horde_Cache_apc extends Horde_Cache {
      */
     function set($key, $data, $lifetime = null)
     {
+        $key = $this->_params['prefix'] . $key;
         $lifetime = $this->_getLifetime($lifetime);
         apc_store($key . '_expire', time(), $lifetime);
         return apc_store($key, $data, $lifetime);
@@ -57,6 +59,7 @@ class Horde_Cache_apc extends Horde_Cache {
      */
     function exists($key, $lifetime = 1)
     {
+        $key = $this->_params['prefix'] . $key;
         $this->_setExpire($key, $lifetime);
         return apc_fetch($key) === false ? false : true;
     }
@@ -70,6 +73,7 @@ class Horde_Cache_apc extends Horde_Cache {
      */
     function expire($key)
     {
+        $key = $this->_params['prefix'] . $key;
         apc_delete($key . '_expire');
         return apc_delete($key);
     }
@@ -89,7 +93,7 @@ class Horde_Cache_apc extends Horde_Cache {
             // Don't expire.
             return true;
         }
-
+        $key = $this->_params['prefix'] . $key;
         $expire = apc_fetch($key . '_expire');
 
         // Set prune period.

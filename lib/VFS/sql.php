@@ -52,7 +52,7 @@ define('VFS_FOLDER', 2);
  *    mssql.textsize = 0 ; zero to pass through
  * </pre>
  *
- * $Horde: framework/VFS/lib/VFS/sql.php,v 1.1.2.6 2009/02/13 05:45:19 chuck Exp $
+ * $Horde: framework/VFS/lib/VFS/sql.php,v 1.1.2.7 2011/01/12 10:56:42 jan Exp $
  *
  * Copyright 2002-2009 The Horde Project (http://www.horde.org/)
  *
@@ -338,7 +338,7 @@ class VFS_sql extends VFS {
                        (!strlen($path) && $this->_db->dbsyntax == 'oci8') ? ' IS NULL' : ' = ' . $this->_db->quote($path));
         $values = array(VFS_FILE, $name);
         $this->log($sql, PEAR_LOG_DEBUG);
-        $result = $this->_db->query($sql, $values);
+        $result = $this->_write_db->query($sql, $values);
 
         if ($this->_db->affectedRows() == 0) {
             return PEAR::raiseError(_("Unable to delete VFS file."));
@@ -427,7 +427,7 @@ class VFS_sql extends VFS {
 
         $values = array($id, VFS_FOLDER, $this->_convertPath($path), $name, time(), $this->_params['user']);
 
-        return $this->_db->query($sql, $values);
+        return $this->_write_db->query($sql, $values);
     }
 
     /**

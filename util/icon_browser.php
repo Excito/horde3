@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: horde/util/icon_browser.php,v 1.4.2.8 2009/01/06 15:28:05 jan Exp $
+ * $Horde: horde/util/icon_browser.php,v 1.4.2.9 2010/05/25 05:19:40 slusarz Exp $
  *
  * Copyright 2004-2009 The Horde Project (http://www.horde.org/)
  *
@@ -33,7 +33,7 @@ if (($app = basename(Util::getFormData('app'))) && isset($apps[$app])) {
         exit(sprintf(_("Base graphics directory \"%s\" not found."), $dir));
     }
 
-    if (($subdir = basename(Util::getFormData('subdir')))) {
+    if (($subdir = basename(htmlspecialchars(Util::getFormData('subdir'))))) {
         $dir .= DIRECTORY_SEPARATOR . $subdir;
         if (!is_dir($dir)) {
             exit(sprintf(_("Subdirectory \"%s\" not found."), $dir));

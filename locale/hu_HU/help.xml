@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!-- $Horde: horde/locale/hu_HU/help.xml,v 1.2.10.4 2007/12/20 15:01:55 jan Exp $ -->
+<!-- $Horde: horde/locale/hu_HU/help.xml,v 1.2.10.5 2010/12/13 16:14:13 jan Exp $ -->
 <help>
-  <entry id="summary" state="new">
+  <entry id="summary" state="uptodate" md5="68ca33f7f0c9aae4c103eb47492cdc15">
 <title>The Portal Page</title>
  <para>
   This portal page provides a quick summary of all your important
@@ -17,7 +17,7 @@
   well as in which order they are shown.
  </para>
 </entry>
-  <entry id="navbar" state="new">
+  <entry id="navbar" state="uptodate" md5="b8cf0ae19e57dfa0c2b962e516782f47">
 <title>The Application Navigation Bar</title>
  <para>
   At the left hand side of the web page is the application navigation bar.
@@ -25,13 +25,13 @@
   between the available applications.
  </para>
 </entry>
-  <entry id="prefs-do_maintenance" state="new">
+  <entry id="prefs-do_maintenance" state="uptodate" md5="dd95df07a03031232baea919288b2d00">
     <title>Preferences: Maintenance: Do Maintenance</title>
     <para>
     If you would like to perform maintenance operations on login, check this box.
     </para>
 </entry>
-  <entry id="prefs-confirm_maintenance" state="new">
+  <entry id="prefs-confirm_maintenance" state="uptodate" md5="a21162cdff3b1d8faeadb7296240036e">
     <title>Preferences: Maintenance: Confirm Maintenance</title>
     <para>
     If you would like to confirm all maintenance tasks before they are run, check this box. If left unchecked, all maintenance operations that need to be run will be performed automatically with no chance to cancel on login.

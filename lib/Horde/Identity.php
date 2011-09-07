@@ -8,7 +8,7 @@ require_once 'Horde/Prefs.php';
  * methods take care of any site-specific restrictions configured in prefs.php
  * and conf.php.
  *
- * $Horde: framework/Prefs/Identity.php,v 1.1.2.14 2010/03/17 16:48:42 jan Exp $
+ * $Horde: framework/Prefs/Identity.php,v 1.1.2.15 2011/01/06 17:07:05 jan Exp $
  *
  * Copyright 2001-2009 The Horde Project (http://www.horde.org/)
  *
@@ -372,9 +372,10 @@ class Identity {
         $addr = $this->getValue('from_addr');
         if (empty($addr)) {
             $addr = $this->_user;
-            if (empty($from_addr)) {
-                return $addr;
-            }
+        }
+
+        if (empty($from_addr)) {
+            return $addr;
         }
 
         return $from_addr . '<' . $addr . '>';

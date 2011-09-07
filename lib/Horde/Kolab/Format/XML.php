@@ -2,7 +2,7 @@
 /**
  * Implementation of the Kolab XML format.
  *
- * $Horde: framework/Kolab_Format/lib/Horde/Kolab/Format/XML.php,v 1.5.2.12 2009/04/08 18:34:39 wrobel Exp $
+ * $Horde: framework/Kolab_Format/lib/Horde/Kolab/Format/XML.php,v 1.5.2.13 2011/01/11 20:21:01 wrobel Exp $
  *
  * @package Kolab_Format
  */
@@ -95,7 +95,7 @@ define('HORDE_KOLAB_XML_TYPE_MULTIPLE', 8);
  * For implementing a new format type you will have to inherit this
  * class and provide a _load/_save function.
  *
- * $Horde: framework/Kolab_Format/lib/Horde/Kolab/Format/XML.php,v 1.5.2.12 2009/04/08 18:34:39 wrobel Exp $
+ * $Horde: framework/Kolab_Format/lib/Horde/Kolab/Format/XML.php,v 1.5.2.13 2011/01/11 20:21:01 wrobel Exp $
  *
  * Copyright 2007-2008 Klarälvdalens Datakonsult AB
  *
@@ -870,7 +870,7 @@ class Horde_Kolab_Format_XML
      */
     function _getNodeContent($node)
     {
-        $value = String::convertCharset($node->get_content(), 'utf-8');
+        $value = String::convertCharset($node->get_content(), 'utf-8', NLS::getCharset());
         if (is_a($value, 'PEAR_Error')) {
             return $value;
         }

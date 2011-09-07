@@ -6,7 +6,7 @@ if (version_compare(PHP_VERSION, '5.2', '>=')) {
 }
 
 /**
- * $Horde: horde/lib/Block/feed.php,v 1.1.2.1 2008/01/14 20:34:48 chuck Exp $
+ * $Horde: horde/lib/Block/feed.php,v 1.1.2.2 2010/08/19 22:12:09 mrubinsk Exp $
  *
  * @package Horde_Block
  */
@@ -58,7 +58,7 @@ class Horde_Block_Horde_feed extends Horde_Block {
             $html = '';
             $count = 0;
             foreach ($this->_feed as $entry) {
-                if ($count++ > $this->_params['limit']) {
+                if (++$count > $this->_params['limit']) {
                     break;
                 }
                 $html .= '<a href="' . $entry->link. '"';

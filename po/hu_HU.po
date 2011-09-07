@@ -1927,8 +1927,8 @@ msgid ""
 "Could not save the configuration file %s. You can either use one of the "
 "options to save the code back on %s or copy manually the code below to %s."
 msgstr ""
-"A(z) %s konfigurációs állományt nem sikerült elmenteni. Vagy használja a(z) %"
-"s oldalon levõ lehetõségeket, vagy másolja át az alábbi kódot ide: %s."
+"A(z) %s konfigurációs állományt nem sikerült elmenteni. Vagy használja a(z) "
+"%s oldalon levõ lehetõségeket, vagy másolja át az alábbi kódot ide: %s."
 
 #: lib/Horde/Auth/ldap.php:155
 msgid "Could not search the LDAP server."
@@ -1967,8 +1967,8 @@ msgstr "A Mozilla menüsor nem található. Ellenõrizze, hogy meg van-e nyitva."
 msgid ""
 "Couldn't give user \"%s\" the following rights for the folder \"%s\": %s"
 msgstr ""
-"Nem sikerült \"%s\" felhasználónak jogosultságot adni a(z) \"%s\" mappához: %"
-"s"
+"Nem sikerült \"%s\" felhasználónak jogosultságot adni a(z) \"%s\" mappához: "
+"%s"
 
 #: lib/Horde/Form.php:1422
 msgid "Counted text"
@@ -7851,8 +7851,8 @@ msgstr "Nem sikerült lefordítani ezt a WordPerfect dokumentumot"
 #, php-format
 msgid "Unable to trigger free/busy update for folder %s on URL %s"
 msgstr ""
-"Nem sikerült módosítani az idõbeosztási adatokat %s mappára ezen az URL-en: %"
-"s"
+"Nem sikerült módosítani az idõbeosztási adatokat %s mappára ezen az URL-en: "
+"%s"
 
 #: lib/VFS/ftp.php:208 lib/VFS/ftp.php:211 lib/VFS/ssh2.php:168
 #: lib/VFS/ssh2.php:171

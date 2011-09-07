@@ -15,7 +15,7 @@
  * Integers should be given literally (without quotes).
  * Boolean values may be true or false (never quotes).
  *
- * $Horde: horde/config/conf.php.dist,v 1.94.10.4 2008/10/03 00:19:58 chuck Exp $
+ * $Horde: horde/config/conf.php.dist,v 1.94.10.5 2010/09/27 15:58:28 jan Exp $
  */
 
 // Determines how we generate full URLs (for location headers and
@@ -57,6 +57,9 @@ $conf['cookie']['path'] = '/horde';
 
 // YOU SHOULDN'T CHANGE ANTHING BELOW THIS LINE.
 $conf['debug_level'] = E_ALL & ~E_NOTICE;
+if (defined('E_DEPRECATED')) {
+   $conf['debug_level'] &= ~E_DEPRECATED;
+}
 $conf['umask'] = 077;
 $conf['compress_pages'] = true;
 $conf['session']['name'] = 'Horde';

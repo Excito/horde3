@@ -47,7 +47,7 @@ define('MIME_STRING', 2);
 /**
  * The MIME:: class provides methods for dealing with MIME standards.
  *
- * $Horde: framework/MIME/MIME.php,v 1.139.4.48 2009/10/11 22:27:34 slusarz Exp $
+ * $Horde: framework/MIME/MIME.php,v 1.139.4.50 2010/09/13 18:38:29 slusarz Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -420,8 +420,8 @@ class MIME {
             $encode = true;
         }
 
-        // 4 = '*', 2x '"', ';'
-        $pre_len = strlen($name) + 4 + (($encode) ? 1 : 0);
+        // 4 = '*', ';'
+        $pre_len = strlen($name) + 2 + (($encode) ? 1 : 0);
         if (($pre_len + strlen($string)) > 76) {
             while ($string) {
                 $chunk = 76 - $pre_len;
@@ -448,7 +448,10 @@ class MIME {
                 $name .
                 (($wrap) ? ('*' . $i++) : '') .
                 (($encode) ? '*' : '') .
-                '="' . $val . '"';
+                '=' .
+                ($encode ? '' : '"') .
+                $val .
+                ($encode ? '' : '"');
         }
 
         return implode('; ', $output);

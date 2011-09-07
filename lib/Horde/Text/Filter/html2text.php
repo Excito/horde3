@@ -12,7 +12,7 @@ require_once 'Horde/String.php';
  * wrap    -- Whether to wrap the text or not.
  * </pre>
  *
- * $Horde: framework/Text_Filter/Filter/html2text.php,v 1.4.10.25 2009/04/02 14:37:19 jan Exp $
+ * $Horde: framework/Text_Filter/Filter/html2text.php,v 1.4.10.26 2010/10/15 15:14:47 jan Exp $
  *
  * Copyright 2003-2004 Jon Abernathy <jon@chuggnutt.com>
  * Original source: http://www.chuggnutt.com/html2text.php
@@ -286,7 +286,7 @@ class Text_Filter_html2text extends Text_Filter {
             return $display;
         }
         $parsed_link = parse_url($link);
-        $parsed_display = parse_url(strip_tags(preg_replace('/^&lt;|&gt;$/', '', $display)));
+        $parsed_display = @parse_url(strip_tags(preg_replace('/^&lt;|&gt;$/', '', $display)));
         if (isset($parsed_link['path'])) {
             $parsed_link['path'] = trim($parsed_link['path'], '/');
             if (!strlen($parsed_link['path'])) {

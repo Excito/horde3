@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport.php,v 1.4.2.3 2009/11/24 13:53:40 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport.php,v 1.4.2.4 2010/07/15 21:35:39 wrobel Exp $
  *
  * @package Kolab_Filter
  */
@@ -8,7 +8,7 @@
 /**
  * Provides a delivery mechanism for a mail message.
  *
- * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport.php,v 1.4.2.3 2009/11/24 13:53:40 wrobel Exp $
+ * $Horde: framework/Kolab_Filter/lib/Horde/Kolab/Filter/Transport.php,v 1.4.2.4 2010/07/15 21:35:39 wrobel Exp $
  *
  * Copyright 2004-2008 Klarälvdalens Datakonsult AB
  *
@@ -75,7 +75,7 @@ class Horde_Kolab_Filter_Transport
             include dirname(__FILE__) . '/Transport/' . $driver . '.php';
         }
         if (class_exists($class)) {
-            $transport = &new $class($params);
+            $transport = new $class($params);
             return $transport;
         }
         return PEAR::raiseError(sprintf('No such class \"%s\"', $class),

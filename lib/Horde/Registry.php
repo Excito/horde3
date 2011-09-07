@@ -1,6 +1,6 @@
 <?php
 /**
- * $Horde: framework/Horde/Horde/Registry.php,v 1.243.2.39 2009/01/06 15:23:10 jan Exp $
+ * $Horde: framework/Horde/Horde/Registry.php,v 1.243.2.43 2011/01/25 21:55:42 slusarz Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -238,6 +238,7 @@ class Registry {
                 }
                 if (isset($app['fileroot']) && !file_exists($app['fileroot'])) {
                     $app['status'] = 'inactive';
+                    Horde::logMessage('Setting ' . $appName . ' inactive because the fileroot does not exist.', __FILE__, __LINE__, PEAR_LOG_DEBUG);
                 }
                 if ($app['status'] != 'inactive' &&
                     ($app['status'] != 'admin' || Auth::isAdmin()) &&

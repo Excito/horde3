@@ -1,4 +1,4 @@
--- $Horde: horde/scripts/sql/create.pgsql.sql,v 1.1.10.24 2009/06/10 16:45:28 jan Exp $
+-- $Horde: horde/scripts/sql/create.pgsql.sql,v 1.1.10.25 2010/08/12 19:56:36 slusarz Exp $
 --
 -- Uncomment the ALTER line below and change the password.  Then run as:
 --
@@ -206,6 +206,7 @@ CREATE TABLE horde_cache (
 CREATE TABLE horde_locks (
     lock_id                  VARCHAR(36) NOT NULL,
     lock_owner               VARCHAR(32) NOT NULL,
+    lock_scope               VARCHAR(32) NOT NULL,
     lock_principal           VARCHAR(255) NOT NULL,
     lock_origin_timestamp    BIGINT NOT NULL,
     lock_update_timestamp    BIGINT NOT NULL,

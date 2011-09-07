@@ -10,29 +10,27 @@
  * Horde_Release::FOCUS_MAJORSECURITY - Major security fixes
  * Horde_Release::FOCUS_DOCS - Documentation improvements
  */
-$this->notes['fm']['focus'] = array(Horde_Release::FOCUS_MAJORBUG);
+$this->notes['fm']['focus'] = array(Horde_Release::FOCUS_MINORBUG, Horde_Release::FOCUS_MAJORFEATURE);
 
 /* Mailing list release notes. */
 $this->notes['ml']['changes'] = <<<ML
 The Horde Team is pleased to announce the final release of the Horde
-Application Framework version 3.3.8.
+Application Framework version 3.3.12.
 
 The Horde Application Framework is a modular, general-purpose web application
 framework written in PHP.  It provides an extensive array of classes that are
 targeted at the common problems and tasks involved in developing modern web
 applications.
 
-The major changes compared to Horde version 3.3.7 are:
-    * Fixed a regression with a wrong include path.
-
-The major changes compared to Horde version 3.3.6 are:
-    * Synchronization improvements.
-    * Multiple other small bug fixes and improvements.
+The major changes compared to Horde version 3.3.11 are:
+    * Added an experimental new Share SQL driver with better performance.
+    * Minor bug fixes.
 ML;
 
 /* Freshmeat release notes, not more than 600 characters. */
 $this->notes['fm']['changes'] = <<<FM
-A regression with a wrong include path has been fixed.
+An experimental new Share SQL driver with better performance has been added.
+Minor bugfixes have been made.
 FM;
 
 $this->notes['name'] = 'Horde';

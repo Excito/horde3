@@ -3,7 +3,7 @@
  * The base class representing Kolab objects stored in the server
  * database.
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object.php,v 1.2.2.9 2009/04/25 08:56:34 wrobel Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object.php,v 1.2.2.10 2011/05/30 09:19:32 wrobel Exp $
  *
  * PHP version 4
  *
@@ -73,7 +73,7 @@ define('KOLAB_UT_RESOURCE',           3);
  * This class provides methods to deal with Kolab objects stored in
  * the Kolab db.
  *
- * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object.php,v 1.2.2.9 2009/04/25 08:56:34 wrobel Exp $
+ * $Horde: framework/Kolab_Server/lib/Horde/Kolab/Server/Object.php,v 1.2.2.10 2011/05/30 09:19:32 wrobel Exp $
  *
  * Copyright 2008-2009 The Horde Project (http://www.horde.org/)
  *
@@ -205,7 +205,7 @@ class Horde_Kolab_Server_Object {
      * @return Horde_Kolab_Server_Object|PEAR_Error The newly created concrete
      *                                 Horde_Kolab_Server_Object instance.
      */
-    function &factory($type, $uid, &$storage, $data = null)
+    function factory($type, $uid, &$storage, $data = null)
     {
         $result = Horde_Kolab_Server_Object::loadClass($type);
         if (is_a($result, 'PEAR_Error')) {
@@ -213,7 +213,7 @@ class Horde_Kolab_Server_Object {
         }
 
         if (class_exists($type)) {
-            $object = &new $type($storage, $uid, $data);
+            $object = new $type($storage, $uid, $data);
         } else {
             $object = PEAR::raiseError('Class definition of ' . $type . ' not found.');
         }
@@ -359,7 +359,7 @@ class Horde_Kolab_Server_Object {
     {
         switch ($attr) {
         case KOLAB_ATTR_ID:
-            $result = split(',', $this->_uid);
+            $result = explode(',', $this->_uid);
             if (substr($result[0], 0, 3) == 'cn=') {
                 return substr($result[0], 3);
             } else {

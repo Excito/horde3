@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<!-- $Horde: horde/config/conf.xml,v 1.74.2.89 2010/04/21 08:02:24 jan Exp $ -->
+<!-- $Horde: horde/config/conf.xml,v 1.74.2.91 2011/01/24 18:33:10 jan Exp $ -->
 <configuration>
  <configtab name="general" desc="General">
   <configheader>General Horde Settings</configheader>
@@ -1104,6 +1104,7 @@
    Shares?">datatree
      <case name="datatree" desc="DataTree"/>
      <case name="kolab" desc="Kolab"/>
+     <case name="sqlng" desc="Next-Generation SQL"/>
      <case name="sql" desc="SQL"/>
    </configswitch>
   </configsection>
@@ -1118,16 +1119,35 @@
    select a driver here. This is used to speed up portions of Horde by storing
    commonly processed objects.">file
     <case name="none" desc="Don't cache any objects"/>
-    <case name="apc" desc="Use the APC cache"/>
+    <case name="apc" desc="Use the APC cache">
+     <configsection name="params">
+      <configstring name="prefix" required="false" desc="The prefix to use for
+      cache entries."/>
+     </configsection>
+    </case>
     <case name="eaccelerator" desc="Use the eAccelerator cache (up to version
     0.9.5)">
       <configdescription>&lt;strong&gt;WARNING:&lt;/strong&gt; The cache
       functionality has been removed with eAccelerator version 0.9.6. If you
       want to use the eAccelerator cache driver, you need version 0.9.5 or
       lower.</configdescription>
+     <configsection name="params">
+      <configstring name="prefix" required="false" desc="The prefix to use for
+      cache entries."/>
+     </configsection>
     </case>
-    <case name="memcache" desc="Use a Memcache server"/>
-    <case name="xcache" desc="Use the xCache cache"/>
+    <case name="memcache" desc="Use a Memcache server">
+     <configsection name="params">
+      <configstring name="prefix" required="false" desc="The prefix to use for
+      cache entries."/>
+     </configsection>
+    </case>
+    <case name="xcache" desc="Use the xCache cache">
+     <configsection name="params">
+      <configstring name="prefix" required="false" desc="The prefix to use for
+      cache entries."/>
+     </configsection>
+    </case>
     <case name="file" desc="Store objects in filesystem">
      <configsection name="params">
       <configstring name="dir" required="false" desc="The location to store the
@@ -1160,7 +1180,12 @@
       </configswitch>
      </configsection>
     </case>
-    <case name="zps4" desc="Use the Zend Performance Suite output cache"/>
+    <case name="zps4" desc="Use the Zend Performance Suite output cache">
+     <configsection name="params">
+      <configstring name="prefix" required="false" desc="The prefix to use for
+      cache entries."/>
+     </configsection>
+    </case>
    </configswitch>
   </configsection>
  </configtab>

@@ -6,7 +6,7 @@ require_once 'Horde/Crypt.php';
  * Horde_Crypt_smime:: provides a framework for Horde applications to
  * interact with the OpenSSL library and implement S/MIME.
  *
- * $Horde: framework/Crypt/Crypt/smime.php,v 1.49.2.24 2010/01/28 20:04:36 slusarz Exp $
+ * $Horde: framework/Crypt/Crypt/smime.php,v 1.49.2.25 2011/01/14 14:41:08 jan Exp $
  *
  * Copyright 2002-2009 The Horde Project (http://www.horde.org/)
  *
@@ -1023,17 +1023,8 @@ class Horde_Crypt_smime extends Horde_Crypt {
             case 0x02:
                 // Integer type
                 $len = ord($data[1]);
-                $bytes = 0;
-                if ($len & 0x80) {
-                    $bytes = $len & 0x0f;
-                    $len = 0;
-                    for ($i = 0; $i < $bytes; $i++) {
-                        $len = ($len << 8) | ord($data[$i + 2]);
-                    }
-                }
-
-                $integer_data = substr($data, 2 + $bytes, $len);
-                $data = substr($data, 2 + $bytes + $len);
+                $integer_data = substr($data, 2, $len);
+                $data = substr($data, 2 + $len);
 
                 $value = 0;
                 if ($len <= 4) {
@@ -1041,16 +1032,15 @@ class Horde_Crypt_smime extends Horde_Crypt {
                     for ($i = 0; $i < strlen($integer_data); $i++) {
                         $value = ($value << 8) | ord($integer_data[$i]);
                     }
-                } else {
+                } elseif (Util::extensionExists('bcmath')) {
                     /* Method works for arbitrary length integers */
-                    if (Util::extensionExists('bcmath')) {
-                        for ($i = 0; $i < strlen($integer_data); $i++) {
-                            $value = bcadd(bcmul($value, 256), ord($integer_data[$i]));
-                        }
-                    } else {
-                        $value = -1;
+                    for ($i = 0; $i < strlen($integer_data); $i++) {
+                        $value = bcadd(bcmul($value, 256), ord($integer_data[$i]));
                     }
+                } else {
+                    $value = -1;
                 }
+
                 $result[] = array('integer(' . $len . ')', $value);
                 break;
 

@@ -2,8 +2,8 @@
  Horde Coding Standards
 ========================
 
-:Last update:   $Date: 2009/10/26 18:05:23 $
-:Revision:      $Revision: 1.84.10.24 $
+:Last update:   $Date: 2010/07/28 14:45:20 $
+:Revision:      $Revision: 1.84.10.25 $
 :Authors:       Jon Parise, Chuck Hagenbuch
 :Contact:       dev@lists.horde.org
 
@@ -441,6 +441,10 @@ NUMERIC(p,s), VARCHAR(n), CHAR(n), FLOAT, and REAL. See
 http://home.fnal.gov/~dbox/SQL_API_Portability.html and
 http://articles.techrepublic.com.com/5100-10878_11-1045051.html for more
 information.
+
+Other portability guidlines: Always use the database abstraction layer's
+capabilities for result set pagination ('LIMIT' is not portable). Also, do not
+use the 'AS' keyword for table aliases.
 
 In SQL queries, keywords should be capitalized.
 

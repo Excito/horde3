@@ -4,7 +4,7 @@
  * and displaying blocks through Horde_Block_Layout_Manager and
  * Horde_Block_Layout_View.
  *
- * $Horde: framework/Block/Block/Layout.php,v 1.21.10.13 2009/01/06 15:22:53 jan Exp $
+ * $Horde: framework/Block/Block/Layout.php,v 1.21.10.14 2010/07/07 23:27:51 slusarz Exp $
  *
  * Copyright 2003-2009 The Horde Project (http://www.horde.org/)
  *
@@ -85,7 +85,7 @@ class Horde_Block_Layout {
                   'row' => $row,
                   'action' => $action,
                   'url' => $this->_viewUrl,
-                  'nocache' => base_convert(microtime(), 10, 36)));
+                  'nocache' => base_convert(uniqid(mt_rand()), 10, 36)));
         return $url . '#block';
     }
 

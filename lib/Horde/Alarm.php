@@ -7,7 +7,7 @@
  * See the enclosed file COPYING for license information (LGPL). If you
  * did not receive this file, see http://www.fsf.org/copyleft/lgpl.html.
  *
- * $Horde: framework/Alarm/Alarm.php,v 1.40.2.5 2009/01/06 15:22:48 jan Exp $
+ * $Horde: framework/Alarm/Alarm.php,v 1.40.2.6 2010/07/06 13:49:11 jan Exp $
  */
 
 /** Horde_Date */
@@ -273,6 +273,26 @@ class Horde_Alarm {
         }
 
         $alarms = $this->_list($user, $time);
+        if (is_a($alarms, 'PEAR_Error')) {
+            return $alarms;
+        }
+
+        foreach (array_keys($alarms) as $alarm) {
+            if (isset($alarms[$alarm]['mail']['body'])) {
+                $alarms[$alarm]['mail']['body'] = $this->_fromDriver($alarms[$alarm]['mail']['body']);
+            }
+        }
+        return $alarms;
+    }
+
+    /**
+     * Returns a list of all global alarms from the backend.
+     *
+     * @return array  A list of alarm hashes.
+     */
+    function globalAlarms()
+    {
+        $alarms = $this->_global();
         if (is_a($alarms, 'PEAR_Error')) {
             return $alarms;
         }

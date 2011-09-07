@@ -13,7 +13,7 @@ define('HORDE_ERROR_DRIVER_CONFIG', 2);
 /**
  * The Util:: class provides generally useful methods of different kinds.
  *
- * $Horde: framework/Util/Util.php,v 1.384.6.37 2009/07/21 18:17:23 slusarz Exp $
+ * $Horde: framework/Util/Util.php,v 1.384.6.39 2011/06/16 12:56:55 jan Exp $
  *
  * Copyright 1999-2009 The Horde Project (http://www.horde.org/)
  *
@@ -344,11 +344,11 @@ class Util {
     /**
      * If magic_quotes_gpc is in use, run stripslashes() on $var.
      *
-     * @param string &$var  The string to un-quote, if necessary.
+     * @param string $var  The string to un-quote, if necessary.
      *
      * @return string  $var, minus any magic quotes.
      */
-    function dispelMagicQuotes(&$var)
+    function dispelMagicQuotes($var)
     {
         static $magic_quotes;
 
@@ -360,7 +360,7 @@ class Util {
             if (!is_array($var)) {
                 $var = stripslashes($var);
             } else {
-                array_walk($var, array('Util', 'dispelMagicQuotes'));
+                $var = array_map(array('Util', 'dispelMagicQuotes'), $var);
             }
         }
 
@@ -438,12 +438,12 @@ class Util {
 
         /* If we still cannot determine a value, then cycle through a
          * list of preset possibilities. */
-        $tmp_locations = array('/tmp', '/var/tmp', 'c:\WUTemp', 'c:\temp',
-                               'c:\windows\temp', 'c:\winnt\temp');
+        $tmp_locations = array('/tmp/', '/var/tmp/', 'c:\WUTemp\\', 'c:\temp\\',
+                               'c:\windows\temp\\', 'c:\winnt\temp\\');
         while (empty($tmp) && count($tmp_locations)) {
             $tmp_check = array_shift($tmp_locations);
             if (@is_dir($tmp_check)) {
-                $tmp = $tmp_check;
+                return $tmp_check;
             }
         }
 

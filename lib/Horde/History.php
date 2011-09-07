@@ -3,7 +3,7 @@
  * The History:: class provides a method of tracking changes in Horde
  * objects, stored in a SQL table.
  *
- * $Horde: framework/History/History.php,v 1.28.2.23 2009/06/16 12:58:33 jan Exp $
+ * $Horde: framework/History/History.php,v 1.28.2.25 2010/11/08 16:17:28 jan Exp $
  *
  * Copyright 2003-2009 The Horde Project (http://www.horde.org/)
  *
@@ -176,10 +176,9 @@ class Horde_History {
                     }
                     $values[] = $history->data[$i]['id'];
 
-                    $r = $this->_write_db->query('UPDATE horde_histories SET history_ts = ?,' .
-                                                 ' history_who = ?,' .
-                                                 ' history_desc = ?,' .
-                                                 ' history_extra = ? WHERE history_id = ?', $values);
+                    $query = 'UPDATE horde_histories SET history_ts = ?, history_who = ?, history_desc = ?, history_extra = ? WHERE history_id = ?';
+                    Horde::logMessage('SQL query by Horde_History::log(): ' . $query . ', values: ' . implode(',', $values), __FILE__, __LINE__, PEAR_LOG_DEBUG);
+                    $r = $this->_write_db->query($query, $values);
                     if (is_a($r, 'PEAR_Error')) {
                         Horde::logMessage($r, __FILE__, __LINE__, PEAR_LOG_ERR);
                         return $r;
@@ -214,8 +213,9 @@ class Horde_History {
                 $values[] = null;
             }
 
-            $r = $this->_write_db->query('INSERT INTO horde_histories (history_id, object_uid, history_ts, history_who, history_desc, history_action, history_extra)' .
-                              ' VALUES (?, ?, ?, ?, ?, ?, ?)', $values);
+            $query = 'INSERT INTO horde_histories (history_id, object_uid, history_ts, history_who, history_desc, history_action, history_extra) VALUES (?, ?, ?, ?, ?, ?, ?)';
+            Horde::logMessage('SQL query by Horde_History::log(): ' . $query . ', values: ' . implode(',', $values), __FILE__, __LINE__, PEAR_LOG_DEBUG);
+            $r = $this->_write_db->query($query, $values);
             if (is_a($r, 'PEAR_Error')) {
                 Horde::logMessage($r, __FILE__, __LINE__, PEAR_LOG_ERR);
                 return $r;
@@ -240,7 +240,13 @@ class Horde_History {
             return $false;
         }
 
-        $rows = $this->_db->getAll('SELECT * FROM horde_histories WHERE object_uid = ?', array($guid), DB_FETCHMODE_ASSOC);
+        $query = 'SELECT * FROM horde_histories WHERE object_uid = ?';
+        Horde::logMessage('SQL query by Horde_History::getHistory(): ' . $query . ', values: ' . $guid, __FILE__, __LINE__, PEAR_LOG_DEBUG);
+        $rows = $this->_db->getAll($query, array($guid), DB_FETCHMODE_ASSOC);
+        if (is_a($rows, 'PEAR_Error')) {
+            Horde::logMessage($rows, __FILE__, __LINE__, PEAR_LOG_ERR);
+            return $rows;
+        }
         $history = &new HistoryObject($guid, $rows);
         return $history;
     }
@@ -288,7 +294,13 @@ class Horde_History {
             $where[] = 'object_uid LIKE ' . $this->_db->quote($parent . ':%');
         }
 
-        return $this->_db->getAssoc('SELECT DISTINCT object_uid, history_id FROM horde_histories WHERE ' . implode(' AND ', $where));
+        $query = 'SELECT DISTINCT object_uid, history_id FROM horde_histories WHERE ' . implode(' AND ', $where);
+        Horde::logMessage('SQL query by Horde_History::getByTimestamp(): ' . $query, __FILE__, __LINE__, PEAR_LOG_DEBUG);
+        $r = $this->_db->getAssoc($query);
+        if (is_a($r, 'PEAR_Error')) {
+            Horde::logMessage($r, __FILE__, __LINE__, PEAR_LOG_ERR);
+        }
+        return $r;
     }
 
     /**
@@ -340,7 +352,13 @@ class Horde_History {
             $ids[] = $this->_write_db->quote($name);
         }
 
-        return $this->_write_db->query('DELETE FROM horde_histories WHERE object_uid IN (' . implode(',', $ids) . ')');
+        $query = 'DELETE FROM horde_histories WHERE object_uid IN (' . implode(',', $ids) . ')';
+        Horde::logMessage('SQL query by Horde_History::removeByNames(): ' . $query, __FILE__, __LINE__, PEAR_LOG_DEBUG);
+        $r = $this->_write_db->query($query);
+        if (is_a($r, 'PEAR_Error')) {
+            Horde::logMessage($r, __FILE__, __LINE__, PEAR_LOG_ERR);
+        }
+        return $r;
     }
 
 }
