@@ -1,15 +1,21 @@
-#! /bin/sh /usr/share/dpatch/dpatch-run
-## charset.dpatch by Carl Fürstenberg <carl@excito.com>
-##
-## All lines beginning with `## DP:' are a description of the patch.
-## DP: Force usage of UTF-8
+From: Horde Maintainers <pkg-horde-hackers@lists.alioth.debian.org>
+Date: Wed, 7 Sep 2011 15:08:40 +0200
+Subject: Set default to UTF-8 for all languages
 
-@DPATCH@
-Index: horde3/config/nls.php.dist
-===================================================================
---- horde3.orig/config/nls.php.dist	2010-02-11 20:04:12.000000000 +0100
-+++ horde3/config/nls.php.dist	2010-02-11 20:04:37.000000000 +0100
-@@ -118,74 +118,33 @@
+Upstream insist that people from different part of the world should use
+different charsets.
+I despise that idea and think everyone should always use unicode; thus
+we set it to utf-8 always.
+---
+ config/nls.php.dist |   86 +++++++++++++--------------------------------------
+ lib/Horde/NLS.php   |    8 ++--
+ 2 files changed, 26 insertions(+), 68 deletions(-)
+
+diff --git a/config/nls.php.dist b/config/nls.php.dist
+index 7fe5d14..fc7d510 100644
+--- a/config/nls.php.dist
++++ b/config/nls.php.dist
+@@ -118,76 +118,34 @@ $nls['aliases']['uk'] = 'uk_UA';
  
  
  /**
@@ -30,6 +36,7 @@ Index: horde3/config/nls.php.dist
 +$nls['charsets']['bs_BA'] = 'UTF-8';
 +$nls['charsets']['cs_CZ'] = 'UTF-8';
 +$nls['charsets']['el_GR'] = 'UTF-8';
+ $nls['charsets']['et_EE'] = 'ISO-8859-13';
  $nls['charsets']['eu_ES'] = 'UTF-8';
  $nls['charsets']['fa_IR'] = 'UTF-8';
  $nls['charsets']['he_IL'] = 'UTF-8';
@@ -65,6 +72,7 @@ Index: horde3/config/nls.php.dist
 -    $nls['charsets']['bs_BA'] = 'ISO8859-2';
 -    $nls['charsets']['cs_CZ'] = 'ISO8859-2';
 -    $nls['charsets']['el_GR'] = 'ISO8859-7';
+-    $nls['charsets']['et_EE'] = 'ISO8859-13';
 -    $nls['charsets']['eu_ES'] = 'UTF-8';
 -    $nls['charsets']['fa_IR'] = 'UTF-8';
 -    $nls['charsets']['he_IL'] = 'UTF-8';
@@ -105,7 +113,7 @@ Index: horde3/config/nls.php.dist
  
  /**
   ** Multibyte charsets
-@@ -213,7 +172,7 @@
+@@ -215,7 +173,7 @@ $nls['rtl']['he_IL'] = true;
   ** charsets.
   **/
  
@@ -114,11 +122,11 @@ Index: horde3/config/nls.php.dist
  
  
  /**
-Index: horde3/lib/Horde/NLS.php
-===================================================================
---- horde3.orig/lib/Horde/NLS.php	2010-02-11 20:04:12.000000000 +0100
-+++ horde3/lib/Horde/NLS.php	2010-02-11 20:04:37.000000000 +0100
-@@ -123,7 +123,7 @@
+diff --git a/lib/Horde/NLS.php b/lib/Horde/NLS.php
+index 1e2f4c4..c71c667 100644
+--- a/lib/Horde/NLS.php
++++ b/lib/Horde/NLS.php
+@@ -123,7 +123,7 @@ class NLS {
          if ($lang_charset != setlocale(LC_ALL, $lang_charset)) {
              /* Next try language with its default charset. */
              global $nls;
@@ -127,7 +135,7 @@ Index: horde3/lib/Horde/NLS.php
              $lang_charset = $lang . '.' . $charset;
              NLS::_cachedCharset(0, $charset);
              if ($lang_charset != setlocale(LC_ALL, $lang_charset)) {
-@@ -255,7 +255,7 @@
+@@ -255,7 +255,7 @@ class NLS {
          }
  
          if ($original) {
@@ -136,7 +144,7 @@ Index: horde3/lib/Horde/NLS.php
          } else {
              require_once 'Horde/Browser.php';
              $browser = &Browser::singleton();
-@@ -301,7 +301,7 @@
+@@ -301,7 +301,7 @@ class NLS {
              }
          }
  
@@ -145,7 +153,7 @@ Index: horde3/lib/Horde/NLS.php
      }
  
      /**
-@@ -342,7 +342,7 @@
+@@ -342,7 +342,7 @@ class NLS {
              return $charset;
          }
          return isset($nls['emails'][$language]) ? $nls['emails'][$language] :
@@ -154,3 +162,4 @@ Index: horde3/lib/Horde/NLS.php
      }
  
      /**
+-- 
