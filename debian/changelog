@@ -1,8 +1,8 @@
-horde3 (3.3.12-1) UNRELEASED; urgency=low
+horde3 (3.3.12-1) vincent; urgency=low
 
   * Imported Upstream version 3.3.12
 
- -- Carl Fürstenberg <azatoth@gmail.com>  Wed, 07 Sep 2011 15:33:54 +0200
+ -- Carl Fürstenberg <azatoth@gmail.com>  Mon, 12 Sep 2011 16:25:25 +0200
 
 horde3 (3.3.8-1) vincent; urgency=low
 
